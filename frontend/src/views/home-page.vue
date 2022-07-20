@@ -1,9 +1,7 @@
 <template>
-    <app-header/>
     <stay-filter/>
     <stay-list :stays="getStays"/>
     <!-- <pre>{{getStays}}</pre> -->
-    <app-footer/>
 </template>
 
 <script>
