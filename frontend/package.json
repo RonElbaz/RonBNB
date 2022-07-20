@@ -9,7 +9,11 @@
   "dependencies": {
     "element-plus": "^2.2.9",
     "fs": "^0.0.1-security",
+<<<<<<< HEAD
     "require-context": "^1.1.0",
+=======
+    "sass": "^1.53.0",
+>>>>>>> 7d693dc25a45ad4fa53123c7b5d47791aff87a57
     "vue": "^3.2.37",
     "vue-router": "^4.1.2",
     "vuex": "^4.0.2"
