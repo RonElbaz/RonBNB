@@ -1,8 +1,8 @@
 <template>
     <app-header/>
     <stay-filter/>
-    <stay-list :list="getStays"/>
-    <pre>{{getStays}}</pre>
+    <stay-list :stays="getStays"/>
+    <!-- <pre>{{getStays}}</pre> -->
     <app-footer/>
 </template>
 
