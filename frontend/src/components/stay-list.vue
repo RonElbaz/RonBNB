@@ -1,5 +1,5 @@
 <template>
-    <section class="stay-list">
+    <section class="stay-list main-layout flex wrap">
         <li v-for="stay in stays" :key="stay._id">
             <stay-preview :stay="stay">
             </stay-preview>

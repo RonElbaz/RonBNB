@@ -1,18 +1,24 @@
 <template>
     <section @click="moveToDetails" class="stay-preview">
         <div class="block text-center" m="t-4">
-            <el-carousel trigger="click" height="350px">
+            <el-carousel trigger="click" height="300px">
                 <el-carousel-item v-for="image, idx in stay.imgUrls" :key="idx">
-                    <img class="small justify-center" :src="imgUrl(image)">
+                    <img class="small justify-center stay-img" :src="imgUrl(image)">
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <h1>{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
-        <h1>${{ stay.price }} night</h1>
+        <button class="like-btn" @click.stop="addStayToLike(stay._id)" :style="changeHeartColor(stay._id)">
+            <i class="fas fa-heart"></i>
+        </button>
+        <div class="stay-info">
+            <h1>{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
+            <h1>${{ stay.price }} night</h1>
+        </div>
     </section>
 </template>
 
 <script>
+
 
 export default {
     name: 'stay-preview',
@@ -23,6 +29,11 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            isLike: false
+        }
+    },
     components: {
     },
     methods: {
@@ -31,10 +42,17 @@ export default {
         },
         imgUrl(image) {
             return new URL(`../images/stay-images/${image}`, import.meta.url).href
+        },
+        changeHeartColor() {
+            if (this.isLike) return { color: 'red' }
+            else return { color: 'rgba(0,0,0,.5019607843137255)' }
+        },
+
+        addStayToLike() {
+           this.isLike=!this.isLike
         }
     },
     computed: {
-
     }
 }
 </script>

@@ -39,8 +39,8 @@
                     <router-link class="link clean-list" to="/">📧Email</router-link>
                 </li>
             </ul> -->
-            <div v-show="mobile" class="flex align-items-center justify-content-end bar">
-                <div><span>Explore</span></div>
+            <div v-show="!mobile" class="flex align-items-center justify-content-end bar">
+                <!-- <div><span>Explore</span></div> -->
                 <div><span>Switch to hosting</span></div>
                 <div><img class="globe" src="../img/globe.png" alt="" /></div>
                 <div class="flex align-items-center dropdown border-thin-black-round">
@@ -93,7 +93,7 @@ export default {
                 this.mobile = true
                 return
             }
-            this.mobile = true
+            this.mobile = false
             this.mobileNav = false
             return
         },
