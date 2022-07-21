@@ -2,7 +2,7 @@
     <el-button text @click="dialogFormVisible = true">Filter</el-button>
 
     <el-dialog v-model="dialogFormVisible" title="Filters" center>
-        <el-form :model="form">
+        <el-form :model="form" class="filter-form-layout">
 
             <el-form-item>
                 <h1>Price Range<br><span>The average nightly price is</span></h1>
