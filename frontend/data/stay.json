@@ -98,17 +98,17 @@
 		"cleaningFee": null,
 		"extraPeople": 0,
 		"reviewScores": {
-			"accuracy": 10,
-			"cleanliness": 10,
-			"checkin": 10,
-			"communication": 10,
-			"location": 10,
-			"value": 10,
+			"accuracy": 5,
+			"cleanliness": 5,
+			"checkin": 5,
+			"communication": 5,
+			"location": 5,
+			"value": 5,
 			"rating": 98
 		},
 		"reviews": [
 			{
-				"at": "2014-09-08T08:02:17-05:00",
+				"at": "06.22.2020",
 				"by": {
 					"_id": "622f3407e36c59e6164fc004",
 					"fullname": "Kiesha",
@@ -118,7 +118,7 @@
 				"txt": "I had a great experience working with Patty and Peter.  Both were very attentive in sorting out the booking details and following up directly when I had questions.  I rented a 2 bedroom unit at the Westin Villas  in Maui and both the unit and property was absolutely amazing.  I think we had the best unit on the resort complete with 2 outdoor patios with direct access  to  the  beach.  I would HIGHLY recommend renting with Patty and Peter."
 			},
 			{
-				"at": "2016-07-28T04:00:00.000Z",
+				"at": "01.7.2018",
 				"by": {
 					"_id": "622f3403e36c59e6164fb204",
 					"fullname": "Chris",
@@ -128,7 +128,7 @@
 				"txt": "Peter quickly responded to any questions I had before, and during the trip. Will use again, highly recommend. "
 			},
 			{
-				"at": "2016-09-11T04:00:00.000Z",
+				"at": "09.30.2021",
 				"by": {
 					"_id": "622f3405e36c59e6164fb703",
 					"fullname": "Kim",
@@ -138,7 +138,7 @@
 				"txt": "We had the perfect location for a room, first floor right in front of the pool. The resort is beautiful, and the staff is so friendly! I enjoyed it so much, we talked about buying a timeshare ourselves."
 			},
 			{
-				"at": "2017-01-07T05:00:00.000Z",
+				"at": "10.10.2019",
 				"by": {
 					"_id": "622f3404e36c59e6164fb37f",
 					"fullname": "Tracy",
@@ -148,7 +148,7 @@
 				"txt": "Beautiful location. Patty & Peter were super helpful and easy to work with!"
 			},
 			{
-				"at": "2017-04-07T04:00:00.000Z",
+				"at": "02.5.2022",
 				"by": {
 					"_id": "622f3403e36c59e6164fb105",
 					"fullname": "Duyen",
