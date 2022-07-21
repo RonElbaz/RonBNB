@@ -85,12 +85,12 @@
         <template #footer>
             <span class="dialog-footer">
                 <el-button @click="dialogFormVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">Confirm</el-button>
+                <el-button type="primary" @click="onSetFilter">Confirm</el-button>
             </span>
         </template>
     </el-dialog>
+<pre>{{form}}</pre>
 </template>
-
 <script>
 
 
@@ -149,6 +149,7 @@ export default {
         onSetFilter(){
            this.dialogFormVisible=false
            var filter= JSON.parse(JSON.stringify(this.form));
+           console.log("here", filter)
            this.$store.dispatch({ type: "setFilter", filterBy: { ...filter} })
         }
     },

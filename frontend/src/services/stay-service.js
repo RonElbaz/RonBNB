@@ -70,7 +70,7 @@ async function query(filterBy = null) {
         stay.price <= filterBy.priceRange[1]
     )
   }
-
+  console.log(filteredStays)
   return filteredStays
 }
 
