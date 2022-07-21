@@ -7,11 +7,6 @@
         <el-form :model="form" class="filter-form-layout">
 
             <el-form-item>
-<<<<<<< HEAD
-                <el-slider v-model="form.value" range :max="1500" />
-                <el-input v-model.number="form.value[0]" />
-                <el-input v-model.number="form.value[1]" />
-=======
                 <h1>Price Range<br><span>The average nightly price is</span></h1>
                 
                 
@@ -21,7 +16,6 @@
                     <span>-</span>
                     <el-input v-model.number="form.priceRange[1]"/>
                 </div>
->>>>>>> 1a99d0e7140ce745472f390a4153931aac5622a9
             </el-form-item>
 
             <hr>
@@ -95,10 +89,6 @@
             </span>
         </template>
     </el-dialog>
-<<<<<<< HEAD
-=======
-
->>>>>>> 1a99d0e7140ce745472f390a4153931aac5622a9
 </template>
 
 <script>
@@ -117,13 +107,8 @@ export default {
             ],
             amenitiesOpts: ["Wifi", "Washer", "Air conditioning", "Kitchen", "Dryer"],
             form: {
-<<<<<<< HEAD
-                value: [200, 1000],
-                checkList: [],
-=======
                 priceRange: [0, 1500],
                 roomType:[],
->>>>>>> 1a99d0e7140ce745472f390a4153931aac5622a9
                 bedrooms: [],
                 beds: [],
                 bathrooms: [],
@@ -150,8 +135,6 @@ export default {
         sliceBathrooms() {
             this.form.bathrooms = this.form.bathrooms.slice(-1)
         },
-<<<<<<< HEAD
-=======
         cleanForm(){
             this.dialogFormVisible=false
             this.form.priceRange = [0,1500]
@@ -168,7 +151,6 @@ export default {
            var filter= JSON.parse(JSON.stringify(this.form));
            this.$store.dispatch({ type: "setFilter", filterBy: { ...filter} })
         }
->>>>>>> 1a99d0e7140ce745472f390a4153931aac5622a9
     },
 }
 </script>
