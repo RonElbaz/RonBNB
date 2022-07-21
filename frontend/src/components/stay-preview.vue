@@ -1,7 +1,8 @@
 <template>
     <section @click="moveToDetails" class="stay-preview">
         <div class="block text-center" m="t-4">
-            <el-carousel trigger="click" height="300px">
+            <span class="demonstration"></span>
+            <el-carousel trigger="click" autoplay=false height="300px">
                 <el-carousel-item v-for="image, idx in stay.imgUrls" :key="idx">
                     <img class="small justify-center stay-img" :src="imgUrl(image)">
                 </el-carousel-item>
@@ -49,7 +50,7 @@ export default {
         },
 
         addStayToLike() {
-           this.isLike=!this.isLike
+            this.isLike = !this.isLike
         }
     },
     computed: {
