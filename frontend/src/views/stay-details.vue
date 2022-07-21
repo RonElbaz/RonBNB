@@ -36,7 +36,7 @@
                     <div class="demo-basic--circle">
                         <div class="block">
                             <el-avatar :size="50" :src="randomUser()" />
-                            <h1>{{review.by.fullname}} <span>{{review.at}}</span></h1>
+                            <h1>{{ review.by.fullname }} <span>{{ timeFormat }}</span></h1>
                         </div>
                     </div>
                 </el-col>
@@ -53,6 +53,7 @@
 
 <script>
 import { stayService } from '../services/stay-service.js'
+import moment from 'moment'
 
 export default {
     name: 'stay-details',
@@ -110,6 +111,13 @@ export default {
         formatreviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
+        timeFormat() {
+
+              return  moment(this.stay.reviews.at).format()
+              moment().format('MMMM Do YYYY, h:mm:ss a')
+            // return moment("20120620", "YYYYMMDD").fromNow()
+            // return moment(this.stay.reviews.at, "YYYYMMDD").fromNow()
+        }
 
     },
     components: {
