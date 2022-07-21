@@ -20,6 +20,7 @@
 
 body {
   margin: 0;
+
   // background-color: $clr2;
 
   // @include for-normal-layout {
@@ -40,12 +41,12 @@ h6 {
   // line-height: lh(40px, 29px);
 }
 
-.el-carousel__arrow{
-background: white !important;
-color: black !important;
+.el-carousel__arrow {
+  background: white !important;
+  color: black !important;
 }
 
-.el-carousel__button{
+.el-carousel__button {
   border-radius: 50% !important;
   width: 10px !important;
   height: 10px !important;
@@ -142,9 +143,9 @@ header {
   transition: 0.5s ease all;
 }
 
-li{
-list-style: none;
+li {
+  list-style: none;
 }
-button{
+button {
   cursor: pointer;
 }

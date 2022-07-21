@@ -19,14 +19,27 @@
             <div class="branding flex">
                 <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo"></router-link>
             </div>
-            <div class="flex align-items-center search align-self-center border-thin-black-round">
-                <button @click="modalSearch = true" class="clean-button"
-                    :class="{ 'icon-active': modalSearch }">Anywhere</button>
+            <div v-if="!modalSearch" class="flex align-items-center search align-self-center border-thin-black-round"
+                :class="{ 'icon-active': modalSearch }">
+                <button @click="modalSearch = true" class="clean-button">Anywhere</button>
                 <span>|</span>
                 <button @click="modalSearch = true" class="clean-button">Any week</button>
                 <span>|</span>
                 <button @click="modalSearch = true" class="clean-button guest">Add guests </button>
                 <div class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>
+            <div v-if="modalSearch" class="flex align-items-center search align-self-center border-thin-black-round"
+                :class="{ 'icon-active': modalSearch }">
+                <div>
+                    <div>Where</div>
+                    <input type="text" placeholder="Search destinations" v-model="destination" @blur="addDestination">
+                </div>
+                <span>|</span>
+                <date-picker @getDate="buildDate" />
+                <span>|</span>
+                <guests-picker @addGuests="addGuest" class="clean-button guest" />
+                <!-- <button @click="modalSearch = true">Add guests </button> -->
+                <div class="search-logo" @click="searchFilter"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
 
             <!-- <ul v-show="!mobile" class="navigation clean-list">
@@ -70,6 +83,8 @@
 </template>
 
 <script>
+import datePicker from './date-picker.vue'
+import guestsPicker from './guests-picker.vue'
 export default {
     name: "app-header",
     data() {
@@ -79,6 +94,8 @@ export default {
             mobileNav: null,
             windowWidth: null,
             modalSearch: false,
+            search: {},
+            destination: null,
         }
     },
     created() {
@@ -99,8 +116,26 @@ export default {
             this.mobileNav = false
             return
         },
+        buildDate(value) {
+            this.search.startDate = value._value[0]
+            this.search.endDate = value._value[0]
+            console.log(this.search)
+        },
+        addDestination() {
+            this.search.destination = this.destination
+            console.log(this.search)
+        },
+        addGuest(guests) {
+            this.search.guests = guests
+            console.log(this.search)
+        },
+        SearchFilter() {
+            // connect this.search to the filter
+            // this.search
+        }
     },
     computed: {},
+    components: { datePicker, guestsPicker },
 }
 
 </script>
