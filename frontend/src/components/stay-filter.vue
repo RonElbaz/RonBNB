@@ -5,9 +5,15 @@
         <el-form :model="form">
 
             <el-form-item>
+                <h1>Price Range<br><span>The average nightly price is</span></h1>
+                
+                
                 <el-slider v-model="form.priceRange" range :max="1500" />
-                <el-input v-model.number="form.priceRange[0]"/>
-                <el-input v-model.number="form.priceRange[1]"/>
+                <div class="filter-input-price flex">
+                    <el-input v-model.number="form.priceRange[0]"/>
+                    <span>-</span>
+                    <el-input v-model.number="form.priceRange[1]"/>
+                </div>
             </el-form-item>
 
             <hr>
@@ -73,7 +79,6 @@
         </template>
     </el-dialog>
 
-    <pre>{{form}}</pre>
 </template>
 
 
@@ -94,7 +99,7 @@ export default {
                 ],
             amenitiesOpts : ["Wifi","Washer","Air conditioning","Kitchen","Dryer","TV"],
             form: {
-                priceRange: [200, 1000],
+                priceRange: [0, 1500],
                 roomType:[],
                 bedrooms: [],
                 beds: [],
@@ -124,7 +129,7 @@ export default {
         },
         cleanForm(){
             this.dialogFormVisible=false
-            this.form.priceRange = [200,1000]
+            this.form.priceRange = [0,1500]
             this.form.roomType = []
             this.form.bedrooms = []
             this.form.bathrooms = []
