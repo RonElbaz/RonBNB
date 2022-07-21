@@ -9,10 +9,6 @@
             </div>
         </section>
         <div>
-            <!-- <li v-for="images in stay.imgUrls" :key="stay._id">
-                <image-gallery :image="images">
-                </image-gallery>
-            </li> -->
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
@@ -40,7 +36,7 @@
                 <ul class="flex wrap">
                     <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
                         <div class="amenities-container">
-                            <p class="amenities-prop"><span v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
+                            <p class="amenities-prop"><span class="amenities-symbol" v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
                             <!-- <span v-if="!isMore && longAmenities"></span></p> -->
                         </div>
                     </li>
@@ -102,6 +98,8 @@ export default {
             if (amenitie === 'Pool') return '<i class="fa-solid fa-person-swimming"></i>'
             if (amenitie === 'Free parking on premises') return '<i class="fa-solid fa-car"></i>'
             if (amenitie === 'Kitchen') return '<i class="fa-solid fa-kitchen-set"></i>'
+            if (amenitie === 'Air conditioning') return '<i class="fa-solid fa-snowflake"></i>'
+            if (amenitie === 'Wheelchair accessible') return '<i class="fa-solid fa-wheelchair"></i>'
         },
         randomUser() {
             var image = stayService.getRandomInt(1, 26)
