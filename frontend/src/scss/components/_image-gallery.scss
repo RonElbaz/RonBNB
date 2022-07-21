@@ -1,0 +1,26 @@
+.img-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 7px;
+    grid-row-gap: 7px;
+    :first-child{
+        grid-area: 1 / 1 / 3 / 3;
+        border-start-start-radius: 10px;
+        border-end-start-radius: 10px
+    }
+    
+    :nth-child(3){
+        border-start-start-radius: 10px;
+    }
+    :nth-child(5){
+        border-start-end-radius: 10px;
+    }
+
+    img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+       
+    }
+}

@@ -2,6 +2,10 @@
 .flex {
   display: flex;
 }
+
+.column{
+  flex-direction: column;
+}
 .flex.inline-flex {
   display: inline-flex;
 }

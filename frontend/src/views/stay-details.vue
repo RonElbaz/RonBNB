@@ -1,58 +1,74 @@
 <template>
-    <section v-if="stay" class="header-details">
-        <h1>{{ stay.name }}</h1>
-        <h3>{{ stay.numOfReviews }} reviews • <span>{{ superHost }}</span> •
-            <span>{{ stay.address.city }},{{ stay.address.country }}</span>
-        </h3>
-    </section>
-    <div v-if="stay" class="host-info">
-        <h1> hosted by {{ stay.host.fullname }} </h1> <br>
-        <p>{{ stay.capacity }} {{ guestSrting }} • {{ stay.bedrooms }}
-            {{ bedroomString }} • {{ stay.beds }} {{ bedString }} • {{ stay.bathrooms }} {{ bathroomString }} </p>
-
-        <el-row class="demo-avatar demo-basic">
-            <el-col :span="12">
-                <div class="demo-basic--circle">
-                    <div class="block">
-                        <el-avatar :size="50" :src="randomUser()" />
-                    </div>
+    <section v-if="stay" class="main-layout details-page">
+        <section v-if="stay" class="header-details">
+            <h1 class="stay-name">{{ stay.name }}</h1>
+            <div class="stay-info">
+                <h3>{{ stay.numOfReviews }} reviews • <span>{{ superHost }}</span> •
+                    <span>{{ stay.address.city }},{{ stay.address.country }}</span>
+                </h3>
+            </div>
+        </section>
+        <div>
+            <!-- <li v-for="images in stay.imgUrls" :key="stay._id">
+                <image-gallery :image="images">
+                </image-gallery>
+            </li> -->
+            <image-gallery :images="stay.imgUrls"></image-gallery>
+        </div>
+        <section class="bottom-area-details">
+            <div v-if="stay" class="host-info">
+                <div class="host-text">
+                    <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
+                    <p>{{ stay.capacity }} {{ guestSrting }} • {{ stay.bedrooms }}
+                        {{ bedroomString }} • {{ stay.beds }} {{ bedString }} • {{ stay.bathrooms }} {{ bathroomString
+                        }}
+                    </p>
                 </div>
-            </el-col>
-        </el-row>
-    </div>
-    <hr>
-    <div v-if="stay" class="amenities-area">
-        <h1>What this place offers</h1>
-        <li v-for="amenitie in formatedAmenities" :key="stay._id">
-            <p>{{ amenitieSymbol(amenitie) }} {{ amenitie }}</p>
-            <!-- <span v-if="!isMore && longAmenities"></span></p> -->
-        </li>
-    </div>
-    <div v-if="stay" class="reviews-area">
-
-        <li v-for="review in formatedreviews" :key="stay._id">
-            <el-row class="demo-avatar demo-basic">
-                <el-col :span="12">
-                    <div class="demo-basic--circle">
-                        <div class="block">
-                            <el-avatar :size="50" :src="randomUser()" />
-                            <h1>{{ review.by.fullname }} <span>{{ timeFormat }}</span></h1>
+                <el-row class="demo-avatar demo-basic">
+                    <el-col :span="12">
+                        <div class="demo-basic--circle">
+                            <div class="block">
+                                <el-avatar :size="50" :src="randomUser()" />
+                            </div>
                         </div>
+                    </el-col>
+                </el-row>
+            </div>
+            <hr>
+            <div v-if="stay" class="amenities-area">
+                <h1 class="amenities-title">What this place offers</h1>
+                <ul class="flex wrap">
+                    <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
+                        <div class="amenities-container">
+                            <p class="amenities-prop"><span v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
+                            <!-- <span v-if="!isMore && longAmenities"></span></p> -->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div v-if="stay" class="reviews-area">
+
+                <!-- <li v-for="reviewScore in stay.reviewScores" :key="stay._id">
+            <h2>{{reviewScore}}</h2>
+            </li> -->
+                <li v-for="review in formatedreviews" :key="stay._id">
+                    <div class="review-container">
+                        <div class="review-info flex ">
+                            <img class="user-img" :src="randomUser()" alt="">
+                            <h1 class="user-info">{{ review.by.fullname }} <br> <span>{{ review.at }}</span></h1>
+                        </div>
+                        <p class="review-txt">{{ review.txt }}</p>
+                        <!-- <span v-if="!isMore && longAmenities"></span></p> -->
                     </div>
-                </el-col>
-            </el-row>
-            <p>{{ review.txt }}</p>
-            <!-- <span v-if="!isMore && longAmenities"></span></p> -->
-        </li>
-    </div>
-
-    <section>
-
+                </li>
+            </div>
+        </section>
     </section>
 </template>
 
 <script>
 import { stayService } from '../services/stay-service.js'
+import imageGallery from '../components/image-gallery.vue'
 import moment from 'moment'
 
 export default {
@@ -81,7 +97,11 @@ export default {
     },
     methods: {
         amenitieSymbol(amenitie) {
-            if (amenitie === 'TV') return '📺'
+            if (amenitie === 'TV') return '<i class="fa-solid fa-tv"></i>'
+            if (amenitie === 'Wifi') return '<i class="fa-solid fa-wifi"></i>'
+            if (amenitie === 'Pool') return '<i class="fa-solid fa-person-swimming"></i>'
+            if (amenitie === 'Free parking on premises') return '<i class="fa-solid fa-car"></i>'
+            if (amenitie === 'Kitchen') return '<i class="fa-solid fa-kitchen-set"></i>'
         },
         randomUser() {
             var image = stayService.getRandomInt(1, 26)
@@ -113,15 +133,15 @@ export default {
         },
         timeFormat() {
 
-              return  moment(this.stay.reviews.at).format()
-              moment().format('MMMM Do YYYY, h:mm:ss a')
+            return moment(this.stay.reviews.at).format()
+            moment().format('MMMM Do YYYY, h:mm:ss a')
             // return moment("20120620", "YYYYMMDD").fromNow()
             // return moment(this.stay.reviews.at, "YYYYMMDD").fromNow()
         }
 
     },
     components: {
-
+        imageGallery
     }
 }
 </script>
