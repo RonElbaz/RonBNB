@@ -10,9 +10,9 @@
 @import 'basics/layout';
 
 // COMPONENTS
-// @import 'components/main-header';
 @import 'components/navigation';
 @import 'components/stay-preview';
+@import 'components/date-picker.scss';
 @import 'components/stay-details';
 @import 'components/stay-list';
 @import 'components/stay-filter';
