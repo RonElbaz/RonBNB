@@ -1,10 +1,10 @@
 <template>
     <section @click="moveToDetails" class="stay-preview">
-        <div class="block text-center" m="t-4">
+        <div class="img-container block text-center">
             <span class="demonstration"></span>
-            <el-carousel trigger="click" autoplay=false height="300px">
+            <el-carousel height="300px">
                 <el-carousel-item v-for="image, idx in stay.imgUrls" :key="idx">
-                    <img class="small justify-center stay-img" :src="imgUrl(image)">
+                    <img trigger="click" class="small justify-center stay-img" :src="imgUrl(image)">
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -12,8 +12,8 @@
             <i class="fas fa-heart"></i>
         </button>
         <div class="stay-info">
-            <h1>{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
-            <h1>${{ stay.price }} night</h1>
+            <h1 class="bold stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
+            <h1><span class="bold"> ${{ stay.price }}</span> night</h1>
         </div>
     </section>
 </template>

@@ -1,10 +1,12 @@
 .stay-preview {
     height: 400px;
     width: 315px;
-    margin-inline-end: 24px;
-    margin-bottom: 5rem;
     position: relative;
-    border-radius: 1rem;
+
+    .img-container {
+        border-radius: 1rem;
+        margin-bottom: 0.7rem;
+    }
 
     .stay-img {
         border-radius: 1rem;
@@ -20,10 +22,25 @@
         background-color: transparent;
         // color: rgba(0,0,0,.5019607843137255);
         -webkit-text-stroke: white;
-        -webkit-text-stroke-width: 0.4px;
+        -webkit-text-stroke-width: 1px;
         border: none;
-       font-size: 24px;
-        
-
+        font-size: 20px;
     }
+
+    .el-carousel__arrow {
+        background: white !important;
+        color: black !important;
+    }
+
+    .el-carousel__button {
+        border-radius: 50% !important;
+        width: 5px !important;
+        height: 5px !important;
+    }
+
+    .bold {
+        font-weight:600;
+        color: #222222;
+    }
+
 }

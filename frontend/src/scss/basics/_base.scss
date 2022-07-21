@@ -5,6 +5,7 @@
 
 * {
   box-sizing: border-box;
+  margin: 0;
 }
 
 // html {
@@ -21,6 +22,7 @@
 body {
   margin: 0;
 
+  // margin: 0;
   // background-color: $clr2;
 
   // @include for-normal-layout {
@@ -37,7 +39,7 @@ h4,
 h5,
 h6 {
   font-weight: 500;
-  margin: 0 0 1rem;
+  // margin: 0;
   // line-height: lh(40px, 29px);
 }
 
@@ -51,10 +53,9 @@ h6 {
   width: 10px !important;
   height: 10px !important;
 }
-
-// h1 {
-//   // font-size: rem(60px);
-// }
+h1 {
+  // font-size: rem(60px);
+}
 
 // h2 {
 //   // font-size: em(16px);
@@ -73,16 +74,21 @@ h6 {
 //   // width: 100%;
 // }
 
-// p {
-//   // margin: 0 0 1em;
-//   // max-width: 60ch;
-//   // @include type(light);
-//   // .main-text & {
-//   //   grid-column: 3 / 6;
-//   //   font-size: rem(22px);
-//   //   line-height: 1.384615;
-//   //   padding-inline-start: rem(30px);
-//   //   position: relative;
+hr {
+  //   margin: 0;
+}
+
+p {
+  // margin: 0;
+  //   // max-width: 60ch;
+  //   // @include type(light);
+  //   // .main-text & {
+  //   //   grid-column: 3 / 6;
+  //   //   font-size: rem(22px);
+  //   //   line-height: 1.384615;
+  //   //   padding-inline-start: rem(30px);
+  //   //   position: relative;
+}
 
 //   //   &::after {
 //   //     content: '';
