@@ -21,7 +21,7 @@
             <hr>
 
             <el-form-item>
-                <el-checkbox-group v-model="form.checkList">
+                <el-checkbox-group v-model="form.roomType">
                     <el-checkbox v-for="t, idx in placeType" :key="t" :label="t">{{ t }} -
                         <span>{{ placeTypeValues[idx] }}</span> </el-checkbox>
                 </el-checkbox-group>
