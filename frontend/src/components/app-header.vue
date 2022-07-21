@@ -20,11 +20,12 @@
                 <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo"></router-link>
             </div>
             <div class="flex align-items-center search align-self-center border-thin-black-round">
-                <button class="clean-button ">Anywhere</button>
+                <button @click="modalSearch = true" class="clean-button"
+                    :class="{ 'icon-active': modalSearch }">Anywhere</button>
                 <span>|</span>
-                <button class="clean-button">Any week</button>
+                <button @click="modalSearch = true" class="clean-button">Any week</button>
                 <span>|</span>
-                <button class="clean-button guest">Add guests </button>
+                <button @click="modalSearch = true" class="clean-button guest">Add guests </button>
                 <div class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
             </div>
 
@@ -77,6 +78,7 @@ export default {
             mobile: null,
             mobileNav: null,
             windowWidth: null,
+            modalSearch: false,
         }
     },
     created() {
