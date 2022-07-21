@@ -1,7 +1,10 @@
 <template>
-    <stay-filter/>
-    <stay-list :stays="getStays"/>
-    <!-- <pre>{{getStays}}</pre> -->
+  <div class="main-layout filter-container">
+   
+    <stay-filter />
+  </div>
+  <stay-list :stays="getStays" />
+  <!-- <pre>{{getStays}}</pre> -->
 </template>
 
 <script>
@@ -17,10 +20,10 @@ export default {
     appFooter,
     stayFilter,
     StayList
-},
+  },
   data() {
     return {
-        
+
     };
   },
   methods: {},
@@ -28,12 +31,13 @@ export default {
   created() {
 
   },
-  computed:{
-    getStays(){
-        return this.$store.getters.staysForDisplay
+  computed: {
+    getStays() {
+      return this.$store.getters.staysForDisplay
     }
   },
 };
 </script>
 
-<style></style>
+<style>
+</style>

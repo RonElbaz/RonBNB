@@ -11,7 +11,8 @@
         <div>
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
-        <section class="bottom-area-details">
+        <section class="bottom-area-details flex column">
+            <div class="stayyy">
             <div v-if="stay" class="host-info">
                 <div class="host-text">
                     <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
@@ -42,11 +43,13 @@
                     </li>
                 </ul>
             </div>
+            </div>
+                        </section>
             <div v-if="stay" class="reviews-area">
 
-                <!-- <li v-for="reviewScore in stay.reviewScores" :key="stay._id">
+                <li v-for="reviewScore in stay.reviewScores" :key="stay._id">
             <h2>{{reviewScore}}</h2>
-            </li> -->
+            </li>
                 <li v-for="review in formatedreviews" :key="stay._id">
                     <div class="review-container">
                         <div class="review-info flex ">
@@ -58,7 +61,6 @@
                     </div>
                 </li>
             </div>
-        </section>
     </section>
 </template>
 

@@ -1,5 +1,7 @@
 .filter-container {
+    margin-top: 2rem;
     margin-bottom: 2rem;
+    position: relative;
 
     .btn-filter {
         height: 3rem;
@@ -8,15 +10,55 @@
         background-color: white;
         border: 1px solid #dddddd;
         padding: 7px 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .lables {
+        justify-content: space-between;
+    }
+
+    .label-image {
+        max-width: 24px;
+    }
+
+    .image-and-txt {
+        height: 50px;
+        justify-content: space-between;
+        margin-inline-end: 3rem;
+        align-items: center;
+    }
+
+
+
+    .filter-form-layout {
+        padding: 0 24px;
+        // width: ;
 
     }
-}
 
-.filter-form-layout{
-    padding: 0 24px;
-    
-}
+    .el-checkbox-group {
+        // // display: flex;
+        // :first-child {
+        //     display: block;
+        // }
+    }
 
-.el-form-item{
-    padding:32px;
+    .el-dialog__body {
+        width: 100%;
+    }
+
+    .el-form-item {
+        padding: 32px;
+    }
+
+    .el-dialog__headerbtn {
+        left: 0;
+
+    }
+
+    .el-icon svg {
+        color: rgb(34, 34, 34);
+    }
 }
