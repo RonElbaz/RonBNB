@@ -5,15 +5,15 @@
         <el-form :model="form">
 
             <el-form-item>
-                <el-slider v-model="form.value" range :max="1500" />
-                <el-input v-model.number="form.value[0]"/>
-                <el-input v-model.number="form.value[1]"/>
+                <el-slider v-model="form.priceRange" range :max="1500" />
+                <el-input v-model.number="form.priceRange[0]"/>
+                <el-input v-model.number="form.priceRange[1]"/>
             </el-form-item>
 
             <hr>
 
             <el-form-item>
-                <el-checkbox-group v-model="form.checkList">
+                <el-checkbox-group v-model="form.roomType">
                     <el-checkbox v-for="t,idx in placeType" :key="t" :label="t">{{t}} - <span>{{placeTypeValues[idx]}}</span> </el-checkbox>
                 </el-checkbox-group>
             </el-form-item>
@@ -67,12 +67,16 @@
         </el-form>
         <template #footer>
             <span class="dialog-footer">
-                <el-button @click="dialogFormVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="dialogFormVisible = false">Confirm</el-button>
+                <el-button @click="cleanForm">Cancel</el-button>
+                <el-button type="primary" @click="onSetFilter">Confirm</el-button>
             </span>
         </template>
     </el-dialog>
+
+    <pre>{{form}}</pre>
 </template>
+
+
 
 <script>
 
@@ -84,14 +88,14 @@ export default {
             dialogFormVisible: false,
             placeTypeValues:["A place all to yourself","Your own room in a home or a hotel, plus some shared common spaces","A sleeping space and common areas that may be shared with others"],
             placeType: [
-                    "Entire place",
+                    "Entire home",
                     "Private room",
                     "Shared room" 
                 ],
-            amenitiesOpts : ["Wifi","Washer","Air conditioning","Kitchen","Dryer"],
+            amenitiesOpts : ["Wifi","Washer","Air conditioning","Kitchen","Dryer","TV"],
             form: {
-                value: [200, 1000],
-                checkList:[],
+                priceRange: [200, 1000],
+                roomType:[],
                 bedrooms: [],
                 beds: [],
                 bathrooms: [],
@@ -118,6 +122,22 @@ export default {
         sliceBathrooms(){
             this.form.bathrooms = this.form.bathrooms.slice(-1)
         },
+        cleanForm(){
+            this.dialogFormVisible=false
+            this.form.priceRange = [200,1000]
+            this.form.roomType = []
+            this.form.bedrooms = []
+            this.form.bathrooms = []
+            this.form.beds = []
+            this.form.propertyType = []
+            this.form.amenities = []
+            this.form.superHost = false
+        },
+        onSetFilter(){
+           this.dialogFormVisible=false
+           var filter= JSON.parse(JSON.stringify(this.form));
+           this.$store.dispatch({ type: "setFilter", filterBy: { ...filter} })
+        }
     },
 }
 </script>

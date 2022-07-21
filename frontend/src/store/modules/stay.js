@@ -19,6 +19,11 @@ export const stay = {
             catch(err){
                 console.log("couldnt load stays", err)
             }
+        },
+        async setFilter(state, {filterBy}){
+            state.filterBy = filterBy
+            var stays = await stayService.query(filterBy)
+            state.commit({type:'setStays', stays})
         }
     },
     getters: {
