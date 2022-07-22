@@ -1,6 +1,6 @@
 <template>
     <div>
-        <header class="main-layout" :class="{ 'scrolled-nav': scrollNav }">
+        <header class="main-layout" :class="{ 'modal-header': modalSearch }">
             <nav class="flex justify-content-space-between" :class="{ 'nav-modal': modalSearch }">
                 <div class="branding flex align-items-center">
                     <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo"></router-link>
@@ -26,21 +26,39 @@
                 </div>
             </nav>
             <transition name="mobile-nav">
-                <div v-if="modalSearch"
-                    class="flex align-items-center align-self-center border-thin-black-round search-modal">
-                    <div class="destination">
-                        <div class="">Where</div>
-                        <input type="text" placeholder="Search destinations" v-model="destination"
-                            @blur="addDestination">
-                    </div>
-                    <date-picker @getDate="buildDate" />
-                    <guests-picker @addGuests="addGuest" class="clean-button guest" />
-                    <div class="search-logo" @click="searchFilter"><i class="fa-solid fa-magnifying-glass"></i>
+                <div v-if="modalSearch" class=" search-modal">
+                    <div class="flex align-items-center border-thin-black-roundalign-self-center search">
+                        <label for="dest">
+                            <div class="destination">
+                                <div class="header">Where</div>
+                                <input id="dest" type="text" class="text" placeholder="Search destinations"
+                                    v-model="destination" @blur="addDestination">
+                            </div>
+                        </label>
+                        <div class="start-date">
+                            <div class="header">Check in</div>
+                            <div class="text">Add dates</div>
+
+                        </div>
+                        <div class="line">
+                            <div class="dummy">a</div>
+                        </div>
+                        <div class="end-date">
+                            <div class="header">Check out</div>
+                            <div class="text">Add dates</div>
+                        </div>
+                        <date-picker id="date" popper-class="custom-date-picker" @getDate="buildDate"
+                            class="date-picker" />
+                        <guests-picker @addGuests="addGuest" class="clean-button guest" />
+                        <div class="search-modal-logo" @click="searchFilter"><i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
                     </div>
                 </div>
             </transition>
+
         </header>
-        <div v-if="isOpenScreen" @click="closeModal" class="modal-screen">a</div>
+
+        <div v-if="isOpenScreen" @click="closeModal" class="modal-screen"></div>
     </div>
 </template>
 
