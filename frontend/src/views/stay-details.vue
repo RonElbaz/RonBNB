@@ -70,7 +70,6 @@
 <script>
 import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
-import moment from 'moment'
 
 export default {
     name: 'stay-details',
@@ -117,8 +116,14 @@ export default {
             return `${month} ${year}`
         },
         formatReviewScore(score) {
-            if (score[0] !== 'rating') return `<h2> ${score[0]}</h2>
-                    <h2> ${(score[1]) / 2}</h2>`
+            if (score[0] !== 'rating'){
+                // var res = Vue.compile(`<el-progress :percentage="50" color="black"></el-progress>`)
+                return `<h2> ${score[0]}</h2>
+                <div class="flex">
+                    <h2> ${(score[1]) / 2}</h2>
+                </div>`
+
+            } 
         },
     },
     computed: {
