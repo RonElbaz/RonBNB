@@ -15,12 +15,23 @@
         padding-top: $padding-details-small;
     }
 
+    .bottom-area-details {
+        // display: flex;
+        // flex-direction: column;
+      
+    }
+
+.stayyy{
+    flex-basis: 60%;
+}
+
     .host-info {
         display: flex;
         justify-content: space-between;
-        width: 400px;
+        // width: 400px;
         padding-top: $padding-details-big;
         padding-bottom: $padding-details-small;
+        
 
         .host-name {
             font-weight: 600;
@@ -30,6 +41,7 @@
     .amenities-area {
         padding-top: $padding-details-big;
         padding-bottom: $padding-details-big;
+        // width: 700px;
 
         .amenities-title {
             font-weight: 700;
@@ -41,9 +53,9 @@
             flex-wrap: wrap;
         }
 
-        // .amenities-prop {
-        //     padding-bottom: 1rem;
-        // }
+        .amenities-symbol {
+            padding: 1rem;
+        }
 
         .amenities-container {
             display: flex;
@@ -52,26 +64,28 @@
         }
 
     }
-    .reviews-area{
-     .review-container{
-        margin-bottom: 40px;
-         .review-info {
-             align-items: center;
-             gap: 20px;
-             padding-bottom: 10px;
-     
-             .user-img {
-                 border-radius: 50%;
-                 object-fit: cover;
-                 width: 3.5rem;
-                 margin-bottom: 1rem;
-               }
-     
-             .user-info{
-                 margin-inline-start: 1rem
-             }
-         }
-     }
+
+    .reviews-area {
+        .review-container {
+            margin-bottom: 40px;
+
+            .review-info {
+                align-items: center;
+                gap: 20px;
+                padding-bottom: 10px;
+
+                .user-img {
+                    border-radius: 50%;
+                    object-fit: cover;
+                    width: 3.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .user-info {
+                    margin-inline-start: 1rem
+                }
+            }
+        }
     }
-    
-    }        
+
+}

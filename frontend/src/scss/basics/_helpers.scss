@@ -19,10 +19,14 @@
   flex-wrap: wrap;
 }
 
-.justify-content-space-between {
+.space-between {
   justify-content: space-between;
 }
 
+
+.space-evenly{
+  justify-content: space-evenly;
+}
 .justify-content-center {
   justify-content: center;
 }
@@ -44,7 +48,7 @@
 //  button
 .clean-button {
   border: none;
-  background-color: white;
+  background-color: transparent;
 }
 
 .border-thin-black-round {

@@ -2,9 +2,9 @@
     <section @click="moveToDetails" class="stay-preview">
         <div class="img-container block text-center">
             <span class="demonstration"></span>
-            <el-carousel height="300px">
+            <el-carousel trigger="click" :autoplay="false" height="300px">
                 <el-carousel-item v-for="image, idx in stay.imgUrls" :key="idx">
-                    <img trigger="click" class="small justify-center stay-img" :src="imgUrl(image)">
+                    <img  class="small justify-center stay-img" :src="imgUrl(image)">
                 </el-carousel-item>
             </el-carousel>
         </div>
