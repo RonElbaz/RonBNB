@@ -28,7 +28,6 @@
                 </div>
                 <img class="host-img" :src="randomUser()" alt="">
             </div>
-            <div class="box"></div>
             <div v-if="stay" class="amenities-area  gray-underline">
                 <h1 class="amenities-title">What this place offers</h1>
                 <ul class="flex wrap">
@@ -41,6 +40,19 @@
                     </li>
                 </ul>
             </div>
+            <section class="reserve">
+                <div class="flex space-between">
+                    <h1> $ {{ stay.price }} night</h1>
+                    <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
+                        <span class="dot-separate">·</span>
+                        {{stay.numOfReviews}} reviews
+                    </h1>
+                </div>
+                <div class="date-area">
+                    <h1>date will be here</h1>
+                </div>
+                <button>Reserve</button>
+            </section>
         </section>
         <div v-if="stay" class="reviews-area">
             <div class="review-score">
@@ -116,14 +128,14 @@ export default {
             return `${month} ${year}`
         },
         formatReviewScore(score) {
-            if (score[0] !== 'rating'){
+            if (score[0] !== 'rating') {
                 // var res = Vue.compile(`<el-progress :percentage="50" color="black"></el-progress>`)
                 return `<h2> ${score[0]}</h2>
                 <div class="flex">
                     <h2> ${(score[1]) / 2}</h2>
                 </div>`
 
-            } 
+            }
         },
     },
     computed: {
