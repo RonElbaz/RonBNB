@@ -117,9 +117,9 @@ export default {
         },
         formatReviewScore(score) {
             if (score[0] !== 'rating'){
-                // var res = Vue.compile(`<el-progress :percentage="50" color="black"></el-progress>`)
                 return `<h2> ${score[0]}</h2>
                 <div class="flex">
+                    <progress value="${score[1]}" max="10"></progress>
                     <h2> ${(score[1]) / 2}</h2>
                 </div>`
 
