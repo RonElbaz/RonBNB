@@ -1,4 +1,27 @@
 @font-face {
+<<<<<<< HEAD
+    font-family: Bahnschrift;
+    src: url(~@/assets/fonts/Bahnschrift/bahnschrift.ttf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(~@/assets/fonts/Airbnb_Cereal-Bold.ttf);
+    // src: url(~@../../fonts/Airbnb_Cereal-Bold.ttf);
+}
+
+@font-face {
+    font-family: medium;
+    src: url(~@/assets/fonts/Airbnb_Cereal-Medium.ttf);
+    // src: url(../../fonts/Airbnb_Cereal-Medium.ttf);
+}
+
+@font-face {
+    font-family: book;
+    src: url(~@/assets/fonts/Airbnb_Cereal-Book.ttf);
+    // src: url(../../fonts/Airbnb_Cereal-Book.ttf);
+}
+=======
   font-family: Bahnschrift;
   src: url(~@/assets/fonts/Bahnschrift/bahnschrift.ttf);
 }
@@ -20,3 +43,4 @@
   font-family: 'Circular';
   src: url(../fonts/Airbnb_Cereal-Medium.ttf);
 }
+>>>>>>> e2aa21ba3a24b5c078ad825c45ab3de9b2876ce1

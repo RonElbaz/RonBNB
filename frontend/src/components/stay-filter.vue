@@ -1,6 +1,51 @@
 <template>
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
-    <section class="main-layout filter-container">
+    <section class="filter-container">
+        <div class="labels flex ">
+            <button class="clean-button">
+                <div class="image-and-txt flex column">
+                    <img class="label-image" src="../images/label-images/islands.jpg" alt="">
+                    <p class="label-txt">Islands</p>
+                </div>
+                <button class="clean-button">
+                    <div class="image-and-txt flex column">
+                        <img class="label-image" src="../images/label-images/beach.jpg" alt="">
+                        <p class="label-txt">Beach</p>
+                    </div>
+                </button>
+                <button class="clean-button">
+                    <div class="image-and-txt flex column">
+                        <img class="label-image" src="../images/label-images/pool.jpg" alt="">
+                        <p class="label-txt">Amazing pools</p>
+                    </div>
+                </button>
+            </button>
+
+            <button class="clean-button">
+                <div class="image-and-txt flex column">
+                    <img class="label-image" src="../images/label-images/omg.jpg" alt="">
+                    <p class="label-txt">OMG!</p>
+                </div>
+            </button>
+            <button class="clean-button">
+                <div class="image-and-txt flex column">
+                    <img class="label-image" src="../images/label-images/camping.jpg" alt="">
+                    <p class="label-txt">Camping</p>
+                </div>
+            </button>
+            <button class="clean-button">
+                <div class="image-and-txt flex column">
+                    <img class="label-image" src="../images/label-images/desert.jpg" alt="">
+                    <p class="label-txt">Desert</p>
+                </div>
+            </button>
+            <button class="clean-button">
+                <div class="image-and-txt flex column">
+                    <img class="label-image" src="../images/label-images/artcit.jpg" alt="">
+                    <p class="label-txt">Article</p>
+                </div>
+            </button>
+        </div>
         <button class="btn btn-filter" text @click="dialogFormVisible = true">Filters</button>
     </section>
     <el-dialog v-model="dialogFormVisible" title="Filters" center>
@@ -8,23 +53,28 @@
 
             <el-form-item>
                 <h1>Price Range<br><span>The average nightly price is</span></h1>
-                
-                
+
+
                 <el-slider v-model="form.priceRange" range :max="1500" />
                 <div class="filter-input-price flex">
-                    <el-input v-model.number="form.priceRange[0]"/>
+                    <el-input v-model.number= "form.priceRange[0]" />
                     <span>-</span>
-                    <el-input v-model.number="form.priceRange[1]"/>
+                    <el-input v-model.number="form.priceRange[1]" />
                 </div>
             </el-form-item>
 
             <hr>
 
             <el-form-item>
+                <h1>Type of place</h1>
+                <div class="filter-type-place flex column">
                 <el-checkbox-group v-model="form.roomType">
-                    <el-checkbox v-for="t, idx in placeType" :key="t" :label="t">{{ t }} -
-                        <span>{{ placeTypeValues[idx] }}</span> </el-checkbox>
+                    <el-checkbox v-for="t, idx in placeType" :key="t" :label="t">{{ t }} 
+                    <br>
+                        <span>{{ placeTypeValues[idx] }}</span>
+                    </el-checkbox>
                 </el-checkbox-group>
+            </div>
             </el-form-item>
 
             <el-form-item label="bedrooms">
@@ -89,7 +139,6 @@
             </span>
         </template>
     </el-dialog>
-<pre>{{form}}</pre>
 </template>
 <script>
 
@@ -108,7 +157,7 @@ export default {
             amenitiesOpts: ["Wifi", "Washer", "Air conditioning", "Kitchen", "Dryer"],
             form: {
                 priceRange: [0, 1500],
-                roomType:[],
+                roomType: [],
                 bedrooms: [],
                 beds: [],
                 bathrooms: [],
@@ -135,9 +184,9 @@ export default {
         sliceBathrooms() {
             this.form.bathrooms = this.form.bathrooms.slice(-1)
         },
-        cleanForm(){
-            this.dialogFormVisible=false
-            this.form.priceRange = [0,1500]
+        cleanForm() {
+            this.dialogFormVisible = false
+            this.form.priceRange = [0, 1500]
             this.form.roomType = []
             this.form.bedrooms = []
             this.form.bathrooms = []
@@ -146,11 +195,11 @@ export default {
             this.form.amenities = []
             this.form.superHost = false
         },
-        onSetFilter(){
-           this.dialogFormVisible=false
-           var filter= JSON.parse(JSON.stringify(this.form));
-           console.log("here", filter)
-           this.$store.dispatch({ type: "setFilter", filterBy: { ...filter} })
+        onSetFilter() {
+            this.dialogFormVisible = false
+            var filter = JSON.parse(JSON.stringify(this.form));
+            console.log("here", filter)
+            this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
         }
     },
 }
