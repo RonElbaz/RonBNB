@@ -15,8 +15,16 @@
         top: 0;
     }
 
+    .btn-label{
+        z-index: 1;
+    }
+
     .lables {
         justify-content: space-between;
+    }
+    .label-txt{
+        // font-family: Circular;
+        // font-size: 12px;
     }
 
     .label-image {

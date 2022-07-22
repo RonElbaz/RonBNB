@@ -19,9 +19,15 @@
 //   //   }
 // }
 
+.circular {
+  font-family: Circular;
+  font-size: 12px;
+}
+
 body {
   margin: 0;
-  font-family: 'cereal' !important;
+  font-family: Circular;
+  color: $clr1;
   // margin: 0;
   // background-color: $clr2;
 
@@ -39,21 +45,12 @@ h4,
 h5,
 h6 {
   font-weight: 500;
+
   // font-family: bold;
   // margin: 0;
   // line-height: lh(40px, 29px);
 }
 
-.el-carousel__arrow {
-  background: white !important;
-  color: black !important;
-}
-
-.el-carousel__button {
-  border-radius: 50% !important;
-  width: 10px !important;
-  height: 10px !important;
-}
 h1 {
   // font-size: rem(60px);
 }
@@ -76,9 +73,10 @@ h1 {
 // }
 
 hr {
-  //   margin: 0;
 }
-
+ul {
+  padding: 0;
+}
 p {
   // margin: 0;
   //   // max-width: 60ch;

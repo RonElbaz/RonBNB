@@ -2,13 +2,31 @@
     .header-details {
         padding-top: $padding-details-small;
 
+
         .stay-name {
             margin-bottom: 0.7rem;
+
+            font-size: 26px;
         }
 
-        // .stay-info {
-        //     margin-bottom: 2rem;
-        // }
+        .stay-info {
+
+            .stay-reviews-info {
+
+                text-decoration: underline;
+                font-size: 14px;
+            }
+
+            .stay-super-host {
+                font-family: cereal;
+                font-size: 14px;
+            }
+
+            .award-symbol-info {
+
+                padding: 5px;
+            }
+        }
     }
 
     .img-gallery {
@@ -16,26 +34,51 @@
     }
 
     .bottom-area-details {
-        // display: flex;
-        // flex-direction: column;
-      
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        grid-auto-rows: reapet(1fr);
+        grid-template-areas:
+            "info reserve";
+        column-gap: 200px;
+
     }
 
-.stayyy{
-    flex-basis: 60%;
-}
+    // .stayyy {
+    //     flex-basis: 60%;
+    // }
 
     .host-info {
         display: flex;
         justify-content: space-between;
-        // width: 400px;
+        // width: 700px;
         padding-top: $padding-details-big;
         padding-bottom: $padding-details-small;
-        
+        grid-area: info;
 
         .host-name {
-            font-weight: 600;
+            // font-weight: 600;
+
+            font-size: 22px;
         }
+
+        .host-img {
+            border-radius: 50%;
+            object-fit: cover;
+            width: 3.5rem;
+            height: 3.5rem;
+        }
+
+        .rooms-info {
+            font-family: cereal;
+        }
+    }
+
+    .box {
+        border: 1px solid black;
+        width: 372px;
+        height: 496px;
+        padding: 24px;
+        grid-area: reserve;
     }
 
     .amenities-area {
@@ -44,17 +87,16 @@
         // width: 700px;
 
         .amenities-title {
-            font-weight: 700;
+            font-size: 22px;
             margin-bottom: $padding-details-small;
         }
 
-        .amenities-list {
-            display: flex;
-            flex-wrap: wrap;
+        .amenities-prop {
+            font-family: cereal;
         }
 
         .amenities-symbol {
-            padding: 1rem;
+            padding-inline-end: 1rem;
         }
 
         .amenities-container {
@@ -66,7 +108,21 @@
     }
 
     .reviews-area {
+
+        .reviews-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 100px;
+        }
+
+        .review-score {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 40px 100px;
+        }
+
         .review-container {
+
             margin-bottom: 40px;
 
             .review-info {
@@ -78,12 +134,27 @@
                     border-radius: 50%;
                     object-fit: cover;
                     width: 3.5rem;
-                    margin-bottom: 1rem;
                 }
+
+                .user-name-review {
+                    font-size: 16px;
+                }
+
+                .review-date {
+                    font-size: 14px;
+                    font-family: cereal;
+                    color: $clr2;
+                }
+
+
 
                 .user-info {
                     margin-inline-start: 1rem
                 }
+            }
+
+            .review-txt {
+                font-family: cereal;
             }
         }
     }

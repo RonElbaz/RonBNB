@@ -4,7 +4,7 @@
             <span class="demonstration"></span>
             <el-carousel trigger="click" :autoplay="false" height="300px">
                 <el-carousel-item v-for="image, idx in stay.imgUrls" :key="idx">
-                    <img  class="small justify-center stay-img" :src="imgUrl(image)">
+                    <img class="small justify-center stay-img" :src="imgUrl(image)">
                 </el-carousel-item>
             </el-carousel>
         </div>
@@ -12,8 +12,8 @@
             <i class="fas fa-heart"></i>
         </button>
         <div class="stay-info">
-            <h1 class="bold stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
-            <h1><span class="bold"> ${{ stay.price }}</span> night</h1>
+            <h1 class="stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
+            <h1 class="stay-price">${{ stay.price }}<span class="stay-night"> night</span></h1>
         </div>
     </section>
 </template>

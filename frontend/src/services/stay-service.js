@@ -70,6 +70,35 @@ async function query(filterBy = null) {
         stay.price <= filterBy.priceRange[1]
     )
   }
+
+  //filter by label category
+  if (filterBy.category && filterBy.category !== 'All') {
+    filteredStays = filteredStays.filter(
+      (stay) =>
+        stay.summary.toLowerCase().includes(filterBy.category.toLowerCase()) ||
+        stay.interaction.toLowerCase().includes(filterBy.category.toLowerCase()) ||
+        stay.name.toLowerCase().includes(filterBy.category.toLowerCase())
+    )
+  }
+
+  //filter by destination
+  if(filterBy.destination){
+    filteredStays = filteredStays.filter((stay)=>{
+        return stay.address.street.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
+               stay.address.country.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
+               stay.address.city.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
+               stay.address.countryCode.toLowerCase().includes(filterBy.destination.toLowerCase())
+    })
+  }
+
+  //filter by capacity
+  if(filterBy.guests){
+    var capacity = Object.values(filterBy.guests).reduce((acc,amount) => acc + amount, 0)
+    filteredStays = filteredStays.filter((stay)=> stay.capacity >= capacity)
+    
+  }
+
+  console.log("filtering with", filterBy)
   console.log(filteredStays)
   return filteredStays
 }
@@ -87,7 +116,7 @@ async function _createStays() {
   var stays = JSON.parse(localStorage.getItem(DB_KEY))
   if (!stays || !stays.length) {
     stays = await (await fetch("../../data/stay.json")).json()
-    stays = stays.splice(0, 100)
+    stays = stays.splice(0, 20)
     console.log(stays)
     localStorage.setItem(DB_KEY, JSON.stringify(stays))
   }
