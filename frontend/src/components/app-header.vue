@@ -40,7 +40,7 @@
                 </div>
             </transition>
         </header>
-        <div v-if="isOpenScreen" @click="closeModal" class="modal-screen">a</div>
+        <div v-if="isOpenScreen" @click="closeModal" class="modal-screen"></div>
     </div>
 </template>
 
@@ -86,19 +86,30 @@ export default {
         buildDate(value) {
             this.search.startDate = value._value[0]
             this.search.endDate = value._value[0]
-            console.log(this.search)
+            // console.log(this.search)
         },
         addDestination() {
             this.search.destination = this.destination
-            console.log(this.search)
+            // console.log(this.search)
         },
         addGuest(guests) {
             this.search.guests = guests
-            console.log(this.search)
+            // console.log(this.search)
         },
-        SearchFilter() {
+        searchFilter() {
             // connect this.search to the filter
-            // this.search
+            var startDate = new Date(this.search.startDate).getTime()
+            var endDate = new Date(this.search.endDate).getTime()
+            var currDate = Date.now()
+            if(currDate > startDate || currDate > endDate){
+                console.log("cant pick past dates")
+                return
+            }
+            var filter = {...this.search}
+            delete filter.startDate
+            delete filter.endDate
+            this.$store.dispatch({ type: "setFilter", filterBy: filter })
+            this.closeModal()
         }
     },
     computed: {},
