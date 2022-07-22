@@ -12,8 +12,8 @@
             <i class="fas fa-heart"></i>
         </button>
         <div class="stay-info">
-            <h1 class="bold stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
-            <h1><span class="bold"> ${{ stay.price }}</span> night</h1>
+            <h1 class="stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
+            <h1><span class=""> ${{ stay.price }}</span> night</h1>
         </div>
     </section>
 </template>
