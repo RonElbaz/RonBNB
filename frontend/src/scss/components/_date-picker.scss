@@ -1,0 +1,25 @@
+.custom-date-picker {
+  .el-date-range-picker {
+    border-radius: 30px;
+  }
+}
+
+.demo-date-picker .block[data-v-1a1d8383] {
+  // padding: 20px;
+  text-align: left;
+  // height: 100px;
+  // flex: 0;
+}
+
+.el-range-editor.el-input__wrapper {
+  padding: 0 !important;
+  width: 360px !important;
+  height: 63px !important;
+}
+
+.el-icon.el-input__icon.el-range__icon {
+  display: none;
+}
+.el-popper.is-pure {
+  border-radius: 30px;
+}

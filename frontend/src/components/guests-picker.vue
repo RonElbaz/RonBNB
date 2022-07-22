@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <div>Who</div>
-        <div>Add guests</div>
+    <div class="guest">
+        <div class="header">Who</div>
+        <div class="text">Add guests</div>
         <div class="guest-dropdown">
             <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
             <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
