@@ -25,7 +25,7 @@ export default {
     computed: {
         formatedArray() {
             console.log(this.array)
-            return this.array.slice(0,10)
+            return this.array.slice(0, 10)
 
             // return this.isMore ? this.array : this.array.splice(0, 10)
         },

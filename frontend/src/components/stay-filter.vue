@@ -2,49 +2,12 @@
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
     <section class="filter-container">
         <div class="labels flex ">
-            <button class="clean-button">
-                <div class="image-and-txt flex column">
-                    <img class="label-image" src="../images/label-images/islands.jpg" alt="">
-                    <p class="label-txt">Islands</p>
-                </div>
-                <button class="clean-button">
+                <button @click="onSetFilter(opt.label)" class="clean-button btn-label" v-for="opt in filterOpts">
                     <div class="image-and-txt flex column">
-                        <img class="label-image" src="../images/label-images/beach.jpg" alt="">
-                        <p class="label-txt">Beach</p>
+                        <img class="label-image" :src="imgUrl(opt.src)" alt="">
+                        <p class="label-txt">{{opt.label}}</p>
                     </div>
                 </button>
-                <button class="clean-button">
-                    <div class="image-and-txt flex column">
-                        <img class="label-image" src="../images/label-images/pool.jpg" alt="">
-                        <p class="label-txt">Amazing pools</p>
-                    </div>
-                </button>
-            </button>
-
-            <button class="clean-button">
-                <div class="image-and-txt flex column">
-                    <img class="label-image" src="../images/label-images/omg.jpg" alt="">
-                    <p class="label-txt">OMG!</p>
-                </div>
-            </button>
-            <button class="clean-button">
-                <div class="image-and-txt flex column">
-                    <img class="label-image" src="../images/label-images/camping.jpg" alt="">
-                    <p class="label-txt">Camping</p>
-                </div>
-            </button>
-            <button class="clean-button">
-                <div class="image-and-txt flex column">
-                    <img class="label-image" src="../images/label-images/desert.jpg" alt="">
-                    <p class="label-txt">Desert</p>
-                </div>
-            </button>
-            <button class="clean-button">
-                <div class="image-and-txt flex column">
-                    <img class="label-image" src="../images/label-images/artcit.jpg" alt="">
-                    <p class="label-txt">Article</p>
-                </div>
-            </button>
         </div>
         <button class="btn btn-filter" text @click="dialogFormVisible = true">Filters</button>
     </section>
@@ -141,12 +104,43 @@
     </el-dialog>
 </template>
 <script>
+import { requiredNumber } from 'element-plus/es/components/table-v2/src/common'
+
 
 
 export default {
     name: 'stay-filter',
     data() {
         return {
+            filterOpts:[
+                {
+                    label:"Island",
+                    src:"../images/label-images/islands.jpg",
+                },
+                {
+                    label:"Beach",
+                    src:"../images/label-images/beach.jpg",
+                },
+                {
+                    label:"Pool",
+                    src:"../images/label-images/pool.jpg",
+                },
+                {
+                    label:"OMG!",
+                    src:"../images/label-images/omg.jpg",
+                },
+                {
+                    label:"Camping",
+                    src:"../images/label-images/camping.jpg",
+                },
+                {
+                    label:"Desert",
+                    src:"../images/label-images/desert.jpg",
+                },
+                {
+                    label:"Article",
+                    src:"../images/label-images/artcit.jpg",
+                }],
             dialogFormVisible: false,
             placeTypeValues: ["A place all to yourself", "Your own room in a home or a hotel, plus some shared common spaces", "A sleeping space and common areas that may be shared with others"],
             placeType: [
@@ -195,12 +189,21 @@ export default {
             this.form.amenities = []
             this.form.superHost = false
         },
-        onSetFilter() {
-            this.dialogFormVisible = false
-            var filter = JSON.parse(JSON.stringify(this.form));
-            console.log("here", filter)
+        onSetFilter(category = null) {
+            var filter;
+            if(typeof(category) === 'string'){
+                filter = {category}
+
+            }else{
+                this.dialogFormVisible = false
+                filter = JSON.parse(JSON.stringify(this.form));
+            }
+            console.log(filter)
             this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
-        }
+        },
+        imgUrl(image) {
+            return new URL(image, import.meta.url).href
+        },
     },
 }
 </script>
