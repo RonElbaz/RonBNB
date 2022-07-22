@@ -1,5 +1,6 @@
 import {createStore} from 'vuex'
 import { stay } from './modules/stay.js'
+import {order} from './modules/order.js'
 
 export const store = createStore({
     strict: true,
@@ -15,6 +16,7 @@ export const store = createStore({
     },
     modules: {
         stay,
+        order
     },
   })
   
