@@ -2,10 +2,13 @@
     <div>
         <div>Who</div>
         <div>Add guests</div>
-        <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
-        <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
-        <guest title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
-        <guest title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
+        <div class="guest-dropdown">
+            <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
+            <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
+            <guest title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
+            <guest title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
+        </div>
+
     </div>
 
 </template>

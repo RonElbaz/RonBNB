@@ -21,7 +21,7 @@
 
 body {
   margin: 0;
-
+  font-family: 'cereal' !important;
   // margin: 0;
   // background-color: $clr2;
 
@@ -154,4 +154,9 @@ li {
 }
 button {
   cursor: pointer;
+}
+
+nav {
+  // padding: 14.6px 0;
+  height: 80px;
 }

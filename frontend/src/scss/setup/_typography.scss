@@ -9,9 +9,14 @@
 }
 @font-face {
   font-family: Airbnb_Cereal-Medium;
-  src: url(../../fonts/Airbnb_Cereal-Medium.ttf);
+  src: url(../../fonts/);
 }
 @font-face {
   font-family: cereal;
-  src: url(../../fonts/Airbnb_Cereal-Book.ttf);
+  src: url(../fonts/Airbnb_Cereal-Book.ttf);
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url(../fonts/Airbnb_Cereal-Medium.ttf);
 }

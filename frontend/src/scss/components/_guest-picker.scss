@@ -1,0 +1,14 @@
+.guest-dropdown {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  padding: 40px;
+  width: 100%;
+  //   height: 100%;
+  max-width: 250px;
+  z-index: 2;
+  top: 100px;
+  left: 600px;
+}
