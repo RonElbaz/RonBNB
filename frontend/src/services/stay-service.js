@@ -97,7 +97,7 @@ async function _createStays() {
   var stays = JSON.parse(localStorage.getItem(DB_KEY))
   if (!stays || !stays.length) {
     stays = await (await fetch("../../data/stay.json")).json()
-    // stays = stays.splice(0, 100)
+    stays = stays.splice(0, 20)
     console.log(stays)
     localStorage.setItem(DB_KEY, JSON.stringify(stays))
   }

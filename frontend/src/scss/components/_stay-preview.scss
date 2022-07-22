@@ -17,6 +17,23 @@
 
     .stay-address{
         color: $clr1;
+        font-weight: 600;
+        font-size: 16px;
+        // font-family: Circular-bold;
+        // font-family: Circular;
+        font-family: cereal;
+    }
+
+    .stay-price{
+        font-family: Circular-bold;
+        color: $clr1;
+        font-size: 16px;
+    }
+
+    .stay-night{
+        font-family: cereal;
+        color: $clr2;
+        font-size: 15px;
     }
 
     .like-btn {
