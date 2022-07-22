@@ -5,18 +5,18 @@
             <button class="clean-button">
                 <div class="image-and-txt flex column">
                     <img class="label-image" src="../images/label-images/islands.jpg" alt="">
-                    <p class="label-txt">Islands</p>
+                    <p class="label-txt circular">Islands</p>
                 </div>
                 <button class="clean-button">
                     <div class="image-and-txt flex column">
                         <img class="label-image" src="../images/label-images/beach.jpg" alt="">
-                        <p class="label-txt">Beach</p>
+                        <p class="label-txt circular">Beach</p>
                     </div>
                 </button>
                 <button class="clean-button">
                     <div class="image-and-txt flex column">
                         <img class="label-image" src="../images/label-images/pool.jpg" alt="">
-                        <p class="label-txt">Amazing pools</p>
+                        <p class="label-txt circular">Amazing pools</p>
                     </div>
                 </button>
             </button>
@@ -24,29 +24,29 @@
             <button class="clean-button">
                 <div class="image-and-txt flex column">
                     <img class="label-image" src="../images/label-images/omg.jpg" alt="">
-                    <p class="label-txt">OMG!</p>
+                    <p class="label-txt circular">OMG!</p>
                 </div>
             </button>
             <button class="clean-button">
                 <div class="image-and-txt flex column">
                     <img class="label-image" src="../images/label-images/camping.jpg" alt="">
-                    <p class="label-txt">Camping</p>
+                    <p class="label-txt circular">Camping</p>
                 </div>
             </button>
             <button class="clean-button">
                 <div class="image-and-txt flex column">
                     <img class="label-image" src="../images/label-images/desert.jpg" alt="">
-                    <p class="label-txt">Desert</p>
+                    <p class="label-txt circular">Desert</p>
                 </div>
             </button>
             <button class="clean-button">
                 <div class="image-and-txt flex column">
                     <img class="label-image" src="../images/label-images/artcit.jpg" alt="">
-                    <p class="label-txt">Article</p>
+                    <p class="label-txt circular">Article</p>
                 </div>
             </button>
         </div>
-        <button class="btn btn-filter" text @click="dialogFormVisible = true">Filters</button>
+        <button class="btn btn-filter circular" text @click="dialogFormVisible = true">Filters</button>
     </section>
     <el-dialog v-model="dialogFormVisible" title="Filters" center>
         <el-form :model="form" class="filter-form-layout">
