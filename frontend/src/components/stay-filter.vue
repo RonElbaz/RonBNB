@@ -89,7 +89,6 @@
             </span>
         </template>
     </el-dialog>
-<pre>{{form}}</pre>
 </template>
 <script>
 
@@ -101,7 +100,7 @@ export default {
             dialogFormVisible: false,
             placeTypeValues: ["A place all to yourself", "Your own room in a home or a hotel, plus some shared common spaces", "A sleeping space and common areas that may be shared with others"],
             placeType: [
-                "Entire place",
+                "Entire home",
                 "Private room",
                 "Shared room"
             ],
