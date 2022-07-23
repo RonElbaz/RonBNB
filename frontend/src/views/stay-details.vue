@@ -11,7 +11,7 @@
                 </h3>
             </div>
         </section>
-        <div>
+        <div>z
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
@@ -41,10 +41,7 @@
                         </li>
                     </ul>
                 </div>
-<<<<<<< HEAD
-=======
                 <img class="host-img" :src=randomUser(0) alt="">
->>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
             </div>
             <section class="reserve" >
                 <div class="flex space-between">
@@ -215,13 +212,6 @@ export default {
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
-<<<<<<< HEAD
-        randomUser() {
-            var image = stayService.getRandomInt(1, 26)
-            return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
-        },
-=======
->>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
 
 
 
