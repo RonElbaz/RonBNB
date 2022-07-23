@@ -127,7 +127,7 @@ export default {
             throw new Error('cannot get stay')
         }
         this.commentsArr = stayService.getRandomArr()
-        console.log(this.commentsArr)
+        // console.log(this.commentsArr)
 
     },
     methods: {
@@ -191,7 +191,6 @@ export default {
             ev.target.style.setProperty('--mouse-y', this.mouseY)
         },
         randomUser(idx) {
-            
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
         selectDatePicker(){
