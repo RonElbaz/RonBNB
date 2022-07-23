@@ -23,7 +23,6 @@ export default {
     this.$store.dispatch({type:"loadStays"})
     this.$store.dispatch({type:'loadUser'})
   },
-  unmounted() {},
 };
 </script>
 

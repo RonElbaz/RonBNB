@@ -1,3 +1,4 @@
+import { stay } from "../store/modules/stay.js"
 import { storageService } from "./storage-service.js"
 // const stays = require('../../data/stay.json')
 export const stayService = {
