@@ -26,7 +26,7 @@
                         }}
                     </p>
                 </div>
-                <img class="host-img" :src="randomUser()" alt="">
+                <img class="host-img" :src=randomUser alt="">
             </div>
             <div v-if="stay" class="amenities-area  gray-underline">
                 <h1 class="amenities-title">What this place offers</h1>
@@ -45,17 +45,14 @@
                     <h1> $ {{ stay.price }} night</h1>
                     <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
                         <span class="dot-separate">·</span>
-                        {{stay.numOfReviews}} reviews
+                        {{ stay.numOfReviews }} reviews
                     </h1>
                 </div>
                 <div class="date-area">
                     <h1>date will be here</h1>
                 </div>
-<<<<<<< HEAD
-                <button class="bnb-btn" style="background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%); --mouse-x:66.3438; --mouse-y:41.6667;">Reserve</button>
-=======
-                <button @click="onAddOrder">Reserve</button>
->>>>>>> 2d214c8c7acb679d44e3517ba357b70a19fbce97
+                <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
+                    @click="onAddOrder">Reserve</button>
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
@@ -69,7 +66,7 @@
                 <li v-for="review in formatedreviews" :key="stay._id">
                     <div class="review-container">
                         <div class="review-info flex ">
-                            <img class="user-img" :src="randomUser()" alt="">
+                            <img class="user-img" :src=randomUser alt="">
                             <h1 class="user-info"><span class="user-name-review">{{ review.by.fullname }} </span> <br>
                                 <span class="review-date">{{ timeFormat(review.at) }}</span>
                             </h1>
@@ -81,7 +78,7 @@
             </div>
         </div>
     </section>
-    <pre>{{stay}}</pre>
+    <pre>{{ stay }}</pre>
 </template>
 
 <script>
@@ -97,6 +94,8 @@ export default {
             // longAmenities: null,
             formatedAmenities: null,
             formatedreviews: null,
+            mouseX: 0,
+            mouseY: 0,
             //TODO: uncomment when we have user service
             //user: null,
             //stayDate: {},
@@ -127,10 +126,6 @@ export default {
             if (amenitie === 'Air conditioning') return '<i class="fa-solid fa-snowflake"></i>'
             if (amenitie === 'Wheelchair accessible') return '<i class="fa-solid fa-wheelchair"></i>'
         },
-        randomUser() {
-            var image = stayService.getRandomInt(1, 26)
-            return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
-        },
         timeFormat(time) {
             const date = new Date(time)
             const month = date.toLocaleString('default', { month: 'long' })
@@ -138,7 +133,7 @@ export default {
             return `${month} ${year}`
         },
         formatReviewScore(score) {
-            if (score[0] !== 'rating'){
+            if (score[0] !== 'rating') {
                 return `<h2 class="score-title"> ${score[0]}</h2>
                 <div class="progress-bar-container flex">
                     <progress class="progress-bar" value="${score[1]}" max="10"></progress>
@@ -147,9 +142,9 @@ export default {
 
             }
         },
-        onAddOrder(){
+        onAddOrder() {
             var order;
-            
+
             order.hostId = this.stay._id
             order.createdAt = Date.now()
             //TODO: uncomment when we have user service
@@ -164,9 +159,19 @@ export default {
             //order.status = "pending"
             //order.stay.name = this.stay.name
             //order.stay.price = this.stay.price
-            
+
             //TODO:uncomment when we can get date input from user
             //this.$store.dispatch({type:'addOrder', order})
+        },
+        getPos(ev) {
+            // console.log(ev)
+            var rect = ev.target.getBoundingClientRect();
+            var x = ev.clientX - rect.left; //x position within the element.
+            var y = ev.clientY - rect.top;  //y position within the element.
+            this.mouseX = x
+            this.mouseY = y
+            ev.target.style.setProperty('--mouse-x', this.mouseX)
+            ev.target.style.setProperty('--mouse-y', this.mouseY)
         }
     },
     computed: {
@@ -191,6 +196,11 @@ export default {
         },
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
+        },
+        randomUser() {
+            var image = stayService.getRandomInt(1, 26)
+            console.log(image);
+            return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
         },
 
 
