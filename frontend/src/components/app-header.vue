@@ -25,44 +25,31 @@
                 </div>
             </nav>
             <transition name="mobile-nav">
-                <div v-if="modalSearch" class=" search-modal" @click="showSearchTxt" v-click-outside="closeSearchTxt">
-                    <div class="flex align-items-center border-thin-black-roundalign-self-center search ">
-                        <div class="dest-container" @click="selectDestPicker" v-click-outside="unSelectDestPicker"
+                <div v-if="modalSearch" class=" search-modal flex justify-content-center">
+                    <div class="flex align-items-center border-thin-black-roundalign-self-center search-bar"
+                        @click="showSearchTxt" v-click-outside="closeSearchTxt"
+                        :class="{ 'search-modal-active': isSearchModalActive }">
+                        <div class="dest-container flex align-items-center " @click="selectDestPicker"
+                            v-click-outside="unSelectDestPicker"
                             :class="{ 'selected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
                             <label class="dest-wraper" for="dest">
-                                <div class=" destination">
-                                    <div class="header">Where</div>
-                                    <input id="dest" type="text" class="text" placeholder="Search destinations"
-                                        v-model="destination" @blur="addDestination">
-                                </div>
+                                <div class="header">Where</div>
+                                <input id="dest" autocomplete="off" type="text" class="text"
+                                    placeholder="Search destinations" v-model="destination" @blur="addDestination">
                             </label>
                         </div>
-                        <!-- <div class="start-date" @click="selectDatePicker" v-click-outside="unSelectDatePicker"
-                            :class="{ 'selected-picker': !isDatePickerSelected, 'selected-date': isDatePickerSelected }">
-                            <div class="header">Check in</div>
-                            <div class="text">Add dates</div>
-                        </div> -->
-                        <!-- <div class="line">
-                            <div class="dummy">a</div>
-                        </div> -->
-
-                        <!-- <div class="end-date">
-                            <div class="header">Check out</div>
-                            <div class="text">Add dates</div>
-                        </div> -->
-
-                        <date-picker id="date" @getDate="buildDate" class="date-picker" />
+                        <date-picker id="date" @getDate="buildDate" class="date-component" />
 
                         <guests-picker @addGuests="addGuest" @click="selectGuestPicker"
                             v-click-outside="unSelectGuestPicker"
                             :class="{ 'selected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
                             class="clean-button guest-modal" />
-                        <div v-if="!isSearchTxt" class="search-modal-logo" @click="searchFilter"><i
+                        <div v-if="!isSearchModalActive" class="search-modal-logo" @click="searchFilter"><i
                                 class="fa-solid fa-magnifying-glass">
                             </i>
                         </div>
-                        <div v-if="isSearchTxt" class="search-modal-logo-open flex space-between align-items-center"
-                            @click="searchFilter">
+                        <div v-if="isSearchModalActive"
+                            class="search-modal-logo-open flex space-between align-items-center" @click="searchFilter">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <div class="search-modal-logo-open-txt">Search</div>
                         </div>
@@ -93,7 +80,7 @@ export default {
             isGuestPickerSelected: false,
             isDestPickerSelected: false,
             isDatePickerSelected: false,
-            isSearchTxt: false,
+            isSearchModalActive: false,
         }
     },
     created() {
@@ -103,10 +90,10 @@ export default {
     methods: {
         aaa() { console.log("aaa") },
         showSearchTxt() {
-            this.isSearchTxt = true
+            this.isSearchModalActive = true
         },
         closeSearchTxt() {
-            this.isSearchTxt = false
+            this.isSearchModalActive = false
         },
         openModalSearchDest() {
             this.modalSearch = true

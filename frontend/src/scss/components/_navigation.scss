@@ -266,95 +266,74 @@ header {
   background-color: white;
   width: 100%;
   left: 0;
-  & > .search {
+  & > .search-bar {
+    // general
     width: 850px;
-    margin: auto;
-    height: 63px;
+    height: 66px;
     border-radius: 32px;
     position: relative;
     padding-left: 0;
-    // border: 1px solid rgba(0, 0, 0, 0.086);
-    // when clicked a button give a soft light gray background color
-    // background-color: rgba(0, 0, 0, 0.063);
+    border: 1px solid #dddddd;
+    margin-top: -1px;
     margin-bottom: 15px;
+    // destination section
     .dest-container {
-      height: 63px;
-      width: 249px;
+      height: 66px;
+      width: 268px;
       border-radius: 32px;
       .dest-wraper {
-        .destination {
-          .header {
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.8px;
-          }
-          .text {
-            font-size: 12px;
-            border: none;
-          }
-          .text::placeholder {
-            position: relative;
-            left: -3px;
-            font-size: 14px;
-            letter-spacing: 0.2px;
-          }
-        }
-        .destination:hover {
-        }
+        margin-left: 31.5px;
         box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
-        padding-left: 22px;
-        padding-right: 86px;
+        // height: 10px;
+        width: inherit;
+        .header {
+          font-size: 12px;
+          font-family: Circular-bold;
+          letter-spacing: 0.5px;
+        }
+        .text {
+          border: none;
+          outline: none;
+          background-color: inherit;
+        }
+        .text::placeholder {
+          position: relative;
+          left: -2px;
+          font-size: 14px;
+          font-family: cereal;
+        }
+      }
+    }
+    .dest-container.selected-picker:hover {
+      background-color: #ebebeb;
+      .dest-wraper {
+        box-shadow: none;
       }
     }
 
-    .dest-container:hover {
+    // destination section
+    .date-component {
+      //  go to file _date-picker.scss
+      // .date-container {
+      //   .date-wraper {
+      //     .start-date {
+      //     }
+      //   }
+      // }
     }
+    .selected-picker:hover {
+      background-color: #ebebeb;
+    }
+  }
 
-    & .test {
-      // opacity: 1;
-      position: relative;
-      // left: 300px;
-      // z-index: -1;
-      // display: none;
-    }
-
-    & .date-picker {
-      width: 360px;
-      // opacity: 0;
-      // visibility: hidden;
-      // position: relative;
-      // z-index: -1;
-      // display: none;
-    }
+  & > .search-bar.search-modal-active {
+    background-color: #f7f7f7;
   }
 }
 
 .modal-header {
   box-shadow: none;
 }
-
-// .start-date {
-//   position: absolute;
-//   left: 38.5%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-
-//   // left: 680px;
-//   // top: 10px;
-//   // z-index: 5;
-//   & .header {
-//     font-size: 11.7px;
-//     font-weight: 600;
-//     letter-spacing: 0.76px;
-//   }
-
-//   & .text {
-//     font-size: 14px;
-//     // letter-spacing: 0.2px;
-//     color: #717171;
-//     margin-top: 3px;
-//   }
-// }
 
 .line {
   height: 32px;
@@ -368,37 +347,6 @@ header {
     visibility: hidden;
   }
 }
-
-// .end-date {
-//   position: absolute;
-//   left: 59.6%;
-//   top: 50%;
-//   transform: translate(-50%, -50%);
-
-//   // left: 680px;
-//   // top: 10px;
-//   // z-index: 5;
-//   & .header {
-//     font-size: 11.7px;
-//     font-weight: 600;
-//     letter-spacing: 0.76px;
-//   }
-
-//   & .text {
-//     font-size: 14px;
-//     // letter-spacing: 0.2px;
-//     color: #717171;
-//     margin-top: 3px;
-//   }
-
-//   &:hover {
-//     background-color: #000000;
-//   }
-// }
-
-// end-date:hover {
-//   background-color: #000000;
-// }
 
 .guest-modal {
   // this is the line for guest
@@ -473,10 +421,11 @@ header {
 // }
 
 .selected-dest {
-  // background-color: black;
+  background-color: white;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.selected-picker:hover {
-  background-color: #ebebeb;
+.selected-guest {
+  background-color: white;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }

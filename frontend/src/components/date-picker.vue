@@ -1,9 +1,23 @@
 <template>
-    <div class="demo-date-picker">
-        <div class="block">
-            <el-date-picker @blur="pick" v-model="value" type="daterange" start-placeholder="Start date"
-                end-placeholder="End date" :default-time="defaultTime" />
-        </div>
+    <div class="date-container">
+        <label for="a" class="flex date-wraper">
+            <div class="start-date">
+                <div class="start-date-line">
+                    <div class="header">Check in</div>
+                    <div class="text">Add dates</div>
+                </div>
+            </div>
+
+            <div class="end-date">
+                <div class="header">Check out</div>
+                <div class="text">Add dates</div>
+            </div>
+            <div class="date-picker">
+                <el-date-picker popper-class="header" id="a" @blur="pick" v-model="value" type="daterange"
+                    :default-time="defaultTime" />
+            </div>
+        </label>
+
     </div>
 </template>
 
@@ -12,31 +26,17 @@ import { ref } from 'vue'
 const emit = defineEmits(['getDate', 'eventB'])
 const value = ref('')
 const defaultTime = ref([
-    new Date(2000, 1, 1, 0, 0, 0),
-    new Date(2000, 2, 1, 23, 59, 59),
+    new Date(2022, 1, 1, 0, 0, 0),
+    new Date(2022, 2, 1, 23, 59, 59),
 ])
-
+// const elDivDatedocument.querySelector
 function pick() {
     const date = value.value
     emit("getDate", value)
 }
 </script>
 <style scoped>
-.demo-date-picker {
-    display: flex;
-    width: 100%;
-    padding: 0;
-    flex-wrap: wrap;
-}
-
-.demo-date-picker .block {
-    padding: 30px 0;
-    text-align: center;
-    border-right: solid 1px var(--el-border-color);
-    flex: 1;
-}
-
-.demo-date-picker .block:last-child {
-    border-right: none;
+.date-picker {
+    display: none;
 }
 </style>
