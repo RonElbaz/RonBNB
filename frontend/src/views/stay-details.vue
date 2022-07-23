@@ -26,7 +26,7 @@
                         }}
                     </p>
                 </div>
-                <img class="host-img" :src=randomUser alt="">
+                <img class="host-img" :src=randomUser(0) alt="">
             </div>
             <div v-if="stay" class="amenities-area  gray-underline">
                 <h1 class="amenities-title">What this place offers</h1>
@@ -63,10 +63,10 @@
                 </li>
             </div>
             <div class="reviews-container">
-                <li v-for="review in formatedreviews" :key="stay._id">
+                <li v-for="review, idx in formatedreviews" :key="stay._id">
                     <div class="review-container">
                         <div class="review-info flex ">
-                            <img class="user-img" :src=randomUser alt="">
+                            <img class="user-img" :src=randomUser(idx+1) alt="">
                             <h1 class="user-info"><span class="user-name-review">{{ review.by.fullname }} </span> <br>
                                 <span class="review-date">{{ timeFormat(review.at) }}</span>
                             </h1>
@@ -96,6 +96,7 @@ export default {
             formatedreviews: null,
             mouseX: 0,
             mouseY: 0,
+            commentsArr: [],
             //TODO: uncomment when we have user service
             //user: null,
             //stayDate: {},
@@ -114,6 +115,8 @@ export default {
         } catch (error) {
             throw new Error('cannot get stay')
         }
+        this.commentsArr = stayService.getRandomArr()
+        console.log(this.commentsArr)
 
     },
     methods: {
@@ -151,7 +154,7 @@ export default {
             //TODO: uncomment when we have user service
             order.buyer._id = this.user._id
             // order.buyer.fullname = this.user.host.fullname
-            
+
             //TODO:uncomment when we can get date input from user
             //order.startDate = this.stayDate.start
             //order.endDate = this.stayDate.end
@@ -175,7 +178,11 @@ export default {
             this.mouseY = y
             ev.target.style.setProperty('--mouse-x', this.mouseX)
             ev.target.style.setProperty('--mouse-y', this.mouseY)
-        }
+        },
+        randomUser(idx) {
+            
+            return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
+        },
     },
     computed: {
         superHost() {
@@ -199,10 +206,6 @@ export default {
         },
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
-        },
-        randomUser() {
-            var image = stayService.getRandomInt(1, 26)
-            return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
         },
 
 
