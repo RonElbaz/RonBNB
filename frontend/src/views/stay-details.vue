@@ -41,6 +41,10 @@
                         </li>
                     </ul>
                 </div>
+<<<<<<< HEAD
+=======
+                <img class="host-img" :src=randomUser(0) alt="">
+>>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
             </div>
             <section class="reserve" >
                 <div class="flex space-between">
@@ -67,10 +71,10 @@
                 </li>
             </div>
             <div class="reviews-container">
-                <li v-for="review in formatedreviews" :key="stay._id">
+                <li v-for="review, idx in formatedreviews" :key="stay._id">
                     <div class="review-container">
                         <div class="review-info flex ">
-                            <img class="user-img" :src=randomUser alt="">
+                            <img class="user-img" :src=randomUser(idx+1) alt="">
                             <h1 class="user-info"><span class="user-name-review">{{ review.by.fullname }} </span> <br>
                                 <span class="review-date">{{ timeFormat(review.at) }}</span>
                             </h1>
@@ -100,6 +104,7 @@ export default {
             formatedreviews: null,
             mouseX: 0,
             mouseY: 0,
+            commentsArr: [],
             //TODO: uncomment when we have user service
             //user: null,
             //stayDate: {},
@@ -109,7 +114,7 @@ export default {
         try {
             const { stayId } = this.$route.params
             //TODO: uncomment when we have user service
-            //this.user = this.$store.getters.getLoggedInUser 
+            this.user = this.$store.getters.getLoggedInUser 
             var stay = await stayService.getById(stayId)
             this.stay = stay
             // this.longAmenities = this.stay.amenities > 10
@@ -118,6 +123,8 @@ export default {
         } catch (error) {
             throw new Error('cannot get stay')
         }
+        this.commentsArr = stayService.getRandomArr()
+        console.log(this.commentsArr)
 
     },
     methods: {
@@ -147,12 +154,13 @@ export default {
             }
         },
         onAddOrder() {
-            var order;
-
+            var order = {
+                buyer:{},
+            };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
             //TODO: uncomment when we have user service
-            // order.buyer._id = this.user._id
+            order.buyer._id = this.user._id
             // order.buyer.fullname = this.user.host.fullname
 
             //TODO:uncomment when we can get date input from user
@@ -166,6 +174,8 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             //this.$store.dispatch({type:'addOrder', order})
+            
+            console.log(order);
         },
         getPos(ev) {
             // console.log(ev)
@@ -176,7 +186,11 @@ export default {
             this.mouseY = y
             ev.target.style.setProperty('--mouse-x', this.mouseX)
             ev.target.style.setProperty('--mouse-y', this.mouseY)
-        }
+        },
+        randomUser(idx) {
+            
+            return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
+        },
     },
     computed: {
         superHost() {
@@ -201,10 +215,13 @@ export default {
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
+<<<<<<< HEAD
         randomUser() {
             var image = stayService.getRandomInt(1, 26)
             return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
         },
+=======
+>>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
 
 
 
