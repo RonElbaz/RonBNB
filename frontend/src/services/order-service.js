@@ -15,6 +15,13 @@ async function query(){
     return orders
 }
 
+async function addOrder(order){
+    var newOrder;
+    if(order._id) newOrder = storageService.post(DB_KEY,order)
+    else newOrder = storageService.put(DB_KEY,order)
+    return newOrder
+}
+
 async function getById(orederId) {
     try {
       var stay = await storageService.get(DB_KEY, orederId)

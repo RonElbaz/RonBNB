@@ -8,6 +8,9 @@ export const order = {
      setOrders(state, {orders}){
         state.orders = orders
      },
+     addOrder(state, {newOrder}){
+        state.orders.push(newOrder)
+     }
     },
     actions:{
         async loadStays({commit}){
@@ -19,6 +22,15 @@ export const order = {
                 console.log("couldnt load orders", err)
             }
         },
+        async addOrder({commit},{order}){
+            try{
+                var newOrder = await orderService.addOrder(order)
+                commit({type:'addOrder', newOrder})
+            }
+            catch(err){
+                console.log("couldnt add order", err);
+            }
+        }
     },
     getters: {
         ordersForDisplay({orders}){
