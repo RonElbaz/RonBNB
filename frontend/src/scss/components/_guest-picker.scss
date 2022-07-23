@@ -1,14 +1,37 @@
 .guest-dropdown {
-  display: flex;
-  flex-direction: column;
   position: absolute;
   background-color: white;
-  border-radius: 10px;
-  padding: 40px;
-  width: 100%;
-  //   height: 100%;
-  max-width: 250px;
+  border-radius: 32px;
+  padding: 16px 32px;
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 4%), 0 8px 16px rgb(0 0 0 / 15%);
   z-index: 2;
   top: 100px;
-  left: 600px;
+  right: 0;
+  width: 400px;
+  height: 380px;
+}
+
+.guest {
+  & > .calc > button {
+    border-radius: 50%;
+    // border: 1px solid rgba(0 0 0 / 20%);
+    font-size: 23px;
+    height: 35px;
+    width: 35px;
+    color: gray;
+  }
+}
+
+.guest-modal {
+  height: 63px;
+  width: 220px;
+  border-radius: 32px;
+  right: 0;
+  position: absolute;
+}
+
+.selected-guest {
+  // background-color: black;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  width: 270px;
 }

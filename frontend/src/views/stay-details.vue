@@ -11,7 +11,7 @@
                 </h3>
             </div>
         </section>
-        <div>
+        <div>z
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
@@ -45,7 +45,6 @@
                         </li>
                     </ul>
                 </div>
-            
             </div>
             <section class="reserve" >
                 <div class="reserve-area flex column">
