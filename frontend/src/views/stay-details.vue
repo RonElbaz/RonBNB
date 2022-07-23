@@ -29,10 +29,10 @@
                     </div>
                        <img class="host-img" :src=randomUser(0) alt="">
                 </div>
-                <div class="description grey-underline">
+                <!-- <div class="description grey-underline">
                     <h1>Stay description</h1>
                     <p>{{stay.summary}}</p>
-                </div>
+                </div> -->
                 <div v-if="stay" class="amenities-area  gray-underline">
                     <h1 class="amenities-title">What this place offers</h1>
                     <ul class="amenities-ul">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <section class="reserve" >
-                <div class="reserve-area flex column">
+                <div class="reserve-area flex column space-between">
                 <div class=" reserve-header flex space-between">
                     <h1> $ {{ stay.price }} night</h1>
                     <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
