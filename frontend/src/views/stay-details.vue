@@ -105,7 +105,7 @@ export default {
         try {
             const { stayId } = this.$route.params
             //TODO: uncomment when we have user service
-            //this.user = this.$store.getters.getLoggedInUser 
+            this.user = this.$store.getters.getLoggedInUser 
             var stay = await stayService.getById(stayId)
             this.stay = stay
             // this.longAmenities = this.stay.amenities > 10
@@ -143,14 +143,15 @@ export default {
             }
         },
         onAddOrder() {
-            var order;
-
+            var order = {
+                buyer:{},
+            };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
             //TODO: uncomment when we have user service
-            // order.buyer._id = this.user._id
+            order.buyer._id = this.user._id
             // order.buyer.fullname = this.user.host.fullname
-
+            
             //TODO:uncomment when we can get date input from user
             //order.startDate = this.stayDate.start
             //order.endDate = this.stayDate.end
@@ -162,6 +163,8 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             //this.$store.dispatch({type:'addOrder', order})
+            
+            console.log(order);
         },
         getPos(ev) {
             // console.log(ev)
@@ -199,7 +202,6 @@ export default {
         },
         randomUser() {
             var image = stayService.getRandomInt(1, 26)
-            console.log(image);
             return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
         },
 
