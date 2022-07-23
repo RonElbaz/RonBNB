@@ -11,37 +11,44 @@
                 </h3>
             </div>
         </section>
-        <div>
+        <div>z
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
-            <div v-if="stay" class="host-info gray-underline">
-                <div class="host-text">
-                    <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
-                    <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
-                        {{ stay.bedrooms }}
-                        {{ bedroomString }} <span class="dot-separate">·</span> {{ stay.beds }} {{ bedString }}
-                        <span class="dot-separate">·</span> {{ stay.bathrooms }} {{
-                                bathroomString
-                        }}
-                    </p>
+            <div class="details-info">
+                <div v-if="stay" class="host-info gray-underline">
+                    <div class="host-text">
+                        <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
+                        <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
+                            {{ stay.bedrooms }}
+                            {{ bedroomString }} <span class="dot-separate">·</span> {{ stay.beds }} {{ bedString }}
+                            <span class="dot-separate">·</span> {{ stay.bathrooms }} {{
+                                    bathroomString
+                            }}
+                        </p>
+                    </div>
+                       <img class="host-img" :src=randomUser(0) alt="">
                 </div>
-                <img class="host-img" :src=randomUser(0) alt="">
+                <div class="description grey-underline">
+                    <h1>Stay description</h1>
+                    <p>{{stay.summary}}</p>
+                </div>
+                <div v-if="stay" class="amenities-area  gray-underline">
+                    <h1 class="amenities-title">What this place offers</h1>
+                    <ul class="amenities-ul">
+                        <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
+                            <div class="amenities-container">
+                                <p class="amenities-prop"><span class="amenities-symbol"
+                                        v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
+                                <!-- <span v-if="!isMore && longAmenities"></span></p> -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div v-if="stay" class="amenities-area  gray-underline">
-                <h1 class="amenities-title">What this place offers</h1>
-                <ul class="flex wrap">
-                    <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
-                        <div class="amenities-container">
-                            <p class="amenities-prop"><span class="amenities-symbol"
-                                    v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
-                            <!-- <span v-if="!isMore && longAmenities"></span></p> -->
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <section class="reserve">
-                <div class="flex space-between">
+            <section class="reserve" >
+                <div class="reserve-area flex column">
+                <div class=" reserve-header flex space-between">
                     <h1> $ {{ stay.price }} night</h1>
                     <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
                         <span class="dot-separate">·</span>
@@ -49,13 +56,16 @@
                     </h1>
                 </div>
                 <div class="date-area">
-                    <h1>date will be here</h1>
+                      <date-picker-try />
                 </div>
                 <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
                     @click="onAddOrder">Reserve</button>
+                    </div>
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
+                <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
+                    {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{stay.numOfReviews}} reviews  </h1>
             <div class="review-score">
                 <li v-for="reviewScore in Object.entries(stay.reviewScores)" :key="stay._id">
                     <div class="flex space-between" v-html="formatReviewScore(reviewScore)"></div>
@@ -78,12 +88,13 @@
             </div>
         </div>
     </section>
-    <pre>{{ stay }}</pre>
 </template>
 
 <script>
 import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
+import datePickerTry from '../components/date-picker-try.vue'
+// import stayReserve from '../components/stay-reserve.vue'
 
 export default {
     name: 'stay-details',
@@ -182,6 +193,9 @@ export default {
         randomUser(idx) {
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
+        selectDatePicker(){
+
+        }
     },
     computed: {
         superHost() {
@@ -211,7 +225,8 @@ export default {
 
     },
     components: {
-        imageGallery
+        imageGallery,
+       datePickerTry
     }
 }
 </script>

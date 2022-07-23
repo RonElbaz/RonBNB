@@ -1,23 +1,22 @@
 <template>
-    <div class="guest">
+    <div class="guest" @click="openGuest">
         <div class="header">Who</div>
         <div class="text">Add guests</div>
-        <div class="guest-dropdown">
+        <div v-if="isGuest" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
             <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
             <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
             <guest title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
             <guest title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
         </div>
-
     </div>
-
 </template>
-
 <script>
 import guest from './guest.vue'
+
 export default {
 
     name: "guests-picker",
+
     data() {
         return {
             scrollNav: null,
@@ -26,11 +25,18 @@ export default {
             windowWidth: null,
             selected: null,
             guests: {},
+            isGuest: false,
         }
     },
     created() {
     },
     methods: {
+        openGuest() {
+            this.isGuest = true
+        },
+        closeGuest() {
+            this.isGuest = false
+        },
         toogleMobileNav() {
             this.mobileNav = !this.mobileNav
         },

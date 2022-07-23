@@ -20,22 +20,25 @@ header {
 .bar {
   flex: 1 0 140px;
 
-  > *:nth-child(1) {
+  & .explore {
     padding: 10px;
     font-size: 14px;
     color: #000000;
     letter-spacing: 0.2px;
   }
 
-  > *:nth-child(2) {
-    // padding: 10px;
+  & .switch {
+    padding: 10px;
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 0.2px;
   }
 
-  > *:nth-child(3) {
-    padding: 10px 10px 5px 10px;
+  & .globe {
+    // padding: 10px 10px 5px 10px;
   }
 
-  > *:nth-child(4):hover {
+  & .user:hover {
     box-shadow: 0 1px 3px rgba(0 0 0 / 8%), 0 4px 12px rgba(0 0 0 / 5%);
     -webkit-transition: box-shadow 0.2s ease;
   }
@@ -93,6 +96,10 @@ header {
   padding-left: 10px;
   & > span {
     font-size: 20px;
+  }
+
+  &:hover {
+    box-shadow: 0 2.5px 2px rgba(0 0 0 / 10%), 0 4px 12px rgba(0 0 0 / 5%);
   }
 
   & > button {
@@ -265,31 +272,42 @@ header {
     height: 63px;
     border-radius: 32px;
     position: relative;
+    padding-left: 0;
     // border: 1px solid rgba(0, 0, 0, 0.086);
     // when clicked a button give a soft light gray background color
     // background-color: rgba(0, 0, 0, 0.063);
     margin-bottom: 15px;
-    & > label {
-      & > .destination {
-        & > .header {
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.8px;
+    .dest-container {
+      height: 63px;
+      width: 249px;
+      border-radius: 32px;
+      .dest-wraper {
+        .destination {
+          .header {
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+          }
+          .text {
+            font-size: 12px;
+            border: none;
+          }
+          .text::placeholder {
+            position: relative;
+            left: -3px;
+            font-size: 14px;
+            letter-spacing: 0.2px;
+          }
         }
-        & > .text {
-          font-size: 12px;
-          border: none;
+        .destination:hover {
         }
-        & > .text::placeholder {
-          position: relative;
-          left: -3px;
-          font-size: 14px;
-          letter-spacing: 0.2px;
-        }
+        box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+        padding-left: 22px;
+        padding-right: 86px;
       }
-      box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
-      padding-left: 22px;
-      padding-right: 86px;
+    }
+
+    .dest-container:hover {
     }
 
     & .test {
@@ -302,7 +320,8 @@ header {
 
     & .date-picker {
       width: 360px;
-      opacity: 0;
+      // opacity: 0;
+      // visibility: hidden;
       // position: relative;
       // z-index: -1;
       // display: none;
@@ -314,28 +333,28 @@ header {
   box-shadow: none;
 }
 
-.start-date {
-  position: absolute;
-  left: 38.5%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+// .start-date {
+//   position: absolute;
+//   left: 38.5%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
 
-  // left: 680px;
-  // top: 10px;
-  // z-index: 5;
-  & .header {
-    font-size: 11.7px;
-    font-weight: 600;
-    letter-spacing: 0.76px;
-  }
+//   // left: 680px;
+//   // top: 10px;
+//   // z-index: 5;
+//   & .header {
+//     font-size: 11.7px;
+//     font-weight: 600;
+//     letter-spacing: 0.76px;
+//   }
 
-  & .text {
-    font-size: 14px;
-    // letter-spacing: 0.2px;
-    color: #717171;
-    margin-top: 3px;
-  }
-}
+//   & .text {
+//     font-size: 14px;
+//     // letter-spacing: 0.2px;
+//     color: #717171;
+//     margin-top: 3px;
+//   }
+// }
 
 .line {
   height: 32px;
@@ -350,39 +369,40 @@ header {
   }
 }
 
-.end-date {
-  position: absolute;
-  left: 59.6%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+// .end-date {
+//   position: absolute;
+//   left: 59.6%;
+//   top: 50%;
+//   transform: translate(-50%, -50%);
 
-  // left: 680px;
-  // top: 10px;
-  // z-index: 5;
-  & .header {
-    font-size: 11.7px;
-    font-weight: 600;
-    letter-spacing: 0.76px;
-  }
+//   // left: 680px;
+//   // top: 10px;
+//   // z-index: 5;
+//   & .header {
+//     font-size: 11.7px;
+//     font-weight: 600;
+//     letter-spacing: 0.76px;
+//   }
 
-  & .text {
-    font-size: 14px;
-    // letter-spacing: 0.2px;
-    color: #717171;
-    margin-top: 3px;
-  }
+//   & .text {
+//     font-size: 14px;
+//     // letter-spacing: 0.2px;
+//     color: #717171;
+//     margin-top: 3px;
+//   }
 
-  &:hover {
-    background-color: #000000;
-  }
-}
+//   &:hover {
+//     background-color: #000000;
+//   }
+// }
 
-end-date:hover {
-  background-color: #000000;
-}
+// end-date:hover {
+//   background-color: #000000;
+// }
 
-.guest {
-  box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+.guest-modal {
+  // this is the line for guest
+  // box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.105);
   // margin-left: 10px;
   padding-left: 25px;
 
@@ -418,7 +438,45 @@ end-date:hover {
     top: 50%;
     transform: translate(-50%, -50%);
   }
+  &-txt {
+    // color: black;
+  }
+}
+
+.search-modal-logo-open {
+  margin: 8px 10px 7px 0;
+  background: linear-gradient(#e61e4d 0%, #e31c5f 50%, #d70466 100%);
+  border-radius: 32px;
+  padding: 16px;
+  height: 48px;
+  width: 111px;
+  position: absolute;
+  right: 0;
+  i {
+    // position: absolute;
+    color: white;
+    font-size: 15px;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+  }
+  &-txt {
+    font-size: 16px;
+    padding-left: 8px;
+    padding-right: 4px;
+    color: white;
+    // color: black;
+  }
 }
 // .nav-modal {
 //   height: 160px;
 // }
+
+.selected-dest {
+  // background-color: black;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.selected-picker:hover {
+  background-color: #ebebeb;
+}
