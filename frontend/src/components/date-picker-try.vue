@@ -1,38 +1,52 @@
 <template>
   <div class="demo-date-picker">
     <div class="block">
-      <p>Component value：{{ value }}</p>
-      <el-date-picker v-model="value" type="daterange" start-placeholder="Start date" end-placeholder="End date"
-        :default-time="defaultTime" />
+      <el-date-picker @change="emitDate"
+        v-model="SelectedDate"
+        type="daterange"
+        start-placeholder="Start date"
+        end-placeholder="End date"
+        id="R"
+        :default-time="defaultTime"
+      />
     </div>
   </div>
+
+  <!-- <div class="date-container">
+        <label for="R" class="flex date-wraper">
+            <div class="start-date">
+                <div class="header">Check in</div>
+                <div class="text">Add dates</div>
+            </div>
+
+            <div class="end-date">
+                <div class="header">Check out</div>
+                <div class="text">Add dates</div>
+            </div>
+            <div class="date-picker">
+                <el-date-picker id="R" @change="emitDate" @blur="emitDate" v-model="selectedDate" type="daterange"
+                    :default-time="defaultTime" />
+            </div>
+        </label>
+
+    </div> -->
 </template>
 
-<script lang="ts" setup>
-import { ref } from 'vue'
-
-const value = ref('')
-const defaultTime = ref([
-  new Date(2000, 1, 1, 0, 0, 0),
-  new Date(2000, 2, 1, 23, 59, 59),
-])
+<script>
+export default {
+    name: 'date-picker-try',
+    data(){
+      return {
+        SelectedDate:{
+        },
+      }
+    },
+    components: {
+    },
+    methods: {
+      emitDate(){
+        this.$emit("addDate", this.SelectedDate)
+      }
+    },
+}
 </script>
-<style scoped>
-.demo-date-picker {
-  display: flex;
-  width: 100%;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-.demo-date-picker .block {
-  padding: 30px 0;
-  text-align: center;
-  border-right: solid 1px var(--el-border-color);
-  flex: 1;
-}
-
-.demo-date-picker .block:last-child {
-  border-right: none;
-}
-</style>

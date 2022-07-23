@@ -3,9 +3,10 @@
     // width: 315px;
     position: relative;
 
-    .img-container {
+    .el-carousel__container {
         border-radius: 1rem;
         margin-bottom: 0.7rem;
+        width: 100% !important;
     }
 
     .stay-img {

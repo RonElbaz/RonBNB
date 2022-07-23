@@ -40,7 +40,7 @@
                         </div>
                         <date-picker id="date" @getDate="buildDate" class="date-component" />
 
-                        <guests-picker @addGuests="addGuest" @click="selectGuestPicker"
+                        <guests-picker :isHeader="true" @addGuests="addGuest" @click="selectGuestPicker"
                             v-click-outside="unSelectGuestPicker"
                             :class="{ 'selected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
                             class="clean-button guest-modal" />

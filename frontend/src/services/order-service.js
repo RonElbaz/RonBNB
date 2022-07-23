@@ -35,7 +35,7 @@ async function getById(orederId) {
     var orders = JSON.parse(localStorage.getItem(DB_KEY))
     if (!orders || !orders.length) {
       orders = _createOrder()
-      console.log(orders)
+    //   console.log(orders)
       localStorage.setItem(DB_KEY, JSON.stringify(orders))
     }
   }
