@@ -26,7 +26,7 @@
                         }}
                     </p>
                 </div>
-                <img class="host-img" :src="randomUser()" alt="">
+                <img class="host-img" :src=randomUser() alt="">
             </div>
             <div v-if="stay" class="amenities-area  gray-underline">
                 <h1 class="amenities-title">What this place offers</h1>
@@ -51,11 +51,7 @@
                 <div class="date-area">
                     <h1>date will be here</h1>
                 </div>
-<<<<<<< HEAD
-                <button class="bnb-btn" style="background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%); --mouse-x:66.3438; --mouse-y:41.6667;">Reserve</button>
-=======
                 <button @click="onAddOrder">Reserve</button>
->>>>>>> 2d214c8c7acb679d44e3517ba357b70a19fbce97
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
