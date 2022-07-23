@@ -51,7 +51,7 @@
                 <div class="date-area">
                     <h1>date will be here</h1>
                 </div>
-                <button>Reserve</button>
+                <button class="bnb-btn" style="background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%); --mouse-x:66.3438; --mouse-y:41.6667;">Reserve</button>
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
@@ -129,10 +129,10 @@ export default {
         },
         formatReviewScore(score) {
             if (score[0] !== 'rating'){
-                return `<h2> ${score[0]}</h2>
-                <div class="flex">
-                    <progress value="${score[1]}" max="10"></progress>
-                    <h2> ${(score[1]) / 2}</h2>
+                return `<h2 class="score-title"> ${score[0]}</h2>
+                <div class="progress-bar-container flex">
+                    <progress class="progress-bar" value="${score[1]}" max="10"></progress>
+                    <h2 class="score-number"> ${(score[1]) / 2}</h2>
                 </div>`
 
             }

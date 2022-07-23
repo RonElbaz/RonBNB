@@ -15,7 +15,7 @@
         object-fit: cover;
     }
 
-    .stay-address{
+    .stay-address {
         color: $clr1;
         font-weight: 600;
         font-size: 16px;
@@ -24,13 +24,13 @@
         font-family: cereal;
     }
 
-    .stay-price{
+    .stay-price {
         font-family: Circular-bold;
         color: $clr1;
         font-size: 16px;
     }
 
-    .stay-night{
+    .stay-night {
         font-family: cereal;
         color: $clr2;
         font-size: 15px;
@@ -60,8 +60,22 @@
     }
 
     .bold {
-        font-weight:600;
+        font-weight: 600;
         color: #222222;
     }
 
 }
+// .img-container{
+
+//     >:first-child {
+//         .el-carousel__arrow--left {
+//             display: none;
+//         }
+//     }
+// }
+
+// .el-carousel__container:nth-child(5) {
+//     .el-carousel__arrow--right {
+//         display: none;
+//     }
+// }
