@@ -2,14 +2,19 @@
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
     <section class="filter-container">
         <div class="labels flex ">
-            <button @click="onSetFilter(opt.label)" class="clean-button btn-label" v-for="opt in filterOpts">
-                <div class="image-and-txt flex column">
+            <button @click="onSetFilter(opt.label)" class="clean-button" v-for="opt in filterOpts">
+                <div :class="{ 'clicked-btn': type === opt.label }" @click="changedType(opt.label)"
+                    class="image-and-txt flex column btn-label">
                     <img class="label-image" :src="imgUrl(opt.src)" alt="">
                     <p class="label-txt circular">{{ opt.label }}</p>
+                    <div></div>
                 </div>
             </button>
         </div>
-        <button class="btn btn-filter circular" text @click="dialogFormVisible = true">Filters</button>
+        <button class="btn btn-filter" text @click="dialogFormVisible = true">
+            <img class="filter-img" src="../images/filtetr-image/filter-icon.png"
+            > <span class="btn-filter-txt">Filters</span> 
+        </button>
     </section>
     <el-dialog v-model="dialogFormVisible" title="Filters" center>
         <el-form :model="form" class="filter-form-layout">
@@ -145,6 +150,7 @@ export default {
                     label: "Article",
                     src: "../images/label-images/artcit.jpg",
                 }],
+            type: 'All',
             dialogFormVisible: false,
             placeTypeValues: ["A place all to yourself", "Your own room in a home or a hotel, plus some shared common spaces", "A sleeping space and common areas that may be shared with others"],
             placeType: [
@@ -209,6 +215,10 @@ export default {
         imgUrl(image) {
             return new URL(image, import.meta.url).href
         },
+        changedType(type) {
+            this.type = type
+        }
+
     },
 }
 </script>

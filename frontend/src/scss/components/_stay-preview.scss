@@ -15,24 +15,41 @@
         object-fit: cover;
     }
 
-    .stay-address{
+    .stay-address {
         color: $clr1;
         font-weight: 600;
         font-size: 16px;
-        // font-family: Circular-bold;
-        // font-family: Circular;
-        font-family: cereal;
+        font-family: Circular-bold;
     }
 
-    .stay-price{
+    .stay-rating {
+        font-size: 15px;
+        font-family: cereal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .star-rating {
+        font-size: 12px;
+        margin-inline-end: 5px;
+    }
+
+    .stay-price {
         font-family: Circular-bold;
         color: $clr1;
         font-size: 16px;
     }
 
-    .stay-night{
-        font-family: cereal;
+    .stay-date {
+        font-size: 15px;
         color: $clr2;
+        font-family: cereal;
+    }
+
+    .stay-night {
+        font-family: cereal;
+        color: $clr1;
         font-size: 15px;
     }
 
@@ -60,8 +77,23 @@
     }
 
     .bold {
-        font-weight:600;
+        font-weight: 600;
         color: #222222;
     }
 
 }
+
+// .img-container{
+
+//     >:first-child {
+//         .el-carousel__arrow--left {
+//             display: none;
+//         }
+//     }
+// }
+
+// .el-carousel__container:nth-child(5) {
+//     .el-carousel__arrow--right {
+//         display: none;
+//     }
+// }

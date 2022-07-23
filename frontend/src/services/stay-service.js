@@ -3,7 +3,7 @@ import { storageService } from "./storage-service.js"
 export const stayService = {
   query,
   getById,
-  getRandomInt,
+  getRandomArr,
 }
 
 const DB_KEY = "stayDB"
@@ -122,8 +122,21 @@ async function _createStays() {
   }
 }
 
-function getRandomInt(min, max) {
-  min = Math.ceil(min)
-  max = Math.floor(max)
-  return Math.floor(Math.random() * (max - min + 1)) + min
+function getRandomArr() {
+  var min = Math.ceil(1)
+  var max = Math.floor(26)
+  var arr = []
+  var count = 0
+  var randNum = Math.floor(Math.random() * (max - min + 1)) + min
+  while(count <= 11){
+    if(!arr.includes(randNum)){
+        arr.push(randNum)
+        count++
+        randNum = Math.floor(Math.random() * (max - min + 1)) + min
+    }
+    else{
+        randNum = Math.floor(Math.random() * (max - min + 1)) + min
+    }
+  }
+  return arr
 }

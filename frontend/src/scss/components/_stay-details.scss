@@ -35,80 +35,106 @@
 
     .bottom-area-details {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        grid-auto-rows: reapet(1fr);
-        grid-template-areas:
-            "info reserve";
-        column-gap: 200px;
+        grid-template-columns: 3fr 2fr;
+        grid-template-rows: 1fr;
+        grid-column-gap: 90px;
+        grid-row-gap: 0px;
 
-    }
-
-    // .stayyy {
-    //     flex-basis: 60%;
-    // }
-
-    .host-info {
-        display: flex;
-        justify-content: space-between;
-        // width: 700px;
-        padding-top: $padding-details-big;
-        padding-bottom: $padding-details-small;
-        grid-area: info;
-
-        .host-name {
-            // font-weight: 600;
-
-            font-size: 22px;
+        .reserve {
+            width: 372px;
+            padding: 24px;
+            grid-area: 1 / 2 / 2 / 3;
         }
 
-        .host-img {
-            border-radius: 50%;
-            object-fit: cover;
-            width: 3.5rem;
-            height: 3.5rem;
+        .details-info {
+            grid-area: 1 / 1 / 2 / 2;
         }
 
-        .rooms-info {
-            font-family: cereal;
-        }
-    }
-
-    .box {
-        border: 1px solid black;
-        width: 372px;
-        height: 496px;
-        padding: 24px;
-        grid-area: reserve;
-    }
-
-    .amenities-area {
-        padding-top: $padding-details-big;
-        padding-bottom: $padding-details-big;
-        // width: 700px;
-
-        .amenities-title {
-            font-size: 22px;
-            margin-bottom: $padding-details-small;
-        }
-
-        .amenities-prop {
-            font-family: cereal;
-        }
-
-        .amenities-symbol {
-            padding-inline-end: 1rem;
-        }
-
-        .amenities-container {
+        .host-info {
             display: flex;
-            width: 250px;
-            padding-bottom: 1rem;
+            justify-content: space-between;
+            // width: 700px;
+            padding-top: $padding-details-big;
+            padding-bottom: $padding-details-small;
+
+            .host-name {
+                // font-weight: 600;
+
+                font-size: 22px;
+            }
+
+            .host-img {
+                border-radius: 50%;
+                object-fit: cover;
+                width: 3.5rem;
+                height: 3.5rem;
+            }
+
+            .rooms-info {
+                font-family: cereal;
+            }
         }
+
+        .bnb-btn {
+            background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            transition: opacity 1.25s ease 0s !important;
+            min-width: 200px;
+            background-size: 200% 200%;
+            background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+            border: none;
+            height: 3rem;
+            width: 300px;
+        }
+
+
+
+
+        .amenities-area {
+            padding-top: $padding-details-big;
+            padding-bottom: $padding-details-big;
+
+            .amenities-ul {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-column-gap: 0px;
+                grid-row-gap: 0px;
+            }
+
+            .amenities-title {
+                font-size: 22px;
+                margin-bottom: $padding-details-small;
+            }
+
+            .amenities-prop {
+                font-family: cereal;
+            }
+
+            .amenities-symbol {
+                padding-inline-end: 1rem;
+            }
+
+            .amenities-container {
+                display: flex;
+                width: 250px;
+                padding-bottom: 1rem;
+            }
+
+        }
+
 
     }
 
     .reviews-area {
+        padding: 48px 0;
 
+        .review-rating{
+            margin-bottom: 32px;
+            font-size: 22px;
+
+            .star-rating{
+                font-size: 15px;
+            }
+        }
         .reviews-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -147,7 +173,6 @@
                 }
 
 
-
                 .user-info {
                     margin-inline-start: 1rem
                 }
@@ -158,5 +183,34 @@
             }
         }
     }
+}
 
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-top: 5px;
+}
+
+progress::-webkit-progress-bar {
+    background-color: lightgray;
+    border-radius: 40px;
+    width: 100%;
+    height: 4px;
+}
+
+progress::-webkit-progress-value {
+    background: $clr1;
+    border-radius: 40px;
+}
+
+.score-title {
+    font-family: cereal;
+    font-size: 1rem;
+}
+
+.score-number {
+    font-family: Circular-bold;
+    font-size: 12px;
+    margin-inline-start: 10px;
 }
