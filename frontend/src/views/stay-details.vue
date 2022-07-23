@@ -15,32 +15,34 @@
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
-            <div v-if="stay" class="host-info gray-underline">
-                <div class="host-text">
-                    <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
-                    <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
-                        {{ stay.bedrooms }}
-                        {{ bedroomString }} <span class="dot-separate">·</span> {{ stay.beds }} {{ bedString }}
-                        <span class="dot-separate">·</span> {{ stay.bathrooms }} {{
-                                bathroomString
-                        }}
-                    </p>
+            <div class="details-info">
+                <div v-if="stay" class="host-info gray-underline">
+                    <div class="host-text">
+                        <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
+                        <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
+                            {{ stay.bedrooms }}
+                            {{ bedroomString }} <span class="dot-separate">·</span> {{ stay.beds }} {{ bedString }}
+                            <span class="dot-separate">·</span> {{ stay.bathrooms }} {{
+                                    bathroomString
+                            }}
+                        </p>
+                    </div>
+                    <img class="host-img" :src=randomUser alt="">
                 </div>
-                <img class="host-img" :src=randomUser alt="">
+                <div v-if="stay" class="amenities-area  gray-underline">
+                    <h1 class="amenities-title">What this place offers</h1>
+                    <ul class="amenities-ul">
+                        <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
+                            <div class="amenities-container">
+                                <p class="amenities-prop"><span class="amenities-symbol"
+                                        v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
+                                <!-- <span v-if="!isMore && longAmenities"></span></p> -->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div v-if="stay" class="amenities-area  gray-underline">
-                <h1 class="amenities-title">What this place offers</h1>
-                <ul class="flex wrap">
-                    <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
-                        <div class="amenities-container">
-                            <p class="amenities-prop"><span class="amenities-symbol"
-                                    v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
-                            <!-- <span v-if="!isMore && longAmenities"></span></p> -->
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <section class="reserve">
+            <section class="reserve" >
                 <div class="flex space-between">
                     <h1> $ {{ stay.price }} night</h1>
                     <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
@@ -56,6 +58,8 @@
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
+                <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
+                    {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{stay.numOfReviews}} reviews  </h1>
             <div class="review-score">
                 <li v-for="reviewScore in Object.entries(stay.reviewScores)" :key="stay._id">
                     <div class="flex space-between" v-html="formatReviewScore(reviewScore)"></div>
@@ -78,12 +82,12 @@
             </div>
         </div>
     </section>
-    <pre>{{ stay }}</pre>
 </template>
 
 <script>
 import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
+import stayReserve from '../components/stay-reserve.vue'
 
 export default {
     name: 'stay-details',
@@ -199,7 +203,6 @@ export default {
         },
         randomUser() {
             var image = stayService.getRandomInt(1, 26)
-            console.log(image);
             return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
         },
 
@@ -207,7 +210,8 @@ export default {
 
     },
     components: {
-        imageGallery
+        imageGallery,
+        stayReserve
     }
 }
 </script>
