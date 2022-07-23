@@ -51,7 +51,11 @@
                 <div class="date-area">
                     <h1>date will be here</h1>
                 </div>
+<<<<<<< HEAD
                 <button class="bnb-btn" style="background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%); --mouse-x:66.3438; --mouse-y:41.6667;">Reserve</button>
+=======
+                <button @click="onAddOrder">Reserve</button>
+>>>>>>> 2d214c8c7acb679d44e3517ba357b70a19fbce97
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
@@ -77,6 +81,7 @@
             </div>
         </div>
     </section>
+    <pre>{{stay}}</pre>
 </template>
 
 <script>
@@ -91,12 +96,17 @@ export default {
             isMore: false,
             // longAmenities: null,
             formatedAmenities: null,
-            formatedreviews: null
+            formatedreviews: null,
+            //TODO: uncomment when we have user service
+            //user: null,
+            //stayDate: {},
         }
     },
     async created() {
         try {
             const { stayId } = this.$route.params
+            //TODO: uncomment when we have user service
+            //this.user = this.$store.getters.getLoggedInUser 
             var stay = await stayService.getById(stayId)
             this.stay = stay
             // this.longAmenities = this.stay.amenities > 10
@@ -137,6 +147,27 @@ export default {
 
             }
         },
+        onAddOrder(){
+            var order;
+            
+            order.hostId = this.stay._id
+            order.createdAt = Date.now()
+            //TODO: uncomment when we have user service
+            // order.buyer._id = this.user._id
+            // order.buyer.fullname = this.user.host.fullname
+
+            //TODO:uncomment when we can get date input from user
+            //order.startDate = this.stayDate.start
+            //order.endDate = this.stayDate.end
+            //order.totalPrice = calculate days amount somehow...
+            //order.guests = stayDate.guests
+            //order.status = "pending"
+            //order.stay.name = this.stay.name
+            //order.stay.price = this.stay.price
+            
+            //TODO:uncomment when we can get date input from user
+            //this.$store.dispatch({type:'addOrder', order})
+        }
     },
     computed: {
         superHost() {

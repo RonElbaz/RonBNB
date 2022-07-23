@@ -4,7 +4,6 @@
     <stay-filter />
   </div>
   <stay-list :stays="getStays" />
-  <!-- <pre>{{getStays}}</pre> -->
 </template>
 
 <script>
@@ -34,7 +33,7 @@ export default {
   computed: {
     getStays() {
       return this.$store.getters.staysForDisplay
-    }
+    },
   },
 };
 </script>
