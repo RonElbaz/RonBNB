@@ -2,12 +2,12 @@
 	{
 		"name": "Westin Kaanapali KORVN 2BR",
 		"summary": "Westin Kaanapali Ocean Resort Villas North timeshare - Pay resort: $14-20/day, stays under 7 night $38/res - Inquire about availability, I review then offer/approve if available :) - READ \"The Space\" for cleaning/etc AND brief explanation about timeshare reservations - Want guaranteed view for additional cost? Must be weekly rental, other restrictions - Wheelchair accessible / ADA, call resort directly to ensure U receive. If U need ADA U MUST inform us BEFORE booking.",
-		"interaction": "There are activities programs and concierge activities booking services at this resort.", 
+		"interaction": "There are activities programs and concierge activities booking services at this resort.",
 		"houseRules": "No smoking; No Pets; This resort's rules apply. Please call the resort directly to verify details.",
 		"propertyType": "Serviced apartment",
 		"roomType": "Entire home/apt",
 		"bedType": "Real Bed",
-		"cancellationPolicy": "strict_14_with_grace_period",  
+		"cancellationPolicy": "strict_14_with_grace_period",
 		"capacity": 8,
 		"bedrooms": 2,
 		"beds": 4,
@@ -79,7 +79,7 @@
 			"thumbnailUrl": "https://a0.muscache.com/im/pictures/542dba0c-eb1b-4ab3-85f3-94d3cc8f87a4.jpg?aki_policy=profile_small",
 			"pictureUrl": "https://a0.muscache.com/im/pictures/542dba0c-eb1b-4ab3-85f3-94d3cc8f87a4.jpg?aki_policy=profile_x_medium",
 			"isSuperhost": true,
-			"id": "36133410" 
+			"id": "36133410"
 		},
 		"address": {
 			"street": "Lahaina, HI, United States",
@@ -91,12 +91,15 @@
 			"countryCode": "US",
 			"city": "Maui"
 		},
-		"id": "12223067", 
+		"id": "12223067",
 		"bathrooms": 2,
 		"price": 595,
 		"securityDeposit": 500,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 5,
 			"cleanliness": 5,
@@ -262,7 +265,7 @@
 		"price": 30,
 		"securityDeposit": 150,
 		"cleaningFee": 8,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -270,7 +273,7 @@
 			"communication": 10,
 			"location": 9,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -417,7 +420,10 @@
 		"price": 65,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -678,7 +684,10 @@
 		"price": 79,
 		"securityDeposit": 250,
 		"cleaningFee": 80,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -950,7 +959,7 @@
 		"price": 40,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -1049,7 +1058,7 @@
 		"price": 25,
 		"securityDeposit": null,
 		"cleaningFee": 25,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -1337,7 +1346,7 @@
 		"price": 110,
 		"securityDeposit": 0,
 		"cleaningFee": 10,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -1629,7 +1638,10 @@
 		"price": 29,
 		"securityDeposit": 0,
 		"cleaningFee": 10,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -1909,7 +1921,7 @@
 		"price": 26,
 		"securityDeposit": null,
 		"cleaningFee": 8,
-		"extraPeople": 5,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -2031,7 +2043,7 @@
 		"price": 105,
 		"securityDeposit": null,
 		"cleaningFee": 60,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -2351,7 +2363,7 @@
 		"price": 800,
 		"securityDeposit": 2000,
 		"cleaningFee": 325,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -2359,7 +2371,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -2600,7 +2612,7 @@
 		"price": 264,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 26,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -2881,7 +2893,10 @@
 		"price": 169,
 		"securityDeposit": 200,
 		"cleaningFee": 60,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -3194,7 +3209,7 @@
 		"price": 130,
 		"securityDeposit": 300,
 		"cleaningFee": 65,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -3479,7 +3494,10 @@
 		"price": 225,
 		"securityDeposit": 1000,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -3755,7 +3773,7 @@
 		"price": 463,
 		"securityDeposit": 800,
 		"cleaningFee": 120,
-		"extraPeople": 80,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -4068,7 +4086,7 @@
 		"price": 400,
 		"securityDeposit": 200,
 		"cleaningFee": 270,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -4213,7 +4231,10 @@
 		"price": 85,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -4221,7 +4242,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -4331,7 +4352,10 @@
 		"price": 55,
 		"securityDeposit": 500,
 		"cleaningFee": 80,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -4488,7 +4512,10 @@
 		"price": 190,
 		"securityDeposit": 0,
 		"cleaningFee": 105,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -4496,7 +4523,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -4647,7 +4674,10 @@
 		"price": 799,
 		"securityDeposit": 500,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -4655,7 +4685,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -4777,7 +4807,10 @@
 		"price": 348,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -5070,7 +5103,7 @@
 		"price": 152,
 		"securityDeposit": 400,
 		"cleaningFee": 165,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -5347,7 +5380,10 @@
 		"price": 275,
 		"securityDeposit": 0,
 		"cleaningFee": 35,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -5521,7 +5557,7 @@
 		"price": 130,
 		"securityDeposit": 250,
 		"cleaningFee": null,
-		"extraPeople": 70,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -5806,7 +5842,7 @@
 		"price": 155,
 		"securityDeposit": 200,
 		"cleaningFee": 30,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -6092,7 +6128,10 @@
 		"price": 40,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -6378,7 +6417,10 @@
 		"price": 171,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -6386,7 +6428,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -6484,7 +6526,10 @@
 		"price": 30,
 		"securityDeposit": 0,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -6788,7 +6833,10 @@
 		"price": 112,
 		"securityDeposit": 373,
 		"cleaningFee": 131,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -7071,7 +7119,7 @@
 		"price": 38,
 		"securityDeposit": null,
 		"cleaningFee": 19,
-		"extraPeople": 8,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -7267,7 +7315,7 @@
 		"price": 101,
 		"securityDeposit": 128,
 		"cleaningFee": 120,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -7275,7 +7323,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -7362,7 +7410,7 @@
 		"price": 90,
 		"securityDeposit": 200,
 		"cleaningFee": 30,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -7649,7 +7697,7 @@
 		"price": 298,
 		"securityDeposit": 600,
 		"cleaningFee": 180,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -7972,7 +8020,7 @@
 		"price": 230,
 		"securityDeposit": 0,
 		"cleaningFee": 295,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -8252,7 +8300,10 @@
 		"price": 200,
 		"securityDeposit": 0,
 		"cleaningFee": 125,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -8260,7 +8311,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -8518,7 +8569,7 @@
 		"price": 250,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 150,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 6,
 			"cleanliness": 10,
@@ -8610,7 +8661,7 @@
 		"price": 416,
 		"securityDeposit": 1000,
 		"cleaningFee": 200,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -8825,7 +8876,10 @@
 		"price": 200,
 		"securityDeposit": 700,
 		"cleaningFee": 200,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -8833,7 +8887,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -8909,7 +8963,7 @@
 		"price": 1146,
 		"securityDeposit": 1500,
 		"cleaningFee": 285,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -9208,7 +9262,10 @@
 		"price": 469,
 		"securityDeposit": null,
 		"cleaningFee": 199,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 7,
@@ -9300,7 +9357,7 @@
 		"price": 320,
 		"securityDeposit": 300,
 		"cleaningFee": 50,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 9,
@@ -9464,7 +9521,7 @@
 		"price": 90,
 		"securityDeposit": 150,
 		"cleaningFee": 60,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -9472,7 +9529,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -9744,7 +9801,10 @@
 		"price": 1099,
 		"securityDeposit": 1000,
 		"cleaningFee": 500,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -9752,7 +9812,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 8,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -9853,7 +9913,10 @@
 		"price": 997,
 		"securityDeposit": 1000,
 		"cleaningFee": 500,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -10054,7 +10117,7 @@
 		"price": 55,
 		"securityDeposit": 150,
 		"cleaningFee": 25,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -10353,7 +10416,7 @@
 		"price": 35,
 		"securityDeposit": null,
 		"cleaningFee": 10,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -10510,7 +10573,10 @@
 		"price": 144,
 		"securityDeposit": 250,
 		"cleaningFee": 150,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -10591,7 +10657,10 @@
 		"price": 502,
 		"securityDeposit": 7000,
 		"cleaningFee": 200,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -10721,7 +10790,10 @@
 		"price": 209,
 		"securityDeposit": 309,
 		"cleaningFee": 180,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -10860,7 +10932,10 @@
 		"price": 125,
 		"securityDeposit": 350,
 		"cleaningFee": 80,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -11171,7 +11246,10 @@
 		"price": 385,
 		"securityDeposit": 300,
 		"cleaningFee": 270,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -11358,7 +11436,10 @@
 		"price": 70,
 		"securityDeposit": 150,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -11366,7 +11447,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -11468,7 +11549,7 @@
 		"price": 90,
 		"securityDeposit": 200,
 		"cleaningFee": 30,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -11761,7 +11842,7 @@
 		"price": 689,
 		"securityDeposit": 1500,
 		"cleaningFee": 650,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -12050,7 +12131,7 @@
 		"price": 1350,
 		"securityDeposit": 0,
 		"cleaningFee": 450,
-		"extraPeople": 120,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -12342,7 +12423,10 @@
 		"price": 1499,
 		"securityDeposit": 2000,
 		"cleaningFee": 300,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -12533,7 +12617,7 @@
 		"price": 45,
 		"securityDeposit": 0,
 		"cleaningFee": 26,
-		"extraPeople": 5,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -12811,7 +12895,7 @@
 		"price": 100,
 		"securityDeposit": 0,
 		"cleaningFee": 20,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -13103,7 +13187,7 @@
 		"price": 35,
 		"securityDeposit": 0,
 		"cleaningFee": 25,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -13343,7 +13427,7 @@
 		"price": 74,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 42,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -13621,7 +13705,7 @@
 		"price": 68,
 		"securityDeposit": null,
 		"cleaningFee": 25,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -13863,7 +13947,7 @@
 		"price": 38,
 		"securityDeposit": 150,
 		"cleaningFee": 20,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -14145,7 +14229,10 @@
 		"price": 75,
 		"securityDeposit": 150,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -14220,7 +14307,7 @@
 		"price": 60,
 		"securityDeposit": null,
 		"cleaningFee": 5,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -14228,7 +14315,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -14323,7 +14410,7 @@
 		"price": 264,
 		"securityDeposit": 0,
 		"cleaningFee": 30,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -14497,7 +14584,10 @@
 		"price": 110,
 		"securityDeposit": 200,
 		"cleaningFee": 140,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -14505,7 +14595,7 @@
 			"communication": 10,
 			"location": 9,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -14773,7 +14863,7 @@
 		"price": 60,
 		"securityDeposit": 500,
 		"cleaningFee": 55,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -15054,7 +15144,7 @@
 		"price": 74,
 		"securityDeposit": null,
 		"cleaningFee": 0,
-		"extraPeople": 24,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -15248,7 +15338,10 @@
 		"price": 148,
 		"securityDeposit": null,
 		"cleaningFee": 115,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -15531,7 +15624,7 @@
 		"price": 49,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -15835,7 +15928,10 @@
 		"price": 185,
 		"securityDeposit": 800,
 		"cleaningFee": 120,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -15843,7 +15939,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -16105,7 +16201,10 @@
 		"price": 311,
 		"securityDeposit": null,
 		"cleaningFee": 156,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -16113,7 +16212,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -16209,7 +16308,7 @@
 		"price": 139,
 		"securityDeposit": 0,
 		"cleaningFee": 25,
-		"extraPeople": 140,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -16487,7 +16586,10 @@
 		"price": 149,
 		"securityDeposit": 300,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -16783,7 +16885,7 @@
 		"price": 123,
 		"securityDeposit": 400,
 		"cleaningFee": 105,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -17049,7 +17151,7 @@
 		"price": 125,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -17245,7 +17347,10 @@
 		"price": 20,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -17445,7 +17550,7 @@
 		"price": 255,
 		"securityDeposit": 300,
 		"cleaningFee": 90,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -17727,7 +17832,10 @@
 		"price": 133,
 		"securityDeposit": 500,
 		"cleaningFee": 150,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -17880,7 +17988,7 @@
 		"price": 267,
 		"securityDeposit": null,
 		"cleaningFee": 150,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -18177,7 +18285,10 @@
 		"price": 502,
 		"securityDeposit": 800,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -18468,7 +18579,7 @@
 		"price": 128,
 		"securityDeposit": 1500,
 		"cleaningFee": 75,
-		"extraPeople": 45,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -18771,7 +18882,7 @@
 		"price": 85,
 		"securityDeposit": 250,
 		"cleaningFee": 30,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -18779,7 +18890,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -19060,7 +19171,7 @@
 		"price": 264,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 36,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -19351,7 +19462,7 @@
 		"price": 43,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -19633,7 +19744,10 @@
 		"price": 95,
 		"securityDeposit": 150,
 		"cleaningFee": 45,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -19914,7 +20028,10 @@
 		"price": 85,
 		"securityDeposit": 100,
 		"cleaningFee": 40,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 7,
@@ -20198,7 +20315,7 @@
 		"price": 78,
 		"securityDeposit": 120,
 		"cleaningFee": 7,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -20293,7 +20410,7 @@
 		"price": 45,
 		"securityDeposit": 150,
 		"cleaningFee": 10,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -20565,7 +20682,10 @@
 		"price": 527,
 		"securityDeposit": 1582,
 		"cleaningFee": 264,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -20573,7 +20693,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 6,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -20681,7 +20801,7 @@
 		"price": 84,
 		"securityDeposit": 250,
 		"cleaningFee": 69,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -20972,7 +21092,10 @@
 		"price": 129,
 		"securityDeposit": 100,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -21274,7 +21397,7 @@
 		"price": 47,
 		"securityDeposit": 100,
 		"cleaningFee": 20,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -21556,7 +21679,10 @@
 		"price": 64,
 		"securityDeposit": null,
 		"cleaningFee": 25,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -21564,7 +21690,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -21685,7 +21811,7 @@
 		"price": 79,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -21968,7 +22094,10 @@
 		"price": 88,
 		"securityDeposit": 125,
 		"cleaningFee": 45,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -22257,7 +22386,7 @@
 		"price": 180,
 		"securityDeposit": 199,
 		"cleaningFee": 59,
-		"extraPeople": 19,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -22544,7 +22673,7 @@
 		"price": 188,
 		"securityDeposit": null,
 		"cleaningFee": 69,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -22824,7 +22953,7 @@
 		"price": 160,
 		"securityDeposit": 0,
 		"cleaningFee": 150,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -23027,7 +23156,7 @@
 		"price": 299,
 		"securityDeposit": 0,
 		"cleaningFee": 225,
-		"extraPeople": 75,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -23035,7 +23164,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -23312,7 +23441,7 @@
 		"price": 60,
 		"securityDeposit": 300,
 		"cleaningFee": 0,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -23606,7 +23735,7 @@
 		"price": 174,
 		"securityDeposit": 0,
 		"cleaningFee": 85,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -23780,7 +23909,7 @@
 		"price": 89,
 		"securityDeposit": 400,
 		"cleaningFee": 60,
-		"extraPeople": 8,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -24072,7 +24201,10 @@
 		"price": 125,
 		"securityDeposit": 1000,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -24363,7 +24495,10 @@
 		"price": 599,
 		"securityDeposit": 100,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -24371,7 +24506,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -24476,7 +24611,10 @@
 		"price": 71,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -24569,7 +24707,7 @@
 		"price": 117,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -24850,7 +24988,10 @@
 		"price": 151,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -24858,7 +24999,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -24986,7 +25127,10 @@
 		"price": 230,
 		"securityDeposit": 250,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -25179,7 +25323,10 @@
 		"price": 55,
 		"securityDeposit": 200,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -25469,7 +25616,10 @@
 		"price": 140,
 		"securityDeposit": null,
 		"cleaningFee": 55,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -25781,7 +25931,7 @@
 		"price": 799,
 		"securityDeposit": 500,
 		"cleaningFee": 399,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -26082,7 +26232,7 @@
 		"price": 161,
 		"securityDeposit": 500,
 		"cleaningFee": 100,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -26378,7 +26528,10 @@
 		"price": 290,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -26386,7 +26539,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -26542,7 +26695,7 @@
 		"price": 1562,
 		"securityDeposit": 1570,
 		"cleaningFee": 942,
-		"extraPeople": 79,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -26833,7 +26986,7 @@
 		"price": 475,
 		"securityDeposit": 0,
 		"cleaningFee": 30,
-		"extraPeople": 89,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -26938,7 +27091,7 @@
 		"price": 40,
 		"securityDeposit": 100,
 		"cleaningFee": 15,
-		"extraPeople": 8,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -27218,7 +27371,10 @@
 		"price": 40,
 		"securityDeposit": 200,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 4,
 			"cleanliness": 2,
@@ -27324,7 +27480,7 @@
 		"price": 75,
 		"securityDeposit": 200,
 		"cleaningFee": 55,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -27610,7 +27766,7 @@
 		"price": 3544,
 		"securityDeposit": null,
 		"cleaningFee": 373,
-		"extraPeople": 560,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 10,
@@ -27705,7 +27861,7 @@
 		"price": 171,
 		"securityDeposit": 1000,
 		"cleaningFee": 125,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -27826,7 +27982,7 @@
 		"price": 100,
 		"securityDeposit": 791,
 		"cleaningFee": 42,
-		"extraPeople": 105,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -27834,7 +27990,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -27958,7 +28114,7 @@
 		"price": 149,
 		"securityDeposit": 199,
 		"cleaningFee": 84,
-		"extraPeople": 19,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -28260,7 +28416,7 @@
 		"price": 33,
 		"securityDeposit": 0,
 		"cleaningFee": 26,
-		"extraPeople": 12,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -28568,7 +28724,7 @@
 		"price": 58,
 		"securityDeposit": 300,
 		"cleaningFee": 40,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -28851,7 +29007,7 @@
 		"price": 903,
 		"securityDeposit": 1000,
 		"cleaningFee": 0,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -28957,7 +29113,10 @@
 		"price": 50,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -28965,7 +29124,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -29064,7 +29223,7 @@
 		"price": 150,
 		"securityDeposit": 150,
 		"cleaningFee": 75,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -29347,7 +29506,10 @@
 		"price": 100,
 		"securityDeposit": 200,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -29645,7 +29807,10 @@
 		"price": 150,
 		"securityDeposit": 150,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -29912,7 +30077,10 @@
 		"price": 149,
 		"securityDeposit": null,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 10,
@@ -29920,7 +30088,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -30013,7 +30181,7 @@
 		"price": 45,
 		"securityDeposit": 90,
 		"cleaningFee": 25,
-		"extraPeople": 9,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -30315,7 +30483,7 @@
 		"price": 87,
 		"securityDeposit": 150,
 		"cleaningFee": 75,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -30621,7 +30789,7 @@
 		"price": 115,
 		"securityDeposit": 3500,
 		"cleaningFee": 300,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 6,
@@ -30629,7 +30797,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -30706,7 +30874,10 @@
 		"price": 61,
 		"securityDeposit": 100,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -30985,7 +31156,10 @@
 		"price": 120,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -31160,7 +31334,10 @@
 		"price": 105,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -31444,7 +31621,7 @@
 		"price": 225,
 		"securityDeposit": 2000,
 		"cleaningFee": 200,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -31731,7 +31908,7 @@
 		"price": 858,
 		"securityDeposit": 1865,
 		"cleaningFee": 112,
-		"extraPeople": 112,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -32007,7 +32184,10 @@
 		"price": 40,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -32134,7 +32314,7 @@
 		"price": 399,
 		"securityDeposit": null,
 		"cleaningFee": 150,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -32142,7 +32322,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -32300,7 +32480,7 @@
 		"price": 58,
 		"securityDeposit": 200,
 		"cleaningFee": 60,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -32571,7 +32751,7 @@
 		"price": 280,
 		"securityDeposit": 947,
 		"cleaningFee": 153,
-		"extraPeople": 134,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -32798,7 +32978,7 @@
 		"price": 50,
 		"securityDeposit": 0,
 		"cleaningFee": 15,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -33076,7 +33256,10 @@
 		"price": 269,
 		"securityDeposit": null,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -33192,7 +33375,7 @@
 		"price": 399,
 		"securityDeposit": 1000,
 		"cleaningFee": 185,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -33489,7 +33672,7 @@
 		"price": 112,
 		"securityDeposit": null,
 		"cleaningFee": 29,
-		"extraPeople": 39,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -33768,7 +33951,7 @@
 		"price": 701,
 		"securityDeposit": 4000,
 		"cleaningFee": 200,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 7,
@@ -33886,7 +34069,7 @@
 		"price": 50,
 		"securityDeposit": 0,
 		"cleaningFee": 10,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -34165,7 +34348,7 @@
 		"price": 181,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -34463,7 +34646,7 @@
 		"price": 997,
 		"securityDeposit": 5000,
 		"cleaningFee": 500,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -34471,7 +34654,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -34615,7 +34798,10 @@
 		"price": 60,
 		"securityDeposit": null,
 		"cleaningFee": 15,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -34908,7 +35094,10 @@
 		"price": 25,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -34916,7 +35105,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -35025,7 +35214,10 @@
 		"price": 85,
 		"securityDeposit": null,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -35298,7 +35490,10 @@
 		"price": 45,
 		"securityDeposit": 100,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -35581,7 +35776,10 @@
 		"price": 221,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -35874,7 +36072,7 @@
 		"price": 119,
 		"securityDeposit": 600,
 		"cleaningFee": 150,
-		"extraPeople": 40,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -36165,7 +36363,7 @@
 		"price": 209,
 		"securityDeposit": 724,
 		"cleaningFee": 169,
-		"extraPeople": 48,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -36324,7 +36522,7 @@
 		"price": 101,
 		"securityDeposit": 900,
 		"cleaningFee": 70,
-		"extraPeople": 80,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -36332,7 +36530,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -36607,7 +36805,10 @@
 		"price": 200,
 		"securityDeposit": 300,
 		"cleaningFee": 156,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -36862,7 +37063,10 @@
 		"price": 212,
 		"securityDeposit": 275,
 		"cleaningFee": 120,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -37172,7 +37376,7 @@
 		"price": 199,
 		"securityDeposit": 150,
 		"cleaningFee": 20,
-		"extraPeople": 65,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -37457,7 +37661,7 @@
 		"price": 295,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -37769,7 +37973,7 @@
 		"price": 395,
 		"securityDeposit": 1000,
 		"cleaningFee": 300,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -37930,7 +38134,10 @@
 		"price": 20,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -37938,7 +38145,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -38036,7 +38243,7 @@
 		"price": 63,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -38332,7 +38539,7 @@
 		"price": 34,
 		"securityDeposit": 0,
 		"cleaningFee": 25,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -38614,7 +38821,10 @@
 		"price": 34,
 		"securityDeposit": 0,
 		"cleaningFee": 19,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -38911,7 +39121,7 @@
 		"price": 451,
 		"securityDeposit": 500,
 		"cleaningFee": 200,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -39191,7 +39401,7 @@
 		"price": 518,
 		"securityDeposit": null,
 		"cleaningFee": 300,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -39394,7 +39604,7 @@
 		"price": 94,
 		"securityDeposit": 400,
 		"cleaningFee": 105,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -39665,7 +39875,7 @@
 		"price": 36,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -39797,7 +40007,7 @@
 		"price": 215,
 		"securityDeposit": 500,
 		"cleaningFee": 200,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -39805,7 +40015,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -40005,7 +40215,7 @@
 		"price": 499,
 		"securityDeposit": 500,
 		"cleaningFee": 175,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -40289,7 +40499,10 @@
 		"price": 501,
 		"securityDeposit": 800,
 		"cleaningFee": 200,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -40533,7 +40746,10 @@
 		"price": 200,
 		"securityDeposit": 250,
 		"cleaningFee": 215,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -40818,7 +41034,7 @@
 		"price": 35,
 		"securityDeposit": 0,
 		"cleaningFee": 20,
-		"extraPeople": 22,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -41095,7 +41311,7 @@
 		"price": 461,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -41376,7 +41592,7 @@
 		"price": 239,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -41675,7 +41891,7 @@
 		"price": 195,
 		"securityDeposit": null,
 		"cleaningFee": 132,
-		"extraPeople": 95,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -41859,7 +42075,10 @@
 		"price": 42,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -42138,7 +42357,7 @@
 		"price": 59,
 		"securityDeposit": 150,
 		"cleaningFee": 50,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -42446,7 +42665,7 @@
 		"price": 200,
 		"securityDeposit": 300,
 		"cleaningFee": 160,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -42715,7 +42934,10 @@
 		"price": 39,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -42998,7 +43220,10 @@
 		"price": 38,
 		"securityDeposit": 0,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -43006,7 +43231,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -43083,7 +43308,7 @@
 		"price": 75,
 		"securityDeposit": 0,
 		"cleaningFee": 15,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -43365,7 +43590,10 @@
 		"price": 125,
 		"securityDeposit": 0,
 		"cleaningFee": 150,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -43652,7 +43880,7 @@
 		"price": 80,
 		"securityDeposit": 700,
 		"cleaningFee": 20,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -43982,7 +44210,10 @@
 		"price": 324,
 		"securityDeposit": 500,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -43990,7 +44221,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -44063,7 +44294,10 @@
 		"price": 31,
 		"securityDeposit": 100,
 		"cleaningFee": 7,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -44161,7 +44395,10 @@
 		"price": 597,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 7,
 			"cleanliness": 8,
@@ -44399,7 +44636,7 @@
 		"price": 283,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -44693,7 +44930,10 @@
 		"price": 322,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -44977,7 +45217,10 @@
 		"price": 129,
 		"securityDeposit": 0,
 		"cleaningFee": 60,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -45260,7 +45503,7 @@
 		"price": 63,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -45444,7 +45687,7 @@
 		"price": 110,
 		"securityDeposit": 400,
 		"cleaningFee": 40,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -45723,7 +45966,7 @@
 		"price": 60,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -46022,7 +46265,10 @@
 		"price": 90,
 		"securityDeposit": null,
 		"cleaningFee": 24,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -46295,7 +46541,7 @@
 		"price": 250,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 40,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 6,
@@ -46383,7 +46629,10 @@
 		"price": 630,
 		"securityDeposit": 3000,
 		"cleaningFee": 150,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -46516,7 +46765,10 @@
 		"price": 400,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 9,
@@ -46810,7 +47062,10 @@
 		"price": 149,
 		"securityDeposit": 500,
 		"cleaningFee": 40,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -47136,7 +47391,10 @@
 		"price": 548,
 		"securityDeposit": 2000,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -47144,7 +47402,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -47239,7 +47497,10 @@
 		"price": 27,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -47524,7 +47785,10 @@
 		"price": 64,
 		"securityDeposit": 0,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -47532,7 +47796,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -47684,7 +47948,7 @@
 		"price": 60,
 		"securityDeposit": 250,
 		"cleaningFee": 20,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -47971,7 +48235,7 @@
 		"price": 38,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 40,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -48254,7 +48518,7 @@
 		"price": 200,
 		"securityDeposit": 300,
 		"cleaningFee": 250,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -48458,7 +48722,10 @@
 		"price": 245,
 		"securityDeposit": 300,
 		"cleaningFee": 175,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -48746,7 +49013,10 @@
 		"price": 245,
 		"securityDeposit": 500,
 		"cleaningFee": 270,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -49027,7 +49297,7 @@
 		"price": 139,
 		"securityDeposit": 500,
 		"cleaningFee": 40,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -49313,7 +49583,10 @@
 		"price": 65,
 		"securityDeposit": null,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -49603,7 +49876,7 @@
 		"price": 102,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 11,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -49888,7 +50161,7 @@
 		"price": 746,
 		"securityDeposit": 5595,
 		"cleaningFee": 242,
-		"extraPeople": 560,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -49994,7 +50267,7 @@
 		"price": 518,
 		"securityDeposit": 2000,
 		"cleaningFee": 50,
-		"extraPeople": 200,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -50077,7 +50350,10 @@
 		"price": 220,
 		"securityDeposit": null,
 		"cleaningFee": 60,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -50314,7 +50590,10 @@
 		"price": 174,
 		"securityDeposit": 500,
 		"cleaningFee": 165,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -50608,7 +50887,10 @@
 		"price": 40,
 		"securityDeposit": 150,
 		"cleaningFee": 10,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -50737,7 +51019,10 @@
 		"price": 109,
 		"securityDeposit": 200,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -51048,7 +51333,10 @@
 		"price": 49,
 		"securityDeposit": 100,
 		"cleaningFee": 25,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -51326,7 +51614,10 @@
 		"price": 75,
 		"securityDeposit": null,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -51425,7 +51716,10 @@
 		"price": 148,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -51718,7 +52012,7 @@
 		"price": 798,
 		"securityDeposit": 500,
 		"cleaningFee": 150,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -51726,7 +52020,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -51873,7 +52167,10 @@
 		"price": 369,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -52175,7 +52472,7 @@
 		"price": 121,
 		"securityDeposit": null,
 		"cleaningFee": 90,
-		"extraPeople": 90,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -52283,7 +52580,10 @@
 		"price": 573,
 		"securityDeposit": null,
 		"cleaningFee": 120,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -52291,7 +52591,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -52465,7 +52765,7 @@
 		"price": 70,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 12,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -52764,7 +53064,7 @@
 		"price": 49,
 		"securityDeposit": 500,
 		"cleaningFee": 0,
-		"extraPeople": 17,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -53063,7 +53363,7 @@
 		"price": 74,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 42,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -53342,7 +53642,7 @@
 		"price": 125,
 		"securityDeposit": 200,
 		"cleaningFee": 80,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -53629,7 +53929,10 @@
 		"price": 185,
 		"securityDeposit": null,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -53889,7 +54192,7 @@
 		"price": 125,
 		"securityDeposit": 250,
 		"cleaningFee": 98,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -54186,7 +54489,10 @@
 		"price": 125,
 		"securityDeposit": 150,
 		"cleaningFee": 70,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -54481,7 +54787,7 @@
 		"price": 90,
 		"securityDeposit": 400,
 		"cleaningFee": 111,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -54778,7 +55084,10 @@
 		"price": 52,
 		"securityDeposit": 0,
 		"cleaningFee": 25,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -55066,7 +55375,7 @@
 		"price": 58,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -55351,7 +55660,10 @@
 		"price": 132,
 		"securityDeposit": null,
 		"cleaningFee": 135,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -55620,7 +55932,10 @@
 		"price": 950,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -55741,7 +56056,7 @@
 		"price": 65,
 		"securityDeposit": 200,
 		"cleaningFee": 35,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -56017,7 +56332,10 @@
 		"price": 691,
 		"securityDeposit": null,
 		"cleaningFee": 180,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -56143,7 +56461,10 @@
 		"price": 150,
 		"securityDeposit": 200,
 		"cleaningFee": 55,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -56422,7 +56743,10 @@
 		"price": 95,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -56677,7 +57001,10 @@
 		"price": 390,
 		"securityDeposit": 450,
 		"cleaningFee": 110,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -56975,7 +57302,7 @@
 		"price": 81,
 		"securityDeposit": 240,
 		"cleaningFee": 25,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -57149,7 +57476,7 @@
 		"price": 175,
 		"securityDeposit": 300,
 		"cleaningFee": 90,
-		"extraPeople": 300,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -57412,7 +57739,10 @@
 		"price": 115,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -57639,7 +57969,7 @@
 		"price": 135,
 		"securityDeposit": 200,
 		"cleaningFee": 50,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -57943,7 +58273,7 @@
 		"price": 250,
 		"securityDeposit": 500,
 		"cleaningFee": 200,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -58223,7 +58553,10 @@
 		"price": 40,
 		"securityDeposit": 250,
 		"cleaningFee": 15,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -58430,7 +58763,10 @@
 		"price": 205,
 		"securityDeposit": 380,
 		"cleaningFee": 42,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -58438,7 +58774,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -58725,7 +59061,10 @@
 		"price": 269,
 		"securityDeposit": 0,
 		"cleaningFee": 293,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -58733,7 +59072,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -58815,7 +59154,10 @@
 		"price": 79,
 		"securityDeposit": 300,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -58823,7 +59165,7 @@
 			"communication": 10,
 			"location": 8,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -58899,7 +59241,10 @@
 		"price": 1303,
 		"securityDeposit": 5000,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -59204,7 +59549,7 @@
 		"price": 1000,
 		"securityDeposit": null,
 		"cleaningFee": 400,
-		"extraPeople": 150,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -59212,7 +59557,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -59296,7 +59641,10 @@
 		"price": 351,
 		"securityDeposit": 1000,
 		"cleaningFee": 115,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -59304,7 +59652,7 @@
 			"communication": 10,
 			"location": 8,
 			"value": 8,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -59415,7 +59763,7 @@
 		"price": 60,
 		"securityDeposit": 100,
 		"cleaningFee": 0,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -59658,7 +60006,10 @@
 		"price": 179,
 		"securityDeposit": null,
 		"cleaningFee": 36,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -59666,7 +60017,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -59769,7 +60120,7 @@
 		"price": 229,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -60071,7 +60422,10 @@
 		"price": 75,
 		"securityDeposit": 500,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -60079,7 +60433,7 @@
 			"communication": 10,
 			"location": 9,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -60193,7 +60547,10 @@
 		"price": 306,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -60491,7 +60848,10 @@
 		"price": 1751,
 		"securityDeposit": 3000,
 		"cleaningFee": 400,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -60787,7 +61147,7 @@
 		"price": 99,
 		"securityDeposit": 250,
 		"cleaningFee": 200,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -61067,7 +61427,7 @@
 		"price": 45,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -61380,7 +61740,7 @@
 		"price": 108,
 		"securityDeposit": 0,
 		"cleaningFee": 99,
-		"extraPeople": 34,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -61667,7 +62027,7 @@
 		"price": 84,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 26,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -61923,7 +62283,10 @@
 		"price": 50,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -62066,7 +62429,7 @@
 		"price": 359,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -62334,7 +62697,10 @@
 		"price": 486,
 		"securityDeposit": 400,
 		"cleaningFee": 215,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -62342,7 +62708,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -62467,7 +62833,7 @@
 		"price": 90,
 		"securityDeposit": 150,
 		"cleaningFee": 25,
-		"extraPeople": 40,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -62753,7 +63119,10 @@
 		"price": 130,
 		"securityDeposit": null,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 6,
@@ -62844,7 +63213,7 @@
 		"price": 125,
 		"securityDeposit": 100,
 		"cleaningFee": 35,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -63137,7 +63506,10 @@
 		"price": 148,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -63240,7 +63612,7 @@
 		"price": 119,
 		"securityDeposit": 200,
 		"cleaningFee": 100,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -63515,7 +63887,7 @@
 		"price": 385,
 		"securityDeposit": 0,
 		"cleaningFee": 268,
-		"extraPeople": 179,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -63809,7 +64181,10 @@
 		"price": 30,
 		"securityDeposit": 0,
 		"cleaningFee": 10,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -64101,7 +64476,10 @@
 		"price": 345,
 		"securityDeposit": 300,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -64389,7 +64767,7 @@
 		"price": 300,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -64682,7 +65060,7 @@
 		"price": 59,
 		"securityDeposit": 0,
 		"cleaningFee": 25,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -64889,7 +65267,10 @@
 		"price": 85,
 		"securityDeposit": 300,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -65180,7 +65561,10 @@
 		"price": 417,
 		"securityDeposit": 0,
 		"cleaningFee": 237,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -65326,7 +65710,10 @@
 		"price": 564,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -65607,7 +65994,7 @@
 		"price": 40,
 		"securityDeposit": 0,
 		"cleaningFee": 20,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -65918,7 +66305,7 @@
 		"price": 45,
 		"securityDeposit": 136,
 		"cleaningFee": 50,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -66197,7 +66584,7 @@
 		"price": 100,
 		"securityDeposit": 100,
 		"cleaningFee": null,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -66478,7 +66865,7 @@
 		"price": 46,
 		"securityDeposit": 0,
 		"cleaningFee": 15,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -66770,7 +67157,10 @@
 		"price": 90,
 		"securityDeposit": 350,
 		"cleaningFee": 85,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -67063,7 +67453,10 @@
 		"price": 550,
 		"securityDeposit": 1999,
 		"cleaningFee": 290,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -67337,7 +67730,10 @@
 		"price": 21,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -67441,7 +67837,7 @@
 		"price": 80,
 		"securityDeposit": 200,
 		"cleaningFee": 35,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -67717,7 +68113,7 @@
 		"price": 100,
 		"securityDeposit": null,
 		"cleaningFee": 20,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -67998,7 +68394,10 @@
 		"price": 31,
 		"securityDeposit": 200,
 		"cleaningFee": 10,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -68271,7 +68670,7 @@
 		"price": 761,
 		"securityDeposit": null,
 		"cleaningFee": 250,
-		"extraPeople": 200,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -68477,7 +68876,7 @@
 		"price": 195,
 		"securityDeposit": 250,
 		"cleaningFee": 0,
-		"extraPeople": 12,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -68573,7 +68972,7 @@
 		"price": 142,
 		"securityDeposit": null,
 		"cleaningFee": 30,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {},
 		"reviews": [
 			{
@@ -68672,7 +69071,7 @@
 		"price": 125,
 		"securityDeposit": 100,
 		"cleaningFee": 75,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -68960,7 +69359,10 @@
 		"price": 190,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 7,
 			"cleanliness": 6,
@@ -69074,7 +69476,10 @@
 		"price": 127,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -69380,7 +69785,7 @@
 		"price": 131,
 		"securityDeposit": 367,
 		"cleaningFee": 260,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -69677,7 +70082,7 @@
 		"price": 175,
 		"securityDeposit": 200,
 		"cleaningFee": 125,
-		"extraPeople": 35,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -69971,7 +70376,7 @@
 		"price": 353,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 89,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -70261,7 +70666,7 @@
 		"price": 63,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 40,
+		"stayDate":{ "startDate": "1669424461", "endDate":"1669942861"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -70404,7 +70809,10 @@
 		"price": 80,
 		"securityDeposit": 0,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -70716,7 +71124,7 @@
 		"price": 35,
 		"securityDeposit": 0,
 		"cleaningFee": 17,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -71005,7 +71413,10 @@
 		"price": 317,
 		"securityDeposit": 560,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -71013,7 +71424,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -71130,7 +71541,7 @@
 		"price": 239,
 		"securityDeposit": null,
 		"cleaningFee": 200,
-		"extraPeople": 90,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -71138,7 +71549,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -71260,7 +71671,7 @@
 		"price": 127,
 		"securityDeposit": 3005,
 		"cleaningFee": 170,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -71576,7 +71987,10 @@
 		"price": 30,
 		"securityDeposit": 0,
 		"cleaningFee": 10,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -71784,7 +72198,7 @@
 		"price": 75,
 		"securityDeposit": null,
 		"cleaningFee": 15,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -71984,7 +72398,7 @@
 		"price": 125,
 		"securityDeposit": 250,
 		"cleaningFee": 40,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -72293,7 +72707,7 @@
 		"price": 150,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 25,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -72587,7 +73001,10 @@
 		"price": 351,
 		"securityDeposit": 0,
 		"cleaningFee": 199,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -72820,7 +73237,7 @@
 		"price": 177,
 		"securityDeposit": 400,
 		"cleaningFee": 132,
-		"extraPeople": 7,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -73103,7 +73520,7 @@
 		"price": 479,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 150,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -73395,7 +73812,7 @@
 		"price": 161,
 		"securityDeposit": 150,
 		"cleaningFee": 70,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -73676,7 +74093,7 @@
 		"price": 447,
 		"securityDeposit": 999,
 		"cleaningFee": 50,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -73815,7 +74232,7 @@
 		"price": 65,
 		"securityDeposit": null,
 		"cleaningFee": 15,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -74119,7 +74536,10 @@
 		"price": 80,
 		"securityDeposit": 200,
 		"cleaningFee": 40,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -74396,7 +74816,7 @@
 		"price": 80,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 28,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -74672,7 +75092,10 @@
 		"price": 53,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 10,
@@ -74680,7 +75103,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -74830,7 +75253,10 @@
 		"price": 595,
 		"securityDeposit": 500,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -74838,7 +75264,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -74945,7 +75371,7 @@
 		"price": 149,
 		"securityDeposit": 330,
 		"cleaningFee": 80,
-		"extraPeople": 80,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -74953,7 +75379,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 9,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -75062,7 +75488,7 @@
 		"price": 189,
 		"securityDeposit": 450,
 		"cleaningFee": 80,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -75334,7 +75760,10 @@
 		"price": 385,
 		"securityDeposit": null,
 		"cleaningFee": 298,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -75587,7 +76016,10 @@
 		"price": 112,
 		"securityDeposit": null,
 		"cleaningFee": 40,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -75595,7 +76027,7 @@
 			"communication": 10,
 			"location": 9,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -75800,7 +76232,10 @@
 		"price": 1186,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 8,
@@ -75808,7 +76243,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -75933,7 +76368,10 @@
 		"price": 179,
 		"securityDeposit": 250,
 		"cleaningFee": 150,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -75941,7 +76379,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -76229,7 +76667,7 @@
 		"price": 35,
 		"securityDeposit": 250,
 		"cleaningFee": 70,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -76401,7 +76839,7 @@
 		"price": 14,
 		"securityDeposit": null,
 		"cleaningFee": 19,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -76629,7 +77067,10 @@
 		"price": 80,
 		"securityDeposit": 500,
 		"cleaningFee": 30,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -76855,7 +77296,7 @@
 		"price": 351,
 		"securityDeposit": 800,
 		"cleaningFee": 140,
-		"extraPeople": 60,
+		"stayDate":{ "startDate": "1662166861", "endDate":"1662771661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -77152,7 +77593,10 @@
 		"price": 350,
 		"securityDeposit": 500,
 		"cleaningFee": 155,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -77456,7 +77900,7 @@
 		"price": 933,
 		"securityDeposit": null,
 		"cleaningFee": 298,
-		"extraPeople": 19,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -77464,7 +77908,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -77670,7 +78114,7 @@
 		"price": 40,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 15,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -77941,7 +78385,10 @@
 		"price": 298,
 		"securityDeposit": 1000,
 		"cleaningFee": 160,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -77949,7 +78396,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -78024,7 +78471,10 @@
 		"price": 330,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 7,
@@ -78195,7 +78645,10 @@
 		"price": 85,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -78471,7 +78924,7 @@
 		"price": 597,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 1000,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -78767,7 +79220,7 @@
 		"price": 300,
 		"securityDeposit": 250,
 		"cleaningFee": 250,
-		"extraPeople": 75,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -79048,7 +79501,10 @@
 		"price": 399,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -79056,7 +79512,7 @@
 			"communication": 10,
 			"location": 8,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -79174,7 +79630,7 @@
 		"price": 1492,
 		"securityDeposit": 1570,
 		"cleaningFee": 942,
-		"extraPeople": 79,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -79467,7 +79923,10 @@
 		"price": 200,
 		"securityDeposit": 300,
 		"cleaningFee": 100,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -79744,7 +80203,7 @@
 		"price": 597,
 		"securityDeposit": 0,
 		"cleaningFee": 0,
-		"extraPeople": 1000,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -79973,7 +80432,7 @@
 		"price": 338,
 		"securityDeposit": null,
 		"cleaningFee": 132,
-		"extraPeople": 220,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -80129,7 +80588,7 @@
 		"price": 997,
 		"securityDeposit": 1000,
 		"cleaningFee": 380,
-		"extraPeople": 160,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -80402,7 +80861,10 @@
 		"price": 298,
 		"securityDeposit": 3900,
 		"cleaningFee": 240,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -80410,7 +80872,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -80485,7 +80947,7 @@
 		"price": 121,
 		"securityDeposit": null,
 		"cleaningFee": 89,
-		"extraPeople": 30,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -80764,7 +81226,10 @@
 		"price": 181,
 		"securityDeposit": 300,
 		"cleaningFee": 50,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -81066,7 +81531,7 @@
 		"price": 277,
 		"securityDeposit": 100,
 		"cleaningFee": 100,
-		"extraPeople": 50,
+		"stayDate":{ "startDate": "1670202061", "endDate":"1670547661"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,
@@ -81359,7 +81824,7 @@
 		"price": 560,
 		"securityDeposit": 1000,
 		"cleaningFee": 200,
-		"extraPeople": 150,
+		"stayDate":{ "startDate": "1667005261", "endDate":"1667350861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -81492,7 +81957,7 @@
 		"price": 1703,
 		"securityDeposit": 0,
 		"cleaningFee": 400,
-		"extraPeople": 100,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -81776,7 +82241,10 @@
 		"price": 447,
 		"securityDeposit": 776,
 		"cleaningFee": 300,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -82055,7 +82523,7 @@
 		"price": 60,
 		"securityDeposit": 200,
 		"cleaningFee": 25,
-		"extraPeople": 8,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 9,
@@ -82329,7 +82797,10 @@
 		"price": 966,
 		"securityDeposit": null,
 		"cleaningFee": 118,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -82337,7 +82808,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -82420,7 +82891,7 @@
 		"price": 158,
 		"securityDeposit": null,
 		"cleaningFee": 26,
-		"extraPeople": 105,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 8,
 			"cleanliness": 8,
@@ -82428,7 +82899,7 @@
 			"communication": 8,
 			"location": 8,
 			"value": 8,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -82535,7 +83006,10 @@
 		"price": 75,
 		"securityDeposit": 1100,
 		"cleaningFee": 65,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -82677,7 +83151,7 @@
 		"price": 25,
 		"securityDeposit": null,
 		"cleaningFee": 10,
-		"extraPeople": 10,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -82947,7 +83421,10 @@
 		"price": 145,
 		"securityDeposit": null,
 		"cleaningFee": 60,
-		"extraPeople": 0,
+		"stayDate": {
+			"startDate": "1656637261",
+			"endDate": "1656982861"
+		},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 10,
@@ -82955,7 +83432,7 @@
 			"communication": 10,
 			"location": 10,
 			"value": 10,
-			"rating": 100
+			"rating": 97.5
 		},
 		"reviews": [
 			{
@@ -83034,7 +83511,7 @@
 		"price": 30,
 		"securityDeposit": null,
 		"cleaningFee": null,
-		"extraPeople": 8,
+		"stayDate":{ "startDate": "1658278861", "endDate":"1659402061"},
 		"reviewScores": {
 			"accuracy": 9,
 			"cleanliness": 8,
@@ -83140,7 +83617,7 @@
 		"price": 99,
 		"securityDeposit": 300,
 		"cleaningFee": 125,
-		"extraPeople": 20,
+		"stayDate":{ "startDate": "1663635661", "endDate":"1663894861"},
 		"reviewScores": {
 			"accuracy": 10,
 			"cleanliness": 9,

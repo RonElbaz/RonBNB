@@ -11,9 +11,9 @@
                 </div>
             </button>
         </div>
-        <button class="btn btn-filter circular" text @click="dialogFormVisible = true">
-            <!-- <img src="../images/filtetr-image/filter-icon.png" -->
-            > Filters
+        <button class="btn btn-filter" text @click="dialogFormVisible = true">
+            <img class="filter-img" src="../images/filtetr-image/filter-icon.png"
+            > <span class="btn-filter-txt">Filters</span> 
         </button>
     </section>
     <el-dialog v-model="dialogFormVisible" title="Filters" center>

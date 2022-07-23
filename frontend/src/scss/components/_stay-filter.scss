@@ -3,6 +3,7 @@
     margin-bottom: 2rem;
     position: relative;
 
+
     .btn-filter {
         height: 3rem;
         width: 5.6875rem;
@@ -13,12 +14,29 @@
         position: absolute;
         right: 0;
         top: 0;
+        font-family: Circular-bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        .btn-filter-txt {
+            font-size: 12px;
+        }
+
+        .filter-img {
+            width: 14px;
+            margin-inline-end: 7px;
+        }
+
     }
 
-    .btn-label{
+
+    .btn-label {
         z-index: 1;
         color: $clr2;
-        &:hover{
+
+        &:hover {
             box-shadow: inset 0 -1.7px 0 0 rgb(118 114 114 / 48%);
         }
     }
@@ -26,9 +44,8 @@
     .lables {
         justify-content: space-between;
     }
-    .label-txt{
-        
-    }
+
+    .label-txt {}
 
     .label-image {
         max-width: 24px;
@@ -42,7 +59,7 @@
         margin-inline-end: 3rem;
         align-items: center;
 
-        &:hover{
+        &:hover {
             color: #000;
             filter: contrast(1000%);
         }
@@ -81,7 +98,7 @@
     }
 }
 
-.clicked-btn{
+.clicked-btn {
     color: #000;
     filter: contrast(1000%);
     box-shadow: inset 0 -1.7px 0 0 rgb(0, 0, 0);
