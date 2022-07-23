@@ -41,9 +41,24 @@
         grid-row-gap: 0px;
 
         .reserve {
-            width: 372px;
-            padding: 24px;
-            grid-area: 1 / 2 / 2 / 3;
+           
+
+            .reserve-area {
+                margin-top: 48px;
+                padding: 24px;
+                border-radius: 12px;
+                border: 1px solid #ddd;
+                box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+                grid-area: 1 / 2 / 2 / 3;
+                position: sticky;
+                top: 0;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .reserve-header{
+                width: 100%;
+            }
         }
 
         .details-info {
@@ -78,12 +93,15 @@
         .bnb-btn {
             background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
             transition: opacity 1.25s ease 0s !important;
-            min-width: 200px;
+            // min-width: 200px;
             background-size: 200% 200%;
             background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
             border: none;
             height: 3rem;
-            width: 300px;
+            width: 100%;
+            color: rgb(255 255 255);
+            font-family: cereal;
+            border-radius: 0.55rem;
         }
 
 
@@ -127,14 +145,15 @@
     .reviews-area {
         padding: 48px 0;
 
-        .review-rating{
+        .review-rating {
             margin-bottom: 32px;
             font-size: 22px;
 
-            .star-rating{
+            .star-rating {
                 font-size: 15px;
             }
         }
+
         .reviews-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -144,7 +163,9 @@
         .review-score {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-gap: 40px 100px;
+            grid-gap: 10px 100px;
+            margin-bottom: 40px;
+
         }
 
         .review-container {

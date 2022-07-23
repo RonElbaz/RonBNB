@@ -5,4 +5,19 @@
     // grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 24px;
     grid-row-gap: 40px;
+
+    @include for-large-layout {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    
+      // @include for-normal-layout {
+      // }
+    
+      // @include for-narrow-layout {
+    
+      // }
+    
+      @include for-slim-layout {
+        padding-left: 25px;grid-template-columns: repeat(3, 1fr);
+      }
     }

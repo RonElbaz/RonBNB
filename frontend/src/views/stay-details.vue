@@ -27,7 +27,11 @@
                             }}
                         </p>
                     </div>
-                    <img class="host-img" :src=randomUser alt="">
+                       <img class="host-img" :src=randomUser(0) alt="">
+                </div>
+                <div class="description grey-underline">
+                    <h1>Stay description</h1>
+                    <p>{{stay.summary}}</p>
                 </div>
                 <div v-if="stay" class="amenities-area  gray-underline">
                     <h1 class="amenities-title">What this place offers</h1>
@@ -41,13 +45,11 @@
                         </li>
                     </ul>
                 </div>
-<<<<<<< HEAD
-=======
-                <img class="host-img" :src=randomUser(0) alt="">
->>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
+            
             </div>
             <section class="reserve" >
-                <div class="flex space-between">
+                <div class="reserve-area flex column">
+                <div class=" reserve-header flex space-between">
                     <h1> $ {{ stay.price }} night</h1>
                     <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
                         <span class="dot-separate">·</span>
@@ -55,10 +57,11 @@
                     </h1>
                 </div>
                 <div class="date-area">
-                    <h1>date will be here</h1>
+                      <date-picker-try />
                 </div>
                 <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
                     @click="onAddOrder">Reserve</button>
+                    </div>
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
@@ -91,7 +94,8 @@
 <script>
 import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
-import stayReserve from '../components/stay-reserve.vue'
+import datePickerTry from '../components/date-picker-try.vue'
+// import stayReserve from '../components/stay-reserve.vue'
 
 export default {
     name: 'stay-details',
@@ -191,6 +195,9 @@ export default {
             
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
+        selectDatePicker(){
+
+        }
     },
     computed: {
         superHost() {
@@ -215,20 +222,13 @@ export default {
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
-<<<<<<< HEAD
-        randomUser() {
-            var image = stayService.getRandomInt(1, 26)
-            return new URL(`../images/user-images/${image}.jpg`, import.meta.url).href
-        },
-=======
->>>>>>> b5e0ffafc218f5d159943543d0a91ba37b47b7b4
 
 
 
     },
     components: {
         imageGallery,
-        stayReserve
+       datePickerTry
     }
 }
 </script>
