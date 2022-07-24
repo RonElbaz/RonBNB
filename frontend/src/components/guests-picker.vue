@@ -58,13 +58,11 @@ export default {
         openGuest() {
             if (this.isGuestSelected === true) return
             this.isGuestSelected = true
-            console.log(this.isGuestSelected)
             this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         closeGuest() {
             if (this.isGuestSelected === false) return
             this.isGuestSelected = false
-            console.log(this.isGuestSelected)
             this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         toogleMobileNav() {
