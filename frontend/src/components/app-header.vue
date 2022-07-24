@@ -12,7 +12,7 @@
                     <button @click="openModalSearchGuest" class="clean-button guest">
                         <div>Add guests</div>
                     </button>
-                    <div class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div @click="goExplore" class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div v-show="!mobile" class="flex align-items-center justify-content-end bar">
                     <!-- <div class="explore"><span>Explore</span></div> -->
@@ -174,8 +174,10 @@ export default {
             var filter = { ...this.search }
             delete filter.startDate
             delete filter.endDate
-            this.$store.dispatch({ type: "setFilter", filterBy: filter })
+            // this.$store.dispatch({ type: "setFilter", filterBy: {...filter} })
             this.closeModal()
+            console.log(filter);
+            this.$router.push(`/explore/${filter.destination}`)
         }
     },
     computed: {},

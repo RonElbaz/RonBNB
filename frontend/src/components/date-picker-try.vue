@@ -47,7 +47,6 @@ export default {
   name: 'date-picker-try',
   data() {
     return {
-      //  ! check if the selectedDate works. had to change that to "" instead of {} to stop the error Invalid prop: type check failed for prop "modelValue". it heppenes when you give v-model an object
       selectedDate: "",
     }
   },
