@@ -268,6 +268,7 @@ header {
   left: 0;
   .search-bar {
     // general
+    cursor: pointer;
     width: 850px;
     height: 66px;
     border-radius: 32px;
@@ -281,12 +282,14 @@ header {
       height: 66px;
       width: 268px;
       border-radius: 32px;
+
       .dest-wraper {
         margin-left: 31.5px;
         box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
         // height: 10px;
         width: inherit;
         .header {
+          cursor: pointer;
           font-size: 12px;
           font-family: Circular-bold;
           letter-spacing: 0.5px;

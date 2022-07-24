@@ -34,6 +34,7 @@
 .date-container {
   .date-wraper {
     .start-date {
+      cursor: pointer;
       padding: 14px 0 14px 25px;
       border-radius: 32px;
 
@@ -79,6 +80,7 @@
     }
 
     .end-date {
+      cursor: pointer;
       padding: 14px 0 14px 25px;
       border-radius: 32px;
       .end-date-line {
