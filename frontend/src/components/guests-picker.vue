@@ -1,7 +1,15 @@
 <template>
     <div class="guest" @click="openGuest">
-        <div class="header">Who</div>
+    <div v-if="isHeader">
+        <div class="header">Who</div> 
         <div class="text">Add guests</div>
+    </div>
+    <div class="guest-reserve" v-else>
+        <div class="flex column">
+            <label>Guests</label>
+            <input class="input-guests-reserve" disabled :placeholder=getGuests>
+        </div>
+    </div>
         <div v-if="isGuest" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
             <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
             <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
@@ -16,7 +24,12 @@ import guest from './guest.vue'
 export default {
 
     name: "guests-picker",
-
+    props:{
+        isHeader: {
+            type: Boolean,
+            required: true,
+        },
+    },
     data() {
         return {
             scrollNav: null,
@@ -74,7 +87,15 @@ export default {
             this.$emit("addGuests", this.guests)
         },
     },
-    computed: {},
+    computed: {
+        getGuests(){
+            var sumGuests = 0;
+            Object.entries(this.guests).forEach((guest)=>{
+                sumGuests += guest[1]
+            })
+            return (sumGuests === 1) ? `1 guest` : `${sumGuests} guests`
+        }
+    },
     components: { guest },
 }
 

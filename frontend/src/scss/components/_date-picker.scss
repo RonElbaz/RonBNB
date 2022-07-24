@@ -2,6 +2,7 @@
   .el-date-range-picker {
     border-radius: 30px;
   }
+  display: none;
 }
 
 .demo-date-picker .block[data-v-1a1d8383] {
@@ -20,15 +21,68 @@
 .el-icon.el-input__icon.el-range__icon {
   display: none;
 }
-
-.el-popper.is-pure {
-  border-radius: 30px;
+.header.el-popper.is-pure {
+  // position: relative !important;
+  border-radius: 30px !important;
+  left: 50% !important;
+  // top: 35% !important;
+  transform: translate(-50%, 50%);
 }
 
+.date-container {
+  .date-wraper {
+    .start-date {
+      padding: 14px 0 14px 25px;
+      border-radius: 32px;
+      .start-date-line {
+        box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+        padding-right: 24px;
+        .header {
+          font-size: 11.8px;
+          font-family: Circular-bold;
+          letter-spacing: 0.65px;
+          width: 130px;
+        }
+
+        .text {
+          font-size: 13.5px;
+          letter-spacing: 0.2px;
+          color: #717171;
+          margin-top: 3px;
+          font-family: cereal;
+        }
+      }
+      &:hover {
+        background-color: #ebebeb;
+        .start-date-line {
+          box-shadow: none;
+        }
+      }
+    }
+    .end-date {
+      padding: 14px 24px;
+      .header {
+        font-size: 12px;
+        font-family: Circular-bold;
+        letter-spacing: 0.76px;
+      }
+
+      .text {
+        font-size: 14px;
+        // letter-spacing: 0.2px;
+        color: #717171;
+        margin-top: 3px;
+      }
+
+      &:hover {
+        background-color: #000000;
+      }
+    }
+  }
+}
 
 .el-date-table td.today .el-date-table-cell__text {
   color: #a0a1a3 !important;
-
 }
 
 .el-date-table td .el-date-table-cell .el-date-table-cell__text {
@@ -39,24 +93,22 @@
   }
 }
 
-  .el-date-table td.start-date .el-date-table-cell__text {
-    background-color: black !important;
-
+.el-date-table td.start-date .el-date-table-cell__text {
+  background-color: black !important;
 }
-  .el-date-table td.end-date .el-date-table-cell__text {
-    background-color: black !important;
-   
+.el-date-table td.end-date .el-date-table-cell__text {
+  background-color: black !important;
 }
 
-el-date-table td.end-date .el-date-table-cell__text, .el-date-table td.start-date .el-date-table-cell__text {
-  &:hover{
-    
+el-date-table td.end-date .el-date-table-cell__text,
+.el-date-table td.start-date .el-date-table-cell__text {
+  &:hover {
     background-color: black !important ;
   }
 }
 
-.el-date-table td.available{
-  &:hover{
+.el-date-table td.available {
+  &:hover {
     color: black !important;
   }
 }

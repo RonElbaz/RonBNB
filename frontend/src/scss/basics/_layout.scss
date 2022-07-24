@@ -1,6 +1,8 @@
 .main-layout {
-  padding-left: 141px;
-  padding-right: 141px;
+  max-width: 1760px;
+  padding-left: 80px;
+  padding-right: 80px;
+  margin: auto;
   // @include for-wide-layout {
   //   @include layoutGTC($break-wide);
   // }

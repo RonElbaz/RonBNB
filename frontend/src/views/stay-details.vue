@@ -56,7 +56,8 @@
                     </h1>
                 </div>
                 <div class="date-area">
-                      <date-picker-try />
+                      <date-picker-try @addDate="setDate" />
+                      <guests-picker @addGuests="setGuests" :isHeader="false"/>
                 </div>
                 <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
                     @click="onAddOrder">Reserve</button>
@@ -94,6 +95,8 @@
 import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
+import guestsPicker from '../components/guests-picker.vue'
+
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -110,7 +113,8 @@ export default {
             commentsArr: [],
             //TODO: uncomment when we have user service
             //user: null,
-            //stayDate: {},
+            stayDate: null,
+            guests: null,
         }
     },
     async created() {
@@ -159,6 +163,7 @@ export default {
         onAddOrder() {
             var order = {
                 buyer:{},
+                stay:{},
             };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
@@ -167,12 +172,12 @@ export default {
             // order.buyer.fullname = this.user.host.fullname
 
             //TODO:uncomment when we can get date input from user
-            //order.startDate = this.stayDate.start
-            //order.endDate = this.stayDate.end
+            order.startDate = this.stayDate[0]
+            order.endDate = this.stayDate[1]
             //order.totalPrice = calculate days amount somehow...
-            //order.guests = stayDate.guests
-            //order.status = "pending"
-            //order.stay.name = this.stay.name
+            order.guests = this.guests
+            order.status = "pending"
+            order.stay.name = this.stay.name
             //order.stay.price = this.stay.price
 
             //TODO:uncomment when we can get date input from user
@@ -193,8 +198,11 @@ export default {
         randomUser(idx) {
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
-        selectDatePicker(){
-
+        setDate(selectedDate){
+            this.stayDate = selectedDate
+        },
+        setGuests(guests){
+            this.guests = guests
         }
     },
     computed: {
@@ -225,8 +233,10 @@ export default {
 
     },
     components: {
-        imageGallery,
-       datePickerTry
-    }
+    imageGallery,
+    datePickerTry,
+    guestsPicker,
+    
+}
 }
 </script>

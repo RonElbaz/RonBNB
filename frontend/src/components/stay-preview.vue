@@ -72,7 +72,7 @@ export default {
             var endMonth = endDateObject.toLocaleString("en-US", { month: "short" })
             var endDay = endDateObject.toLocaleString("en-US", { day: "numeric" })
 
-            console.log(startMonth, startDay, endMonth, endDay);
+            // console.log(startMonth, startDay, endMonth, endDay);
             return (startMonth === endMonth) ? ` ${startMonth} ${startDay} - ${endDay}` : `${startMonth} ${startDay} - ${endMonth} ${endDay}`
 
 

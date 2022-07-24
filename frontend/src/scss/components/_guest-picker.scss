@@ -35,3 +35,14 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
   width: 270px;
 }
+
+.guest-reserve{
+  border: 1px solid #b0b0b0;
+  border-radius: 0 0 13px 13px;
+  padding: 10px 12px;
+  margin-bottom: 15px;
+  .input-guests-reserve{
+    border: none;
+    background-color: transparent;
+  }
+}
