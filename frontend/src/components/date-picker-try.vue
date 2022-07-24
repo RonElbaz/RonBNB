@@ -19,14 +19,14 @@
             <div class="start-date-try left">
                 <div class="start-date-line-try">
                     <div class="header">Check in</div>
-                    <div class="text">Add dates</div>
+                    <div class="text">{{getDate("start")}}</div>
                 </div>
             </div>
           
             <div class="start-date-try right">
               <div class="start-date-line-try">
                 <div class="header">Check out</div>
-                <div class="text">Add dates</div>
+                <div class="text">{{getDate("end")}}</div>
               </div>
             </div>
             </div>
@@ -53,7 +53,17 @@ export default {
     methods: {
       emitDate(){
         this.$emit("addDate", this.SelectedDate)
-      }
+      },
+      getDate(pos){
+        if(this.SelectedDate && this.SelectedDate.length && pos==="start"){
+          return this.SelectedDate[0].toLocaleDateString()
+        }
+        if(this.SelectedDate && this.SelectedDate.length && pos==="end"){
+          return this.SelectedDate[1].toLocaleDateString()
+        }
+        return 'Add dates'
+    },
+
     },
 }
 </script>
