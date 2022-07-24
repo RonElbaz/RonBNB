@@ -1,20 +1,20 @@
 <template>
-    <div class="guest" @click="openGuest">
-    <div v-if="isHeader">
-        <div class="header">Who</div> 
-        <div class="text">Add guests</div>
-    </div>
-    <div class="guest-reserve" v-else>
-        <div class="flex column">
-            <label>Guests</label>
-            <input class="input-guests-reserve" disabled :placeholder=getGuests>
+    <div class="guest-container" @click="openGuest" @mouseover="onGuestHover" @mouseleave="onGuestHoverLeave">
+        <div v-if="isHeader" class="guest-wraper">
+            <div class="header">Who</div>
+            <div class="text">Add guests</div>
         </div>
-    </div>
+        <div class="guest-reserve" v-else>
+            <div class="flex column">
+                <label>Guests</label>
+                <input class="input-guests-reserve" disabled :placeholder=getGuests>
+            </div>
+        </div>
         <div v-if="isGuest" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
-            <guest title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
-            <guest title="Children" desc="Ages 2-12" @addGuest="addChildren" />
-            <guest title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
-            <guest title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
+            <guest class="guest-component" title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
+            <guest class="guest-component" title="Children" desc="Ages 2-12" @addGuest="addChildren" />
+            <guest class="guest-component" title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
+            <guest class="guest-component" title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
         </div>
     </div>
 </template>
@@ -24,7 +24,7 @@ import guest from './guest.vue'
 export default {
 
     name: "guests-picker",
-    props:{
+    props: {
         isHeader: {
             type: Boolean,
             required: true,
@@ -39,11 +39,22 @@ export default {
             selected: null,
             guests: {},
             isGuest: false,
+            isGuestHover: false,
         }
     },
     created() {
     },
     methods: {
+        onGuestHover() {
+            if (this.isGuestHover === true) return
+            this.isGuestHover = true
+            this.$emit("getGuestHoverState", this.isGuestHover)
+        },
+        onGuestHoverLeave() {
+            if (this.isGuestHover === false) return
+            this.isGuestHover = false
+            this.$emit("getGuestHoverState", this.isGuestHover)
+        },
         openGuest() {
             this.isGuest = true
         },
@@ -88,9 +99,9 @@ export default {
         },
     },
     computed: {
-        getGuests(){
+        getGuests() {
             var sumGuests = 0;
-            Object.entries(this.guests).forEach((guest)=>{
+            Object.entries(this.guests).forEach((guest) => {
                 sumGuests += guest[1]
             })
             return (sumGuests === 1) ? `1 guest` : `${sumGuests} guests`

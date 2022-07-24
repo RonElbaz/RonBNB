@@ -11,14 +11,12 @@
         background-color: white;
         border: 1px solid #dddddd;
         padding: 7px 0;
-        position: absolute;
         right: 0;
         top: 0;
         font-family: Circular-bold;
         display: flex;
         align-items: center;
         justify-content: center;
-
 
         .btn-filter-txt {
             font-size: 12px;
@@ -29,6 +27,9 @@
             margin-inline-end: 7px;
         }
 
+    }
+    .add-position{
+        position: absolute;
     }
 
 

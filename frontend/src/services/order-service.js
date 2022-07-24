@@ -3,7 +3,7 @@ import { storageService } from "./storage-service.js"
 export const orderService = {
   query,
   getById,
-
+  addOrder,
 }
 
 
@@ -17,8 +17,15 @@ async function query(){
 
 async function addOrder(order){
     var newOrder;
-    if(order._id) newOrder = storageService.post(DB_KEY,order)
-    else newOrder = storageService.put(DB_KEY,order)
+    // console.log(order);
+    if(!order._id){ 
+      console.log("here yo");
+      newOrder = storageService.post(DB_KEY,order)
+    }
+    else{
+      console.log("here too");
+      newOrder = storageService.put(DB_KEY,order)
+    } 
     return newOrder
 }
 

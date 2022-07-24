@@ -12,11 +12,11 @@
                     <button @click="openModalSearchGuest" class="clean-button guest">
                         <div>Add guests</div>
                     </button>
-                    <div class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div @click="goExplore" class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div v-show="!mobile" class="flex align-items-center justify-content-end bar">
                     <!-- <div class="explore"><span>Explore</span></div> -->
-                    <div class="switch"><span>Switch to hosting</span></div>
+                    <div class="switch"><span>Become a Host</span></div>
                     <img class="globe" src="../img/globe.png" alt="" />
                     <div class="flex align-items-center dropdown border-thin-black-round user">
                         <span>☰</span>
@@ -31,19 +31,21 @@
                         :class="{ 'search-modal-active': isSearchModalActive }">
                         <div class="dest-container flex align-items-center " @click="selectDestPicker"
                             v-click-outside="unSelectDestPicker"
-                            :class="{ 'selected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
-                            <label class="dest-wraper" for="dest">
+                            :class="{ 'unselected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
+                            <label class="dest-wraper" for="dest" :class="{ 'date-hover': isStartDateHover }">
                                 <div class="header">Where</div>
                                 <input id="dest" autocomplete="off" type="text" class="text"
                                     placeholder="Search destinations" v-model="destination" @blur="addDestination">
                             </label>
                         </div>
-                        <date-picker id="date" @getDate="buildDate" class="date-component" />
+                        <date-picker id="date" :isGuestHover="isGuestHover" @getDate="addDate"
+                            @getStartDateHoverState="onStartDateHoverChange"
+                            @getEndDateHoverState="onEndDateHoverChange" class="date-component" />
 
-                        <guests-picker :isHeader="true" @addGuests="addGuest" @click="selectGuestPicker"
-                            v-click-outside="unSelectGuestPicker"
-                            :class="{ 'selected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
-                            class="clean-button guest-modal" />
+                        <guests-picker @getGuestHoverState="onGuestHoverChange" :isHeader="true" @addGuests="addGuest"
+                            @click="selectGuestPicker" v-click-outside="unSelectGuestPicker"
+                            :class="{ 'unselected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
+                            class="clean-button guest-picker-component" />
                         <div v-if="!isSearchModalActive" class="search-modal-logo" @click="searchFilter"><i
                                 class="fa-solid fa-magnifying-glass">
                             </i>
@@ -79,8 +81,10 @@ export default {
             isOpenScreen: false,
             isGuestPickerSelected: false,
             isDestPickerSelected: false,
-            isDatePickerSelected: false,
             isSearchModalActive: false,
+            isStartDateHover: false,
+            isEndDateHover: false,
+            isGuestHover: false,
         }
     },
     created() {
@@ -88,7 +92,15 @@ export default {
         this.cheackScreen()
     },
     methods: {
-        aaa() { console.log("aaa") },
+        onGuestHoverChange(guestHoverState) {
+            this.isGuestHover = guestHoverState
+        },
+        onStartDateHoverChange(startDateHoverState) {
+            this.isStartDateHover = startDateHoverState
+        },
+        onEndDateHoverChange(endDateHoverState) {
+            this.isEndDateHover = endDateHoverState
+        },
         showSearchTxt() {
             this.isSearchModalActive = true
         },
@@ -101,7 +113,6 @@ export default {
         },
         openModalSearchDate() {
             this.modalSearch = true
-            this.selectDatePicker()
         },
         openModalSearchGuest() {
             this.modalSearch = true
@@ -112,11 +123,6 @@ export default {
 
         }, unSelectDestPicker() {
             this.isDestPickerSelected = false
-        },
-        selectDatePicker() {
-            this.isDatePickerSelected = true
-        }, unSelectDatePicker() {
-            this.isDatePickerSelected = false
         },
         selectGuestPicker() {
             this.isGuestPickerSelected = true
@@ -132,7 +138,6 @@ export default {
             this.modalSearch = false
             this.isGuestPickerSelected = false
             this.isDestPickerSelected = false
-            this.isDatePickerSelected = false
             this.closeSearchTxt()
         },
         toogleMobileNav() {
@@ -148,9 +153,9 @@ export default {
             this.mobileNav = false
             return
         },
-        buildDate(value) {
-            this.search.startDate = value._value[0]
-            this.search.endDate = value._value[0]
+        addDate(value) {
+            this.search.startDate = value[0]
+            this.search.endDate = value[1]
         },
         addDestination() {
             this.search.destination = this.destination
@@ -169,8 +174,10 @@ export default {
             var filter = { ...this.search }
             delete filter.startDate
             delete filter.endDate
-            this.$store.dispatch({ type: "setFilter", filterBy: filter })
+            // this.$store.dispatch({ type: "setFilter", filterBy: {...filter} })
             this.closeModal()
+            console.log(filter);
+            this.$router.push(`/explore/${filter.destination}`)
         }
     },
     computed: {},

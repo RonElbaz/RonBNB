@@ -190,28 +190,35 @@ export default {
             }
         },
         onAddOrder() {
+            if(!this.guests){
+                console.log("no guests");
+                return
+            }
+            
             var order = {
                 buyer: {},
                 stay: {},
             };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
-            //TODO: uncomment when we have user service
+            
             order.buyer._id = this.user._id
-            // order.buyer.fullname = this.user.host.fullname
+            order.buyer.fullname = this.user.fullname
 
-            //TODO:uncomment when we can get date input from user
+            
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
-            //order.totalPrice = calculate days amount somehow...
+            order.totalPrice = this.stay.price * this.stayLength + (this.stayLength * 25)
             order.guests = this.guests
             order.status = "pending"
+            order.stay._id = this.stay._id
             order.stay.name = this.stay.name
-            //order.stay.price = this.stay.price
+            order.stay.price = this.stay.price
 
+            
             //TODO:uncomment when we can get date input from user
-            //this.$store.dispatch({type:'addOrder', order})
-
+            this.$store.dispatch({type:'addOrder', order:{...order}})
+            
             console.log(order);
         },
         getPos(ev) {
