@@ -1,7 +1,6 @@
 <template>
   <div class="main-layout filter-container">
-   
-    <stay-filter />
+    <stay-filter :showList="true" />
   </div>
   <stay-list :stays="getStays" />
 </template>
@@ -10,7 +9,8 @@
 import appHeader from "../components/app-header.vue"
 import appFooter from "../components/app-footer.vue"
 import stayFilter from "../components/stay-filter.vue"
-import StayList from "../components/stay-list.vue";
+import StayList from "../components/stay-list.vue"
+
 export default {
   name: "main-app",
   props: [],
@@ -18,8 +18,9 @@ export default {
     appHeader,
     appFooter,
     stayFilter,
-    StayList
-  },
+    StayList,
+    
+},
   data() {
     return {
 

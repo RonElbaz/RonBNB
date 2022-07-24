@@ -1,7 +1,7 @@
 <template>
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
     <section class="filter-container">
-        <div class="labels flex ">
+        <div v-if="showList" class="labels flex ">
             <button @click="onSetFilter(opt.label)" class="clean-button" v-for="opt in filterOpts">
                 <div :class="{ 'clicked-btn': type === opt.label }" @click="changedType(opt.label)"
                     class="image-and-txt flex column btn-label">
@@ -11,7 +11,7 @@
                 </div>
             </button>
         </div>
-        <button class="btn btn-filter" text @click="dialogFormVisible = true">
+        <button :class="{ 'add-position': showList }" class="btn btn-filter" text @click="dialogFormVisible = true">
             <img class="filter-img" src="../images/filtetr-image/filter-icon.png"
             > <span class="btn-filter-txt">Filters</span> 
         </button>
@@ -115,6 +115,12 @@ import { requiredNumber } from 'element-plus/es/components/table-v2/src/common'
 
 export default {
     name: 'stay-filter',
+    props:{
+        showList:{
+            type: Boolean,
+            required: true,
+        }
+    },
     data() {
         return {
             filterOpts: [
