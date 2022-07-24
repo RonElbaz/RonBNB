@@ -11,7 +11,7 @@
                 </div>
             </button>
         </div>
-        <div v-else>
+        <div v-else class="stays-amount">
            {{ stayLength }} stays
         </div>
         <button :class="{'btn-filter-top': !showList}" class="btn btn-filter" text @click="dialogFormVisible = true">
