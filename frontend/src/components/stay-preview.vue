@@ -11,6 +11,7 @@
         <button class="like-btn" @click.stop="addStayToLike(stay._id)" :style="changeHeartColor(stay._id)">
             <i class="fas fa-heart"></i>
         </button>
+        <p v-if="stay.host.isSuperhost" class="super-host-title">SuperHost</p>
         <div class="stay-info">
             <div class="stay-header flex space-between">
                 <h1 class="stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>

@@ -1,7 +1,7 @@
 .details-page {
     .header-details {
         padding-top: $padding-details-small;
-        
+
         .stay-name {
             margin-bottom: 0.7rem;
 
@@ -34,13 +34,31 @@
 
     .bottom-area-details {
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 4fr 2fr;
         grid-template-rows: 1fr;
         grid-column-gap: 90px;
         grid-row-gap: 0px;
 
+        .aircover-area {
+            padding: 32px 0;
+
+            .aircover-header {
+                font-size: 24px;
+                margin-bottom: 16px;
+                font-family: Circular-bold;
+
+                .air {
+                    color: #fe385e;
+                }
+
+                .aircover-txt {
+                    font-family: cereal;
+                }
+            }
+        }
+
         .reserve {
-           
+
 
             .reserve-area {
                 margin-top: 48px;
@@ -55,9 +73,33 @@
                 justify-content: center;
             }
 
-            .reserve-header{
+            .reserve-header {
                 width: 100%;
                 margin-bottom: 15px;
+                align-items: center;
+
+                .reserve-stay-price {
+                    font-size: 22px;
+                }
+
+                .reserve-stay-night {
+                    font-family: cereal;
+                    font-size: 16px;
+                }
+
+                .reserve-reviews-amount {
+                    color: $clr2;
+                    text-decoration: underline;
+                    font-size: 14px;
+                }
+
+                .star-rating-reserve {
+                    font-size: 12px;
+                }
+
+                .reserve-reviews-rating {
+                    font-size: 14px;
+                }
             }
         }
 
@@ -90,6 +132,19 @@
             }
         }
 
+        .description {
+            padding: $padding-details-big 0;
+
+            .description-header {
+                font-size: 24px;
+                margin-bottom: 24px;
+            }
+
+            .description-txt {
+                font-family: cereal;
+            }
+        }
+
         .bnb-btn {
             background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
             transition: opacity 1.25s ease 0s !important;
@@ -102,7 +157,7 @@
             color: rgb(255 255 255);
             font-family: Circular-bold;
             border-radius: 0.55rem;
-            font-size:16px;
+            font-size: 16px;
             margin-bottom: 16px;
         }
 
@@ -227,6 +282,12 @@ progress::-webkit-progress-value {
     border-radius: 40px;
 }
 
+.progress-bar-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
 .score-title {
     font-family: cereal;
     font-size: 1rem;
@@ -235,20 +296,22 @@ progress::-webkit-progress-value {
 .score-number {
     font-family: Circular-bold;
     font-size: 12px;
-    margin-inline-start: 10px;
+    // margin-inline-start: 10px;
 }
 
-.date-area-text{
-    color: rgb(34, 34, 34) ;
+.date-area-text {
+    color: rgb(34, 34, 34);
     text-align: left;
     margin-bottom: 16px;
-    height:80px;
+    height: 80px;
     box-shadow: inset 0 -1px 0 0 #ddd;
     font-family: cereal;
-    .service-fee{
-        padding-top:16px ;
+
+    .service-fee {
+        padding-top: 16px;
     }
-    .text-decorate{
+
+    .text-decorate {
         text-decoration: underline;
     }
 }

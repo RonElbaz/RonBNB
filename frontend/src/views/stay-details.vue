@@ -27,16 +27,22 @@
                             }}
                         </p>
                     </div>
-                       <img class="host-img" :src=randomUser(0) alt="">
+                    <img class="host-img" :src=randomUser(0) alt="">
                 </div>
-                <!-- <div class="description grey-underline">
-                    <h1>Stay description</h1>
-                    <p>{{stay.summary}}</p>
-                </div> -->
+                <div class="description grey-underline">
+                    <h1 class="description-header">Stay description</h1>
+                    <p class="description-txt">Hello, welcome to our sunny and spacious West Village gem! Our apartment
+                        has been designed with elegance and comfort in mind. Previously featured on Apartment Therapy,
+                        we've redone the interior but kept the layout readers loved.</p>
+                </div>
+                        <div class="aircover-area grey-underline">
+                            <h1 class="aircover-header"><span class="air">air</span>cover</h1>
+                            <p class="aircover-txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
+                        </div>
                 <div v-if="stay" class="amenities-area  grey-underline">
                     <h1 class="amenities-title">What this place offers</h1>
                     <ul class="amenities-ul">
-                        <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
+                        <li class="amenitiey" v-for="amenitie in stay.amentie" :key="stay._id">
                             <div class="amenities-container">
                                 <p class="amenities-prop"><span class="amenities-symbol"
                                         v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
@@ -46,43 +52,46 @@
                     </ul>
                 </div>
             </div>
-            <section class="reserve" >
+            <section class="reserve">
                 <div class="reserve-area flex column space-between">
-                <div class=" reserve-header flex space-between">
-                    <h1> $ {{ stay.price }} night</h1>
-                    <h1> <i class="fa-solid fa-star"></i> {{ stay.reviewScores.rating }}
-                        <span class="dot-separate">·</span>
-                        {{ stay.numOfReviews }} reviews
-                    </h1>
-                </div>
+                    <div class=" reserve-header flex space-between">
+                        <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night"> night
+                            </span></h1>
+                        <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span class="reserve-reviews-rating"> {{
+                                ((stay.reviewScores.rating) / 20).toFixed(2)
+                        }} </span>
+                            <span class="dot-separate">·</span>
+                            <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
+                        </h1>
+                    </div>
 
-                <div class="date-area">
-                      <date-picker-try @addDate="setDate" />
-                      <guests-picker @addGuests="setGuests" :isHeader="false"/>
-                      <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
-                    @click="onAddOrder">Reserve</button>
-                      <div v-if="stayLength" class="date-area-text">
-                        <div class="flex space-between">
-                            <span class="text-decorate">{{stay.price}} x {{getNights}}</span>
-                            <span>${{stay.price * stayLength}}</span>
-                        </div>
-                        <div class="flex space-between service-fee">
-                            <span class="text-decorate">Service fee</span>
-                            <span>${{stayLength * 25}}</span>
-                        </div>
+                    <div class="date-area">
+                        <date-picker-try @addDate="setDate" />
+                        <guests-picker @addGuests="setGuests" :isHeader="false" />
+                        <button class="bnb-btn" @mousemove="getPos"
+                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button>
+                        <div v-if="stayLength" class="date-area-text">
+                            <div class="flex space-between">
+                                <span class="text-decorate">{{ stay.price }} x {{ getNights }}</span>
+                                <span>${{ stay.price * stayLength }}</span>
+                            </div>
+                            <div class="flex space-between service-fee">
+                                <span class="text-decorate">Service fee</span>
+                                <span>${{ stayLength * 25 }}</span>
+                            </div>
 
-                      </div>
+                        </div>
                         <div v-if="stayLength" class="flex space-between">
                             <span>Total</span>
-                            <span>${{stay.price * stayLength + (stayLength * 25)}}</span>
+                            <span>${{ stay.price * stayLength + (stayLength * 25) }}</span>
                         </div>
-                </div>
                     </div>
+                </div>
             </section>
         </section>
         <div v-if="stay" class="reviews-area">
-                <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
-                    {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{stay.numOfReviews}} reviews  </h1>
+            <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
+                {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
             <div class="review-score">
                 <li v-for="reviewScore in Object.entries(stay.reviewScores)" :key="stay._id">
                     <div class="flex space-between" v-html="formatReviewScore(reviewScore)"></div>
@@ -138,7 +147,7 @@ export default {
         try {
             const { stayId } = this.$route.params
             //TODO: uncomment when we have user service
-            this.user = this.$store.getters.getLoggedInUser 
+            this.user = this.$store.getters.getLoggedInUser
             var stay = await stayService.getById(stayId)
             this.stay = stay
             // this.longAmenities = this.stay.amenities > 10
@@ -160,6 +169,9 @@ export default {
             if (amenitie === 'Kitchen') return '<i class="fa-solid fa-kitchen-set"></i>'
             if (amenitie === 'Air conditioning') return '<i class="fa-solid fa-snowflake"></i>'
             if (amenitie === 'Wheelchair accessible') return '<i class="fa-solid fa-wheelchair"></i>'
+            if (amenitie === 'First aid kit') return '<i class="fa-solid fa-kit-medical"></i>'
+            if (amenitie === 'Vault') return '<i class="fa-solid fa-vault"></i>'
+            if (amenitie === 'Buthub') return '<i class="fa-solid fa-bath"></i>'
         },
         timeFormat(time) {
             const date = new Date(time)
@@ -179,8 +191,8 @@ export default {
         },
         onAddOrder() {
             var order = {
-                buyer:{},
-                stay:{},
+                buyer: {},
+                stay: {},
             };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
@@ -199,7 +211,7 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             //this.$store.dispatch({type:'addOrder', order})
-            
+
             console.log(order);
         },
         getPos(ev) {
@@ -215,7 +227,7 @@ export default {
         randomUser(idx) {
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
-        setDate(selectedDate){
+        setDate(selectedDate) {
             this.stayDate = selectedDate
             const startDate = new Date(selectedDate[0]);
             const endDate = new Date(selectedDate[1]);
@@ -223,7 +235,7 @@ export default {
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             this.stayLength = diffDays
         },
-        setGuests(guests){
+        setGuests(guests) {
             this.guests = guests
         }
     },
@@ -250,18 +262,18 @@ export default {
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
-        getNights(){
-            return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights` 
+        getNights() {
+            return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights`
         }
 
 
 
     },
     components: {
-    imageGallery,
-    datePickerTry,
-    guestsPicker,
-    
-}
+        imageGallery,
+        datePickerTry,
+        guestsPicker,
+
+    }
 }
 </script>
