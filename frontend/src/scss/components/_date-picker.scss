@@ -122,18 +122,55 @@ el-date-table td.end-date .el-date-table-cell__text,
   }
 }
 
-
-.date-area {
+.date-area{
   position: relative;
-  // left: 200px;
-  // top: 20px;
+  width: 100%;
+}
 
-  .date-input {
-    opacity: 0;
-    position: absolute;
-    left: 0;
-    top: 0;
-    cursor: pointer;
-    display: inline;
+.date-picker{
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.start-date-try {
+  padding: 14px 0 14px 25px;
+  // border-radius: 0 0 13px 13px;
+  border: 1px solid #b0b0b0;
+  width: 100%;
+  .start-date-line-try {
+    // box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+    // padding-right: 24px;
+    .header {
+      font-size: 11.8px;
+      font-family: Circular-bold;
+      letter-spacing: 0.65px;
+      width: 130px;
+    }
+    .text {
+      font-size: 13.5px;
+      letter-spacing: 0.2px;
+      color: #717171;
+      margin-top: 3px;
+      font-family: cereal;
+    }
+  }
+  &:hover {
+    background-color: #ebebeb;
+    .start-date-line {
+      box-shadow: none;
+    }
+
+  }
+  &.right{
+    // border-radius: 0 0 13px 13px;
+    border-start-end-radius: 13px;
+    
+    
+  }
+  &.left{
+    // border-radius: 13px 13px 0 0;
+    border-start-start-radius: 13px;
   }
 }
