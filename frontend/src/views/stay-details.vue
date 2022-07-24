@@ -29,16 +29,28 @@
                     </div>
                     <img class="host-img" :src=randomUser(0) alt="">
                 </div>
+                <div class="info-placeholder grey-underline">
+                    <div v-if="stay.host.isSuperhost" class="super-host">
+                        <h1 class="super-host-header"><i class="fa-solid fa-award award-symbol-info"></i> <span class="super-host-header-txt"> {{ stay.host.fullname }} is a Superhost</span>
+                            <p class="super-host-txt">Superhosts are experienced, highly rated hosts who are committed to providing great stays
+                                for guests.
+                                Free cancellation before Oct </p>
+                        </h1>
+                    </div>
+                        <h1 class="free-cancellation"><i class="fa-regular fa-calendar"></i><span
+                                class="free-cancellation-txt">Free cancellation before Oct 27.</span> </h1>
+                </div>
+                <div class="aircover-area grey-underline">
+                    <h1 class="aircover-header"><span class="air">air</span>cover</h1>
+                    <p class="aircover-txt">Every booking includes free protection from Host cancellations, listing
+                        inaccuracies, and other issues like trouble checking in.</p>
+                </div>
                 <div class="description grey-underline">
                     <h1 class="description-header">Stay description</h1>
                     <p class="description-txt">Hello, welcome to our sunny and spacious West Village gem! Our apartment
                         has been designed with elegance and comfort in mind. Previously featured on Apartment Therapy,
                         we've redone the interior but kept the layout readers loved.</p>
                 </div>
-                        <div class="aircover-area grey-underline">
-                            <h1 class="aircover-header"><span class="air">air</span>cover</h1>
-                            <p class="aircover-txt">Every booking includes free protection from Host cancellations, listing inaccuracies, and other issues like trouble checking in.</p>
-                        </div>
                 <div v-if="stay" class="amenities-area  grey-underline">
                     <h1 class="amenities-title">What this place offers</h1>
                     <ul class="amenities-ul">
@@ -57,9 +69,10 @@
                     <div class=" reserve-header flex space-between">
                         <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night"> night
                             </span></h1>
-                        <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span class="reserve-reviews-rating"> {{
-                                ((stay.reviewScores.rating) / 20).toFixed(2)
-                        }} </span>
+                        <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span
+                                class="reserve-reviews-rating"> {{
+                                        ((stay.reviewScores.rating) / 20).toFixed(2)
+                                }} </span>
                             <span class="dot-separate">·</span>
                             <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
                         </h1>
@@ -190,22 +203,22 @@ export default {
             }
         },
         onAddOrder() {
-            if(!this.guests){
+            if (!this.guests) {
                 console.log("no guests");
                 return
             }
-            
+
             var order = {
                 buyer: {},
                 stay: {},
             };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
-            
+
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
 
-            
+
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
             order.totalPrice = this.stay.price * this.stayLength + (this.stayLength * 25)
@@ -215,10 +228,10 @@ export default {
             order.stay.name = this.stay.name
             order.stay.price = this.stay.price
 
-            
+
             //TODO:uncomment when we can get date input from user
-            this.$store.dispatch({type:'addOrder', order:{...order}})
-            
+            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+
             console.log(order);
         },
         getPos(ev) {

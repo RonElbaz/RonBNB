@@ -11,9 +11,12 @@
                 </div>
             </button>
         </div>
-        <button :class="{ 'add-position': showList }" class="btn btn-filter" text @click="dialogFormVisible = true">
-            <img class="filter-img" src="../images/filtetr-image/filter-icon.png"
-            > <span class="btn-filter-txt">Filters</span> 
+        <div v-else>
+           {{ stayLength }} stays
+        </div>
+        <button :class="{'btn-filter-top': !showList}" class="btn btn-filter" text @click="dialogFormVisible = true">
+            <img class="filter-img" src="../images/filtetr-image/filter-icon.png"> <span
+                class="btn-filter-txt">Filters</span>
         </button>
     </section>
     <el-dialog v-model="dialogFormVisible" title="Filters" center>
@@ -115,10 +118,13 @@ import { requiredNumber } from 'element-plus/es/components/table-v2/src/common'
 
 export default {
     name: 'stay-filter',
-    props:{
-        showList:{
+    props: {
+        showList: {
             type: Boolean,
             required: true,
+        },
+        stayLength: {
+            type: Number
         }
     },
     data() {
