@@ -12,8 +12,9 @@
     </div>
   </div>
 
-  <!-- <div class="date-container">
+  <div class="date-container">
         <label for="R" class="flex date-wraper">
+          <div class="date-area">
             <div class="start-date">
                 <div class="header">Check in</div>
                 <div class="text">Add dates</div>
@@ -23,13 +24,12 @@
                 <div class="header">Check out</div>
                 <div class="text">Add dates</div>
             </div>
-            <div class="date-picker">
-                <el-date-picker id="R" @change="emitDate" @blur="emitDate" v-model="selectedDate" type="daterange"
+                <el-date-picker popper-class="date-input" id="R" @change="emitDate" @blur="emitDate" v-model="selectedDate" type="daterange"
                     :default-time="defaultTime" />
             </div>
         </label>
 
-    </div> -->
+    </div>
 </template>
 
 <script>

@@ -2,6 +2,7 @@
   .el-date-range-picker {
     border-radius: 30px;
   }
+
   display: none;
 }
 
@@ -21,6 +22,7 @@
 .el-icon.el-input__icon.el-range__icon {
   display: none;
 }
+
 .header.el-popper.is-pure {
   // position: relative !important;
   border-radius: 30px !important;
@@ -34,9 +36,11 @@
     .start-date {
       padding: 14px 0 14px 25px;
       border-radius: 32px;
+
       .start-date-line {
         box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
         padding-right: 24px;
+
         .header {
           font-size: 11.8px;
           font-family: Circular-bold;
@@ -52,15 +56,19 @@
           font-family: cereal;
         }
       }
+
       &:hover {
         background-color: #ebebeb;
+
         .start-date-line {
           box-shadow: none;
         }
       }
     }
+
     .end-date {
       padding: 14px 24px;
+
       .header {
         font-size: 12px;
         font-family: Circular-bold;
@@ -96,6 +104,7 @@
 .el-date-table td.start-date .el-date-table-cell__text {
   background-color: black !important;
 }
+
 .el-date-table td.end-date .el-date-table-cell__text {
   background-color: black !important;
 }
@@ -103,12 +112,28 @@
 el-date-table td.end-date .el-date-table-cell__text,
 .el-date-table td.start-date .el-date-table-cell__text {
   &:hover {
-    background-color: black !important ;
+    background-color: black !important;
   }
 }
 
 .el-date-table td.available {
   &:hover {
     color: black !important;
+  }
+}
+
+
+.date-area {
+  position: relative;
+  // left: 200px;
+  // top: 20px;
+
+  .date-input {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    display: inline;
   }
 }

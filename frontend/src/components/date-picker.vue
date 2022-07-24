@@ -13,7 +13,7 @@
                 <div class="text">Add dates</div>
             </div>
             <div class="date-picker">
-                <el-date-picker popper-class="header" id="a" @blur="pick" v-model="value" type="daterange"
+                <el-date-picker class="date-picker-input" id="a" @blur="pick" v-model="value" type="daterange"
                     :default-time="defaultTime" />
             </div>
         </label>
