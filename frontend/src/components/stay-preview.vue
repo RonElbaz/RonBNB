@@ -16,8 +16,8 @@
             <div class="stay-header flex space-between">
                 <h1 class="stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
                 <h1 class="stay-rating"> <i class="fa-solid fa-star star-rating"></i> {{
-                        ((stay.reviewScores.rating) / 20).toFixed(2)
-                }} </h1>
+                        ((stay.reviewScores.rating) / 20).toFixed(2) 
+                }} ({{((stay.numOfReviews))}}) </h1>
             </div>
             <h1 v-if="stay.stayDate" class="stay-date">{{fomratStayDate}}</h1>
             <h1 class="stay-price">${{ stay.price }}<span class="stay-night"> night</span></h1>
