@@ -4,7 +4,7 @@
             <div @click="selectStartDatePicker" v-click-outside="unSelectStartDatePicker"
                 :class="{ 'unselected-picker': !isStartDatePickerSelected, 'selected-start-date': isStartDatePickerSelected }"
                 class="start-date" @mouseover="onStartDateHover" @mouseleave="onStartDateHoverLeave">
-                <div class="start-date-line" :class="{ 'end-date-hover': isEndDateHover }">
+                <div class="start-date-line" :class="{ 'end-date-hover': isEndDateHover || isEndDatePickerSelected }">
                     <div class="header">Check in</div>
                     <div class="text">Add dates</div>
                 </div>
@@ -12,8 +12,7 @@
             <div class="end-date" @click="selectEndDatePicker" v-click-outside="unSelectEndDatePicker"
                 :class="{ 'unselected-picker': !isEndDatePickerSelected, 'selected-end-date': isEndDatePickerSelected }"
                 @mouseover="onEndDateHover" @mouseleave="onEndDateHoverLeave">
-                <div class="end-date-line"
-                    :class="{ 'guest-hover': isGuestHover, 'unselected-picker': !isEndDatePickerSelected, 'selected-start-date': isEndDatePickerSelected }">
+                <div class="end-date-line" :class="{ 'guest-hover': isGuestHover || isGuestSelect }">
                     <div class="header">Check out</div>
                     <div class="text">Add dates</div>
                 </div>
@@ -32,6 +31,9 @@ export default {
         isGuestHover: {
             type: Boolean,
         },
+        isGuestSelect: {
+            type: Boolean
+        }
     },
     data() {
         return {
@@ -46,9 +48,13 @@ export default {
     },
     methods: {
         selectStartDatePicker() {
+            if (this.isStartDatePickerSelected === true) return
             this.isStartDatePickerSelected = true
+            this.$emit("getStartDateSelectedState", this.isStartDatePickerSelected)
         }, unSelectStartDatePicker() {
+            if (this.isStartDatePickerSelected === false) return
             this.isStartDatePickerSelected = false
+            this.$emit("getStartDateSelectedState", this.isStartDatePickerSelected)
         },
         selectEndDatePicker() {
             this.isEndDatePickerSelected = true

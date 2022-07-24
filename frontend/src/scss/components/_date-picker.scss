@@ -72,6 +72,10 @@
       background-color: white;
       border-radius: 32px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+
+      .start-date-line {
+        box-shadow: none;
+      }
     }
 
     .end-date {
@@ -114,6 +118,9 @@
       background-color: white;
       border-radius: 32px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      .end-date-line {
+        box-shadow: none;
+      }
     }
   }
 }

@@ -32,17 +32,20 @@
                         <div class="dest-container flex align-items-center " @click="selectDestPicker"
                             v-click-outside="unSelectDestPicker"
                             :class="{ 'unselected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
-                            <label class="dest-wraper" for="dest" :class="{ 'date-hover': isStartDateHover }">
+                            <label class="dest-wraper" for="dest"
+                                :class="{ 'date-hover': isStartDateHover, 'start-date-selected': isStartDateSelected }">
                                 <div class="header">Where</div>
                                 <input id="dest" autocomplete="off" type="text" class="text"
                                     placeholder="Search destinations" v-model="destination" @blur="addDestination">
                             </label>
                         </div>
-                        <date-picker id="date" :isGuestHover="isGuestHover" @getDate="addDate"
+                        <date-picker id="date" :isGuestHover="isGuestHover" :isGuestSelect="isGuestSelect"
+                            @getDate="addDate" @getStartDateSelectedState="onStartDateSelectedChange"
                             @getStartDateHoverState="onStartDateHoverChange"
                             @getEndDateHoverState="onEndDateHoverChange" class="date-component" />
 
-                        <guests-picker @getGuestHoverState="onGuestHoverChange" :isHeader="true" @addGuests="addGuest"
+                        <guests-picker @getGuestHoverState="onGuestHoverChange"
+                            @getGuestSelectState="onGuestSelectChange" :isHeader="true" @addGuests="addGuest"
                             @click="selectGuestPicker" v-click-outside="unSelectGuestPicker"
                             :class="{ 'unselected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
                             class="clean-button guest-picker-component" />
@@ -80,11 +83,13 @@ export default {
             destination: null,
             isOpenScreen: false,
             isGuestPickerSelected: false,
+            isStartDateSelected: false,
             isDestPickerSelected: false,
             isSearchModalActive: false,
             isStartDateHover: false,
             isEndDateHover: false,
             isGuestHover: false,
+            isGuestSelect: false,
         }
     },
     created() {
@@ -94,6 +99,12 @@ export default {
     methods: {
         onGuestHoverChange(guestHoverState) {
             this.isGuestHover = guestHoverState
+        },
+        onGuestSelectChange(guestSelectState) {
+            this.isGuestSelect = guestSelectState
+        },
+        onStartDateSelectedChange(startDateSelectedState) {
+            this.isStartDateSelected = startDateSelectedState
         },
         onStartDateHoverChange(startDateHoverState) {
             this.isStartDateHover = startDateHoverState
