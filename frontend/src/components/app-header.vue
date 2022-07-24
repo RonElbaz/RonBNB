@@ -16,7 +16,7 @@
                 </div>
                 <div v-show="!mobile" class="flex align-items-center justify-content-end bar">
                     <!-- <div class="explore"><span>Explore</span></div> -->
-                    <div class="switch"><span>Switch to hosting</span></div>
+                    <div class="switch"><span>Become a Host</span></div>
                     <img class="globe" src="../img/globe.png" alt="" />
                     <div class="flex align-items-center dropdown border-thin-black-round user">
                         <span>☰</span>
@@ -81,7 +81,6 @@ export default {
             isOpenScreen: false,
             isGuestPickerSelected: false,
             isDestPickerSelected: false,
-            isDatePickerSelected: false,
             isSearchModalActive: false,
             isStartDateHover: false,
             isEndDateHover: false,
@@ -93,7 +92,6 @@ export default {
         this.cheackScreen()
     },
     methods: {
-        aaa() { console.log("aaa") },
         onGuestHoverChange(guestHoverState) {
             this.isGuestHover = guestHoverState
         },
@@ -115,7 +113,6 @@ export default {
         },
         openModalSearchDate() {
             this.modalSearch = true
-            this.selectDatePicker()
         },
         openModalSearchGuest() {
             this.modalSearch = true
@@ -126,11 +123,6 @@ export default {
 
         }, unSelectDestPicker() {
             this.isDestPickerSelected = false
-        },
-        selectDatePicker() {
-            this.isDatePickerSelected = true
-        }, unSelectDatePicker() {
-            this.isDatePickerSelected = false
         },
         selectGuestPicker() {
             this.isGuestPickerSelected = true
@@ -146,7 +138,6 @@ export default {
             this.modalSearch = false
             this.isGuestPickerSelected = false
             this.isDestPickerSelected = false
-            this.isDatePickerSelected = false
             this.closeSearchTxt()
         },
         toogleMobileNav() {

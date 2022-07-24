@@ -1,14 +1,19 @@
 <template>
     <div class="date-container">
         <label for="a" class="flex date-wraper">
-            <div class="start-date" @mouseover="onStartDateHover" @mouseleave="onStartDateHoverLeave">
+            <div @click="selectStartDatePicker" v-click-outside="unSelectStartDatePicker"
+                :class="{ 'unselected-picker': !isStartDatePickerSelected, 'selected-start-date': isStartDatePickerSelected }"
+                class="start-date" @mouseover="onStartDateHover" @mouseleave="onStartDateHoverLeave">
                 <div class="start-date-line" :class="{ 'end-date-hover': isEndDateHover }">
                     <div class="header">Check in</div>
                     <div class="text">Add dates</div>
                 </div>
             </div>
-            <div class="end-date" @mouseover="onEndDateHover" @mouseleave="onEndDateHoverLeave">
-                <div class="end-date-line" :class="{ 'guest-hover': isGuestHover }">
+            <div class="end-date" @click="selectEndDatePicker" v-click-outside="unSelectEndDatePicker"
+                :class="{ 'unselected-picker': !isEndDatePickerSelected, 'selected-end-date': isEndDatePickerSelected }"
+                @mouseover="onEndDateHover" @mouseleave="onEndDateHoverLeave">
+                <div class="end-date-line"
+                    :class="{ 'guest-hover': isGuestHover, 'unselected-picker': !isEndDatePickerSelected, 'selected-start-date': isEndDatePickerSelected }">
                     <div class="header">Check out</div>
                     <div class="text">Add dates</div>
                 </div>
@@ -18,7 +23,6 @@
                     type="daterange" />
             </div>
         </label>
-
     </div>
 </template>
 <script >
@@ -33,12 +37,24 @@ export default {
         return {
             selectedDate: '',
             isStartDateHover: false,
-            isEndDateHover: false
+            isEndDateHover: false,
+            isStartDatePickerSelected: false,
+            isEndDatePickerSelected: false,
         }
     },
     components: {
     },
     methods: {
+        selectStartDatePicker() {
+            this.isStartDatePickerSelected = true
+        }, unSelectStartDatePicker() {
+            this.isStartDatePickerSelected = false
+        },
+        selectEndDatePicker() {
+            this.isEndDatePickerSelected = true
+        }, unSelectEndDatePicker() {
+            this.isEndDatePickerSelected = false
+        },
         onStartDateHover() {
             if (this.isStartDateHover === true) return
             this.isStartDateHover = true

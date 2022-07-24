@@ -266,7 +266,7 @@ header {
   background-color: white;
   width: 100%;
   left: 0;
-  & > .search-bar {
+  .search-bar {
     // general
     width: 850px;
     height: 66px;
@@ -313,6 +313,12 @@ header {
         box-shadow: none;
       }
     }
+    .dest-container.selected-dest {
+      // width: 248px;
+      .dest-wraper {
+        box-shadow: none;
+      }
+    }
 
     // destination section
     .date-component {
@@ -327,8 +333,31 @@ header {
     }
   }
 
-  & > .search-bar.search-modal-active {
+  .search-bar.search-modal-active {
     background-color: #f7f7f7;
+
+    .dest-container {
+      width: 246px;
+    }
+
+    .date-component {
+      .date-wraper {
+        .start-date {
+          .start-date-line {
+            .header {
+              width: 116px;
+            }
+          }
+        }
+        .end-date {
+          .end-date-line {
+            .header {
+              width: 115px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -357,7 +386,8 @@ header {
   height: 48px;
   width: 48px;
   position: absolute;
-  right: 0;
+  top: -0.1px;
+  right: -1.5px;
   i {
     position: absolute;
     color: white;
@@ -375,7 +405,7 @@ header {
   margin: 8px 10px 7px 0;
   background: linear-gradient(#e61e4d 0%, #e31c5f 50%, #d70466 100%);
   border-radius: 32px;
-  padding: 16px;
+  padding: 16px 15px 16px 16px;
   height: 48px;
   width: 111px;
   position: absolute;
@@ -390,7 +420,7 @@ header {
   }
   &-txt {
     font-size: 16px;
-    padding-left: 8px;
+    padding-left: 10px;
     padding-right: 4px;
     color: white;
     // color: black;

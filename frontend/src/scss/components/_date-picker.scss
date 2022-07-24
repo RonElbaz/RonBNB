@@ -68,6 +68,12 @@
       }
     }
 
+    .start-date.selected-start-date {
+      background-color: white;
+      border-radius: 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
     .end-date {
       padding: 14px 0 14px 25px;
       border-radius: 32px;
@@ -103,6 +109,11 @@
     }
     .date-picker {
       display: none;
+    }
+    .end-date.selected-end-date {
+      background-color: white;
+      border-radius: 32px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
     }
   }
 }
