@@ -11,7 +11,7 @@
                 </h3>
             </div>
         </section>
-        <div>z
+        <div>
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
         <section class="bottom-area-details">
