@@ -303,8 +303,11 @@ header {
           font-family: cereal;
         }
       }
+      .dest-wraper.date-hover {
+        box-shadow: none;
+      }
     }
-    .dest-container.selected-picker:hover {
+    .dest-container.unselected-picker:hover {
       background-color: #ebebeb;
       .dest-wraper {
         box-shadow: none;
@@ -314,15 +317,13 @@ header {
     // destination section
     .date-component {
       //  go to file _date-picker.scss
-      // .date-container {
-      //   .date-wraper {
-      //     .start-date {
-      //     }
-      //   }
-      // }
+    }
+
+    .guest-picker-component {
+      //  go to file _guest-picker.scss for styling
     }
     .selected-picker:hover {
-      background-color: #ebebeb;
+      // background-color: #ebebeb;
     }
   }
 
@@ -345,27 +346,6 @@ header {
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
   & .dummy {
     visibility: hidden;
-  }
-}
-
-.guest-modal {
-  // this is the line for guest
-  // box-shadow: -1px 0px 0px 0px rgba(0, 0, 0, 0.105);
-  // margin-left: 10px;
-  padding-left: 25px;
-
-  & .header {
-    font-size: 11.7px;
-    font-weight: 600;
-    letter-spacing: 0.76px;
-    color: #000000;
-  }
-
-  & .text {
-    font-size: 14px;
-    // letter-spacing: 0.2px;
-    color: #717171;
-    margin-top: 3px;
   }
 }
 
@@ -421,11 +401,6 @@ header {
 // }
 
 .selected-dest {
-  background-color: white;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.selected-guest {
   background-color: white;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }

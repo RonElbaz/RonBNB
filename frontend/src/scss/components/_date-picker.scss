@@ -52,6 +52,9 @@
           font-family: cereal;
         }
       }
+      .start-date-line.end-date-hover {
+        box-shadow: none;
+      }
       &:hover {
         background-color: #ebebeb;
         .start-date-line {
@@ -60,23 +63,40 @@
       }
     }
     .end-date {
-      padding: 14px 24px;
-      .header {
-        font-size: 12px;
-        font-family: Circular-bold;
-        letter-spacing: 0.76px;
+      padding: 14px 0 14px 25px;
+      border-radius: 32px;
+      .end-date-line {
+        box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+        padding-right: 24px;
+        .header {
+          font-size: 11.8px;
+          font-family: Circular-bold;
+          letter-spacing: 0.6px;
+          width: 130px;
+        }
+
+        .text {
+          font-size: 13.5px;
+          letter-spacing: 0.25px;
+          color: #717171;
+          margin-top: 3px;
+          font-family: cereal;
+        }
+        &:hover {
+          box-shadow: none;
+        }
       }
 
-      .text {
-        font-size: 14px;
-        // letter-spacing: 0.2px;
-        color: #717171;
-        margin-top: 3px;
+      .end-date-line.guest-hover {
+        box-shadow: none;
       }
 
       &:hover {
-        background-color: #000000;
+        background-color: #ebebeb;
       }
+    }
+    .date-picker {
+      display: none;
     }
   }
 }

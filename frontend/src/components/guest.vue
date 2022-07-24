@@ -1,10 +1,10 @@
 <template>
-    <div class="flex space-between guest">
-        <div class="flex column">
-            <div>{{ title }}</div>
-            <div>{{ desc }}</div>
+    <div class="flex space-between guest-section">
+        <div class="flex column guest-info">
+            <div class="guest-type">{{ title }}</div>
+            <div class="guest-conditions">{{ desc }}</div>
         </div>
-        <div class="flex calc align-items-center">
+        <div class="flex calc align-items-center guest-amount">
             <button class="clean-button" :disabled="isDecBtnDis" @click="dec"><span>-</span></button>
             <div class=""><span>{{ amount }}</span></div>
             <button class="clean-button" :disabled="isIncBtnDis" @click="inc"><span>+</span></button>
