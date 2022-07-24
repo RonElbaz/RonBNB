@@ -306,6 +306,9 @@ header {
       .dest-wraper.date-hover {
         box-shadow: none;
       }
+      .dest-wraper.start-date-selected {
+        box-shadow: none;
+      }
     }
     .dest-container.unselected-picker:hover {
       background-color: #ebebeb;

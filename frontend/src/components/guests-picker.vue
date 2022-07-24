@@ -10,7 +10,7 @@
                 <input class="input-guests-reserve" disabled :placeholder=getGuests>
             </div>
         </div>
-        <div v-if="isGuest" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
+        <div v-if="isGuestSelected" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
             <guest class="guest-component" title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
             <guest class="guest-component" title="Children" desc="Ages 2-12" @addGuest="addChildren" />
             <guest class="guest-component" title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
@@ -38,7 +38,7 @@ export default {
             windowWidth: null,
             selected: null,
             guests: {},
-            isGuest: false,
+            isGuestSelected: false,
             isGuestHover: false,
         }
     },
@@ -56,10 +56,16 @@ export default {
             this.$emit("getGuestHoverState", this.isGuestHover)
         },
         openGuest() {
-            this.isGuest = true
+            if (this.isGuestSelected === true) return
+            this.isGuestSelected = true
+            console.log(this.isGuestSelected)
+            this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         closeGuest() {
-            this.isGuest = false
+            if (this.isGuestSelected === false) return
+            this.isGuestSelected = false
+            console.log(this.isGuestSelected)
+            this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         toogleMobileNav() {
             this.mobileNav = !this.mobileNav
