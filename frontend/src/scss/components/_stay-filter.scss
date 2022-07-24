@@ -11,6 +11,7 @@
         background-color: white;
         border: 1px solid #dddddd;
         padding: 7px 0;
+        position: absolute;
         right: 0;
         top: 0;
         font-family: Circular-bold;
@@ -28,9 +29,9 @@
         }
 
     }
-    .add-position{
-        position: absolute;
-    }
+  .btn-filter-top{
+    top: -15px;
+  }
 
 
     .btn-label {

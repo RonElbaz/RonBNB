@@ -2,7 +2,7 @@
 
 <div class="main-layout filter-container">
    
-    <stay-filter :showList="false" />
+    <stay-filter :showList="false" :stayLength="getStays.length" />
   </div>
   <stay-list :stays="getStays" />
 

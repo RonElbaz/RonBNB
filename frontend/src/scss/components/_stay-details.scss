@@ -28,6 +28,35 @@
         }
     }
 
+    .info-placeholder{
+        padding: 32px 0;
+
+
+        .super-host{
+            margin-bottom: 32px;
+
+            .super-host-header{
+                font-family: cereal;
+                margin-bottom: 4px;
+                .super-host-header-txt{
+                    margin-inline-start: 16px;
+                }
+            }
+            
+            .super-host-txt{
+                font-family: cereal;
+                font-size: 14px;
+                color: $clr2;
+                margin-inline-start: 34px;
+            }
+        }
+
+        .free-cancellation-txt{
+            font-family: cereal;
+            margin-inline-start: 16px;
+        }
+    }
+
     .img-gallery {
         padding-top: $padding-details-small;
     }
@@ -51,9 +80,9 @@
                     color: #fe385e;
                 }
 
-                .aircover-txt {
-                    font-family: cereal;
-                }
+            }
+            .aircover-txt {
+                font-family: cereal;
             }
         }
 
@@ -68,7 +97,7 @@
                 box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
                 grid-area: 1 / 2 / 2 / 3;
                 position: sticky;
-                top: 0;
+                top: 50px;
                 align-items: center;
                 justify-content: center;
             }
