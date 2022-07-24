@@ -14,8 +14,8 @@
                 </div>
             </div>
             <div class="date-picker">
-                <el-date-picker popper-class="header" id="a" @change="emitDate" v-model="selectedDate" type="daterange"
-                    :default-time="defaultTime" />
+                <el-date-picker popper-class="header" id="a" @change="emitDate" v-model="selectedDate"
+                    type="daterange" />
             </div>
         </label>
 
@@ -27,11 +27,11 @@ export default {
     props: {
         isGuestHover: {
             type: Boolean,
-        }
+        },
     },
     data() {
         return {
-            selectedDate: {},
+            selectedDate: '',
             isStartDateHover: false,
             isEndDateHover: false
         }
@@ -52,17 +52,14 @@ export default {
         onEndDateHover() {
             if (this.isEndDateHover === true) return
             this.isEndDateHover = true
-            console.log(this.isEndDateHover)
             // this.$emit("getEndDateHoverState", this.isEndDateHover)
         },
         onEndDateHoverLeave() {
             if (this.isEndDateHover === false) return
             this.isEndDateHover = false
-            console.log(this.isEndDateHover)
             // this.$emit("getEndDateHoverState", this.isEndDateHover)
         },
         emitDate() {
-            console.log("a")
             this.$emit("getDate", this.selectedDate)
         }
     },

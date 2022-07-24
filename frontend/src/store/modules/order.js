@@ -10,10 +10,11 @@ export const order = {
      },
      addOrder(state, {newOrder}){
         state.orders.push(newOrder)
+        console.log(state.orders)
      }
     },
     actions:{
-        async loadStays({commit}){
+        async loadOrders({commit}){
             try{
                 var orders = await orderService.query()
                 commit({type:'setOrders', orders})

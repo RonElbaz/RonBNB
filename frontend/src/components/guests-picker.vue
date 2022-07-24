@@ -48,13 +48,11 @@ export default {
         onGuestHover() {
             if (this.isGuestHover === true) return
             this.isGuestHover = true
-            console.log("enter")
             this.$emit("getGuestHoverState", this.isGuestHover)
         },
         onGuestHoverLeave() {
             if (this.isGuestHover === false) return
             this.isGuestHover = false
-            console.log("leave")
             this.$emit("getGuestHoverState", this.isGuestHover)
         },
         openGuest() {

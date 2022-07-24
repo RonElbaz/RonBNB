@@ -16,7 +16,7 @@
         </div>
         <section class="bottom-area-details">
             <div class="details-info">
-                <div v-if="stay" class="host-info gray-underline">
+                <div v-if="stay" class="host-info grey-underline">
                     <div class="host-text">
                         <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
                         <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
@@ -33,7 +33,7 @@
                     <h1>Stay description</h1>
                     <p>{{stay.summary}}</p>
                 </div> -->
-                <div v-if="stay" class="amenities-area  gray-underline">
+                <div v-if="stay" class="amenities-area  grey-underline">
                     <h1 class="amenities-title">What this place offers</h1>
                     <ul class="amenities-ul">
                         <li class="amenitiey" v-for="amenitie in formatedAmenities" :key="stay._id">
@@ -55,12 +55,28 @@
                         {{ stay.numOfReviews }} reviews
                     </h1>
                 </div>
+
                 <div class="date-area">
                       <date-picker-try @addDate="setDate" />
                       <guests-picker @addGuests="setGuests" :isHeader="false"/>
-                </div>
-                <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
+                      <button class="bnb-btn" @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
                     @click="onAddOrder">Reserve</button>
+                      <div v-if="stayLength" class="date-area-text">
+                        <div class="flex space-between">
+                            <span class="text-decorate">{{stay.price}} x {{getNights}}</span>
+                            <span>${{stay.price * stayLength}}</span>
+                        </div>
+                        <div class="flex space-between service-fee">
+                            <span class="text-decorate">Service fee</span>
+                            <span>${{stayLength * 25}}</span>
+                        </div>
+
+                      </div>
+                        <div v-if="stayLength" class="flex space-between">
+                            <span>Total</span>
+                            <span>${{stay.price * stayLength + (stayLength * 25)}}</span>
+                        </div>
+                </div>
                     </div>
             </section>
         </section>
@@ -115,6 +131,7 @@ export default {
             //user: null,
             stayDate: null,
             guests: null,
+            stayLength: null,
         }
     },
     async created() {
@@ -161,27 +178,34 @@ export default {
             }
         },
         onAddOrder() {
+            if(!this.guests){
+                console.log("no guests");
+                return
+            }
+            
             var order = {
                 buyer:{},
                 stay:{},
             };
             order.hostId = this.stay._id
             order.createdAt = Date.now()
-            //TODO: uncomment when we have user service
+            
             order.buyer._id = this.user._id
-            // order.buyer.fullname = this.user.host.fullname
+            order.buyer.fullname = this.user.fullname
 
-            //TODO:uncomment when we can get date input from user
+            
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
-            //order.totalPrice = calculate days amount somehow...
+            order.totalPrice = this.stay.price * this.stayLength + (this.stayLength * 25)
             order.guests = this.guests
             order.status = "pending"
+            order.stay._id = this.stay._id
             order.stay.name = this.stay.name
-            //order.stay.price = this.stay.price
+            order.stay.price = this.stay.price
 
+            
             //TODO:uncomment when we can get date input from user
-            //this.$store.dispatch({type:'addOrder', order})
+            this.$store.dispatch({type:'addOrder', order:{...order}})
             
             console.log(order);
         },
@@ -200,6 +224,11 @@ export default {
         },
         setDate(selectedDate){
             this.stayDate = selectedDate
+            const startDate = new Date(selectedDate[0]);
+            const endDate = new Date(selectedDate[1]);
+            const diffTime = Math.abs(endDate - startDate);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            this.stayLength = diffDays
         },
         setGuests(guests){
             this.guests = guests
@@ -228,6 +257,9 @@ export default {
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
         },
+        getNights(){
+            return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights` 
+        }
 
 
 
