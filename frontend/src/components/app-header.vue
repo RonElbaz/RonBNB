@@ -3,7 +3,7 @@
         <header class="main-layout">
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
-                    <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo">
+                    <router-link class="link" to="/"><img src="../img/logo.png" alt="logo">
                     </router-link>
                 </div>
                 <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search">
