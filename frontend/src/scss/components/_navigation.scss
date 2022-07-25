@@ -90,7 +90,9 @@ header {
 
 .search {
   cursor: pointer;
-  box-shadow: 0 1px 2px rgba(0 0 0 / 8%), 0 4px 12px rgba(0 0 0 / 5%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
+  border-radius: 25px;
+  border: 1px solid #dddddd;
   -webkit-transition: box-shadow 0.2s ease;
   height: 48px;
   padding-left: 10px;
@@ -269,6 +271,7 @@ header {
   .search-bar {
     cursor: pointer;
     // general
+    cursor: pointer;
     width: 850px;
     height: 66px;
     border-radius: 32px;
@@ -282,6 +285,7 @@ header {
       height: 66px;
       width: 268px;
       border-radius: 32px;
+
       .dest-wraper {
         margin-left: 31.5px;
         box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
@@ -366,10 +370,6 @@ header {
   }
 }
 
-.modal-header {
-  box-shadow: none;
-}
-
 .line {
   height: 32px;
   width: 1px;
@@ -431,9 +431,6 @@ header {
     // color: black;
   }
 }
-// .nav-modal {
-//   height: 160px;
-// }
 
 .selected-dest {
   background-color: white;

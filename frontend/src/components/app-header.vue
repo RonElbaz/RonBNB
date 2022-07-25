@@ -1,15 +1,15 @@
 <template>
     <div>
-        <header class="main-layout" :class="{ 'modal-header': modalSearch }">
-            <nav class="flex justify-content-space-between" :class="{ 'nav-modal': modalSearch }">
+        <header class="main-layout">
+            <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
-                    <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo"></router-link>
+                    <router-link class="link" to="/"><img src="../img/airbnb-logo.png" alt="logo">
+                    </router-link>
                 </div>
-                <div v-if="!modalSearch" @click="openModal"
-                    class="flex align-items-center align-self-center border-thin-black-round search">
-                    <button @click="openModalSearchDest" class="clean-button"><span>Anywhere</span></button>
-                    <button @click="openModalSearchDate" class="clean-button"><span>Any week</span></button>
-                    <button @click="openModalSearchGuest" class="clean-button guest">
+                <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search">
+                    <button @click="selectDestPicker" class="clean-button"><span>{{ countryName }}</span></button>
+                    <button @click="selectDatePicker" class="clean-button"><span>Any week</span></button>
+                    <button @click="selectGuestPicker" class="clean-button guest">
                         <div>Add guests</div>
                     </button>
                     <div @click="goExplore" class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -25,7 +25,7 @@
                 </div>
             </nav>
             <transition name="mobile-nav">
-                <div v-if="modalSearch" class=" search-modal flex justify-content-center">
+                <div v-if="isOpenScreen" class="search-modal flex justify-content-center">
                     <div class="flex align-items-center border-thin-black-roundalign-self-center search-bar"
                         @click="showSearchTxt" v-click-outside="closeSearchTxt"
                         :class="{ 'search-modal-active': isSearchModalActive }">
@@ -35,7 +35,7 @@
                             <label class="dest-wraper" for="dest"
                                 :class="{ 'date-hover': isStartDateHover, 'start-date-selected': isStartDateSelected }">
                                 <div class="header">Where</div>
-                                <input id="dest" autocomplete="off" type="text" class="text"
+                                <input ref="searchInput" id="dest" autocomplete="off" type="text" class="text"
                                     placeholder="Search destinations" v-model="destination" @blur="addDestination">
                             </label>
                         </div>
@@ -78,7 +78,6 @@ export default {
             mobile: null,
             mobileNav: null,
             windowWidth: null,
-            modalSearch: false,
             search: {},
             destination: null,
             isOpenScreen: false,
@@ -95,6 +94,9 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
+    },
+    mounted() {
+
     },
     methods: {
         onGuestHoverChange(guestHoverState) {
@@ -118,20 +120,8 @@ export default {
         closeSearchTxt() {
             this.isSearchModalActive = false
         },
-        openModalSearchDest() {
-            this.modalSearch = true
-            this.selectDestPicker()
-        },
-        openModalSearchDate() {
-            this.modalSearch = true
-        },
-        openModalSearchGuest() {
-            this.modalSearch = true
-            this.selectGuestPicker()
-        },
         selectDestPicker() {
             this.isDestPickerSelected = true
-
         }, unSelectDestPicker() {
             this.isDestPickerSelected = false
         },
@@ -142,14 +132,16 @@ export default {
         },
         openModal() {
             this.isOpenScreen = true
+            this.$emit("isOpenScreen", this.isOpenScreen)
             this.showSearchTxt()
         },
         closeModal() {
             this.isOpenScreen = false
-            this.modalSearch = false
             this.isGuestPickerSelected = false
             this.isDestPickerSelected = false
+            this.isDatetPickerSelected = false
             this.closeSearchTxt()
+            this.$emit("isOpenScreen", this.isOpenScreen)
         },
         toogleMobileNav() {
             this.mobileNav = !this.mobileNav
@@ -191,8 +183,18 @@ export default {
             this.$router.push(`/explore/${filter.destination}`)
         }
     },
-    computed: {},
-    components: { datePicker, guestsPicker },
-}
+    computed: {
+        countryName() {
+            const { destination } = this.$route.params
+            if (destination) {
+                return this.$store.getters.staysForDisplay[0].address.country
+            } else {
+                this.destination = ""
+                return "Anywhere"
+            }
 
+        },
+    },
+    components: { datePicker, guestsPicker }
+}
 </script>
