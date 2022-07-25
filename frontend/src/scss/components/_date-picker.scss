@@ -173,9 +173,10 @@ el-date-table td.end-date .el-date-table-cell__text,
 }
 
 .start-date-try {
+  line-height: 18px;
   padding: 14px 0 14px 25px;
-  // border-radius: 0 0 13px 13px;
   border: 1px solid #b0b0b0;
+  border-bottom-color: hsla(0,0%,100%,0);
   width: 100%;
   .start-date-line-try {
     // box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
@@ -201,11 +202,11 @@ el-date-table td.end-date .el-date-table-cell__text,
     }
   }
   &.right {
-    // border-radius: 0 0 13px 13px;
+ 
+    border-left-color: hsla(0,0%,100%,0);
     border-start-end-radius: 13px;
   }
   &.left {
-    // border-radius: 13px 13px 0 0;
     border-start-start-radius: 13px;
   }
 }

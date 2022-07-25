@@ -19,6 +19,7 @@
                         ((stay.reviewScores.rating) / 20).toFixed(2) 
                 }} ({{((stay.numOfReviews))}}) </h1>
             </div>
+            <h1 class="stay-description">{{stay.summary.substring(1,30)}}...</h1>
             <h1 v-if="stay.stayDate" class="stay-date">{{fomratStayDate}}</h1>
             <h1 class="stay-price">${{ stay.price }}<span class="stay-night"> night</span></h1>
         </div>

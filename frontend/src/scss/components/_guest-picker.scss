@@ -14,14 +14,17 @@
 .guest-container {
   width: 100%;
   border-radius: 32px;
+
   .guest-wraper {
     padding: 14px 24px 14px 25px;
+
     .header {
       font-size: 11.7px;
       font-family: Circular-bold;
       letter-spacing: 0.76px;
       width: 130px;
     }
+
     .text {
       font-size: 14px;
       // letter-spacing: 0.2px;
@@ -35,6 +38,7 @@
 .guest-container.unselected-picker:hover {
   background-color: #ebebeb;
 }
+
 .selected-guest {
   background-color: white;
   border-radius: 32px;
@@ -46,8 +50,17 @@
   border-radius: 0 0 13px 13px;
   padding: 10px 24px;
   margin-bottom: 15px;
+
   .input-guests-reserve {
     border: none;
     background-color: transparent;
+  }
+
+  .guest-reserve-label {
+    font-size: 11.8px;
+    font-family: Circular-bold;
+    letter-spacing: 0.65px;
+    width: 130px;
+
   }
 }

@@ -6,7 +6,7 @@
         </div>
         <div class="guest-reserve" v-else>
             <div class="flex column">
-                <label>Guests</label>
+                <label class="guest-reserve-label">GUESTS</label>
                 <input class="input-guests-reserve" disabled :placeholder=getGuests>
             </div>
         </div>
@@ -29,6 +29,7 @@ export default {
             type: Boolean,
             required: true,
         },
+       
     },
     data() {
         return {
@@ -37,7 +38,7 @@ export default {
             mobileNav: null,
             windowWidth: null,
             selected: null,
-            guests: {},
+            guests: {"adults": 1},
             isGuestSelected: false,
             isGuestHover: false,
         }

@@ -18,14 +18,14 @@
         <div class="flex space-between">
           <div class="start-date-try left">
             <div class="start-date-line-try">
-              <div class="header">Check in</div>
+              <div class="header">CHECK IN</div>
               <div class="text">{{ getDate("start") }}</div>
             </div>
           </div>
 
           <div class="start-date-try right">
             <div class="start-date-line-try">
-              <div class="header">Check out</div>
+              <div class="header">CHECK OUT</div>
               <div class="text">{{ getDate("end") }}</div>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default {
       if (this.selectedDate && this.selectedDate.length && pos === "end") {
         return this.selectedDate[1].toLocaleDateString()
       }
-      return 'Add dates'
+      return 'Add date'
     },
 
   },

@@ -8,6 +8,10 @@
             font-size: 26px;
         }
 
+.share-svg{
+    display: inline;
+}
+
         .stay-info {
 
             .stay-reviews-info {
@@ -139,13 +143,10 @@
         .host-info {
             display: flex;
             justify-content: space-between;
-            // width: 700px;
             padding-top: $padding-details-big;
             padding-bottom: $padding-details-small;
 
             .host-name {
-                // font-weight: 600;
-
                 font-size: 22px;
             }
 
@@ -157,6 +158,7 @@
             }
 
             .rooms-info {
+                line-height: 2px;
                 font-family: cereal;
             }
         }
@@ -260,7 +262,6 @@
 
             .review-info {
                 align-items: center;
-                gap: 20px;
                 padding-bottom: 10px;
 
                 .user-img {
@@ -315,7 +316,7 @@ progress::-webkit-progress-value {
     display: flex;
     align-items: flex-start;
     gap: 10px;
-    width: 209px;
+    width: 185px;
 }
 
 .score-title {

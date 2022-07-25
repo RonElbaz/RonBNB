@@ -2,27 +2,34 @@
     <section v-if="stay" class="main-layout details-page">
         <section v-if="stay" class="header-details">
             <h1 class="stay-name">{{ stay.name }}</h1>
-            <div class="stay-info">
-                <h3><span class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
-                        class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
-                            class="fa-solid fa-award award-symbol-info"></i> {{ superHost }} <span
-                            class="dot-separate">·</span></span>
-                    <span class="stay-reviews-info">{{ stay.address.city }},{{ stay.address.country }}</span>
-                </h3>
+            <div class="stay-info flex space-between">
+                <div>
+                    <h3><span class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
+                            {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
+                            class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
+                            class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
+                                class="fa-solid fa-award award-symbol-info"></i> {{ superHost }} <span
+                                class="dot-separate">·</span></span>
+                        <span class="stay-reviews-info">{{ stay.address.city }},{{ stay.address.country }}</span>
+                    </h3>
+                </div>
+                <div class="media-btn">
+                    <p> <span class="stay-reviews-info">Share</span> <span class="stay-reviews-info">Save</span></p>
+                </div>
             </div>
         </section>
         <div>
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
-        <section class="bottom-area-details">
+        <section class="bottom-area-details grey-underline">
             <div class="details-info">
                 <div v-if="stay" class="host-info grey-underline">
                     <div class="host-text">
                         <h1 class="host-name"> hosted by {{ stay.host.fullname }} </h1> <br>
-                        <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span class="dot-separate">·</span>
+                        <p class="rooms-info">{{ stay.capacity }} {{ guestSrting }} <span>·</span>
                             {{ stay.bedrooms }}
-                            {{ bedroomString }} <span class="dot-separate">·</span> {{ stay.beds }} {{ bedString }}
-                            <span class="dot-separate">·</span> {{ stay.bathrooms }} {{
+                            {{ bedroomString }} <span>·</span> {{ stay.beds }} {{ bedString }}
+                            <span>·</span> {{ stay.bathrooms }} {{
                                     bathroomString
                             }}
                         </p>
@@ -31,14 +38,16 @@
                 </div>
                 <div class="info-placeholder grey-underline">
                     <div v-if="stay.host.isSuperhost" class="super-host">
-                        <h1 class="super-host-header"><i class="fa-solid fa-award award-symbol-info"></i> <span class="super-host-header-txt"> {{ stay.host.fullname }} is a Superhost</span>
-                            <p class="super-host-txt">Superhosts are experienced, highly rated hosts who are committed to providing great stays
+                        <h1 class="super-host-header"><i class="fa-solid fa-award award-symbol-info"></i> <span
+                                class="super-host-header-txt"> {{ stay.host.fullname }} is a Superhost</span>
+                            <p class="super-host-txt">Superhosts are experienced, highly rated hosts who are committed
+                                to providing great stays
                                 for guests.
                                 Free cancellation before Oct </p>
                         </h1>
                     </div>
-                        <h1 class="free-cancellation"><i class="fa-regular fa-calendar"></i><span
-                                class="free-cancellation-txt">Free cancellation before Oct 27.</span> </h1>
+                    <h1 class="free-cancellation"><i class="fa-regular fa-calendar"></i><span
+                            class="free-cancellation-txt">Free cancellation before Oct 27.</span> </h1>
                 </div>
                 <div class="aircover-area grey-underline">
                     <h1 class="aircover-header"><span class="air">air</span>cover</h1>
@@ -284,10 +293,7 @@ export default {
         },
         getNights() {
             return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights`
-        }
-
-
-
+        },
     },
     components: {
         imageGallery,

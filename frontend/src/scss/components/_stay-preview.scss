@@ -3,10 +3,9 @@
     cursor: pointer;
     position: relative;
 
-    .el-carousel__container {
+    .img-container {
         border-radius: 1rem;
         margin-bottom: 0.7rem;
-        width: 100% !important;
     }
 
 
@@ -16,8 +15,8 @@
         font-size: 14px;
         border-radius: 4px;
         position: absolute;
-        top: 10px;
-        left: 10px;
+        top: 13px;
+        left: 17px;
     }
 
     .stay-img {
@@ -53,10 +52,17 @@
         font-size: 16px;
     }
 
+    .stay-description{
+        font-size: 15px;
+        color: $clr2;
+        font-family: cereal;
+    }
+
     .stay-date {
         font-size: 15px;
         color: $clr2;
         font-family: cereal;
+        margin-bottom: 7px;
     }
 
     .stay-night {
@@ -67,7 +73,7 @@
 
     .like-btn {
         position: absolute;
-        top: 10px;
+        top: 15px;
         right: 10px;
         background-color: transparent;
         // color: rgba(0,0,0,.5019607843137255);
