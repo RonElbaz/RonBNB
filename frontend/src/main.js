@@ -7,6 +7,8 @@ import './scss/styles.scss'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 
+
+
 const app = createApp(App)
 app.directive('click-outside', clickOutsideDirective)
 app.use(router)

@@ -5,6 +5,9 @@
                 <div class="branding flex align-items-center">
                     <router-link class="link" to="/"><img src="../img/logo.png" alt="logo">
                     </router-link>
+                    <router-link class="link" to="/"><h1 class="app-logo">Rentya</h1>
+                    </router-link>
+                    
                 </div>
                 <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search">
                     <button @click="selectDestPicker" class="clean-button"><span>{{ countryName }}</span></button>
