@@ -100,7 +100,6 @@ async function query(filterBy = null) {
   }
 
   console.log("filtering with", filterBy)
-  console.log(filteredStays)
   return filteredStays
 }
 
@@ -116,9 +115,9 @@ async function getById(stayId) {
 async function _createStays() {
   var stays = JSON.parse(localStorage.getItem(DB_KEY))
   if (!stays || !stays.length) {
-    stays = await (await fetch("../../data/stay.json")).json()
+    stays = await (await fetch("../../data/data.json")).json()
     // stays = stays.splice(0, 20)
-    console.log(stays)
+    // console.log(stays)
     localStorage.setItem(DB_KEY, JSON.stringify(stays))
   }
 }
