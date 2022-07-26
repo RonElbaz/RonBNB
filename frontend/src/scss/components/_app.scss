@@ -1,5 +1,15 @@
 .header-container {
+  position: -webkit-sticky;
+  position: sticky;
+  height: 100px;
   box-shadow: inset 0 -1px 0 0 #898b9023;
+  background-color: white;
+  top: 0px;
+  width: 100%;
+  z-index: 10;
+  // margin-bottom: 31px;
+  // contain: size style layout;
+  // display: block;
 }
 
 .header-container.open-modal {

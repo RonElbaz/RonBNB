@@ -1,7 +1,7 @@
 <template>
-  <div class="main-layout filter-container">
+  <!-- <div class="main-layout filter-container"> -->
     <stay-filter :showList="true" />
-  </div>
+  <!-- </div> -->
   <stay-list :stays="getStays" />
 </template>
 
