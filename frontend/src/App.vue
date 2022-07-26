@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="header-container" :class="{ 'open-modal': openSearchBar }">
+    <!-- <div :class="{ 'open-modal': openSearchBar }"> -->
       <app-header @isOpenScreen="isOpenScreen" />
-    </div>
+    <!-- </div> -->
     <router-view></router-view>
     <app-footer />
   </div>

@@ -3,21 +3,11 @@
   padding-left: 80px;
   padding-right: 80px;
   margin: auto;
-  // @include for-wide-layout {
-  //   @include layoutGTC($break-wide);
-  // }
 
   @include for-large-layout {
     padding-left: 40px;
     padding-right: 40px;
   }
-
-  // @include for-normal-layout {
-  // }
-
-  // @include for-narrow-layout {
-
-  // }
 
   @include for-slim-layout {
     padding-left: 25px;
@@ -29,7 +19,37 @@
   //   padding-right: 25px;
   // }
 }
+.right-unit-main-layout-margin {
+  // ! if this class is given => add max width of 1760px to the parent element
+  margin-right: 80px;
+  @include for-large-layout {
+    margin-right: 40px;
+  }
+  @include for-slim-layout {
+    margin-right: 25px;
+  }
 
+  // @include for-mobile-layout {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
+}
+
+.left-unit-main-layout {
+  // ! if this class is given => add max width of 1760px to the parent element
+  padding-left: 80px;
+  @include for-large-layout {
+    padding-left: 40px;
+  }
+  @include for-slim-layout {
+    padding-left: 25px;
+  }
+
+  // @include for-mobile-layout {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
+}
 // .main-text {
 //   margin-bottom: rem(90px);
 // }

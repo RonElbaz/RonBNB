@@ -4,7 +4,7 @@
             <h1 class="stay-name">{{ stay.name }}</h1>
             <div class="stay-info flex space-between">
                 <div>
-                    <h3><span class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
+                    <h3><span  class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
                             {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
                             class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
                             class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
@@ -14,13 +14,65 @@
                     </h3>
                 </div>
                 <div class="media-btn">
-                    <p> <span class="stay-reviews-info">Share</span> <span class="stay-reviews-info">Save</span></p>
+                    <div class="flex">
+                        <span> 
+                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
+                                <g fill="none">
+                                    <path d="M27 18v9a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-9"></path>
+                                    <path d="M16 3v23V3z"></path>
+                                    <path d="M6 13l9.293-9.293a1 1 0 0 1 1.414 0L26 13"></path>
+                                </g>
+                            </svg> 
+                            </span>
+                        <span style="margin-right:15px" class="stay-reviews-info">Save</span>
+                        <span> <svg viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
+                            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
+                            <path
+                                d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z">
+                            </path>
+                        </svg>
+                        </span>
+                        <span class="stay-reviews-info">Share</span>
+                        </div>
                 </div>
             </div>
         </section>
         <div>
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
+
+        <section class="nav-details-container main-layout">
+            <div id="myID">
+                <div class="flex">
+                    <div class="nav-txt main-layout flex">
+                        <h1 class="txt">Photo</h1>
+                        <h1 class="txt">Amenities</h1>
+                        <h1 class="txt">Reviews</h1>
+                        <div v-if="scrollpx > 1300" class="header-reserve-container flex">
+                            <div class="">
+                                <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
+                                        night
+                                    </span></h1>
+                                <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i>
+                                    <span class="reserve-reviews-rating"> {{
+                                            ((stay.reviewScores.rating) / 20).toFixed(2)
+                                    }} </span>
+                                    <span class="dot-separate">·</span>
+                                    <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
+                                </h1>
+                            </div>
+                            <button class="bnb-btn" @mousemove="getPos"
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
+                                @click="onAddOrder">Reserve</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="bottom-area-details grey-underline">
             <div class="details-info">
                 <div v-if="stay" class="host-info grey-underline">
@@ -163,6 +215,7 @@ export default {
             stayDate: null,
             guests: null,
             stayLength: null,
+            scrollpx: 0
         }
     },
     async created() {
@@ -181,6 +234,12 @@ export default {
         this.commentsArr = stayService.getRandomArr()
         // console.log(this.commentsArr)
 
+        window.addEventListener('scroll', this.handleScroll);
+
+
+    },
+    destroyed() {
+        window.removeEventListener('scroll', this.handleScroll);
     },
     methods: {
         amenitieSymbol(amenitie) {
@@ -266,6 +325,15 @@ export default {
         },
         setGuests(guests) {
             this.guests = guests
+        },
+        handleScroll() {
+            this.scrollpx = window.scrollY;
+            if (this.scrollpx > 550) {
+                myID.className = "bottomMenu show";
+            } else {
+                myID.className = " bottomMenu hide";
+            }
+
         }
     },
     computed: {
