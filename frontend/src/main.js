@@ -16,7 +16,7 @@ app.use(store)
 app.use(ElementPlus)
 app.use(VueGoogleMaps, {
     load: {
-        key: 'AIzaSyAL_nrm0zO_NnTrel8YUvbxIjPu00-sodQ',
+        key: 'AIzaSyCu2xnj9pU7OHvQ6QLVokiC7MX10YQ6Klg',
     },
 })
 app.mount('#app')
