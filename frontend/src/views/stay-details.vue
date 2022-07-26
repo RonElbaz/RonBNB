@@ -26,7 +26,7 @@
                                 </g>
                             </svg>
                         </span>
-                        <span style="margin-right:15px" class="stay-reviews-info">Save</span>
+                        <span style="margin-right:15px" class="stay-reviews-info">Share</span>
                         <span> <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                 role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
@@ -35,23 +35,24 @@
                                 </path>
                             </svg>
                         </span>
-                        <span class="stay-reviews-info">Share</span>
+                        <span class="stay-reviews-info">Save</span>
                     </div>
                 </div>
             </div>
         </section>
-        <div>
-            <image-gallery :images="stay.imgUrls"></image-gallery>
+        <div id="gallery">
+            <image-gallery  :images="stay.imgUrls"></image-gallery>
         </div>
 
-        <section v-if="scrollpx > 600" class="nav-details-container main-layout">
-            <div id="myID" v-if="scrollpx > 600">
+        <section v-if="scrollpx > 600" class="nav-details-container main-layout"> 
+            <div class="header-reserve " v-if="scrollpx > 600">
                 <div class="flex">
                     <div class="nav-txt main-layout flex">
-                        <h1 class="txt">Photo</h1>
-                        <h1 class="txt">Amenities</h1>
-                        <h1 class="txt">Reviews</h1>
-                        <div v-if="scrollpx > 1300" class="header-reserve-container flex">
+                        <a href="#gallery" class="txt">Photo</a>
+                        <a href="#amenities" class="txt">Amenities</a>
+                        <a href="#reviews" class="txt">Reviews</a>
+                        <a href="#map" class="txt">Loctaion</a>
+                        <div v-if="scrollpx > 1600" class="header-reserve-container flex">
                             <div class="">
                                 <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
                                         night
@@ -112,19 +113,18 @@
                         has been designed with elegance and comfort in mind. Previously featured on Apartment Therapy,
                         we've redone the interior but kept the layout readers loved.</p>
                 </div>
-                <div v-if="stay" class="amenities-area  grey-underline">
+                <div v-if="stay" id="amenities" class="amenities-area  grey-underline">
                     <h1 class="amenities-title">What this place offers</h1>
                     <ul class="amenities-ul">
-                        <li class="amenitiey" v-for="amenitie in stay.amentie" :key="stay._id">
+                        <li class="amenitie" v-for="amenitie in stay.amentie" :key="stay._id">
                             <div class="amenities-container">
                                 <p class="amenities-prop"><span class="amenities-symbol"
                                         v-html="amenitieSymbol(amenitie)"></span>{{ amenitie }}</p>
-                                <!-- <span v-if="!isMore && longAmenities"></span></p> -->
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="grey-underline">
+                <div id="map" class="grey-underline">
                     <GMapMap :center="stay.address.location" :zoom="10" map-type-id="terrain" style="width: 500px; height: 300px">
                         <GMapCluster>
                             <GMapMarker :position="stay.address.location"
@@ -171,7 +171,7 @@
                 </div>
             </section>
         </section>
-        <div v-if="stay" class="reviews-area">
+        <div id="reviews" v-if="stay" class="reviews-area">
             <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
                 {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
             <div class="review-score">
@@ -343,12 +343,6 @@ export default {
         },
         handleScroll() {
             this.scrollpx = window.scrollY;
-            // if (this.scrollpx > 550) {
-            //     myID.className = "bottomMenu show";
-            // } else {
-            //     myID.className = " bottomMenu hide";
-            // }
-
         }
     },
     computed: {
