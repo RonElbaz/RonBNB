@@ -211,15 +211,12 @@ export default {
     data() {
         return {
             stay: null,
-            isMore: false,
-            // longAmenities: null,
-            formatedAmenities: null,
             formatedreviews: null,
             mouseX: 0,
             mouseY: 0,
             commentsArr: [],
             //TODO: uncomment when we have user service
-            //user: null,
+            //user: nul;l,
             stayDate: null,
             guests: null,
             stayLength: null,
@@ -232,16 +229,12 @@ export default {
             const { stayId } = this.$route.params
             //TODO: uncomment when we have user service
             this.user = this.$store.getters.getLoggedInUser
-            console.log(this.user);
+            // console.log(this.user);
             var stay = await stayService.getById(stayId)
             this.stay = stay
-            console.log(this.stay);
-            // this.longAmenities = this.stay.amenities > 10
+            console.log(stay);
             this.formatedreviews = this.formatReviews
-            console.log(this.formatedreviews);
-            this.formatedAmenities = this.formatAmenities
-            console.log(this.formatAmenities);
-
+;2
         } catch (error) {
             throw new Error('cannot get stay')
         }
@@ -343,11 +336,6 @@ export default {
         },
         handleScroll() {
             this.scrollpx = window.scrollY;
-            // if (this.scrollpx > 550) {
-            //     myID.className = "bottomMenu show";
-            // } else {
-            //     myID.className = " bottomMenu hide";
-            // }
 
         }
     },
@@ -367,9 +355,6 @@ export default {
         },
         bathroomString() {
             return (this.stay.bathrooms === 1) ? 'bath' : 'baths'
-        },
-        formatAmenities() {
-            return (this.stay.amentie < 10) ? this.stay.amentie : this.stay.amentie.splice(0, 10)
         },
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)
