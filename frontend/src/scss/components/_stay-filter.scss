@@ -308,3 +308,15 @@ border-color: black !important ;
     border: none !important;
     text-decoration: underline ;
 }
+
+.el-slider__bar{
+    background-color: #000 !important ;
+}
+
+.el-slider__button{
+    border-color: $clr2 !important;
+}
+
+.filter-input-price{
+    margin: auto;
+}

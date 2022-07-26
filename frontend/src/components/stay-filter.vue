@@ -27,7 +27,10 @@
                     <h1>Price Range<br><span>The average nightly price is</span></h1>
                     <el-slider v-model="form.priceRange" range :max="1500" />
                     <div class="filter-input-price flex">
-                        <el-input v-model.number="form.priceRange[0]" />
+                        <div>
+                            <p>min price</p>
+                        <el-input   v-model.number="form.priceRange[0]" />
+                        </div>
                         <span>-</span>
                         <el-input v-model.number="form.priceRange[1]" />
                     </div>
