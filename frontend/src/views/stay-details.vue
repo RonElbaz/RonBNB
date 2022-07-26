@@ -44,8 +44,8 @@
             <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
 
-        <section class="nav-details-container main-layout">
-            <div id="myID">
+        <section v-if="scrollpx > 600" class="nav-details-container main-layout">
+            <div id="myID" v-if="scrollpx > 600">
                 <div class="flex">
                     <div class="nav-txt main-layout flex">
                         <h1 class="txt">Photo</h1>
@@ -328,11 +328,11 @@ export default {
         },
         handleScroll() {
             this.scrollpx = window.scrollY;
-            if (this.scrollpx > 550) {
-                myID.className = "bottomMenu show";
-            } else {
-                myID.className = " bottomMenu hide";
-            }
+            // if (this.scrollpx > 550) {
+            //     myID.className = "bottomMenu show";
+            // } else {
+            //     myID.className = " bottomMenu hide";
+            // }
 
         }
     },

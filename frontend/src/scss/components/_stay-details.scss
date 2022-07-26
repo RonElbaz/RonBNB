@@ -425,7 +425,12 @@ gap: 30px;
             font-family: Circular-bold;
             border-radius: 0.55rem;
             font-size: 16px;
-            
+            padding: 14px 24px ;
+        }
+
+        .reserve-reviews-amount{
+            color: $clr2;
+            text-decoration: underline;
         }
     
         .reserve-stay-night{
