@@ -19,11 +19,9 @@ async function addOrder(order){
     var newOrder;
     // console.log(order);
     if(!order._id){ 
-      console.log("here yo");
       newOrder = storageService.post(DB_KEY,order)
     }
     else{
-      console.log("here too");
       newOrder = storageService.put(DB_KEY,order)
     } 
     return newOrder
