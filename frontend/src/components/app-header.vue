@@ -38,7 +38,7 @@
                             </path>
                         </svg>
                     </div>
-                    <div class="flex align-items-center border-thin-black-round dropdown">
+                    <div @click="openDropdownMenu" class="flex align-items-center border-thin-black-round menu">
                         <div>
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                 role="presentation" focusable="false"
@@ -53,7 +53,71 @@
                         <div class="user-img-container">
                             <img class="user-img" src="../img/user1.jpg" alt="" />
                         </div>
+
+                        <div class="dropdown-menu-container" v-if="isShowDropdownMenu"
+                            v-click-outside="closeDropdownMenu">
+                            <ul class="dropdown-menu">
+                                <!-- ! show login-section and public-section and hide the others only if a user has not logged in ,  -->
+                                <!-- v-if="" -->
+                                <div v-if="!loggedInUser" class="login-section">
+                                    <li>
+                                        <router-link class="link signup" to="/">Sign up</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link login" to="/">Log in</router-link>
+                                    </li>
+                                </div>
+                                <div v-if="!loggedInUser" class="public-section">
+                                    <li>
+                                        <router-link class="link experience" to="/">Host your home</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link experience" to="/">Host an experience</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link help" to="/">Help</router-link>
+                                    </li>
+                                </div>
+                                <div v-if="loggedInUser" class="user-info-section">
+                                    <li>
+                                        <router-link class="link messages" to="/">Messages</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link notifications" to="/">Notifications</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link trips" to="/trips">Trips</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link wishlists" to="/wishlists">Wishlists</router-link>
+                                    </li>
+                                </div>
+                                <div v-if="loggedInUser" class="user-manage-section">
+                                    <li>
+                                        <router-link class="link manage-listings " to="/">Manage listings</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link experience" to="/">Host an experience</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link host" to="/">Refer a Host</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link account" to="/">Account</router-link>
+                                    </li>
+                                </div>
+                                <div v-if="loggedInUser" class="user-logout-section">
+                                    <li>
+                                        <router-link class="link help" to="/">Help</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link class="link logout" to="/">Log out</router-link>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
                     </div>
+
                 </div>
             </nav>
             <transition name="mobile-nav">
@@ -122,16 +186,25 @@ export default {
             isGuestHover: false,
             isGuestSelect: false,
             isShowNameLogo: true,
+            isShowDropdownMenu: false,
+            loggedInUser: null,
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
+        this.loggedInUser = this.$store.getters.user
     },
     mounted() {
 
     },
     methods: {
+        openDropdownMenu() {
+            this.isShowDropdownMenu = true
+        },
+        closeDropdownMenu() {
+            this.isShowDropdownMenu = false
+        },
         onGuestHoverChange(guestHoverState) {
             this.isGuestHover = guestHoverState
         },
