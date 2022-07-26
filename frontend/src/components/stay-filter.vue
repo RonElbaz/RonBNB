@@ -1,8 +1,9 @@
 <template>
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
-    <section class="filter-container">
-        <div v-if="showList" class="labels flex left-unit-main-layout">
-            <button @click="onSetFilter(opt.label)" class="clean-button" v-for="opt in filterOpts">
+    <section
+        :class="showList ? 'filter-container main-layout flex space-between ' : 'filter-container  flex space-between'">
+        <div class="labels flex ">
+            <button v-if="showList" @click="onSetFilter(opt.label)" class="clean-button" v-for="opt in filterOpts">
                 <div :class="{ 'clicked-btn': type === opt.label }" @click="changedType(opt.label)"
                     class="image-and-txt flex column btn-label">
                     <img class="label-image" :src="imgUrl(opt.src)" alt="">
@@ -10,12 +11,12 @@
                     <div></div>
                 </div>
             </button>
-        </div>
-        <div v-else class="stays-amount">
-            {{ stayLength }} stays
+            <div v-else class="stays-amount">
+                {{ stayLength }} stays
+            </div>
         </div>
         <div class="btn-filter-container">
-            <button :class="{ 'btn-filter-top': !showList }" class="btn btn-filter right-unit-main-layout-margin" text
+            <button :class="{ 'btn-filter-top': !showList }" class="btn btn-filter" text
                 @click="dialogFormVisible = true">
                 <div class="filter-img">
                     <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"
@@ -39,7 +40,9 @@
                     <h1>Price Range<br><span>The average nightly price is</span></h1>
                     <el-slider v-model="form.priceRange" range :max="1500" />
                     <div class="filter-input-price flex">
-                        <el-input v-model.number="form.priceRange[0]" />
+                        <div>
+                            <el-input v-model.number="form.priceRange[0]" />
+                        </div>
                         <span>-</span>
                         <el-input v-model.number="form.priceRange[1]" />
                     </div>
@@ -125,14 +128,13 @@
             </el-form-item>
 
             <hr>
-
-            <el-form-item>
-                <pre>
-                    superhost
-                    Stay with recognized Hosts
-                </pre>
-                <el-switch v-model="form.superHost" />
-            </el-form-item>
+            <div class="super-host-container">
+                <h1>Superhost</h1>
+                <el-form-item>
+                    <p> Stay with recognized Hosts</p>
+                    <el-switch v-model="form.superHost" />
+                </el-form-item>
+            </div>
         </el-form>
         <template #footer>
             <span class="dialog-footer flex space-between">
@@ -162,10 +164,10 @@ export default {
     data() {
         return {
             filterOpts: [
-                // {
-                //     label: "All",
-                //     src: "../images/label-images/global.jpg",
-                // },
+                {
+                    label: "All",
+                    src: "../images/label-images/global.jpg",
+                },
                 {
                     label: "Islands",
                     src: "../images/label-images/islands.jpg",

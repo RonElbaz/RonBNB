@@ -8,17 +8,22 @@
             font-size: 26px;
         }
 
-.share-svg{
-    display: inline;
-}
+        .share-svg {
+            display: inline;
+        }
 
         .stay-info {
 
-            .stay-reviews-info {
+            .media-btn{
 
-                text-decoration: underline;
-                font-size: 14px;
+                .stay-reviews-info {
+    
+                    text-decoration: underline;
+                    font-size: 14px;
+                    margin: 0px 10px;
+                }
             }
+
 
             .stay-super-host {
                 font-family: cereal;
@@ -32,22 +37,23 @@
         }
     }
 
-    .info-placeholder{
+    .info-placeholder {
         padding: 32px 0;
 
 
-        .super-host{
+        .super-host {
             margin-bottom: 32px;
 
-            .super-host-header{
+            .super-host-header {
                 font-family: cereal;
                 margin-bottom: 4px;
-                .super-host-header-txt{
+
+                .super-host-header-txt {
                     margin-inline-start: 16px;
                 }
             }
-            
-            .super-host-txt{
+
+            .super-host-txt {
                 font-family: cereal;
                 font-size: 14px;
                 color: $clr2;
@@ -55,7 +61,7 @@
             }
         }
 
-        .free-cancellation-txt{
+        .free-cancellation-txt {
             font-family: cereal;
             margin-inline-start: 16px;
         }
@@ -85,6 +91,7 @@
                 }
 
             }
+
             .aircover-txt {
                 font-family: cereal;
             }
@@ -101,7 +108,7 @@
                 box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
                 grid-area: 1 / 2 / 2 / 3;
                 position: sticky;
-                top: 50px;
+                top:190px;
                 align-items: center;
                 justify-content: center;
             }
@@ -346,3 +353,90 @@ progress::-webkit-progress-value {
         text-decoration: underline;
     }
 }
+
+.nav-details-container {
+    //   opacity: 0;
+
+.bottomMenu {
+    position: fixed;
+    top: 80px;
+    color: black;
+    width: 100%;
+    height: 90px;
+    box-shadow: rgb(0 0 0 / 10%) 0px 1px 0px !important;
+    background-color: rgb(255, 255, 255) !important;
+    z-index: 1;
+    transition: all .5s;
+    right: 10px;
+}
+
+.hide {
+    opacity: 0;
+
+}
+
+.show {
+    opacity: 1;
+
+}
+
+.nav-txt {
+    width: 100%;
+    height: 90px;
+    align-items: center;
+}
+
+.txt{
+    cursor: pointer;
+    color: rgb(34, 34, 34);
+    font-size: 14px;
+    font-family: cereal;
+    text-decoration: none;
+    margin-inline-end: 20px;
+    height: 90px;
+    align-items: center;
+    display: flex;
+     &:hover{
+        box-shadow: inset 0 -2.5px 0 0 black;
+     }
+
+    :first-child {
+        margin-inline-start: 10px;
+    }
+}
+
+
+.header-reserve-container{
+    
+width: 100%;
+justify-content: flex-end;
+align-items: center;
+gap: 30px;
+    .bnb-btn{
+            background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+            transition: opacity 1.25s ease 0s !important;
+            // min-width: 200px;
+            background-size: 200% 200%;
+            background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+            border: none;
+            height: 3rem;
+            // width: 100%;
+            color: rgb(255 255 255);
+            font-family: Circular-bold;
+            border-radius: 0.55rem;
+            font-size: 16px;
+            
+        }
+    
+        .reserve-stay-night{
+            font-size: 14px;
+            font-family: cereal;
+        }
+    
+        .reserve-stay-review{
+            font-size: 12px;
+        }
+    }
+}
+
+

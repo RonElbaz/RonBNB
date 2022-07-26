@@ -1,11 +1,15 @@
 .stay-preview {
-    height: 400px;
     cursor: pointer;
     position: relative;
 
     .img-container {
         border-radius: 1rem;
         margin-bottom: 0.7rem;
+    }
+
+    .el-carousel__container {
+        height: auto !important;
+        aspect-ratio: 16/17;
     }
 
 
@@ -52,7 +56,7 @@
         font-size: 16px;
     }
 
-    .stay-description{
+    .stay-description {
         font-size: 15px;
         color: $clr2;
         font-family: cereal;
