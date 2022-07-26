@@ -4,7 +4,7 @@
             <h1 class="stay-name">{{ stay.name }}</h1>
             <div class="stay-info flex space-between">
                 <div>
-                    <h3><span  class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
+                    <h3><span class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
                             {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
                             class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
                             class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
@@ -15,7 +15,7 @@
                 </div>
                 <div class="media-btn">
                     <div class="flex">
-                        <span> 
+                        <span>
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                 role="presentation" focusable="false"
                                 style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
@@ -24,19 +24,19 @@
                                     <path d="M16 3v23V3z"></path>
                                     <path d="M6 13l9.293-9.293a1 1 0 0 1 1.414 0L26 13"></path>
                                 </g>
-                            </svg> 
-                            </span>
+                            </svg>
+                        </span>
                         <span style="margin-right:15px" class="stay-reviews-info">Save</span>
-                        <span> <svg viewBox="0 0 32 32"
-                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false"
-                            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
-                            <path
-                                d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z">
-                            </path>
-                        </svg>
+                        <span> <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                role="presentation" focusable="false"
+                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 2; overflow: visible;">
+                                <path
+                                    d="m16 28c7-4.733 14-10 14-17 0-1.792-.683-3.583-2.05-4.95-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05l-2.051 2.051-2.05-2.051c-1.367-1.366-3.158-2.05-4.95-2.05-1.791 0-3.583.684-4.949 2.05-1.367 1.367-2.051 3.158-2.051 4.95 0 7 7 12.267 14 17z">
+                                </path>
+                            </svg>
                         </span>
                         <span class="stay-reviews-info">Share</span>
-                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -123,6 +123,14 @@
                             </div>
                         </li>
                     </ul>
+                </div>
+                <div class="grey-underline">
+                    <GMapMap :center="stay.address.location" :zoom="10" map-type-id="terrain" style="width: 500px; height: 300px">
+                        <GMapCluster>
+                            <GMapMarker :position="stay.address.location"
+                                :clickable="true" :draggable="true"/>
+                        </GMapCluster>
+                    </GMapMap>
                 </div>
             </div>
             <section class="reserve">
@@ -215,7 +223,8 @@ export default {
             stayDate: null,
             guests: null,
             stayLength: null,
-            scrollpx: 0
+            scrollpx: 0,
+            myLatlng : null,
         }
     },
     async created() {
@@ -223,15 +232,21 @@ export default {
             const { stayId } = this.$route.params
             //TODO: uncomment when we have user service
             this.user = this.$store.getters.getLoggedInUser
+            console.log(this.user);
             var stay = await stayService.getById(stayId)
             this.stay = stay
+            console.log(this.stay);
             // this.longAmenities = this.stay.amenities > 10
             this.formatedreviews = this.formatReviews
+            console.log(this.formatedreviews);
             this.formatedAmenities = this.formatAmenities
+            console.log(this.formatAmenities);
+
         } catch (error) {
             throw new Error('cannot get stay')
         }
         this.commentsArr = stayService.getRandomArr()
+        console.log("hhhhhhhhhhhhhhhhhhhhhhhh",this.stay.address.location)
         // console.log(this.commentsArr)
 
         window.addEventListener('scroll', this.handleScroll);
@@ -354,7 +369,7 @@ export default {
             return (this.stay.bathrooms === 1) ? 'bath' : 'baths'
         },
         formatAmenities() {
-            return (this.stay.amenities < 10) ? this.stay.amenities : this.stay.amenities.splice(0, 10)
+            return (this.stay.amentie < 10) ? this.stay.amentie : this.stay.amentie.splice(0, 10)
         },
         formatReviews() {
             return (this.stay.reviews < 10) ? this.stay.reviews : this.stay.reviews.splice(0, 10)

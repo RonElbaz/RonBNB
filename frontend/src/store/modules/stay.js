@@ -9,6 +9,14 @@ export const stay = {
       state.stays = stays
       console.log(state.stays)
     },
+    updateStay(state, {newStay}){
+      const idx = state.stays.findIndex((currStay) => currStay._id === newStay._id);
+      if (idx !== -1) {
+        state.stays.splice(idx, 1, newStay);
+      } else {
+        console.log("not good shit");
+      }
+   }
   },
   actions: {
     async loadStays({ commit }) {
@@ -29,6 +37,17 @@ export const stay = {
         console.log(err)
       }
     },
+    async updateStay({commit},{stay}){
+      stay.isLiked = !stay.isLiked
+      console.log(stay);
+      try{
+          var newStay = await stayService.updateStay(stay)
+          commit({type:'updateStay', newStay})
+      }
+      catch(err){
+          console.log("couldnt update stay", err);
+      }
+  }
   },
   getters: {
     staysForDisplay({ stays }) {

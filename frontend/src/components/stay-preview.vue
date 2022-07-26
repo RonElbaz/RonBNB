@@ -8,7 +8,7 @@
                 </el-carousel-item>
             </el-carousel>
         </div>
-        <button class="like-btn" @click.stop="addStayToLike(stay._id)" :style="changeHeartColor(stay._id)">
+        <button class="like-btn" @click.stop="addStayToLike" :style="changeHeartColor">
             <i class="fas fa-heart"></i>
         </button>
         <p v-if="stay.host.isSuperhost" class="super-host-title">SuperHost</p>
@@ -28,6 +28,7 @@
 
 <script>
 import { start } from '@popperjs/core'
+import { stay } from '../store/modules/stay'
 
 
 
@@ -42,8 +43,11 @@ export default {
     },
     data() {
         return {
-            isLike: false
+            isLike: null,
         }
+    },
+    created(){
+        this.isLike = this.stay.isLiked
     },
     components: {
     },
@@ -54,13 +58,9 @@ export default {
         imgUrl(image) {
             return new URL(`../images/stay-images/${image}`, import.meta.url).href
         },
-        changeHeartColor() {
-            if (this.isLike) return { color: 'red' }
-            else return { color: 'rgba(0,0,0,.5019607843137255)' }
-        },
-
-        addStayToLike() {
+        async addStayToLike() {
             this.isLike = !this.isLike
+            this.$store.dispatch({type:"updateStay", stay:{...this.stay}})
         }
     },
     computed: {
@@ -78,7 +78,11 @@ export default {
             return (startMonth === endMonth) ? ` ${startMonth} ${startDay} - ${endDay}` : `${startMonth} ${startDay} - ${endMonth} ${endDay}`
 
 
-        }
+        },
+        changeHeartColor() {
+            if (this.isLike) return { color: 'red' }
+            else return { color: 'rgba(0,0,0,.5019607843137255)' }
+        },
     }
 }
 </script>
