@@ -1,5 +1,6 @@
 import { stay } from "../store/modules/stay.js"
 import { storageService } from "./storage-service.js"
+import { httpService } from "./http.service.js"
 // const stays = require('../../data/stay.json')
 export const stayService = {
   query,
@@ -12,7 +13,10 @@ const DB_KEY = "stayDB"
 _createStays()
 
 async function query(filterBy = null) {
-  var stays = await storageService.query(DB_KEY)
+  // var stays = await storageService.query(DB_KEY)
+  // var queryStr = (!filterBy) ? '' : `?name=${filterBy.name}&sort=anaAref`
+  var stays =  await httpService.get(`stay`)
+  console.log(stays);
   if (!filterBy) return stays
   var filteredStays = stays
 
@@ -41,7 +45,7 @@ async function query(filterBy = null) {
   //filter by beds
   if (filterBy.beds && filterBy.beds.length) {
     filteredStays = filteredStays.filter(
-      (stay) => stay.beds === filterBy.beds[0]
+      (stay) => stay.beds === filterBy.beds[0] //check why arr
     )
   }
 
@@ -56,7 +60,7 @@ async function query(filterBy = null) {
   if (filterBy.roomType && filterBy.roomType.length) {
     filteredStays = filteredStays.filter((stay) => {
       return filterBy.roomType.find((element) => {
-        return stay.roomType.includes(element)
+        return stay.roomType.includes(element) // change element
       })
     })
   }
@@ -76,7 +80,7 @@ async function query(filterBy = null) {
   //filter by label category
   if (filterBy.category && filterBy.category !== 'All') {
     filteredStays = filteredStays.filter(
-      (stay) =>
+      (stay) => //regex
         stay.summary.toLowerCase().includes(filterBy.category.toLowerCase()) ||
         stay.interaction.toLowerCase().includes(filterBy.category.toLowerCase()) ||
         stay.name.toLowerCase().includes(filterBy.category.toLowerCase())
@@ -85,7 +89,7 @@ async function query(filterBy = null) {
 
   //filter by destination
   if(filterBy.destination){
-    filteredStays = filteredStays.filter((stay)=>{
+    filteredStays = filteredStays.filter((stay)=>{ //regex
         return stay.address.street.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
                stay.address.country.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
                stay.address.city.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
@@ -106,7 +110,9 @@ async function query(filterBy = null) {
 
 async function getById(stayId) {
   try {
-    var stay = await storageService.get(DB_KEY, stayId)
+    // var stay = await storageService.get(DB_KEY, stayId)
+    var stay =  await httpService.get(`stay/${stayId}`)
+    console.log("on getbyid");
     return stay
   } catch (error) {
     console.log(error)
@@ -114,8 +120,7 @@ async function getById(stayId) {
 }
 
 async function updateStay(stay){
-  var newStay;
-  newStay = storageService.put(DB_KEY,stay)
+  var newStay =  await httpService.put(`stay/${stay._id}`)
   return newStay
 }
 

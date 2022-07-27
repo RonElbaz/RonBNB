@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@fawmi/vue-google-maps": "^0.9.72",
+    "axios": "^0.27.2",
     "element-plus": "^2.2.9",
     "fs": "^0.0.1-security",
     "moment": "^2.29.4",

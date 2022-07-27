@@ -52,7 +52,7 @@
                         <a href="#amenities" class="txt">Amenities</a>
                         <a href="#reviews" class="txt">Reviews</a>
                         <a href="#map" class="txt">Loctaion</a>
-                        <div v-if="scrollpx > 1600" class="header-reserve-container flex">
+                        <div v-if="scrollpx > 1800" class="header-reserve-container flex">
                             <div class="">
                                 <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
                                         night
