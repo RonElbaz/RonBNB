@@ -24,6 +24,12 @@
                 }
             }
 
+            .stay-reviews-info {
+
+                text-decoration: underline;
+                font-size: 14px;
+            }
+
 
             .stay-super-host {
                 font-family: cereal;
@@ -42,6 +48,7 @@
 
 
         .super-host {
+            position: relative;
             margin-bottom: 32px;
 
             .super-host-header {
@@ -49,7 +56,7 @@
                 margin-bottom: 4px;
 
                 .super-host-header-txt {
-                    margin-inline-start: 16px;
+                    margin-inline-start: 14px;
                 }
             }
 
@@ -58,6 +65,7 @@
                 font-size: 14px;
                 color: $clr2;
                 margin-inline-start: 34px;
+                line-height: 24px;
             }
         }
 
@@ -73,7 +81,7 @@
 
     .bottom-area-details {
         display: grid;
-        grid-template-columns: 4fr 2fr;
+        grid-template-columns: 4.5fr 2fr;
         grid-template-rows: 1fr;
         grid-column-gap: 90px;
         grid-row-gap: 0px;
@@ -94,6 +102,7 @@
 
             .aircover-txt {
                 font-family: cereal;
+                line-height: 24px;
             }
         }
 
@@ -115,7 +124,7 @@
 
             .reserve-header {
                 width: 100%;
-                margin-bottom: 15px;
+                margin-bottom: 24px;
                 align-items: center;
 
                 .reserve-stay-price {
@@ -156,13 +165,22 @@
             .host-name {
                 font-size: 22px;
             }
+            
+.host-img-area{
 
-            .host-img {
-                border-radius: 50%;
-                object-fit: cover;
-                width: 3.5rem;
-                height: 3.5rem;
-            }
+    position: relative;
+    .host-img {
+        border-radius: 50%;
+        object-fit: cover;
+        width: 3.5rem;
+        height: 3.5rem;
+    }
+    .super-host-symbol{
+        position: absolute;
+        bottom: 3px;
+        left: 35px;
+    }
+}
 
             .rooms-info {
                 line-height: 2px;
@@ -180,6 +198,7 @@
 
             .description-txt {
                 font-family: cereal;
+                line-height: 24px;
             }
         }
 
@@ -295,7 +314,21 @@
 
             .review-txt {
                 font-family: cereal;
+                line-height: 24px;
             }
+
+        }
+    }
+    .map-area{
+        padding:48px 0 ;
+
+        .map-header{
+            padding: 0 0 24px ;
+            font-size: 24px;
+        }
+        .map-adress{
+            margin: 0 0 24px;
+            font-family: cereal;
         }
     }
 }
@@ -384,6 +417,7 @@ progress::-webkit-progress-value {
     width: 100%;
     height: 90px;
     align-items: center;
+    
 }
 
 .txt{

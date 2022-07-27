@@ -7,10 +7,17 @@ import './scss/styles.scss'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import VueGoogleMaps from '@fawmi/vue-google-maps'
+import VueSweetalert2 from 'vue-sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
+
+
+
+
 
 
 const app = createApp(App)
 app.directive('click-outside', clickOutsideDirective)
+app.use(VueSweetalert2);
 app.use(router)
 app.use(store)
 app.use(ElementPlus)

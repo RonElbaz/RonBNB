@@ -15,7 +15,9 @@
     "require-context": "^1.1.0",
     "sass": "^1.53.0",
     "vue": "^3.2.37",
+    "vue-chart-3": "^3.1.8",
     "vue-router": "^4.1.2",
+    "vue-sweetalert2": "^5.0.5",
     "vuex": "^4.0.2"
   },
   "devDependencies": {

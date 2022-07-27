@@ -9,17 +9,10 @@
     margin-top: 25px
   }
   .btn-filter-container {
-    // position: absolute;
-    align-self: center;
-    // right: 0;
-    // top: 35px;
     z-index: 10;
-    // // background-color: rgba(255, 255, 255, 0.998);
-    // box-shadow: -15px 0 10px rgb(255, 255, 255);
-    // background-color: blue;
-    // width: 170px;
-    height: 55px;
-    margin-top: 25px;
+    height: 70px;
+    display: flex;
+    align-items: end;
     .btn-filter {
       border-radius: 0.75rem;
       background-color: white;

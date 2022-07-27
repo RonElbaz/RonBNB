@@ -3,6 +3,8 @@
     <section
         :class="showList ? 'filter-container main-layout flex space-between ' : 'filter-container  flex space-between'">
         <div class="labels flex ">
+             <el-scrollbar>
+    <div class="scrollbar-flex-content">
             <button v-if="showList" @click="onSetFilter(opt.label)" class="clean-button" v-for="opt in filterOpts">
                 <div :class="{ 'clicked-btn': type === opt.label }" @click="changedType(opt.label)"
                     class="image-and-txt flex column btn-label">
@@ -14,6 +16,8 @@
             <div v-else class="stays-amount">
                 {{ stayLength }} stays
             </div>
+    </div>
+  </el-scrollbar>
         </div>
         <div class="btn-filter-container">
             <button :class="{ 'btn-filter-top': !showList }" class="btn btn-filter" text
@@ -294,5 +298,19 @@ export default {
 }
 </script>
 
-<style>
+<style >
+.scrollbar-flex-content {
+  display: flex;
+}
+.scrollbar-demo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+}
 </style>
