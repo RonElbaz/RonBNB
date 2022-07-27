@@ -65,9 +65,9 @@
                                     <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
                                 </h1>
                             </div>
-                            <button class="bnb-btn" @mousemove="getPos"
-                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
-                                @click="onAddOrder">Reserve</button>
+                            <el-button class="bnb-btn" @mousemove="getPos"
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
+                            <!-- <button </button> -->
                         </div>
                     </div>
                 </div>
@@ -225,7 +225,7 @@ import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
-
+import { ElNotification } from 'element-plus'
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -301,11 +301,18 @@ export default {
             }
         },
         onAddOrder() {
+            console.log(this.stayDate);
             if (!this.guests) {
                 console.log("no guests");
                 return
             }
-                this.$swal('Your order has been complete and wait the host will approve it ');
+                if (!this.stayDate) {
+                return ElNotification({
+                    title: 'Error',
+                    message: 'You have to pick Date',
+                    type: 'error',
+                })
+            }
 
             var order = {
                 buyer: {},
@@ -317,6 +324,7 @@ export default {
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
 
+        
 
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
@@ -331,7 +339,14 @@ export default {
             //TODO:uncomment when we can get date input from user
             this.$store.dispatch({ type: 'addOrder', order: { ...order } })
 
+
+
             console.log(order);
+            return ElNotification({
+                title: 'Success',
+                message: 'Your order has been sent',
+                type: 'success',
+            })
         },
         getPos(ev) {
             // console.log(ev)
@@ -359,7 +374,9 @@ export default {
         },
         handleScroll() {
             this.scrollpx = window.scrollY;
-        }
+        },
+
+
     },
     computed: {
         superHost() {

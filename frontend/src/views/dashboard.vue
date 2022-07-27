@@ -39,10 +39,9 @@
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
                     <td data-title="Released">$ {{ order.stay.price }}</td>
                     <td data-title="Studio">$ {{ order.totalPrice }}</td>
-                    <!-- <td data-title="Worldwide Gross" data-type="currency">{{order.startDate }}- {{order.endDate}}</td> -->
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
                     <td data-title="Domestic Gross" data-type="currency"
-                        :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
+                      style="border-radius: 12px;"  :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
                     <td data-title="Domestic Gross" class="action-container" data-type="currency">
                         <span><img @click="declineOrder(order)" style="height: 20px; width: 20px;"
@@ -61,10 +60,11 @@ import { defineComponent } from "vue";
 import { PieChart, BarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
 
+
 Chart.register(...registerables);
 
 
-export default defineComponent({
+export default defineComponent({    
     name: 'stay-dashboard',
     props: {
     },
@@ -107,11 +107,8 @@ export default defineComponent({
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
-        // console.log(this.orders);
         this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
         this.revneuePerMonth.datasets[0].data = this.$store.getters.getRevneuePerMonth
-        var test = this.$store.getters.getRevneuePerMonth
-        console.log(test);
     },
     methods: {
         approveOrder(order) {
