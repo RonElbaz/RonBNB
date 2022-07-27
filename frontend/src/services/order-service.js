@@ -67,7 +67,7 @@ async function getById(orederId) {
             "name": "House Of Uncle My",
             "price": 80
           },
-          "status": "pending"
+          "status": "Pending"
         },    
         {
           "_id": "o1337",
@@ -89,7 +89,7 @@ async function getById(orederId) {
             "name": "House Of king obama",
             "price": 20
           },
-          "status": "pending"
+          "status": "Pending"
         },    
         {
           "_id": "oShit121",
@@ -111,7 +111,7 @@ async function getById(orederId) {
             "name": "House Of fun",
             "price": 100
           },
-          "status": "pending"
+          "status": "Pending"
         },    
       ]
       return orders
