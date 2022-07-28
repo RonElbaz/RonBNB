@@ -187,13 +187,13 @@ export default {
             isGuestSelect: false,
             isShowNameLogo: true,
             isShowDropdownMenu: false,
-            loggedInUser: null,
+            loggedInUser: true,
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = this.$store.getters.user
+        // this.loggedInUser = this.$store.getters.user
     },
     mounted() {
 
