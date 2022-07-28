@@ -193,7 +193,8 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = this.$store.getters.user
+        // this.loggedInUser = this.$store.getters.user
+        this.loggedInUser = true
     },
     mounted() {
 
