@@ -567,5 +567,19 @@ export default {
 }
 </script>
 
-<style>
+<style >
+.scrollbar-flex-content {
+  display: flex;
+}
+.scrollbar-demo-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 50px;
+  margin: 10px;
+  text-align: center;
+  border-radius: 4px;
+}
 </style>

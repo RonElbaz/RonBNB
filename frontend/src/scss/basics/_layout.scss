@@ -84,3 +84,19 @@
 // .main-text {
 //   margin-bottom: rem(90px);
 // }
+
+.details-layout{
+  max-width: 1760px;
+  padding-left: 300px;
+  padding-right: 300px;
+  margin: auto;
+  @include for-large-layout {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @include for-slim-layout {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+}

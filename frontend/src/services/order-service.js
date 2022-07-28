@@ -1,5 +1,5 @@
 import { storageService } from "./storage-service.js"
-
+import { httpService } from "./http.service.js"
 export const orderService = {
   query,
   getById,
@@ -11,7 +11,7 @@ const DB_KEY = "orderDB"
 _createOrders()
 
 async function query(){
-    var orders = await storageService.query(DB_KEY)
+    var orders = await httpService.get(`order`)
     return orders
 }
 
@@ -19,10 +19,10 @@ async function addOrder(order){
     var newOrder;
     // console.log(order);
     if(!order._id){ 
-      newOrder = storageService.post(DB_KEY,order)
+      newOrder = httpService.post( `order`, order)
     }
     else{
-      newOrder = storageService.put(DB_KEY,order)
+      newOrder = httpService.put( `order`, order)
     } 
     return newOrder
 }
@@ -67,7 +67,7 @@ async function getById(orederId) {
             "name": "House Of Uncle My",
             "price": 80
           },
-          "status": "pending"
+          "status": "Pending"
         },    
         {
           "_id": "o1337",
@@ -89,7 +89,7 @@ async function getById(orederId) {
             "name": "House Of king obama",
             "price": 20
           },
-          "status": "pending"
+          "status": "Pending"
         },    
         {
           "_id": "oShit121",
@@ -111,7 +111,7 @@ async function getById(orederId) {
             "name": "House Of fun",
             "price": 100
           },
-          "status": "pending"
+          "status": "Pending"
         },    
       ]
       return orders

@@ -1,5 +1,5 @@
 <template>
-    <section v-if="stay" class="main-layout details-page">
+    <section v-if="stay" class="details-layout details-page">
         <section v-if="stay" class="header-details">
             <h1 class="stay-name">{{ stay.name }}</h1>
             <div class="stay-info flex space-between">
@@ -41,18 +41,18 @@
             </div>
         </section>
         <div id="gallery">
-            <image-gallery  :images="stay.imgUrls"></image-gallery>
+            <image-gallery :images="stay.imgUrls"></image-gallery>
         </div>
 
-        <section v-if="scrollpx > 600" class="nav-details-container main-layout"> 
+        <section v-if="scrollpx > 600" class="nav-details-container details-layout">
             <div class="header-reserve " v-if="scrollpx > 600">
                 <div class="flex">
-                    <div class="nav-txt main-layout flex">
+                    <div class="nav-txt details-layout flex">
                         <a href="#gallery" class="txt">Photo</a>
                         <a href="#amenities" class="txt">Amenities</a>
                         <a href="#reviews" class="txt">Reviews</a>
                         <a href="#map" class="txt">Loctaion</a>
-                        <div v-if="scrollpx > 1600" class="header-reserve-container flex">
+                        <div v-if="scrollpx > 1350" class="header-reserve-container flex">
                             <div class="">
                                 <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
                                         night
@@ -65,9 +65,9 @@
                                     <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
                                 </h1>
                             </div>
-                            <button class="bnb-btn" @mousemove="getPos"
-                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
-                                @click="onAddOrder">Reserve</button>
+                            <el-button class="bnb-btn" @mousemove="getPos"
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
+                            <!-- <button </button> -->
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,23 @@
                             }}
                         </p>
                     </div>
-                    <img class="host-img" :src=randomUser(0) alt="">
+                    <div class="host-img-area">
+                        <img class="host-img" :src=randomUser(0) alt="">
+                        <svg class="super-host-symbol" v-if="stay.host.isSuperhost" viewBox="0 0 14 24"
+                            role="presentation" aria-hidden="true" focusable="false"
+                            style="height: 27px; width: 27px; display: block; fill: currentcolor;">
+                            <path
+                                d="m10.5 20.0005065c0 1.9326761-1.56704361 3.4994935-3.5 3.4994935s-3.5-1.5668174-3.5-3.4994935c0-1.9326762 1.5670426-3.5005065 3.5-3.5005065s3.5 1.5678303 3.5 3.5005065m-9.99486248-18.58757644-.00513752 8.13836018c0 .45796416.21682079.88992936.58880718 1.17090736l5.07730539 3.831699c.4870761.367971 1.16836618.367971 1.65647028.0009994l5.08141685-3.8266984c.3719859-.2789784.5898342-.7109444.5908612-1.16790827.0010271-1.75186288.0041101-6.21051146.0051391-8.14035983 0-.50396002-.4202834-.91292822-.9392158-.91292822l-11.11643181-.00699945c-.51790391-.00099942-.93818728.40796878-.93921487.91292823"
+                                fill="#fff"></path>
+                            <path
+                                d="m12 9.5-5-3.70124468 5-3.79875532zm-6.1292309 9.187485c-.52182677.3180834-.8707691.8762459-.8707691 1.5144379 0 .9937534.83703449 1.7980771 1.870162 1.7980771.81806646 0 1.50434636-.5065007 1.75946763-1.2095239z"
+                                fill="#ffb400"></path>
+                            <path d="m12 9.5-5 3.75-5-3.75v-7.5z" fill="#ff5a5f"></path>
+                            <path
+                                d="m7 24c-2.2060547 0-4-1.7939453-4-3.9990234 0-2.2060547 1.7939453-4.0009766 4-4.0009766s4 1.7949219 4 4.0009766c0 2.2050781-1.7939453 3.9990234-4 3.9990234zm0-7c-1.6542969 0-3 1.3466797-3 3.0009766 0 1.6533203 1.3457031 2.9990234 3 2.9990234s3-1.3457031 3-2.9990234c0-1.6542969-1.3457031-3.0009766-3-3.0009766zm.0039062-1.8242188c-.4560547 0-.9121094-.1064453-1.2617188-.3164062l-5.0458984-3.8642578c-.4697265-.3642578-.696289-.8525391-.696289-1.4951172v-8c.0009766-.3730469.1679688-.7529297.4580078-1.0429688.2900391-.2905273.6689453-.4570312 1.0410156-.4570312h.0019531 10.9990235c.7851562 0 1.5.7148438 1.5 1.5v7.9277344c-.0009766.6762695-.2421875 1.2177734-.6953125 1.5668945l-5.0009766 3.8325195c-.3505859.2333985-.8251953.3486328-1.2998047.3486328zm-5.5058593-14.1757812c-.1044922 0-.2324219.0625-.3330078.1635742-.1015625.1020508-.1650391.230957-.1650391.3374024v7.9990234c0 .3305664.0888672.5341797.3066406.703125l4.9970703 3.8310547c.3330078.1953125 1.0859375.2001953 1.4208984-.0205078l4.9716797-3.8125c.2001954-.1542969.3027344-.4155274.303711-.7749024v-7.9267578c0-.2285156-.2714844-.4995117-.5-.4995117h-11-.0009766s0 0-.0009765 0z"
+                                fill="#484848"></path>
+                        </svg>
+                    </div>
                 </div>
                 <div class="info-placeholder grey-underline">
                     <div v-if="stay.host.isSuperhost" class="super-host">
@@ -103,7 +119,9 @@
                             class="free-cancellation-txt">Free cancellation before Oct 27.</span> </h1>
                 </div>
                 <div class="aircover-area grey-underline">
-                    <h1 class="aircover-header"><span class="air">air</span>cover</h1>
+                    <img style="height: 26px; margin-bottom: 16px ;"
+                        src="https://a0.muscache.com/im/pictures/54e427bb-9cb7-4a81-94cf-78f19156faad.jpg"
+                        alt="AirCover" />
                     <p class="aircover-txt">Every booking includes free protection from Host cancellations, listing
                         inaccuracies, and other issues like trouble checking in.</p>
                 </div>
@@ -124,15 +142,8 @@
                         </li>
                     </ul>
                 </div>
-                <div id="map" class="grey-underline">
-                    <GMapMap :center="stay.address.location" :zoom="10" map-type-id="terrain" style="width: 500px; height: 300px">
-                        <GMapCluster>
-                            <GMapMarker :position="stay.address.location"
-                                :clickable="true" :draggable="true"/>
-                        </GMapCluster>
-                    </GMapMap>
-                </div>
             </div>
+
             <section class="reserve">
                 <div class="reserve-area flex column space-between">
                     <div class=" reserve-header flex space-between">
@@ -146,7 +157,6 @@
                             <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
                         </h1>
                     </div>
-
                     <div class="date-area">
                         <date-picker-try @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
@@ -171,6 +181,7 @@
                 </div>
             </section>
         </section>
+
         <div id="reviews" v-if="stay" class="reviews-area">
             <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
                 {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
@@ -180,7 +191,8 @@
 
                 </li>
             </div>
-            <div class="reviews-container">
+
+            <div class="reviews-container  grey-underline">
                 <li v-for="review, idx in formatedreviews" :key="stay._id">
                     <div class="review-container">
                         <div class="review-info flex ">
@@ -190,12 +202,22 @@
                             </h1>
                         </div>
                         <p class="review-txt">{{ review.txt }}</p>
-                        <!-- <span v-if="!isMore && longAmenities"></span></p> -->
                     </div>
                 </li>
             </div>
         </div>
+        <div id="map" class="map-area grey-underline">
+            <h1 class="map-header">Where you’ll be</h1>
+            <p class="map-adress">{{ stay.address.street }}</p>
+            <GMapMap :center="stay.address.location" :zoom="10" map-type-id="terrain"
+                style="width: 100%; height: 600px">
+                <GMapCluster>
+                    <GMapMarker :position="stay.address.location" :clickable="true" :draggable="true" />
+                </GMapCluster>
+            </GMapMap>
+        </div>
     </section>
+
 </template>
 
 <script>
@@ -203,7 +225,7 @@ import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
-
+import { ElNotification } from 'element-plus'
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -221,7 +243,7 @@ export default {
             guests: null,
             stayLength: null,
             scrollpx: 0,
-            myLatlng : null,
+            myLatlng: null,
         }
     },
     async created() {
@@ -234,12 +256,12 @@ export default {
             this.stay = stay
             console.log(stay);
             this.formatedreviews = this.formatReviews
-;2
+                ; 2
         } catch (error) {
             throw new Error('cannot get stay')
         }
         this.commentsArr = stayService.getRandomArr()
-        console.log("hhhhhhhhhhhhhhhhhhhhhhhh",this.stay.address.location)
+        console.log("hhhhhhhhhhhhhhhhhhhhhhhh", this.stay.address.location)
         // console.log(this.commentsArr)
 
         window.addEventListener('scroll', this.handleScroll);
@@ -279,9 +301,17 @@ export default {
             }
         },
         onAddOrder() {
+            console.log(this.stayDate);
             if (!this.guests) {
                 console.log("no guests");
                 return
+            }
+                if (!this.stayDate) {
+                return ElNotification({
+                    title: 'Error',
+                    message: 'You have to pick Date',
+                    type: 'error',
+                })
             }
 
             var order = {
@@ -294,12 +324,13 @@ export default {
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
 
+        
 
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
             order.totalPrice = this.stay.price * this.stayLength + (this.stayLength * 25)
             order.guests = this.guests
-            order.status = "pending"
+            order.status = "Pending"
             order.stay._id = this.stay._id
             order.stay.name = this.stay.name
             order.stay.price = this.stay.price
@@ -308,7 +339,14 @@ export default {
             //TODO:uncomment when we can get date input from user
             this.$store.dispatch({ type: 'addOrder', order: { ...order } })
 
+
+
             console.log(order);
+            return ElNotification({
+                title: 'Success',
+                message: 'Your order has been sent',
+                type: 'success',
+            })
         },
         getPos(ev) {
             // console.log(ev)
@@ -336,7 +374,9 @@ export default {
         },
         handleScroll() {
             this.scrollpx = window.scrollY;
-        }
+        },
+
+
     },
     computed: {
         superHost() {
