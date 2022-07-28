@@ -52,11 +52,7 @@
                         <a href="#amenities" class="txt">Amenities</a>
                         <a href="#reviews" class="txt">Reviews</a>
                         <a href="#map" class="txt">Loctaion</a>
-<<<<<<< HEAD
-                        <div v-if="scrollpx > 1800" class="header-reserve-container flex">
-=======
                         <div v-if="scrollpx > 1350" class="header-reserve-container flex">
->>>>>>> 5cb82be3c9b8b0cefc3646504928c5f4fd844378
                             <div class="">
                                 <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
                                         night
@@ -321,8 +317,11 @@ export default {
             var order = {
                 buyer: {},
                 stay: {},
+                host:{}
             };
-            order.hostId = this.stay._id
+            order.host.Id = this.stay._id
+            order.host.fullname = this.stay.host.fullname
+            order.stay.address = this.stay.address.street
             order.createdAt = Date.now()
 
             order.buyer._id = this.user._id
