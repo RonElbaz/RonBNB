@@ -4,7 +4,11 @@
 
       <stay-filter :showList="false" :stayLength="getStays.length" />
     </div>
-    <stay-list :stays="getStays" />
+      <div v-if="isLoading" class="loader-container">
+
+      <div   class="loader"></div>
+    </div>
+    <stay-list v-if="!isLoading" :stays="getStays" />
   </div>
 
 </template>
@@ -18,6 +22,8 @@ export default {
   // emits: ["getCountryName"],
   data() {
     return {
+      isLoading: false
+
 
     }
   },
@@ -25,8 +31,13 @@ export default {
     const { destination } = this.$route.params
     if (destination === '') return
     var filter = {};
+    this.isLoading = true
     filter.destination = destination
+    setTimeout(()=>{
+      this.isLoading = false
+    },2000)
     await this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
+
     // await this.$emit("getCountryName", this.getStays[0].address.country)
   },
   methods: {

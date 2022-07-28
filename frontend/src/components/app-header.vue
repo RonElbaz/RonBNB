@@ -1,6 +1,6 @@
 <template>
-    <div class="header-container">
-        <header class="main-layout">
+    <div :class=" currentRoute === 'stay-details' ? ' header-container details-layout' : ' header-container main-layout' " >
+        <header >
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
                     <router-link class="link" to="/">
@@ -199,10 +199,16 @@ export default {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
         this.loggedInUser = true
-    },
-    mounted() {
 
+    
     },
+    // mounted() {
+    // const param = this.$router.currentRoute._value
+    //         console.log('PRARAM', this.$router.currentRoute._value);
+    //     // if(param === "stay-details"){
+    //     //         console.log('fuck yea');
+    //     // }
+    // },
     methods: {
         openDropdownMenu() {
             this.isShowDropdownMenu = true
@@ -300,6 +306,9 @@ export default {
         }
     },
     computed: {
+        currentRoute(){
+            return this.$route.name
+        },
         countryName() {
             const { destination } = this.$route.params
             if (destination) {

@@ -25,11 +25,11 @@
                     <th scope="col">Stay title</th>
                     <th scope="col">Nights</th>
                     <th scope="col">Guests</th>
-                    <th scope="col">Price/Nigth</th>
+                    <th scope="col">Price per night</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Check in- Check out</th>
-                    <th scope="col">status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Check in - Check out</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Decline/Approve</th>
                 </tr>
             </thead>
             <tbody>
@@ -42,7 +42,7 @@
                     <td data-title="Released">$ {{ order.stay.price }}</td>
                     <td data-title="Studio">$ {{ order.totalPrice }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency" style="border-radius: 12px;"
+                    <td data-title="Domestic Gross" data-type="currency" 
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
                     <td data-title="Domestic Gross" class="action-container" data-type="currency">
@@ -73,44 +73,12 @@ export default defineComponent({
     data() {
         return {
             orders: null,
-            statusOrder: {
-                labels: ["Pending", "Approved", "Decline"],
-                datasets: [
-                    {
-                        data: null,
-                        backgroundColor: ["#f6e58d", "#7bed9f", "#ff6b81"],
-                    },
-                ],
-            },
-            revneuePerMonth: {
-                labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December'
-                ],
-                datasets: [
-                    {
-                        data: null,
-                        backgroundColor: '#f87979',
-                    },
-                ],
-            },
+         
 
         }
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
-        this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
-        this.revneuePerMonth.datasets[0].data = this.$store.getters.getRevneuePerMonth
     },
     methods: {
         async approveOrder(order) {
@@ -126,8 +94,8 @@ export default defineComponent({
             this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
         },
         checkStatus(status) {
-            if (status === 'Approve') return '#7bed9f'
-            if (status === 'Decline') return '#ff6b81'
+            if (status === 'Approved') return '#7bed9f'
+            if (status === 'Declined') return '#ff6b81'
             if (status === 'Pending') return '#f6e58d'
         },
         formatDate(order) {
@@ -135,7 +103,7 @@ export default defineComponent({
             const startDate = new Date(order.startDate)
             const endDate = new Date(order.endDate)
 
-            return `${startDate.getDate()}.${startDate.getMonth()} - ${endDate.getDate()}.${endDate.getMonth()}.${endDate.getFullYear()}`
+            return `${startDate.getDate()}.${startDate.getMonth() +1} - ${endDate.getDate()}.${endDate.getMonth() +1}.${endDate.getFullYear()}`
 
         },
         nightsAmount(order) {
@@ -158,10 +126,16 @@ export default defineComponent({
     computed: {
         foramtRevneue() {
             return this.orders.reduce((acc, order) => {
-                if (order.status !== 'Approve') return acc
+                if (order.status !== 'Approved') return acc
                 return acc + order.totalPrice
             }, 0)
         },
+        statusOrder(){
+            return this.$store.getters.getOrderStatus
+        },
+        revneuePerMonth(){
+              return this.$store.getters.getRevneuePerMonth
+        }
 
     },
     components: {

@@ -17,7 +17,7 @@
             <tbody>
                 <tr v-for="order in orders">
                     <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
-                    <th scope="row">{{ order.host.fullname }}</th>
+                    <th scope="row">{{ order?.host.fullname }}</th>
                     <td data-title="Released">{{ order.stay.address }}</td>
                     <td data-title="Released">{{ nigthsAmount(order) }}</td>
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
@@ -77,11 +77,12 @@ export default {
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
+        console.log('orders',this.orders);
     },
     methods: {
         checkStatus(status) {
-            if (status === 'Approve') return '#7bed9f'
-            if (status === 'Decline') return '#ff6b81'
+            if (status === 'Approved') return '#7bed9f'
+            if (status === 'Declined') return '#ff6b81'
             if (status === 'Pending') return '#f6e58d'
         },
         formatDate(order) {

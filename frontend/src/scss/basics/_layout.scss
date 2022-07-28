@@ -54,11 +54,15 @@
 //   margin-bottom: rem(90px);
 // }
 
+
 .details-layout{
   max-width: 1760px;
-  padding-left: 300px;
-  padding-right: 300px;
+  padding-left: 315px;
+  padding-right: 315px;
   margin: auto;
+
+  position: static !important;
+
   @include for-large-layout {
     padding-left: 20px;
     padding-right: 20px;
