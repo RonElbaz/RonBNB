@@ -73,7 +73,8 @@
             </button>
         </div>
     </div>
-    <el-dialog v-model="dialogFormVisible" title="Filters" center>
+    <div class="filter">
+    <el-dialog  v-model="dialogFormVisible" title="Filters" center>
         <el-form :model="form" class="filter-form-layout">
 
             <div class="price-range">
@@ -184,6 +185,7 @@
             </span>
         </template>
     </el-dialog>
+    </div>
 </template>
 <script>
 import { requiredNumber } from 'element-plus/es/components/table-v2/src/common'

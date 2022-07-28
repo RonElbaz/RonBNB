@@ -66,7 +66,8 @@
                                 </h1>
                             </div>
                             <el-button class="bnb-btn" @mousemove="getPos"
-                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
+                            </el-button>
                             <!-- <button </button> -->
                         </div>
                     </div>
@@ -160,14 +161,24 @@
                     <div class="date-area">
                         <date-picker-try @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
-                        <el-button plain class="bnb-btn" @mousemove="getPos"
-                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
-                        <!-- <button class="bnb-btn" @mousemove="getPos"
-                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button> -->
+                        <!-- <el-button plain class="bnb-btn" @mousemove="getPos"
+                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
+                        </el-button> -->
+                        <el-button class="bnb-btn"   @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
+                            @click="onAddOrder">Reserve</el-button>
+                        <el-dialog v-model="centerDialogVisible" title="Your order has been compelted!" width="30%" center >
+                            <span>Now you just need to wait the host will approve your order</span>
+                            <template #footer>
+                                <span class="dialog-footer">
+                                    <el-button @click="moveToTrips ">Move to my trips</el-button>
+                                    <el-button @click="moveToHomePage">Confirm</el-button>
+                                </span>
+                            </template>
+                        </el-dialog>
                         <div v-if="stayLength" class="date-area-text">
-                        <div>
-                        <!-- <p class="charged">You won't be charged yet</p> -->
-                        </div>
+                            <div>
+                                <!-- <p class="charged">You won't be charged yet</p> -->
+                            </div>
                             <div class="flex space-between">
                                 <span class="text-decorate">{{ stay.price }} x {{ getNights }}</span>
                                 <span>${{ (stay.price * stayLength).toLocaleString() }}</span>
@@ -230,7 +241,7 @@ import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
-import { ElNotification } from 'element-plus'
+
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -245,10 +256,11 @@ export default {
             //TODO: uncomment when we have user service
             //user: nul;l,
             stayDate: null,
-            guests: {adults: 1},
+            guests: { adults: 1 },
             stayLength: null,
             scrollpx: 0,
             myLatlng: null,
+            centerDialogVisible: false
         }
     },
     async created() {
@@ -289,6 +301,14 @@ export default {
             if (amenitie === 'Vault') return '<i class="fa-solid fa-vault"></i>'
             if (amenitie === 'Buthub') return '<i class="fa-solid fa-bath"></i>'
         },
+        moveToTrips(){
+            this.$router.push('/trips')
+            this.centerDialogVisible = false
+        },
+        moveToHomePage(){
+            this.$router.push('/')
+            this.centerDialogVisible = false
+        },
         timeFormat(time) {
             const date = new Date(time)
             const month = date.toLocaleString('default', { month: 'long' })
@@ -307,24 +327,18 @@ export default {
             }
         },
         onAddOrder() {
-            console.log(this.stayDate);
             if (!this.guests) {
                 console.log("no guests");
                 return
             }
-                if (!this.stayDate) {
-                return ElNotification({
-                    title: 'Error',
-                    message: 'You have to pick Date',
-                    type: 'error',
-                    duration: 0
-                })
+            if (!this.stayDate) {
             }
+      
 
             var order = {
                 buyer: {},
                 stay: {},
-                host:{}
+                host: {}
             };
             order.host.Id = this.stay._id
             order.host.fullname = this.stay.host.fullname
@@ -334,7 +348,7 @@ export default {
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
 
-        
+
 
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
@@ -348,15 +362,8 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+                  this.centerDialogVisible = true
 
-
-
-            console.log(order);
-            return ElNotification({
-                title: 'Success',
-                message: 'Your order has been sent',
-                type: 'success',
-            })
         },
         getPos(ev) {
             // console.log(ev)

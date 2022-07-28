@@ -278,9 +278,10 @@
   .btn-filter-top {
     top: -15px;
   }
+  
 }
 // }
-
+.filter{
 .filter-container {
   position: sticky;
   top: calc(79px);
@@ -519,4 +520,5 @@
     background-color: #000 !important;
     border-color: black !important;
   }
+}
 }
