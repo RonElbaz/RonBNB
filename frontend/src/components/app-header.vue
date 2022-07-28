@@ -1,6 +1,8 @@
 <template>
     <div :class=" currentRoute === 'stay-details' ? ' header-container details-layout' : ' header-container main-layout' " >
         <header >
+    <!-- <div class="header-container" :class="{ 'open-modal': isOpenScreen }">
+        <header class="main-layout"> -->
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
                     <router-link class="link" to="/">
@@ -192,13 +194,16 @@ export default {
             isGuestSelect: false,
             isShowNameLogo: true,
             isShowDropdownMenu: false,
-            loggedInUser: null,
+            loggedInUser: true,
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = true
+        this.loggedInUser = true  // this.$store.getter.users
+
+    },
+    mounted() {
 
     
     },
