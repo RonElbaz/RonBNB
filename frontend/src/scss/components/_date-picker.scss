@@ -204,9 +204,9 @@ el-date-table td.end-date .el-date-table-cell__text,
   &.right {
  
     border-left-color: hsla(0,0%,100%,0);
-    border-start-end-radius: 13px;
+    border-start-end-radius: 0.55rem;
   }
   &.left {
-    border-start-start-radius: 13px;
+    border-start-start-radius: 0.55rem;
   }
 }

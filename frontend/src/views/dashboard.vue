@@ -11,16 +11,16 @@
                             <p class="card-txt ">This month : </p>
                         </div>
                         <div class="revenue-price">
-                            <p class="card-txt "> $ {{ monthRevneue }}</p>
+                            <p class="card-txt "> ${{ monthRevneue.toLocaleString() }}</p>
                         </div>
                     </div>
                     <div class="revenue-title">
                          <p class="card-txt ">This year :</p>
-                          <p class="card-txt " > $ {{ yearRevneue }}</p>
+                          <p class="card-txt " > ${{ yearRevneue.toLocaleString() }}</p>
                     </div>
                     <div class="revenue-title">
                          <p class="card-txt ">Total : </p>
-                         <p class="card-txt " > $ {{ foramtRevneue }}</p>
+                         <p class="card-txt " > ${{ foramtRevneue.toLocaleString() }}</p>
                     </div>
 
                 </div>
@@ -57,7 +57,7 @@
                     <td data-title="Released">{{ nightsAmount(order) }}</td>
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
                     <td data-title="Released">$ {{ order.stay.price }}</td>
-                    <td data-title="Studio">$ {{ order.totalPrice }}</td>
+                    <td data-title="Studio">$ {{ (order.totalPrice).toLocaleString() }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
                     <td data-title="Domestic Gross" data-type="currency"
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>

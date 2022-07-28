@@ -4,7 +4,7 @@
             <h1 class="stay-name">{{ stay.name }}</h1>
             <div class="stay-info flex space-between">
                 <div>
-                    <h3><span class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
+                    <h3><span class="stay-review-info"> <i class="fa-solid fa-star star-rating"></i>
                             {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
                             class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
                             class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
@@ -52,9 +52,9 @@
                         <a href="#amenities" class="txt">Amenities</a>
                         <a href="#reviews" class="txt">Reviews</a>
                         <a href="#map" class="txt">Loctaion</a>
-                        <div v-if="scrollpx > 1350" class="header-reserve-container flex">
+                        <div v-if="scrollpx > 1510" class="header-reserve-container flex">
                             <div class="">
-                                <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
+                                <h1 class="reserve-stay-price"> ${{ stay.price }} <span class="reserve-stay-night">
                                         night
                                     </span></h1>
                                 <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i>
@@ -147,7 +147,7 @@
             <section class="reserve">
                 <div class="reserve-area flex column space-between">
                     <div class=" reserve-header flex space-between">
-                        <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night"> night
+                        <h1 class="reserve-stay-price"> ${{ stay.price }} <span class="reserve-stay-night"> night
                             </span></h1>
                         <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span
                                 class="reserve-reviews-rating"> {{
@@ -165,9 +165,12 @@
                         <!-- <button class="bnb-btn" @mousemove="getPos"
                             :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button> -->
                         <div v-if="stayLength" class="date-area-text">
+                        <div>
+                        <!-- <p class="charged">You won't be charged yet</p> -->
+                        </div>
                             <div class="flex space-between">
                                 <span class="text-decorate">{{ stay.price }} x {{ getNights }}</span>
-                                <span>${{ stay.price * stayLength }}</span>
+                                <span>${{ (stay.price * stayLength).toLocaleString() }}</span>
                             </div>
                             <div class="flex space-between service-fee">
                                 <span class="text-decorate">Service fee</span>
@@ -177,7 +180,7 @@
                         </div>
                         <div v-if="stayLength" class="flex space-between">
                             <span>Total</span>
-                            <span>${{ stay.price * stayLength + (stayLength * 25) }}</span>
+                            <span>${{ (stay.price * stayLength + (stayLength * 25)).toLocaleString() }}</span>
                         </div>
                     </div>
                 </div>
@@ -293,8 +296,9 @@ export default {
             return `${month} ${year}`
         },
         formatReviewScore(score) {
+            let title = score[0].charAt(0).toUpperCase() + score[0].slice(1).toLowerCase();
             if (score[0] !== 'rating') {
-                return `<h2 class="score-title"> ${score[0]}</h2>
+                return `<h2 class="score-title"> ${title}</h2>
                 <div class="progress-bar-container flex">
                     <progress class="progress-bar" value="${score[1]}" max="10"></progress>
                     <h2 class="score-number"> ${(score[1]) / 2}</h2>
