@@ -1,5 +1,5 @@
 <template>
-    <div class="header-container">
+    <div class="header-container" :class="{ 'open-modal': isOpenScreen }">
         <header class="main-layout">
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
