@@ -45,7 +45,7 @@ async function query(filterBy = null) {
   //filter by beds
   if (filterBy.beds && filterBy.beds.length) {
     filteredStays = filteredStays.filter(
-      (stay) => stay.beds === filterBy.beds[0] //check why arr
+      (stay) => stay.beds === filterBy.beds[0] //its an arr bc the element-plus cmp we used is v-modeled to an array and we customized it to limit it to one element like the real airbnb
     )
   }
 
@@ -59,8 +59,8 @@ async function query(filterBy = null) {
   //filter by room type
   if (filterBy.roomType && filterBy.roomType.length) {
     filteredStays = filteredStays.filter((stay) => {
-      return filterBy.roomType.find((element) => {
-        return stay.roomType.includes(element) // change element
+      return filterBy.roomType.find((rType) => {
+        return stay.roomType.includes(rType)
       })
     })
   }
@@ -79,21 +79,23 @@ async function query(filterBy = null) {
 
   //filter by label category
   if (filterBy.category && filterBy.category !== 'All') {
+    const categoryReg = new RegExp(filterBy.category, 'i');
     filteredStays = filteredStays.filter(
-      (stay) => //regex
-        stay.summary.toLowerCase().includes(filterBy.category.toLowerCase()) ||
-        stay.interaction.toLowerCase().includes(filterBy.category.toLowerCase()) ||
-        stay.name.toLowerCase().includes(filterBy.category.toLowerCase())
+      (stay) => 
+        categoryReg.test(stay.summary) ||
+        categoryReg.test(stay.interaction) ||
+        categoryReg.test(stay.name)
     )
   }
 
   //filter by destination
   if(filterBy.destination){
-    filteredStays = filteredStays.filter((stay)=>{ //regex
-        return stay.address.street.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
-               stay.address.country.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
-               stay.address.city.toLowerCase().includes(filterBy.destination.toLowerCase()) ||
-               stay.address.countryCode.toLowerCase().includes(filterBy.destination.toLowerCase())
+    const destReg = new RegExp(filterBy.destination, 'i')
+    filteredStays = filteredStays.filter((stay)=>{
+        return destReg.test(stay.address.street) ||
+               destReg.test(stay.address.country) ||
+               destReg.test(stay.address.city) ||
+               destReg.test(stay.address.countryCode)
     })
   }
 
