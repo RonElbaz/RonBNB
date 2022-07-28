@@ -55,5 +55,8 @@ export const stay = {
     staysForDisplay({ stays }) {
       return stays
     },
+    favoritStays({ stays }) {
+      return stays.filter(stay => stay.isLiked)
+    },
   },
 }

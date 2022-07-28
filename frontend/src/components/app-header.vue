@@ -68,6 +68,7 @@
                                     </li>
                                 </div>
                                 <div v-if="!loggedInUser" class="public-section">
+
                                     <li>
                                         <router-link class="link experience" to="/">Host your home</router-link>
                                     </li>
@@ -90,6 +91,10 @@
                                     </li>
                                     <li>
                                         <router-link class="link wishlists" to="/wishlists">Wishlists</router-link>
+                                    </li>
+                                    <li>
+                                        <router-link @click="isShowDropdownMenu = !isShowDropdownMenu"
+                                            class="link experience" to="/stay/dashboard/">Dashboard</router-link>
                                     </li>
                                 </div>
                                 <div v-if="loggedInUser" class="user-manage-section">
@@ -193,7 +198,6 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        // this.loggedInUser = this.$store.getters.user
         this.loggedInUser = true
     },
     mounted() {
