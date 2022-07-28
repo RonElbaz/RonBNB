@@ -1,5 +1,5 @@
 <template>
-    <div class="header-container">
+    <div class="header-container" :class="{ 'open-modal': isOpenScreen }">
         <header class="main-layout">
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
@@ -192,13 +192,14 @@ export default {
             isGuestSelect: false,
             isShowNameLogo: true,
             isShowDropdownMenu: false,
-            loggedInUser: null,
+            loggedInUser: true,
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = true
+        this.loggedInUser = true  // this.$store.getter.users
+
     },
     mounted() {
 

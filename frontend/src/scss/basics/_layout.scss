@@ -19,6 +19,21 @@
   //   padding-right: 25px;
   // }
 }
+.main-layout-margin {
+  max-width: 1760px;
+  margin-left: 80px;
+  margin-right: 80px;
+
+  @include for-large-layout {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  @include for-slim-layout {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}
 .right-unit-main-layout-margin {
   // ! if this class is given => add max width of 1760px to the parent element
   margin-right: 80px;
@@ -43,6 +58,22 @@
   }
   @include for-slim-layout {
     padding-left: 25px;
+  }
+
+  // @include for-mobile-layout {
+  //   padding-left: 25px;
+  //   padding-right: 25px;
+  // }
+}
+
+.left-unit-main-layout-margin {
+  // ! if this class is given => add max width of 1760px to the parent element
+  margin-left: 80px;
+  @include for-large-layout {
+    margin-left: 40px;
+  }
+  @include for-slim-layout {
+    margin-left: 25px;
   }
 
   // @include for-mobile-layout {
