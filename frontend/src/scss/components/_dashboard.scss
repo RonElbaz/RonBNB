@@ -226,7 +226,11 @@ $bp-homer: 75em;
     justify-content: space-evenly !important;
     // height: 100% !important;
     align-content: flex-end !important;
+    span{
+      cursor: pointer;
+    }
   }
+
 }
 
 

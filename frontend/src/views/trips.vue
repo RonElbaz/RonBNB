@@ -23,7 +23,7 @@
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
                     <td data-title="Studio">$ {{ order.totalPrice }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency" style="border-radius: 12px;"
+                    <td data-title="Domestic Gross" data-type="currency"
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
                 </tr>
             </tbody>

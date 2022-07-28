@@ -96,6 +96,7 @@ export default defineComponent({
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
+        console.log(this.orders);
     },
     methods: {
         async approveOrder(order) {

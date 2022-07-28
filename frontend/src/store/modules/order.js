@@ -2,7 +2,6 @@ import { orderService } from '../../services/order-service.js'
 export const order = {
     state: {
         orders: null,
-
     },
     mutations: {
         setOrders(state, { orders }) {
@@ -66,7 +65,7 @@ export const order = {
     },
     getters: {
         ordersForDisplay({ orders }) {
-            return orders
+            return orders.slice().reverse()
         },
         getOrderStatus(state) {
             if (!state.orders) return

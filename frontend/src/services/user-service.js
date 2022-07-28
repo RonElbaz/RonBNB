@@ -7,7 +7,7 @@ export const userService = {
 async function getLoggedInUser() {
     const user =  {
         _id: "leet1337user",
-        fullname:"Moran Golan"
+        fullname:"James Richardson"
     }
     return user
   }
