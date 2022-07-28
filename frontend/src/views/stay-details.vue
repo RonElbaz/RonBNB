@@ -317,8 +317,11 @@ export default {
             var order = {
                 buyer: {},
                 stay: {},
+                host:{}
             };
-            order.hostId = this.stay._id
+            order.host.Id = this.stay._id
+            order.host.fullname = this.stay.host.fullname
+            order.stay.address = this.stay.address.street
             order.createdAt = Date.now()
 
             order.buyer._id = this.user._id

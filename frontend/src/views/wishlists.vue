@@ -1,8 +1,8 @@
 <template>
-    <!-- <div class="main-layout filter-container"> -->
-    <stay-filter :showList="true" />
-    <!-- </div> -->
+   <section class="main-layout">
+    <h1 style="margin:20px 0">Your Wishlist</h1>
     <stay-list :stays="getStays" />
+    </section>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ import stayFilter from "../components/stay-filter.vue"
 import StayList from "../components/stay-list.vue"
 
 export default {
-    name: "main-app",
+    name: "wishList-app",
     props: [],
     components: {
         appHeader,
@@ -33,7 +33,7 @@ export default {
     },
     computed: {
         getStays() {
-            return this.$store.getters.staysForDisplay
+            return this.$store.getters.favoritStays
         },
     },
 };

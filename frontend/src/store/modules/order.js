@@ -45,7 +45,6 @@ export const order = {
                 var newOrder = { ...order }
                 newOrder.status = 'Approve'
                 newOrder = await orderService.addOrder(newOrder)
-                console.log(newOrder);
                 commit({ type: 'approveOrder', newOrder })
             }
             catch (err) {

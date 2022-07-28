@@ -2,16 +2,18 @@
     <div v-if="orders" class="container main-layout">
         <div class="dashboard-data-area flex space-between">
             <div class="data-card total-revenue">
-                <h1>Total revenues</h1>
-                <p>Total revenues : <span> $ {{ foramtRevneue }}</span></p>
-                
+                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenues</h1>
+                <div class="flex column space-between">
+                    <!-- <p>Total revenues :</p> -->
+                    <p style=" text-align: center; font-size: 30px; line-height: 150px;"> $ {{ foramtRevneue }}</p>
+                </div>
             </div>
             <div class="data-card">
-                <h1>Orders status</h1>
+                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Orders status</h1>
                 <PieChart style=" height: 170px; width: 330px;" :chartData="statusOrder" />
             </div>
             <div class="data-card">
-                <h1>Revenue per month</h1>
+                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenue per month</h1>
                 <BarChart style=" height: 170px; width: 330px;" :chartData="revneuePerMonth" />
             </div>
         </div>
@@ -21,7 +23,7 @@
                     <th scope="col">Date</th>
                     <th scope="col">Guest name</th>
                     <th scope="col">Stay title</th>
-                    <th scope="col">Nigths</th>
+                    <th scope="col">Nights</th>
                     <th scope="col">Guests</th>
                     <th scope="col">Price/Nigth</th>
                     <th scope="col">Price</th>
@@ -32,16 +34,16 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders">
-                    <th scope="row">{{ order.createdAt }}</th>
+                    <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <th scope="row">{{ order.buyer.fullname }}</th>
                     <td data-title="Released">{{ order.stay.name }}</td>
-                    <td data-title="Released">{{ nigthsAmount(order) }}</td>
+                    <td data-title="Released">{{ nightsAmount(order) }}</td>
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
                     <td data-title="Released">$ {{ order.stay.price }}</td>
                     <td data-title="Studio">$ {{ order.totalPrice }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency"
-                      style="border-radius: 12px;"  :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
+                    <td data-title="Domestic Gross" data-type="currency" style="border-radius: 12px;"
+                        :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
                     <td data-title="Domestic Gross" class="action-container" data-type="currency">
                         <span><img @click="declineOrder(order)" style="height: 20px; width: 20px;"
@@ -59,12 +61,12 @@
 import { defineComponent } from "vue";
 import { PieChart, BarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
-
+import moment from 'moment'
 
 Chart.register(...registerables);
 
 
-export default defineComponent({    
+export default defineComponent({
     name: 'stay-dashboard',
     props: {
     },
@@ -111,9 +113,13 @@ export default defineComponent({
         this.revneuePerMonth.datasets[0].data = this.$store.getters.getRevneuePerMonth
     },
     methods: {
-        approveOrder(order) {
-            this.$store.dispatch({ type: 'approveOrder', order })
-            this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
+        async approveOrder(order) {
+            try {
+                var x = await this.$store.dispatch({ type: 'approveOrder', order })
+                if (x) this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
+            } catch (error) {
+                console.log(error);
+            }
         },
         declineOrder(order) {
             this.$store.dispatch({ type: 'declineOrder', order })
@@ -132,8 +138,7 @@ export default defineComponent({
             return `${startDate.getDate()}.${startDate.getMonth()} - ${endDate.getDate()}.${endDate.getMonth()}.${endDate.getFullYear()}`
 
         },
-        nigthsAmount(order) {
-            console.log(order);
+        nightsAmount(order) {
             const startDate = new Date(order.startDate)
             const endDate = new Date(order.endDate)
             if (startDate.getMonth)
@@ -145,6 +150,9 @@ export default defineComponent({
                 sumGuests += guest[1]
             })
             return sumGuests
+        },
+        foramtCreatedAt(oredrDate) {
+            return moment(oredrDate).fromNow()
         }
     },
     computed: {
