@@ -78,7 +78,8 @@ export default defineComponent({
         }
     },
     created() {
-        this.orders = this.$store.getters.ordersForDisplay
+        this.orders = this.$store.getters.ordersForDisplay.slice().reverse()
+        console.log(this.orders);
     },
     methods: {
         async approveOrder(order) {

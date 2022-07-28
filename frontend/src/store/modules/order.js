@@ -2,7 +2,6 @@ import { orderService } from '../../services/order-service.js'
 export const order = {
     state: {
         orders: null,
-
     },
     mutations: {
         setOrders(state, { orders }) {
