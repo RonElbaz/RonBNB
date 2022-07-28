@@ -160,8 +160,10 @@
                     <div class="date-area">
                         <date-picker-try @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
-                        <button class="bnb-btn" @mousemove="getPos"
-                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button>
+                        <el-button plain class="bnb-btn" @mousemove="getPos"
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
+                        <!-- <button class="bnb-btn" @mousemove="getPos"
+                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button> -->
                         <div v-if="stayLength" class="date-area-text">
                             <div class="flex space-between">
                                 <span class="text-decorate">{{ stay.price }} x {{ getNights }}</span>
@@ -240,7 +242,7 @@ export default {
             //TODO: uncomment when we have user service
             //user: nul;l,
             stayDate: null,
-            guests: null,
+            guests: {adults: 1},
             stayLength: null,
             scrollpx: 0,
             myLatlng: null,
@@ -311,6 +313,7 @@ export default {
                     title: 'Error',
                     message: 'You have to pick Date',
                     type: 'error',
+                    duration: 0
                 })
             }
 

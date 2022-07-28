@@ -2,18 +2,35 @@
     <div v-if="orders" class="container main-layout">
         <div class="dashboard-data-area flex space-between">
             <div class="data-card total-revenue">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenues</h1>
-                <div class="flex column space-between">
-                    <!-- <p>Total revenues :</p> -->
-                    <p style=" text-align: center; font-size: 30px; line-height: 150px;"> $ {{ foramtRevneue }}</p>
+                <h1 class="card-title">Revenues</h1>
+                <div class="revenue-container">
+
+
+                    <div class="revenue-title">
+                        <div class="revenue-month">
+                            <p class="card-txt ">This month : </p>
+                        </div>
+                        <div class="revenue-price">
+                            <p class="card-txt "> $ {{ monthRevneue }}</p>
+                        </div>
+                    </div>
+                    <div class="revenue-title">
+                         <p class="card-txt ">This year :</p>
+                          <p class="card-txt " > $ {{ yearRevneue }}</p>
+                    </div>
+                    <div class="revenue-title">
+                         <p class="card-txt ">Total : </p>
+                         <p class="card-txt " > $ {{ foramtRevneue }}</p>
+                    </div>
+
                 </div>
             </div>
             <div class="data-card">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Orders status</h1>
+                <h1 class="card-title">Orders status</h1>
                 <PieChart style=" height: 170px; width: 330px;" :chartData="statusOrder" />
             </div>
             <div class="data-card">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenue per month</h1>
+                <h1 class="card-title">Revenue per month</h1>
                 <BarChart style=" height: 170px; width: 330px;" :chartData="revneuePerMonth" />
             </div>
         </div>
@@ -42,7 +59,7 @@
                     <td data-title="Released">$ {{ order.stay.price }}</td>
                     <td data-title="Studio">$ {{ order.totalPrice }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency" 
+                    <td data-title="Domestic Gross" data-type="currency"
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
                     <td data-title="Domestic Gross" class="action-container" data-type="currency">
@@ -73,7 +90,7 @@ export default defineComponent({
     data() {
         return {
             orders: null,
-         
+
 
         }
     },
@@ -103,7 +120,7 @@ export default defineComponent({
             const startDate = new Date(order.startDate)
             const endDate = new Date(order.endDate)
 
-            return `${startDate.getDate()}.${startDate.getMonth() +1} - ${endDate.getDate()}.${endDate.getMonth() +1}.${endDate.getFullYear()}`
+            return `${startDate.getDate()}.${startDate.getMonth() + 1} - ${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`
 
         },
         nightsAmount(order) {
@@ -130,11 +147,24 @@ export default defineComponent({
                 return acc + order.totalPrice
             }, 0)
         },
-        statusOrder(){
+        monthRevneue() {
+            let monthRevneueArr = this.$store.getters.getRevneuePerMonth.datasets[0].data
+            let currMonth = new Date(Date.now()).getMonth()
+            return monthRevneueArr[currMonth]
+        },
+        yearRevneue() {
+            let orders = this.$store.getters.ordersForDisplay
+            return orders.reduce((acc, order) => {
+                const year = new Date(order.startDate).getFullYear()
+                const currYear = new Date(Date.now()).getFullYear()
+                return currYear === year && order.status === 'Approved' ? acc + order.totalPrice : acc
+            }, 0)
+        },
+        statusOrder() {
             return this.$store.getters.getOrderStatus
         },
-        revneuePerMonth(){
-              return this.$store.getters.getRevneuePerMonth
+        revneuePerMonth() {
+            return this.$store.getters.getRevneuePerMonth
         }
 
     },
