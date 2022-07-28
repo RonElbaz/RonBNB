@@ -78,7 +78,7 @@ export default defineComponent({
         }
     },
     created() {
-        this.orders = this.$store.getters.ordersForDisplay.slice().reverse()
+        this.orders = this.$store.getters.ordersForDisplay
         console.log(this.orders);
     },
     methods: {

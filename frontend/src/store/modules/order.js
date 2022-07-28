@@ -65,7 +65,7 @@ export const order = {
     },
     getters: {
         ordersForDisplay({ orders }) {
-            return orders
+            return orders.slice().reverse()
         },
         getOrderStatus(state) {
             if (!state.orders) return
