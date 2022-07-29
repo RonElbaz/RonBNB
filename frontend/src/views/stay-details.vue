@@ -5,7 +5,7 @@
             <div class="stay-info flex space-between">
                 <div>
                     <h3><span class="stay-review-info"> <i class="fa-solid fa-star star-rating"></i>
-                            {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
+                            {{ getRatingAvg.toFixed(2) }} ·</span><span
                             class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
                             class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
                                 class="fa-solid fa-award award-symbol-info"></i> {{ superHost }} <span
@@ -59,7 +59,7 @@
                                     </span></h1>
                                 <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i>
                                     <span class="reserve-reviews-rating"> {{
-                                            ((stay.reviewScores.rating) / 20).toFixed(2)
+                                           getRatingAvg.toFixed(2)
                                     }} </span>
                                     <span class="dot-separate">·</span>
                                     <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
@@ -152,7 +152,7 @@
                             </span></h1>
                         <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span
                                 class="reserve-reviews-rating"> {{
-                                        ((stay.reviewScores.rating) / 20).toFixed(2)
+                                        getRatingAvg.toFixed(2)
                                 }} </span>
                             <span class="dot-separate">·</span>
                             <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
@@ -200,7 +200,7 @@
 
         <div id="reviews" v-if="stay" class="reviews-area">
             <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
-                {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
+                {{ getRatingAvg.toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
             <div class="review-score">
                 <li v-for="reviewScore in Object.entries(stay.reviewScores)" :key="stay._id">
                     <div class="flex space-between" v-html="formatReviewScore(reviewScore)"></div>
@@ -418,6 +418,13 @@ export default {
         getNights() {
             return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights`
         },
+        getRatingAvg(){
+            var sum = 0
+            for (var el in this.stay.reviewScores){
+                if(el !== 'rating') sum += this.stay.reviewScores[el]
+            }
+            return (sum / (Object.keys(this.stay.reviewScores).length -1))/2
+        }
     },
     components: {
         imageGallery,

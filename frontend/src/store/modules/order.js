@@ -93,7 +93,7 @@ export const order = {
             let month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             state.orders.forEach((order) => {
                 let orderDate = new Date(order.startDate).getMonth()
-                month[orderDate] += order.totalPrice
+                if(order.status === 'Approved') month[orderDate] += order.totalPrice
 
             })
 
@@ -121,6 +121,7 @@ export const order = {
                 ],
             }
             return revneuePerMonth
-        }
+        },
+
     }
 }
