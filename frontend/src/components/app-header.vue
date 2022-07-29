@@ -1,8 +1,10 @@
 <template>
-    <div :class=" currentRoute === 'stay-details' ? ' header-container details-layout' : ' header-container main-layout' " >
-        <header >
-    <!-- <div class="header-container" :class="{ 'open-modal': isOpenScreen }">
-        <header class="main-layout"> -->
+    <!-- <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
+    <div
+        :class="currentRoute === ' stay-details' ? ' header-container details-layout' : ' header-container main-layout'">
+        <header>
+            <!--    <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
+            <!--   <header class="main-layout"> -->
             <nav class="flex justify-content-space-between">
                 <div class="branding flex align-items-center">
                     <router-link class="link" to="/">
@@ -168,6 +170,7 @@
         </header>
         <div v-if="isOpenScreen" @click="closeModal" class="modal-screen"></div>
     </div>
+    <!-- </div> -->
 </template>
 
 <script>
@@ -205,7 +208,7 @@ export default {
     },
     mounted() {
 
-    
+
     },
     // mounted() {
     // const param = this.$router.currentRoute._value
@@ -311,7 +314,7 @@ export default {
         }
     },
     computed: {
-        currentRoute(){
+        currentRoute() {
             return this.$route.name
         },
         countryName() {
