@@ -16,7 +16,7 @@
             <div class="stay-header flex space-between">
                 <h1 class="stay-address">{{ stay.address.city }} ,<span>{{ stay.address.country }}</span></h1>
                 <h1 class="stay-rating"> <i class="fa-solid fa-star star-rating"></i> {{
-                        ((stay.reviewScores.rating) / 20).toFixed(2) 
+                        getRatingAvg.toFixed(2) 
                 }} ({{((stay.numOfReviews))}}) </h1>
             </div>
             <h1 class="stay-description">{{stay.summary.substring(1,30)}}...</h1>
@@ -83,6 +83,13 @@ export default {
             if (this.isLike) return { color: 'red' }
             else return { color: 'rgba(0,0,0,.5019607843137255)' }
         },
+        getRatingAvg(){
+            var sum = 0
+            for (var el in this.stay.reviewScores){
+                if(el !== 'rating') sum += this.stay.reviewScores[el]
+            }
+            return (sum / (Object.keys(this.stay.reviewScores).length -1))/2
+        }
     }
 }
 </script>
