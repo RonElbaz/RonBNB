@@ -10,8 +10,19 @@
   // margin-bottom: 31px;
   // contain: size style layout;
   // display: block;
+  // @include for-narrow-layout {
+  //   background: white;
+
+  //   : fixed;
+  // }
 }
 
 .header-container.open-modal {
   box-shadow: none;
+  @include for-narrow-layout {
+    height: auto;
+    background: white;
+    position: sticky;
+    padding-top: 14px;
+  }
 }

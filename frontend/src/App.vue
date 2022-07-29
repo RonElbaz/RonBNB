@@ -1,8 +1,6 @@
 <template>
   <div>
-    <!-- <div :class="{ 'open-modal': openSearchBar }"> -->
-      <app-header @isOpenScreen="isOpenScreen" />
-    <!-- </div> -->
+    <app-header />
     <router-view></router-view>
     <app-footer />
   </div>
@@ -14,25 +12,16 @@ import appFooter from "./components/app-footer.vue";
 export default {
   name: "main-app",
   props: [],
-  // emits: ['getCountryName'],
   components: {
     appHeader,
     appFooter,
-    // countryName: null
   },
   data() {
     return {
-      openSearchBar: false
+
     };
   },
   methods: {
-    isOpenScreen(isOpenScreen) {
-      this.openSearchBar = isOpenScreen
-    }
-    // getCountryName(country) {
-    //   console.log(country)
-    //   this.countryName = country
-    // }
   },
 
   created() {

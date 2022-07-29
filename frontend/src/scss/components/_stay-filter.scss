@@ -32,7 +32,7 @@
       color: $clr2;
 
       &:hover {
-        box-shadow: inset 0 -1.7px 0 0 rgb(118 114 114 / 48%);
+        box-shadow: inset 0 -1.7px 0.5px -0.5px rgb(118 114 114 / 48%);
       }
     }
 
@@ -150,6 +150,11 @@
     .el-icon svg {
       color: rgb(34, 34, 34);
     }
+
+    @include for-narrow-layout {
+      box-shadow: 0 2px 4px -4px rgb(0 0 0 / 16%);
+      // box-shadow: 0 0 6px;
+    }
   }
 
   .btn-filter-stays-container {
@@ -212,6 +217,10 @@
       // display: none;
       // margin-left: px;
     }
+
+    @include for-narrow-layout {
+      display: none;
+    }
   }
   .right-scroll {
     position: absolute;
@@ -260,6 +269,10 @@
         margin-inline-end: 7px;
       }
     }
+
+    @include for-narrow-layout {
+      display: none;
+    }
   }
 
   // .btn-filter-container.stays-btn {
@@ -277,6 +290,13 @@
   // // margin-right: 80px;
   .btn-filter-top {
     top: -15px;
+  }
+
+  @include for-narrow-layout {
+    margin: 0;
+    padding: 0 0 0 24px;
+    top: 62px;
+    box-shadow: rgb(0 0 0 / 16%) 0 0 6px;
   }
 }
 // }
@@ -298,7 +318,7 @@
 .clicked-btn {
   color: #000;
   filter: contrast(1000%);
-  box-shadow: inset 0 -2px 0 0 rgb(0, 0, 0);
+  box-shadow: inset 0 -2px 0.5px -0.5px rgb(0, 0, 0);
 }
 
 .el-dialog--center {

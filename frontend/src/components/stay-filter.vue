@@ -483,8 +483,8 @@ export default {
                 } else {
                     this.isEndScrolled = false
                 }
-                console.log("a", scrollPos + scrollPixels)
-                console.log("b", element.scrollWidth - element.clientWidth)
+                // console.log("a", scrollPos + scrollPixels)
+                // console.log("b", element.scrollWidth - element.clientWidth)
                 const startTime =
                     "now" in window.performance
                         ? performance.now()
@@ -521,7 +521,7 @@ export default {
             this.scrollTo(elScroll, 1000, 300);
         },
         print() {
-            console.log(this.form)
+            // console.log(this.form)
         },
         sliceBedrooms() {
             this.form.bedrooms = this.form.bedrooms.slice(-1)
@@ -553,7 +553,7 @@ export default {
                 this.dialogFormVisible = false
                 filter = JSON.parse(JSON.stringify(this.form));
             }
-            console.log(filter)
+            // console.log(filter)
             this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
         },
         imgUrl(image) {
@@ -569,17 +569,18 @@ export default {
 
 <style >
 .scrollbar-flex-content {
-  display: flex;
+    display: flex;
 }
+
 .scrollbar-demo-item {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 50px;
-  margin: 10px;
-  text-align: center;
-  border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
 }
 </style>

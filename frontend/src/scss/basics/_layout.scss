@@ -9,9 +9,9 @@
     padding-right: 40px;
   }
 
-  @include for-slim-layout {
-    padding-left: 25px;
-    padding-right: 25px;
+  @include for-narrow-layout {
+    padding-left: 24px;
+    padding-right: 24px;
   }
 
   // @include for-mobile-layout {

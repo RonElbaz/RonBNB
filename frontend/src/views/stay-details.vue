@@ -261,7 +261,7 @@ export default {
             throw new Error('cannot get stay')
         }
         this.commentsArr = stayService.getRandomArr()
-        console.log("hhhhhhhhhhhhhhhhhhhhhhhh", this.stay.address.location)
+        // console.log("hhhhhhhhhhhhhhhhhhhhhhhh", this.stay.address.location)
         // console.log(this.commentsArr)
 
         window.addEventListener('scroll', this.handleScroll);

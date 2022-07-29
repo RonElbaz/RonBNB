@@ -1,8 +1,8 @@
 <template>
-    <div class="header-container" :class="{ 'open-modal': isOpenScreen }">
+    <div class="header-container" :class="{ 'open-modal': isOpenScreen || mobile }">
         <header class="main-layout">
             <nav class="flex justify-content-space-between">
-                <div class="branding flex align-items-center">
+                <div v-show="!mobile" class="branding flex align-items-center">
                     <router-link class="link" to="/">
                         <svg class="logo" width="36" height="32" style="display:block">
                             <path
@@ -15,16 +15,63 @@
                     </router-link>
 
                 </div>
-                <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search">
-                    <button @click="selectDestPicker" class="clean-button dest-btn"><span>{{ countryName
+                <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search"
+                    :class="{ 'search-mobile': mobile }">
+                    <div v-show="mobile" class="search-mobile-body">
+                        <button class="flex search-mobile-dest">
+                            <div class="search-mobile-dest-icon">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                    role="presentation" focusable="false"
+                                    style="display: block; height: 16px; width: 16px; fill: currentcolor;">
+                                    <path
+                                        d="M13 0c7.18 0 13 5.82 13 13 0 2.868-.929 5.519-2.502 7.669l7.916 7.917-2.828 2.828-7.917-7.916A12.942 12.942 0 0 1 13 26C5.82 26 0 20.18 0 13S5.82 0 13 0zm0 4a9 9 0 1 0 0 18 9 9 0 0 0 0-18z"
+                                        opacity=".8"></path>
+                                </svg>
+                            </div>
+                            <div class="flex search-mobile-content">
+                                <div class="flex search-mobile-content-header">
+                                    <div class="flex">
+                                        <span>Where to?</span>
+                                    </div>
+                                </div>
+                                <div class="flex search-mobile-content-footer">
+                                    <div class="flex"> <span>Anywhere</span></div>
+                                    <div>•</div>
+                                    <div class="flex"> <span>Any week</span></div>
+                                    <div>•</div>
+                                    <div class="flex"><span> Add guests</span></div>
+                                </div>
+                            </div>
+
+                        </button>
+                    </div>
+                    <div v-show="mobile" class="flex search-mobile-filter">
+                        <button class="flex">
+                            <div class="flex icon-container">
+                                <div class="flex icon-container-filter">
+                                    <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                        role="presentation" focusable="false"
+                                        style="display: block; height: 16px; width: 16px; fill: rgb(34, 34, 34);">
+                                        <path
+                                            d="M5 8c1.306 0 2.418.835 2.83 2H14v2H7.829A3.001 3.001 0 1 1 5 8zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm6-8a3 3 0 1 1-2.829 4H2V4h6.17A3.001 3.001 0 0 1 11 2zm0 2a1 1 0 1 0 0 2 1 1 0 0 0 0-2z">
+                                        </path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
+                    <button v-show="!mobile" @click="selectDestPicker" class="clean-button dest-btn"><span>{{
+                            countryName
                     }}</span></button>
-                    <button @click="selectDatePicker" class="clean-button date-btn"><span>Any week</span></button>
-                    <button @click="selectGuestPicker" class="clean-button guest-btn">
+                    <button v-show="!mobile" @click="selectDatePicker" class="clean-button date-btn"><span>Any
+                            week</span></button>
+                    <button v-show="!mobile" @click="selectGuestPicker" class="clean-button guest-btn">
                         <div>
                             <span>Add guests</span>
                         </div>
                     </button>
-                    <div @click="goExplore" class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <div v-show="!mobile" @click="goExplore" class="search-logo"><i
+                            class="fa-solid fa-magnifying-glass"></i></div>
                 </div>
                 <div v-show="!mobile" class="flex align-items-center justify-content-end bar">
                     <!-- <div class="explore"><span>Explore</span></div> -->
@@ -38,7 +85,8 @@
                             </path>
                         </svg>
                     </div>
-                    <div @click="openDropdownMenu" class="flex align-items-center border-thin-black-round menu">
+                    <div @click="isShowDropdownMenu = !isShowDropdownMenu"
+                        class="flex align-items-center border-thin-black-round menu">
                         <div>
                             <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                 role="presentation" focusable="false"
@@ -93,8 +141,8 @@
                                         <router-link class="link wishlists" to="/wishlists">Wishlists</router-link>
                                     </li>
                                     <li>
-                                        <router-link @click="isShowDropdownMenu = !isShowDropdownMenu"
-                                            class="link experience" to="/stay/dashboard/">Dashboard</router-link>
+                                        <router-link class="link experience" to="/stay/dashboard/">Dashboard
+                                        </router-link>
                                     </li>
                                 </div>
                                 <div v-if="loggedInUser" class="user-manage-section">
@@ -130,36 +178,56 @@
                     <div class="flex align-items-center border-thin-black-roundalign-self-center search-bar"
                         @click="showSearchTxt" v-click-outside="closeSearchTxt"
                         :class="{ 'search-modal-active': isSearchModalActive }">
-                        <div class="dest-container flex align-items-center " @click="selectDestPicker"
-                            v-click-outside="unSelectDestPicker"
+                        <div class="dest-container " @click="selectDestPicker" v-click-outside="unSelectDestPicker"
                             :class="{ 'unselected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
-                            <label class="dest-wraper" for="dest"
-                                :class="{ 'date-hover': isStartDateHover, 'start-date-selected': isStartDateSelected }">
-                                <div class="header">Where</div>
-                                <input ref="searchInput" id="dest" autocomplete="off" type="text" class="text"
-                                    placeholder="Search destinations" v-model="destination" @blur="addDestination">
-                            </label>
+                            <div class="dest-box">
+                                <label class="dest-wraper" for="dest"
+                                    :class="{ 'date-hover': isStartDateHover, 'start-date-selected': isStartDateSelected }">
+                                    <div class="dest-holder">
+                                        <div class="header">Where</div>
+                                        <input ref="searchInput" id="dest" autocomplete="off" type="text" class="text"
+                                            placeholder="Search destinations" v-model="destination"
+                                            @blur="addDestination">
+                                    </div>
+                                </label>
+                            </div>
                         </div>
                         <date-picker id="date" :isGuestHover="isGuestHover" :isGuestSelect="isGuestSelect"
                             @getDate="addDate" @getStartDateSelectedState="onStartDateSelectedChange"
                             @getStartDateHoverState="onStartDateHoverChange"
                             @getEndDateHoverState="onEndDateHoverChange" class="date-component" />
-
-                        <guests-picker @getGuestHoverState="onGuestHoverChange"
-                            @getGuestSelectState="onGuestSelectChange" :isHeader="true" @addGuests="addGuest"
-                            @click="selectGuestPicker" v-click-outside="unSelectGuestPicker"
-                            :class="{ 'unselected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
-                            class="clean-button guest-picker-component" />
-                        <div v-if="!isSearchModalActive" class="search-modal-logo" @click="searchFilter"><i
-                                class="fa-solid fa-magnifying-glass">
-                            </i>
+                        <div class="guest-box" @click="selectGuestPicker" v-click-outside="unSelectGuestPicker">
+                            <guests-picker @getGuestHoverState="onGuestHoverChange" :isHeader="true"
+                                @addGuests="addGuest"
+                                :class="{ 'unselected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
+                                class="clean-button guest-picker-component" />
+                            <div v-if="!isSearchModalActive" class="search-modal-logo" @click="searchFilter">
+                                <button class="search-logo-container">
+                                    <div class="search-logo-img">
+                                        <div>
+                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                                aria-hidden="true" role="presentation" focusable="false"
+                                                style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+                                                <g fill="none">
+                                                    <path
+                                                        d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                                                    </path>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="search-logo-txt">
+                                            Search
+                                        </div>
+                                    </div>
+                                </button>
+                            </div>
+                            <div v-if="isSearchModalActive"
+                                class="search-modal-logo-open flex space-between align-items-center"
+                                @click="searchFilter">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <div class="search-modal-logo-open-txt">Search</div>
+                            </div>
                         </div>
-                        <div v-if="isSearchModalActive"
-                            class="search-modal-logo-open flex space-between align-items-center" @click="searchFilter">
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <div class="search-modal-logo-open-txt">Search</div>
-                        </div>
-
                     </div>
                 </div>
             </transition>
@@ -169,6 +237,7 @@
 </template>
 
 <script>
+// import { debug } from '../../../RonBNB---backend/backend/services/logger.service'
 import datePicker from './date-picker.vue'
 import guestsPicker from './guests-picker.vue'
 export default {
@@ -198,7 +267,7 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = true  // this.$store.getter.users
+        this.loggedInUser = false  // this.$store.getter.users
 
     },
     mounted() {
@@ -207,9 +276,11 @@ export default {
     methods: {
         openDropdownMenu() {
             this.isShowDropdownMenu = true
+            console.log(this.isShowDropdownMenu)
         },
         closeDropdownMenu() {
             this.isShowDropdownMenu = false
+            console.log(this.isShowDropdownMenu)
         },
         onGuestHoverChange(guestHoverState) {
             this.isGuestHover = guestHoverState
@@ -239,12 +310,13 @@ export default {
         },
         selectGuestPicker() {
             this.isGuestPickerSelected = true
+            console.log(this.isGuestPickerSelected)
         }, unSelectGuestPicker() {
             this.isGuestPickerSelected = false
+            console.log(this.isGuestPickerSelected)
         },
         openModal() {
             this.isOpenScreen = true
-            this.$emit("isOpenScreen", this.isOpenScreen)
             this.showSearchTxt()
         },
         closeModal() {
@@ -253,7 +325,6 @@ export default {
             this.isDestPickerSelected = false
             this.isDatetPickerSelected = false
             this.closeSearchTxt()
-            this.$emit("isOpenScreen", this.isOpenScreen)
         },
         toogleMobileNav() {
             this.mobileNav = !this.mobileNav
@@ -265,7 +336,7 @@ export default {
             } else {
                 this.isShowNameLogo = true
             }
-            if (this.windowWidth <= 750) {
+            if (this.windowWidth < 744) {
                 this.mobile = true
                 return
             }
@@ -296,7 +367,7 @@ export default {
             delete filter.endDate
             // this.$store.dispatch({ type: "setFilter", filterBy: {...filter} })
             this.closeModal()
-            console.log(filter);
+            // console.log(filter);
             this.$router.push(`/explore/${filter.destination}`)
         }
     },
