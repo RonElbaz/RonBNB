@@ -1,7 +1,7 @@
 <template>
     <!-- <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
-    <div
-        :class="currentRoute === ' stay-details' ? ' header-container details-layout' : ' header-container main-layout'">
+    <div :style="isOpenScreen ? withOutShadow : withShadow"
+        :class="currentRoute === 'stay-details' ? ' header-container details-layout' : ' header-container main-layout'">
         <header>
             <!--    <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
             <!--   <header class="main-layout"> -->
@@ -20,12 +20,15 @@
 
                 </div>
                 <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search">
-                    <button @click="selectDestPicker" class="clean-button dest-btn"><span>{{ countryName
-                    }}</span></button>
-                    <button @click="selectDatePicker" class="clean-button date-btn"><span>Any week</span></button>
+                    <button @click="selectDestPicker"
+                        :class="currentRoute === 'stay-details' ? 'clean-button serach-detils' : 'clean-button dest-btn'"><span>{{
+                                currentRoute === 'stay-details' ? "Start youer search" : countryName
+                        }}</span></button>
+                    <button @click="selectDatePicker" class="clean-button date-btn"><span
+                            v-if="currentRoute !== 'stay-details'">Any week</span></button>
                     <button @click="selectGuestPicker" class="clean-button guest-btn">
                         <div>
-                            <span>Add guests</span>
+                            <span v-if="currentRoute !== 'stay-details'">Add guests</span>
                         </div>
                     </button>
                     <div @click="goExplore" class="search-logo"><i class="fa-solid fa-magnifying-glass"></i></div>
@@ -68,7 +71,8 @@
                                         <router-link class="link signup" to="/">Sign up</router-link>
                                     </li>
                                     <li>
-                                        <router-link class="link login" to="/">Log in</router-link>
+                                        <router-link class="link login" to="/" @click="loggedInModal">Log in
+                                        </router-link>
                                     </li>
                                 </div>
                                 <div v-if="!loggedInUser" class="public-section">
@@ -129,6 +133,23 @@
 
                 </div>
             </nav>
+            <section class="login-area" v-if="isLoggedInModal">
+                <div class="grey-underline">
+                    <h1 class="login-title">Login</h1>
+                </div>
+                <div class="inputs-container grey-underline">
+                    <h1 class="welcome-title">Welcome to restya</h1>
+                    <input class="username-input" type="text" placeholder="Username">
+                    <input class="paswword-input" type="password" placeholder="Password">
+                </div>
+                <div class="flex">
+                    <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
+                        :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }">Confrim</button>
+                </div>
+                <button @click="closeLoggedinModal" class="exit-modal">
+                    X
+                </button>
+            </section>
             <transition name="mobile-nav">
                 <div v-if="isOpenScreen" class="search-modal flex justify-content-center">
                     <div class="flex align-items-center border-thin-black-roundalign-self-center search-bar"
@@ -169,6 +190,7 @@
             </transition>
         </header>
         <div v-if="isOpenScreen" @click="closeModal" class="modal-screen"></div>
+        <div v-if="isLoggedInModalOpen" @click="closeModal" class="modal-logged-screen"></div>
     </div>
     <!-- </div> -->
 </template>
@@ -197,13 +219,22 @@ export default {
             isGuestSelect: false,
             isShowNameLogo: true,
             isShowDropdownMenu: false,
-            loggedInUser: true,
+            isLoggedInModal: false,
+            loggedInUser: false,
+            isLoggedInModalOpen: false,
+            withShadow: {
+                boxShadow: "inset 0 -1px 0 0 #898b9023"
+            },
+            withOutShadow: {
+                boxShadow: "none"
+            },
+
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = true  // this.$store.getter.users
+        this.loggedInUser = false  // this.$store.getter.users
 
     },
     mounted() {
@@ -218,11 +249,22 @@ export default {
     //     // }
     // },
     methods: {
+        loggedInModal() {
+            this.isLoggedInModal = true
+            this.isLoggedInModalOpen = true
+
+        },
+        closeLoggedinModal() {
+            this.isLoggedInModal = false
+            this.isLoggedInModalOpen = false
+        },
         openDropdownMenu() {
             this.isShowDropdownMenu = true
+            console.log(this.isShowDropdownMenu);
         },
         closeDropdownMenu() {
             this.isShowDropdownMenu = false
+            console.log(this.isShowDropdownMenu);
         },
         onGuestHoverChange(guestHoverState) {
             this.isGuestHover = guestHoverState
@@ -311,7 +353,17 @@ export default {
             this.closeModal()
             console.log(filter);
             this.$router.push(`/explore/${filter.destination}`)
-        }
+        },
+        getPos(ev) {
+            // console.log(ev)
+            var rect = ev.target.getBoundingClientRect();
+            var x = ev.clientX - rect.left; //x position within the element.
+            var y = ev.clientY - rect.top;  //y position within the element.
+            this.mouseX = x
+            this.mouseY = y
+            ev.target.style.setProperty('--mouse-x', this.mouseX)
+            ev.target.style.setProperty('--mouse-y', this.mouseY)
+        },
     },
     computed: {
         currentRoute() {

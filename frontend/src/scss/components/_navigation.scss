@@ -1,8 +1,8 @@
-header {
-}
+header {}
 
 .branding {
   flex: 1 0 140px;
+
   @include for-large-layout {
     flex: 1 0 90px;
   }
@@ -35,7 +35,7 @@ header {
     box-shadow: 0 2.5px 2px rgba(0 0 0 / 10%);
   }
 
-  & > button {
+  &>button {
     cursor: pointer;
     font-size: 14px;
     font-family: circular;
@@ -43,7 +43,7 @@ header {
     padding: 0;
     height: 48px;
 
-    & > span {
+    &>span {
       // box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
       padding: 3px 16px 3px 16px;
       font-weight: 500;
@@ -56,6 +56,7 @@ header {
       // letter-spacing: -0.15px;
       padding: 0 16px 0 16px;
       font-family: cereal;
+
       span {
         padding-left: 2px;
       }
@@ -66,6 +67,7 @@ header {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
     div {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -73,24 +75,30 @@ header {
     }
   }
 
+
+
   .dest-btn {
     padding-left: 8px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+
     span {
       margin-left: 8px;
       padding-left: 8px;
     }
   }
+
   .date-btn {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
   span {
     padding-left: 18px;
   }
+
   &-logo {
     margin: 7px 7px 7px 0;
     background-color: #ff385c;
@@ -99,6 +107,7 @@ header {
     height: 30px;
     width: 30px;
     position: relative;
+
     i {
       position: absolute;
       color: white;
@@ -131,6 +140,7 @@ header {
     // letter-spacing: 0.1px;
     line-height: 18px;
     margin-right: 5.5px;
+
     span {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -148,12 +158,12 @@ header {
     -webkit-transition: box-shadow 0.2s ease;
   }
 
-  > *:not(:last-child):hover {
+  >*:not(:last-child):hover {
     background-color: rgba(0 0 0 / 3%);
     border-radius: 40px;
   }
 
-  > *:hover {
+  >*:hover {
     cursor: pointer;
   }
 
@@ -161,14 +171,17 @@ header {
     padding: 5px 5px 5px 12px;
     border-color: #dddddd;
     position: relative;
+
     span {
       display: block;
       font-size: 15px;
     }
+
     .user-img-container {
       height: 30px;
       width: 30px;
       margin-left: 12px;
+
       img {
         width: 100%;
         height: 100%;
@@ -177,7 +190,7 @@ header {
       }
     }
 
-    & > span {
+    &>span {
       color: dark;
       font-weight: 700;
       font-size: 15px;
@@ -216,6 +229,18 @@ header {
 
 .logo {
   color: #ff385c;
+}
+
+.serach-detils {
+
+  width: 220px;
+  text-align: left;
+  font-size: 14px !important;
+  font-family: cereal !important;
+
+  &>span {
+    border: none !important;
+  }
 }
 
 .app-logo {
@@ -275,32 +300,39 @@ a {
   top: 50px;
   right: 0;
   z-index: 11;
+
   .dropdown-menu {
     display: flex;
     flex-direction: column;
+
     div:not(:last-child) {
       // box-shadow: 0 2px 1px -2px gray;
       border-bottom: 0.1px solid rgba(128, 128, 128, 0.241);
     }
+
     div {
       width: 100%;
       margin: 0;
+
       // padding: 16px;
       li {
         margin-left: 16px;
         margin-top: 18px;
         margin-bottom: 20px;
+
         .link {
           font-size: 14px;
           color: #222222;
           font-family: cereal;
         }
+
         .signup {
           // color: black;
           font-family: Circular;
         }
       }
     }
+
     .user-info-section {
       li {
         .link {
@@ -308,6 +340,7 @@ a {
         }
       }
     }
+
     .public-section {
       li {
         margin-bottom: 21px;
@@ -348,12 +381,24 @@ a {
   left: 0;
 }
 
+.modal-logged-screen {
+  background-color: rgba(0, 0, 0, 0.25);
+  position: fixed;
+  height: 100vh;
+  z-index: 21;
+  left: 0;
+  top: 0;
+  width: 100vw;
+
+}
+
 .search-modal {
   position: absolute;
   z-index: 10;
   background-color: white;
   width: 100%;
   left: 0;
+
   .search-bar {
     cursor: pointer;
     // general
@@ -366,6 +411,7 @@ a {
     border: 1px solid #dddddd;
     margin-top: -1px;
     margin-bottom: 15px;
+
     // destination section
     .dest-container {
       height: 66px;
@@ -377,17 +423,20 @@ a {
         box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
         // height: 10px;
         width: inherit;
+
         .header {
           cursor: pointer;
           font-size: 12px;
           font-family: Circular-bold;
           letter-spacing: 0.5px;
         }
+
         .text {
           border: none;
           outline: none;
           background-color: inherit;
         }
+
         .text::placeholder {
           position: relative;
           left: -2px;
@@ -395,20 +444,26 @@ a {
           font-family: cereal;
         }
       }
+
       .dest-wraper.date-hover {
         box-shadow: none;
       }
+
       .dest-wraper.start-date-selected {
         box-shadow: none;
       }
     }
+
     .dest-container.unselected-picker:hover {
       background-color: #ebebeb;
+
       .dest-wraper {
         box-shadow: none;
       }
     }
+
     .dest-container.selected-dest {
+
       // width: 248px;
       .dest-wraper {
         box-shadow: none;
@@ -423,6 +478,7 @@ a {
     .guest-picker-component {
       //  go to file _guest-picker.scss for styling
     }
+
     .selected-picker:hover {
       // background-color: #ebebeb;
     }
@@ -444,6 +500,7 @@ a {
             }
           }
         }
+
         .end-date {
           .end-date-line {
             .header {
@@ -464,6 +521,7 @@ a {
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 1px 0px 0px 0px rgba(0, 0, 0, 0.105);
+
   & .dummy {
     visibility: hidden;
   }
@@ -479,6 +537,7 @@ a {
   position: absolute;
   top: -0.1px;
   right: -1.5px;
+
   i {
     position: absolute;
     color: white;
@@ -487,6 +546,7 @@ a {
     top: 50%;
     transform: translate(-50%, -50%);
   }
+
   &-txt {
     // color: black;
   }
@@ -501,6 +561,7 @@ a {
   width: 111px;
   position: absolute;
   right: 0;
+
   i {
     // position: absolute;
     color: white;
@@ -509,6 +570,7 @@ a {
     // top: 50%;
     // transform: translate(-50%, -50%);
   }
+
   &-txt {
     font-size: 16px;
     padding-left: 10px;
@@ -521,4 +583,78 @@ a {
 .selected-dest {
   background-color: white;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.login-area {
+  width: 350px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  box-shadow: #0000001f 0 6px 16px;
+  border-radius: 15px;
+  z-index: 22;
+
+
+  .exit-modal{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: transparent;
+    border: none;
+  }
+  .login-title {
+    text-align: center;
+    padding: 24px;
+    font-size: 16px;
+  }
+
+  .inputs-container {
+    padding: 14px 24px;
+
+    .welcome-title {
+      margin-bottom: 20px;
+      font-size: 18px;
+    }
+
+    .paswword-input {
+      border: 1px solid #cccccc;
+      border-top: unset;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      height: 30px;
+      padding: 20px;
+      font-size: 1.1428571429em;
+      width: 100%;
+    }
+
+    .username-input {
+      border: 1px solid #cccccc;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      height: 30px;
+      padding: 20px;
+      font-size: 1.1428571429em;
+      width: 100%;
+    }
+
+  }
+}
+
+.bnb-btn {
+  background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+  transition: opacity 1.25s ease 0s !important;
+  // min-width: 200px;
+  background-size: 200% 200%;
+  background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+  border: none;
+  height: 3rem;
+  width: 87%;
+  color: rgb(255 255 255);
+  font-family: Circular-bold;
+  border-radius: 0.55rem;
+  font-size: 16px;
+  margin-bottom: 16px;
+  margin: 20px auto;
 }
