@@ -3,6 +3,7 @@ import { httpService } from "./http.service.js"
 
 import {store} from '../store'
 import { socketService, SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_UPDATED } from './socket.service.js'
+import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
 
 const orderChannel = new BroadcastChannel('orderChannel')
 
@@ -10,10 +11,18 @@ const orderChannel = new BroadcastChannel('orderChannel')
   orderChannel.addEventListener('message', (ev) => {
     console.log('msg event', ev.data)
     store.commit({type:ev.data.type, newOrder:ev.data.order})
+    if(ev.data.type === 'approveOrder')
+    showSuccessMsg('Your order has been approved')
+    if(ev.data.type === 'addOrder')
+    showSuccessMsg('You got a new order')
+    if(ev.data.type === 'declineOrder')
+    showErrorMsg('Your order has been declined')
   })
   setTimeout(()=>{
     socketService.on(SOCKET_EVENT_ORDER_ADDED, (newOrder) => {
       console.log('GOT from socket', newOrder)
+      showSuccessMsg('You Got a new order')
+      console.log('hiiiiiii');
       // store.commit({type: 'addOrder', newOrder})
     })
     socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) => {
@@ -44,11 +53,12 @@ async function query(){
 
 async function addOrder(order){
     var newOrder;
-    // console.log(order);
+    console.log(order);
     if(!order._id){ 
       newOrder = await httpService.post( `order`, order)
       console.log("onAdd", newOrder);
       orderChannel.postMessage({type: 'addOrder', order: newOrder})
+      // showSuccessMsg('Your Got a new order')
     }
     else{
       newOrder = await httpService.put( `order`, order)

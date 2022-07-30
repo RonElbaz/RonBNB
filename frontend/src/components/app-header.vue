@@ -70,7 +70,7 @@
                     class="flex align-items-center align-self-center search search-desktop">
                     <button @click="selectDestPicker"
                         :class="currentRoute === 'stay-details' ? 'clean-button serach-detils' : 'clean-button dest-btn'"><span>{{
-                                currentRoute === 'stay-details' ? "Start youer search" : countryName
+                                currentRoute === 'stay-details' ? "Start your search" : countryName
                         }}</span></button>
                     <button @click="selectDatePicker" class="clean-button date-btn"><span
                             v-if="currentRoute !== 'stay-details'">Any week</span></button>

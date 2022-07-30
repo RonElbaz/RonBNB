@@ -91,10 +91,10 @@
         grid-column-gap: 90px;
         grid-row-gap: 0px;
 
-        @include for-large-layout-min {
-            grid-column-gap: 15px;
-            grid-template-columns: 2fr 1fr;
-          }
+        // @include for-large-layout-min {
+        //     grid-column-gap: 15px;
+        //     grid-template-columns: 2fr 1fr;
+        //   }
 
           @include for-narrow-layout {
                 display: flex;

@@ -47,6 +47,7 @@
                     <th scope="col">Check in - Check out</th>
                     <th scope="col">Status</th>
                     <th scope="col">Decline/Approve</th>
+                    <th scope="col">Actions</th>
                 </tr>
             </thead>
             <tbody>
