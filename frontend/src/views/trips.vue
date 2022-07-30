@@ -77,7 +77,6 @@ export default {
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
-        console.log('orders',this.orders);
     },
     methods: {
         checkStatus(status) {
@@ -92,7 +91,6 @@ export default {
             return `${startDate.getDate()}.${startDate.getMonth()} - ${endDate.getDate()}.${endDate.getMonth()}.${endDate.getFullYear()}`
         },
         nigthsAmount(order) {
-            console.log(order);
             const startDate = new Date(order.startDate)
             const endDate = new Date(order.endDate)
             if (startDate.getMonth)

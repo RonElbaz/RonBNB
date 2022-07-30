@@ -114,7 +114,6 @@ async function getById(stayId) {
   try {
     // var stay = await storageService.get(DB_KEY, stayId)
     var stay =  await httpService.get(`stay/${stayId}`)
-    console.log("on getbyid");
     return stay
   } catch (error) {
     console.log(error)

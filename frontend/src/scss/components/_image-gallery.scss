@@ -5,6 +5,20 @@
     grid-column-gap: 7px;
     grid-row-gap: 7px;
 
+    @include for-narrow-layout {
+
+        display: flex;
+        gap: 0;
+        img{
+            border-radius: 10px;
+        }
+        >:not(:first-child) {
+            img {
+               display: none;
+            }
+    
+    }
+    }
     >:first-child {
         img {
             border-start-start-radius: 10px;

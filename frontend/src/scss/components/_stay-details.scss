@@ -91,6 +91,17 @@
         grid-column-gap: 90px;
         grid-row-gap: 0px;
 
+        @include for-large-layout-min {
+            grid-column-gap: 15px;
+            grid-template-columns: 2fr 1fr;
+          }
+
+          @include for-narrow-layout {
+                display: flex;
+                flex-direction: column;
+            }
+          
+
         .aircover-area {
             padding: 32px 0;
 
@@ -112,7 +123,12 @@
         }
 
         .reserve {
+            @include for-narrow-layout {
+                .reserve-area{
 
+                    display: none;
+                }
+            }
 
             .reserve-area {
                 margin-top: 48px;
@@ -131,6 +147,8 @@
                 width: 100%;
                 margin-bottom: 24px;
                 align-items: center;
+
+            
 
                 .reserve-stay-price {
                     font-size: 22px;
@@ -239,6 +257,13 @@
                 grid-column-gap: 0px;
                 grid-row-gap: 0px;
             }
+            @include for-narrow-layout {
+                .amenities-ul{
+
+                  display: flex;
+                  flex-direction: column;
+                }
+            }
 
             .amenities-title {
                 font-size: 22px;
@@ -287,6 +312,11 @@
             grid-template-columns: 1fr 1fr;
             grid-gap: 10px 100px;
             margin-bottom: 40px;
+
+            @include for-narrow-layout {
+                display: flex;
+                flex-direction: column;
+            }
 
         }
 
@@ -405,7 +435,12 @@ progress::-webkit-progress-value {
 }
 
 .nav-details-container {
-    //   opacity: 0;
+    @include for-narrow-layout {
+       
+
+            display: none;
+       
+    }
 
     .header-reserve {
         position: fixed;

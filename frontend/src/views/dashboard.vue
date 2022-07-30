@@ -1,6 +1,6 @@
 <template>
     <div v-if="orders" class="container main-layout">
-        <div class="dashboard-data-area flex space-between">
+        <div class="dashboard-data-area">
             <div class="data-card total-revenue">
                 <h1 class="card-title">Revenues</h1>
                 <div class="revenue-container">
@@ -53,16 +53,16 @@
                 <tr v-for="order in orders">
                     <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <th scope="row">{{ order.buyer.fullname }}</th>
-                    <td data-title="Released">{{ order.stay.name }}</td>
-                    <td data-title="Released">{{ nightsAmount(order) }}</td>
-                    <td data-title="Released">{{ guestsAmount(order) }}</td>
-                    <td data-title="Released">$ {{ order.stay.price }}</td>
-                    <td data-title="Studio">$ {{ (order.totalPrice).toLocaleString() }}</td>
-                    <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency"
+                    <td data-title="Stay title">{{ order.stay.name }}</td>
+                    <td data-title="Nights">{{ nightsAmount(order) }}</td>
+                    <td data-title="Guests">{{ guestsAmount(order) }}</td>
+                    <td data-title="Price per night">$ {{ order.stay.price }}</td>
+                    <td data-title="Total price">$ {{ (order.totalPrice).toLocaleString() }}</td>
+                    <td data-title="Check in -Check out" data-type="currency">{{ formatDate(order) }}</td>
+                    <td data-title="Status" data-type="currency"
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
-                    <td data-title="Domestic Gross" class="action-container" data-type="currency">
+                    <td data-title="Actions" class="action-container" data-type="currency">
                         <span><img @click="declineOrder(order)" style="height: 20px; width: 20px;"
                                 src="../images/dashboard-images/delete-button.png" alt=""></span>
                         <span><img @click="approveOrder(order)" style="height: 20px; width: 20px;"

@@ -13,6 +13,11 @@
     @content;
   }
 }
+@mixin for-large-layout-min {
+  @media (min-width: $break-large) {
+    @content;
+  }
+}
 
 //  950px+
 @mixin for-normal-layout {
