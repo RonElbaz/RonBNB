@@ -8,11 +8,12 @@ export const user = {
         state.user = user
      },
      setLoggedinUser(state, { user }) {
-        state.loggedinUser = (user)? {...user} : {
+        state.user = (user)? {...user} : {
             _id: "leet1337user",
             username:"geust",
             fullname:"James Richardson"
         }
+        console.log("on store set logged in user", state.user);
     },
     },
     actions:{
@@ -30,6 +31,7 @@ export const user = {
             try {
                 const user = await userService.login(userCred)
                 commit({ type: 'setLoggedinUser', user })
+                console.log("on store", user);
                 return user
             } catch (err) {
                 console.log('userStore: Error in login', err)

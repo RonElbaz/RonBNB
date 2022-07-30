@@ -322,8 +322,8 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedinUser = this.$store.getters.getLoggedInUser
-        console.log(this.loggedinUser)
+        // this.loggedinUser = this.$store.getters.getLoggedInUser
+        // console.log(this.loggedinUser)
 
     },
     watch: {
@@ -352,8 +352,15 @@ export default {
             this.isLoggedInModal = true
             this.isLoggedInModalOpen = true
         },
-        closeLoggedinModal() {
-            this.$store.dispatch({ type: "login", userCred: this.userCred })
+        async closeLoggedinModal() {
+            try{
+                var user = await this.$store.dispatch({ type: "login", userCred: this.userCred })
+                console.log("on user", user);
+                this.loggedinUser = {...user}
+
+            }catch(err){
+                console.log(err);
+            }
             this.isLoggedInModal = false
             this.isLoggedInModalOpen = false
         },
@@ -474,7 +481,7 @@ export default {
         },
         doLogout() {
             this.$store.dispatch({ type: 'logout' })
-            this.$router.push('/')
+            // this.$router.push('/')
         },
         checkIt() {
             console.log(this.loggedinUser);
@@ -495,9 +502,9 @@ export default {
 
         },
         checkLoggedIn() {
-            console.log("in computed");
-            var user = this.$store.getters.getLoggedInUser
-            if (user.username !== "geust") {
+            this.loggedinUser = this.$store.getters.getLoggedInUser
+            console.log("in computed", this.loggedinUser);
+            if (this.loggedinUser.username !== "geust") {
                 this.isLoggedInUser = true
                 return true
             }
