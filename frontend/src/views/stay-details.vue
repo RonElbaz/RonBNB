@@ -5,11 +5,11 @@
             <div class="stay-info flex space-between">
                 <div>
                     <h3><span class="stay-review-info"> <i class="fa-solid fa-star star-rating"></i>
-                            {{ getRatingAvg.toFixed(2) }} ·</span><span
-                            class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
-                            class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
-                                class="fa-solid fa-award award-symbol-info"></i> {{ superHost }} <span
-                                class="dot-separate">·</span></span>
+                            {{ getRatingAvg.toFixed(2) }} ·</span><span class="stay-reviews-info">{{ stay.numOfReviews
+                            }} reviews </span><span class="dot-separate">·</span> <span class="stay-super-host"
+                            v-if="stay.host.isSuperhost"> <i class="fa-solid fa-award award-symbol-info"></i> {{
+                                    superHost
+                            }} <span class="dot-separate">·</span></span>
                         <span class="stay-reviews-info">{{ stay.address.city }},{{ stay.address.country }}</span>
                     </h3>
                 </div>
@@ -59,7 +59,7 @@
                                     </span></h1>
                                 <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i>
                                     <span class="reserve-reviews-rating"> {{
-                                           getRatingAvg.toFixed(2)
+                                            getRatingAvg.toFixed(2)
                                     }} </span>
                                     <span class="dot-separate">·</span>
                                     <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
@@ -164,13 +164,15 @@
                         <!-- <el-button plain class="bnb-btn" @mousemove="getPos"
                             :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
                         </el-button> -->
-                        <el-button class="bnb-btn"   @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
-                            @click="onAddOrder">Reserve</el-button>
-                        <el-dialog v-model="centerDialogVisible" title="Your order has been compelted!" width="30%" center >
+                        <el-button class="bnb-btn" @mousemove="getPos"
+                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
+                        </el-button>
+                        <el-dialog v-model="centerDialogVisible" title="Your order has been compelted!" width="30%"
+                            center>
                             <span>Now you just need to wait the host will approve your order</span>
                             <template #footer>
                                 <span class="dialog-footer">
-                                    <el-button @click="moveToTrips ">Move to my trips</el-button>
+                                    <el-button @click="moveToTrips">Move to my trips</el-button>
                                     <el-button @click="moveToHomePage">Confirm</el-button>
                                 </span>
                             </template>
@@ -232,6 +234,26 @@
                 </GMapCluster>
             </GMapMap>
         </div>
+        <section class="login-area" v-if="isReserveModal">
+            <div class="grey-underline">
+                <h1 class="login-title">Your order has been sent</h1>
+            </div>
+            <div class="inputs-container grey-underline">
+                <h1 class="welcome-title">Now we wait the host wiil approve it</h1>
+                <!-- <input class="username-input" type="text" placeholder="Username">
+                    <input class="paswword-input" type="password" placeholder="Password"> -->
+            </div>
+            <div class="btn-reserve-modal-area">
+                <button class="bnb-btn-reserve-modal" @click="moveToTrips">Move to my trips</button>
+                <button class="bnb-btn-reserve-modal" @click="moveToHomePage">Confirm</button>
+                <!-- <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
+                    :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }">Confrim</button>-->
+            </div> 
+            <button @click="closeReserveModal" class="exit-modal">
+                X
+            </button>
+        </section>
+        <div v-if="isReserveModalOpen" @click="closeModal" class="modal-logged-screen"></div>
     </section>
 
 </template>
@@ -260,7 +282,9 @@ export default {
             stayLength: null,
             scrollpx: 0,
             myLatlng: null,
-            centerDialogVisible: false
+            // centerDialogVisible: false,
+            isReserveModalOpen: false,
+            isReserveModal: false,
         }
     },
     async created() {
@@ -301,13 +325,13 @@ export default {
             if (amenitie === 'Vault') return '<i class="fa-solid fa-vault"></i>'
             if (amenitie === 'Buthub') return '<i class="fa-solid fa-bath"></i>'
         },
-        moveToTrips(){
+        moveToTrips() {
             this.$router.push('/trips')
-            this.centerDialogVisible = false
+            this.isReserveModalOpen = false
         },
-        moveToHomePage(){
+        moveToHomePage() {
             this.$router.push('/')
-            this.centerDialogVisible = false
+            this.isReserveModal = false
         },
         timeFormat(time) {
             const date = new Date(time)
@@ -326,6 +350,10 @@ export default {
 
             }
         },
+        closeReserveModal() {
+            this.isReserveModalOpen = false
+            this.isReserveModal = false
+        },
         onAddOrder() {
             if (!this.guests) {
                 console.log("no guests");
@@ -333,7 +361,7 @@ export default {
             }
             if (!this.stayDate) {
             }
-      
+
 
             var order = {
                 buyer: {},
@@ -362,7 +390,9 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             this.$store.dispatch({ type: 'addOrder', order: { ...order } })
-                  this.centerDialogVisible = true
+            // this.centerDialogVisible = true
+            this.isReserveModalOpen = true
+            this.isReserveModal = true
 
         },
         getPos(ev) {
@@ -418,12 +448,12 @@ export default {
         getNights() {
             return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights`
         },
-        getRatingAvg(){
+        getRatingAvg() {
             var sum = 0
-            for (var el in this.stay.reviewScores){
-                if(el !== 'rating') sum += this.stay.reviewScores[el]
+            for (var el in this.stay.reviewScores) {
+                if (el !== 'rating') sum += this.stay.reviewScores[el]
             }
-            return (sum / (Object.keys(this.stay.reviewScores).length -1))/2
+            return (sum / (Object.keys(this.stay.reviewScores).length - 1)) / 2
         }
     },
     components: {

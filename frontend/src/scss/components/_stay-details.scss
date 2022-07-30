@@ -496,7 +496,56 @@ progress::-webkit-progress-value {
             font-size: 12px;
         }
     }
+    .login-area {
+        width: 350px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        box-shadow: #0000001f 0 6px 16px;
+        border-radius: 15px;
+        z-index: 22;
+      
+      
+        .exit-modal{
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          background-color: transparent;
+          border: none;
+        }
+        .login-title {
+          text-align: center;
+          padding: 24px;
+          font-size: 16px;
+        }
+      
+        
+    }
 }
+.bnb-btn-reserve-modal {
+  background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+  transition: opacity 1.25s ease 0s !important;
+  background-size: 200% 200%;
+  background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+  border: none;
+  height: 3rem;
+  width: 30%;
+  color: rgb(255 255 255);
+  font-family: Circular-bold;
+  border-radius: 0.55rem;
+  font-size: 16px;
+//   margin-bottom: 16px;
+//   margin: 20px auto;
+}
+    
+    .btn-reserve-modal-area{
+     display: flex;
+     justify-content: space-between;
+     padding: 14px 24px;
+    }
+
 
 
 .el-notification.right {

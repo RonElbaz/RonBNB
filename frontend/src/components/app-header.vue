@@ -220,7 +220,7 @@ export default {
             isShowNameLogo: true,
             isShowDropdownMenu: false,
             isLoggedInModal: false,
-            loggedInUser: false,
+            loggedInUser: true,
             isLoggedInModalOpen: false,
             withShadow: {
                 boxShadow: "inset 0 -1px 0 0 #898b9023"
@@ -234,7 +234,7 @@ export default {
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = false  // this.$store.getter.users
+        this.loggedInUser = true  // this.$store.getter.users
 
     },
     mounted() {

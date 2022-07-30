@@ -94,34 +94,51 @@ export const order = {
             state.orders.forEach((order) => {
                 let orderDate = new Date(order.startDate).getMonth()
                 if(order.status === 'Approved') month[orderDate] += order.totalPrice
-
             })
-
-            const revneuePerMonth = {
-                labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December'
-                ],
-                datasets: [
-                    {
-                        data: month,
-                        backgroundColor: '#f87979',
-                        label: 'Revneue per month'
-                    },
-                ],
-            }
-            return revneuePerMonth
-        },
+                
+                const revneuePerMonth = {
+                    labels: [
+                        'January',
+                        'February',
+                        'March',
+                        'April',
+                        'May',
+                        'June',
+                        'July',
+                        'August',
+                        'September',
+                        'October',
+                        'November',
+                        'December'
+                    ],
+                    datasets: [
+                        {
+                            data: month,
+                            backgroundColor: '#f87979',
+                            label: 'Revneue per month'
+                        },
+                        // {
+                        //     data: month[2],
+                        //     backgroundColor: '#f87979',
+                        //     // label: 'Revneue per month'
+                        // },
+                    ],
+                }
+                return revneuePerMonth
+            },
+            // data: {
+            //     labels: ['total votes']
+            //   , datasets: [{
+            //         label: 'Blue'
+            //       , backgroundColor: ['#2C79C5']
+            //       , data: ['12']
+            //   },{
+            //         label: 'Green'
+            //       , backgroundColor: ['#7FA830']
+            //       , data: ['2']
+            //   },
+            //   ...
+            //   ]
 
     }
 }
