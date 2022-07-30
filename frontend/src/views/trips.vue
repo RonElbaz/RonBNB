@@ -1,5 +1,5 @@
 <template>
-    <div v-if="orders" class="container main-layout">
+    <div v-if="getOrders" class="container main-layout">
         <h1>Your Trips</h1>
         <table class="responsive-table">
             <thead>
@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="order in orders">
+                <tr v-for="order in getOrders">
                     <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <th scope="row">{{ order?.host.fullname }}</th>
                     <td data-title="Released">{{ order.stay.address }}</td>
@@ -105,10 +105,13 @@ export default {
         },
            foramtCreatedAt(oredrDate) {
             return moment(oredrDate).fromNow()
-        }
+        },
     },
     computed: {
-     
+       getOrders(){
+            console.log("in trips");
+            return this.$store.getters.ordersForDisplay
+        }
     },
     components: {
     }

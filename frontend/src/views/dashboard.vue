@@ -1,5 +1,5 @@
 <template>
-    <div v-if="orders" class="container main-layout">
+    <div v-if="orderTry" class="container main-layout">
         <div class="dashboard-data-area">
             <div class="data-card total-revenue">
                 <h1 class="card-title">Revenues</h1>
@@ -50,7 +50,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="order in orders">
+                <tr v-for="order in orderTry">
                     <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <th scope="row">{{ order.buyer.fullname }}</th>
                     <td data-title="Stay title">{{ order.stay.name }}</td>
@@ -89,14 +89,14 @@ export default defineComponent({
     },
     data() {
         return {
-            orders: null,
+            orders: this.$store.getters.ordersForDisplay,
 
 
         }
     },
     created() {
-        this.orders = this.$store.getters.ordersForDisplay
-        console.log(this.orders);
+        // this.orders = this.$store.getters.ordersForDisplay
+        // console.log(this.orders);
     },
     methods: {
         async approveOrder(order) {
@@ -143,7 +143,7 @@ export default defineComponent({
     },
     computed: {
         foramtRevneue() {
-            return this.orders.reduce((acc, order) => {
+            return this.$store.getters.ordersForDisplay.reduce((acc, order) => {
                 if (order.status !== 'Approved') return acc
                 return acc + order.totalPrice
             }, 0)
@@ -156,6 +156,7 @@ export default defineComponent({
         yearRevneue() {
             let orders = this.$store.getters.ordersForDisplay
             return orders.reduce((acc, order) => {
+                if(!order) return
                 const year = new Date(order.startDate).getFullYear()
                 const currYear = new Date(Date.now()).getFullYear()
                 return currYear === year && order.status === 'Approved' ? acc + order.totalPrice : acc
@@ -166,6 +167,9 @@ export default defineComponent({
         },
         revneuePerMonth() {
             return this.$store.getters.getRevneuePerMonth
+        },
+        orderTry(){
+            return this.$store.getters.ordersForDisplay
         }
 
     },

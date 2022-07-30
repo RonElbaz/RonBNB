@@ -167,7 +167,7 @@
                         <el-button class="bnb-btn" @mousemove="getPos"
                             :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
                         </el-button>
-                        <el-dialog v-model="centerDialogVisible" title="Your order has been compelted!" width="30%"
+                        <!-- <el-dialog title="Your order has been compelted!" width="30%"
                             center>
                             <span>Now you just need to wait the host will approve your order</span>
                             <template #footer>
@@ -176,7 +176,7 @@
                                     <el-button @click="moveToHomePage">Confirm</el-button>
                                 </span>
                             </template>
-                        </el-dialog>
+                        </el-dialog> -->
                         <div v-if="stayLength" class="date-area-text">
                             <div>
                                 <!-- <p class="charged">You won't be charged yet</p> -->
