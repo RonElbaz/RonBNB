@@ -334,7 +334,7 @@ export default {
                 return
             }
             //check if user is logged in
-            
+
 
             var order = {
                 buyer: {},

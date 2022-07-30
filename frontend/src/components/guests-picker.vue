@@ -1,5 +1,6 @@
 <template>
-    <div class="guest-container" @click="openGuest" @mouseover="onGuestHover" @mouseleave="onGuestHoverLeave">
+    <div :class="isHeader ? 'guest-container' : 'guest-container-reserve'" @click="openGuest" @mouseover="onGuestHover"
+        @mouseleave="onGuestHoverLeave">
         <div v-if="isHeader" class="guest-wraper">
             <div class="header">Who</div>
             <div class="text">Add guests</div>
@@ -29,7 +30,7 @@ export default {
             type: Boolean,
             required: true,
         },
-       
+
     },
     data() {
         return {
@@ -38,7 +39,7 @@ export default {
             mobileNav: null,
             windowWidth: null,
             selected: null,
-            guests: {"adults": 1},
+            guests: { "adults": 1 },
             isGuestSelected: false,
             isGuestHover: false,
         }
@@ -49,22 +50,22 @@ export default {
         onGuestHover() {
             if (this.isGuestHover === true) return
             this.isGuestHover = true
-            this.$emit("getGuestHoverState", this.isGuestHover)
+            // this.$emit("getGuestHoverState", this.isGuestHover)
         },
         onGuestHoverLeave() {
             if (this.isGuestHover === false) return
             this.isGuestHover = false
-            this.$emit("getGuestHoverState", this.isGuestHover)
+            // this.$emit("getGuestHoverState", this.isGuestHover)
         },
         openGuest() {
             if (this.isGuestSelected === true) return
             this.isGuestSelected = true
-            this.$emit("getGuestSelectState", this.isGuestSelected)
+            // this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         closeGuest() {
             if (this.isGuestSelected === false) return
             this.isGuestSelected = false
-            this.$emit("getGuestSelectState", this.isGuestSelected)
+            // this.$emit("getGuestSelectState", this.isGuestSelected)
         },
         toogleMobileNav() {
             this.mobileNav = !this.mobileNav
