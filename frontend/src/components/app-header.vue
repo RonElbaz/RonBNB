@@ -37,7 +37,7 @@
                     <!-- <div class="explore"><span>Explore</span></div> -->
                     <div class="switch"><span>Become a Host</span></div>
                     <div class="globe">
-                        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                        <svg @click="checkIt" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; height: 16px; width: 16px; fill: currentcolor;">
                             <path
@@ -66,7 +66,7 @@
                             <ul class="dropdown-menu">
                                 <!-- ! show login-section and public-section and hide the others only if a user has not logged in ,  -->
                                 <!-- v-if="" -->
-                                <div v-if="!loggedInUser" class="login-section">
+                                <div v-if="!checkLoggedIn" class="login-section">
                                     <li>
                                         <router-link class="link signup" to="/">Sign up</router-link>
                                     </li>
@@ -75,7 +75,7 @@
                                         </router-link>
                                     </li>
                                 </div>
-                                <div v-if="!loggedInUser" class="public-section">
+                                <div v-if="!checkLoggedIn" class="public-section">
 
                                     <li>
                                         <router-link class="link experience" to="/">Host your home</router-link>
@@ -87,7 +87,7 @@
                                         <router-link class="link help" to="/">Help</router-link>
                                     </li>
                                 </div>
-                                <div v-if="loggedInUser" class="user-info-section">
+                                <div v-if="checkLoggedIn" class="user-info-section">
                                     <li>
                                         <router-link class="link messages" to="/">Messages</router-link>
                                     </li>
@@ -105,7 +105,7 @@
                                             class="link experience" to="/stay/dashboard/">Dashboard</router-link>
                                     </li>
                                 </div>
-                                <div v-if="loggedInUser" class="user-manage-section">
+                                <div v-if="checkLoggedIn" class="user-manage-section">
                                     <li>
                                         <router-link class="link manage-listings " to="/">Manage listings</router-link>
                                     </li>
@@ -119,12 +119,12 @@
                                         <router-link class="link account" to="/">Account</router-link>
                                     </li>
                                 </div>
-                                <div v-if="loggedInUser" class="user-logout-section">
+                                <div v-if="checkLoggedIn" class="user-logout-section">
                                     <li>
                                         <router-link class="link help" to="/">Help</router-link>
                                     </li>
                                     <li>
-                                        <router-link class="link logout" to="/">Log out</router-link>
+                                        <router-link @click="doLogout" class="link logout" to="/">Log out</router-link>
                                     </li>
                                 </div>
                             </ul>
@@ -139,8 +139,8 @@
                 </div>
                 <div class="inputs-container grey-underline">
                     <h1 class="welcome-title">Welcome to restya</h1>
-                    <input class="username-input" type="text" placeholder="Username">
-                    <input class="paswword-input" type="password" placeholder="Password">
+                    <input class="username-input" v-model="userCred.username" type="text" placeholder="Username">
+                    <input class="paswword-input" v-model="userCred.password" type="password" placeholder="Password">
                 </div>
                 <div class="flex">
                     <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
@@ -220,26 +220,43 @@ export default {
             isShowNameLogo: true,
             isShowDropdownMenu: false,
             isLoggedInModal: false,
-            loggedInUser: false,
+            isLoggedInUser: false,
             isLoggedInModalOpen: false,
+            loggedinUser: null,
             withShadow: {
                 boxShadow: "inset 0 -1px 0 0 #898b9023"
             },
             withOutShadow: {
                 boxShadow: "none"
             },
+            userCred: {
+                username: '',
+                password: '',
+
+            }
 
         }
     },
     created() {
         window.addEventListener("resize", this.cheackScreen)
         this.cheackScreen()
-        this.loggedInUser = false  // this.$store.getter.users
+        this.loggedinUser = this.$store.getters.getLoggedInUser
+        console.log(this.loggedinUser)
 
     },
-    mounted() {
-
-
+    watch: {
+        loggedinUser() {
+            console.log("in watch");
+            if (this.loggedinUser.username !== "geust") {
+                this.isLoggedInUser = true
+                // this.$router.go()
+            }
+            else {
+                this.isLoggedInUser = false
+                // this.$router.go()
+            }
+            console.log(this.loggedinUser);
+        }
     },
     // mounted() {
     // const param = this.$router.currentRoute._value
@@ -255,6 +272,7 @@ export default {
 
         },
         closeLoggedinModal() {
+            this.$store.dispatch({ type: "login", userCred: this.userCred })
             this.isLoggedInModal = false
             this.isLoggedInModalOpen = false
         },
@@ -364,6 +382,13 @@ export default {
             ev.target.style.setProperty('--mouse-x', this.mouseX)
             ev.target.style.setProperty('--mouse-y', this.mouseY)
         },
+        doLogout() {
+            this.$store.dispatch({ type: 'logout' })
+            this.$router.push('/')
+        },
+        checkIt() {
+            console.log(this.loggedinUser);
+        }
     },
     computed: {
         currentRoute() {
@@ -379,6 +404,18 @@ export default {
             }
 
         },
+        checkLoggedIn() {
+            console.log("in computed");
+            var user = this.$store.getters.getLoggedInUser
+            if (user.username !== "geust") {
+                this.isLoggedInUser = true
+                return true
+            }
+            else {
+                this.isLoggedInUser = false
+                return false
+            }
+        }
     },
     components: { datePicker, guestsPicker }
 }

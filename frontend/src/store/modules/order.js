@@ -9,7 +9,6 @@ export const order = {
         },
         addOrder(state, { newOrder }) {
             state.orders.push(newOrder)
-            console.log(state.orders)
         },
         approveOrder(state, { newOrder }) {
             const idx = state.orders.findIndex(currorder => currorder._id === newOrder._id)

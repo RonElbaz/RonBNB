@@ -271,14 +271,12 @@ export default {
             // console.log(this.user);
             var stay = await stayService.getById(stayId)
             this.stay = stay
-            console.log(stay);
             this.formatedreviews = this.formatReviews
                 ; 2
         } catch (error) {
             throw new Error('cannot get stay')
         }
         this.commentsArr = stayService.getRandomArr()
-        console.log("hhhhhhhhhhhhhhhhhhhhhhhh", this.stay.address.location)
         // console.log(this.commentsArr)
 
         window.addEventListener('scroll', this.handleScroll);
@@ -328,12 +326,15 @@ export default {
         },
         onAddOrder() {
             if (!this.guests) {
-                console.log("no guests");
+                console.log("no guests")
                 return
             }
             if (!this.stayDate) {
+                console.log("no dates picked")
+                return
             }
-      
+            //check if user is logged in
+            
 
             var order = {
                 buyer: {},
