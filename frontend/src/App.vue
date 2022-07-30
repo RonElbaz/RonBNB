@@ -1,6 +1,12 @@
 <template>
   <div>
-    <app-header />
+    <!-- <div :class="{ 'open-modal': openSearchBar }"> -->
+    <app-header @isOpenScreen="isOpenScreen" />
+    <!-- </div> -->
+    <div v-if="isLoading" class="loader-container">
+
+      <div class="loader"></div>
+    </div>
     <router-view></router-view>
     <app-footer />
   </div>
@@ -18,14 +24,16 @@ export default {
   },
   data() {
     return {
-
+      openSearchBar: false,
+      isLoading: false
     };
   },
   methods: {
   },
 
   created() {
-    this.$store.dispatch({ type: "loadStays" })
+    this.isLoading = true
+    this.$store.dispatch({ type: "loadStays" }).then(() => this.isLoading = false)
     this.$store.dispatch({ type: 'loadUser' })
     this.$store.dispatch({ type: 'loadOrders' })
   },

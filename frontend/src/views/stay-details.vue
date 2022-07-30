@@ -4,8 +4,8 @@
             <h1 class="stay-name">{{ stay.name }}</h1>
             <div class="stay-info flex space-between">
                 <div>
-                    <h3><span class="stay-reviews-info"> <i class="fa-solid fa-star star-rating"></i>
-                            {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} ·</span><span
+                    <h3><span class="stay-review-info"> <i class="fa-solid fa-star star-rating"></i>
+                            {{ getRatingAvg.toFixed(2) }} ·</span><span
                             class="stay-reviews-info">{{ stay.numOfReviews }} reviews </span><span
                             class="dot-separate">·</span> <span class="stay-super-host" v-if="stay.host.isSuperhost"> <i
                                 class="fa-solid fa-award award-symbol-info"></i> {{ superHost }} <span
@@ -52,21 +52,22 @@
                         <a href="#amenities" class="txt">Amenities</a>
                         <a href="#reviews" class="txt">Reviews</a>
                         <a href="#map" class="txt">Loctaion</a>
-                        <div v-if="scrollpx > 1350" class="header-reserve-container flex">
+                        <div v-if="scrollpx > 1510" class="header-reserve-container flex">
                             <div class="">
-                                <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night">
+                                <h1 class="reserve-stay-price"> ${{ stay.price }} <span class="reserve-stay-night">
                                         night
                                     </span></h1>
                                 <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i>
                                     <span class="reserve-reviews-rating"> {{
-                                            ((stay.reviewScores.rating) / 20).toFixed(2)
+                                           getRatingAvg.toFixed(2)
                                     }} </span>
                                     <span class="dot-separate">·</span>
                                     <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
                                 </h1>
                             </div>
                             <el-button class="bnb-btn" @mousemove="getPos"
-                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</el-button>
+                                :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
+                            </el-button>
                             <!-- <button </button> -->
                         </div>
                     </div>
@@ -147,11 +148,11 @@
             <section class="reserve">
                 <div class="reserve-area flex column space-between">
                     <div class=" reserve-header flex space-between">
-                        <h1 class="reserve-stay-price"> $ {{ stay.price }} <span class="reserve-stay-night"> night
+                        <h1 class="reserve-stay-price"> ${{ stay.price }} <span class="reserve-stay-night"> night
                             </span></h1>
                         <h1 class="reserve-stay-review"> <i class="fa-solid fa-star star-rating-reserve"></i> <span
                                 class="reserve-reviews-rating"> {{
-                                        ((stay.reviewScores.rating) / 20).toFixed(2)
+                                        getRatingAvg.toFixed(2)
                                 }} </span>
                             <span class="dot-separate">·</span>
                             <span class="reserve-reviews-amount"> {{ stay.numOfReviews }} reviews </span>
@@ -160,12 +161,27 @@
                     <div class="date-area">
                         <date-picker-try @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
-                        <button class="bnb-btn" @mousemove="getPos"
-                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve</button>
+                        <!-- <el-button plain class="bnb-btn" @mousemove="getPos"
+                            :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
+                        </el-button> -->
+                        <el-button class="bnb-btn"   @mousemove="getPos" :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }"
+                            @click="onAddOrder">Reserve</el-button>
+                        <el-dialog v-model="centerDialogVisible" title="Your order has been compelted!" width="30%" center >
+                            <span>Now you just need to wait the host will approve your order</span>
+                            <template #footer>
+                                <span class="dialog-footer">
+                                    <el-button @click="moveToTrips ">Move to my trips</el-button>
+                                    <el-button @click="moveToHomePage">Confirm</el-button>
+                                </span>
+                            </template>
+                        </el-dialog>
                         <div v-if="stayLength" class="date-area-text">
+                            <div>
+                                <!-- <p class="charged">You won't be charged yet</p> -->
+                            </div>
                             <div class="flex space-between">
                                 <span class="text-decorate">{{ stay.price }} x {{ getNights }}</span>
-                                <span>${{ stay.price * stayLength }}</span>
+                                <span>${{ (stay.price * stayLength).toLocaleString() }}</span>
                             </div>
                             <div class="flex space-between service-fee">
                                 <span class="text-decorate">Service fee</span>
@@ -175,7 +191,7 @@
                         </div>
                         <div v-if="stayLength" class="flex space-between">
                             <span>Total</span>
-                            <span>${{ stay.price * stayLength + (stayLength * 25) }}</span>
+                            <span>${{ (stay.price * stayLength + (stayLength * 25)).toLocaleString() }}</span>
                         </div>
                     </div>
                 </div>
@@ -184,7 +200,7 @@
 
         <div id="reviews" v-if="stay" class="reviews-area">
             <h1 class="review-rating"> <i class="fa-solid fa-star star-rating"></i>
-                {{ ((stay.reviewScores.rating) / 20).toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
+                {{ getRatingAvg.toFixed(2) }} · {{ stay.numOfReviews }} reviews </h1>
             <div class="review-score">
                 <li v-for="reviewScore in Object.entries(stay.reviewScores)" :key="stay._id">
                     <div class="flex space-between" v-html="formatReviewScore(reviewScore)"></div>
@@ -225,7 +241,7 @@ import { stayService } from '../services/stay-service.js'
 import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
-import { ElNotification } from 'element-plus'
+
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -240,10 +256,11 @@ export default {
             //TODO: uncomment when we have user service
             //user: nul;l,
             stayDate: null,
-            guests: null,
+            guests: { adults: 1 },
             stayLength: null,
             scrollpx: 0,
             myLatlng: null,
+            centerDialogVisible: false
         }
     },
     async created() {
@@ -284,6 +301,14 @@ export default {
             if (amenitie === 'Vault') return '<i class="fa-solid fa-vault"></i>'
             if (amenitie === 'Buthub') return '<i class="fa-solid fa-bath"></i>'
         },
+        moveToTrips(){
+            this.$router.push('/trips')
+            this.centerDialogVisible = false
+        },
+        moveToHomePage(){
+            this.$router.push('/')
+            this.centerDialogVisible = false
+        },
         timeFormat(time) {
             const date = new Date(time)
             const month = date.toLocaleString('default', { month: 'long' })
@@ -291,8 +316,9 @@ export default {
             return `${month} ${year}`
         },
         formatReviewScore(score) {
+            let title = score[0].charAt(0).toUpperCase() + score[0].slice(1).toLowerCase();
             if (score[0] !== 'rating') {
-                return `<h2 class="score-title"> ${score[0]}</h2>
+                return `<h2 class="score-title"> ${title}</h2>
                 <div class="progress-bar-container flex">
                     <progress class="progress-bar" value="${score[1]}" max="10"></progress>
                     <h2 class="score-number"> ${(score[1]) / 2}</h2>
@@ -301,23 +327,18 @@ export default {
             }
         },
         onAddOrder() {
-            console.log(this.stayDate);
             if (!this.guests) {
                 console.log("no guests");
                 return
             }
-                if (!this.stayDate) {
-                return ElNotification({
-                    title: 'Error',
-                    message: 'You have to pick Date',
-                    type: 'error',
-                })
+            if (!this.stayDate) {
             }
+      
 
             var order = {
                 buyer: {},
                 stay: {},
-                host:{}
+                host: {}
             };
             order.host.Id = this.stay._id
             order.host.fullname = this.stay.host.fullname
@@ -327,7 +348,7 @@ export default {
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
 
-        
+
 
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
@@ -341,15 +362,8 @@ export default {
 
             //TODO:uncomment when we can get date input from user
             this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+                  this.centerDialogVisible = true
 
-
-
-            console.log(order);
-            return ElNotification({
-                title: 'Success',
-                message: 'Your order has been sent',
-                type: 'success',
-            })
         },
         getPos(ev) {
             // console.log(ev)
@@ -404,6 +418,13 @@ export default {
         getNights() {
             return (this.stayLength === 1) ? `1 night` : `${this.stayLength} nights`
         },
+        getRatingAvg(){
+            var sum = 0
+            for (var el in this.stay.reviewScores){
+                if(el !== 'rating') sum += this.stay.reviewScores[el]
+            }
+            return (sum / (Object.keys(this.stay.reviewScores).length -1))/2
+        }
     },
     components: {
         imageGallery,

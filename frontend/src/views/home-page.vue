@@ -3,6 +3,7 @@
     <stay-filter :showList="true" />
   <!-- </div> -->
   <stay-list :stays="getStays" />
+
 </template>
 
 <script>

@@ -145,7 +145,16 @@ header {
   z-index: 1;
   width: 100%;
   // position: fixed;
+  // height: 400px;
   transition: 0.5s ease all;
+  padding-bottom: 15px;
+  // @include for-narrow-layout {
+  //   display: none;
+  // }
+  // @include for-narrow-layout {
+  //  height: auto;
+
+  // }
 }
 
 li {
@@ -157,7 +166,7 @@ button {
 
 nav {
   // padding: 14.6px 0;
-  height: 80px;
+  height: 50px;
 
   @include for-narrow-layout {
     height: auto;

@@ -2,18 +2,35 @@
     <div v-if="orders" class="container main-layout">
         <div class="dashboard-data-area flex space-between">
             <div class="data-card total-revenue">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenues</h1>
-                <div class="flex column space-between">
-                    <!-- <p>Total revenues :</p> -->
-                    <p style=" text-align: center; font-size: 30px; line-height: 150px;"> $ {{ foramtRevneue }}</p>
+                <h1 class="card-title">Revenues</h1>
+                <div class="revenue-container">
+
+
+                    <div class="revenue-title">
+                        <div class="revenue-month">
+                            <p class="card-txt ">This month : </p>
+                        </div>
+                        <div class="revenue-price">
+                            <p class="card-txt "> ${{ monthRevneue.toLocaleString() }}</p>
+                        </div>
+                    </div>
+                    <div class="revenue-title">
+                         <p class="card-txt ">This year :</p>
+                          <p class="card-txt " > ${{ yearRevneue.toLocaleString() }}</p>
+                    </div>
+                    <div class="revenue-title">
+                         <p class="card-txt ">Total : </p>
+                         <p class="card-txt " > ${{ foramtRevneue.toLocaleString() }}</p>
+                    </div>
+
                 </div>
             </div>
             <div class="data-card">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Orders status</h1>
+                <h1 class="card-title">Orders status</h1>
                 <PieChart style=" height: 170px; width: 330px;" :chartData="statusOrder" />
             </div>
             <div class="data-card">
-                <h1 style="text-align: center; text-decoration: underline; margin-bottom: 10px;">Revenue per month</h1>
+                <h1 class="card-title">Revenue per month</h1>
                 <BarChart style=" height: 170px; width: 330px;" :chartData="revneuePerMonth" />
             </div>
         </div>
@@ -25,11 +42,11 @@
                     <th scope="col">Stay title</th>
                     <th scope="col">Nights</th>
                     <th scope="col">Guests</th>
-                    <th scope="col">Price/Nigth</th>
+                    <th scope="col">Price per night</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Check in- Check out</th>
-                    <th scope="col">status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Check in - Check out</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Decline/Approve</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,9 +57,9 @@
                     <td data-title="Released">{{ nightsAmount(order) }}</td>
                     <td data-title="Released">{{ guestsAmount(order) }}</td>
                     <td data-title="Released">$ {{ order.stay.price }}</td>
-                    <td data-title="Studio">$ {{ order.totalPrice }}</td>
+                    <td data-title="Studio">$ {{ (order.totalPrice).toLocaleString() }}</td>
                     <td data-title="Worldwide Gross" data-type="currency">{{ formatDate(order) }}</td>
-                    <td data-title="Domestic Gross" data-type="currency" style="border-radius: 12px;"
+                    <td data-title="Domestic Gross" data-type="currency"
                         :style="{ 'background-color': checkStatus(order.status) }">{{ order.status }}</td>
 
                     <td data-title="Domestic Gross" class="action-container" data-type="currency">
@@ -73,44 +90,13 @@ export default defineComponent({
     data() {
         return {
             orders: null,
-            statusOrder: {
-                labels: ["Pending", "Approved", "Decline"],
-                datasets: [
-                    {
-                        data: null,
-                        backgroundColor: ["#f6e58d", "#7bed9f", "#ff6b81"],
-                    },
-                ],
-            },
-            revneuePerMonth: {
-                labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December'
-                ],
-                datasets: [
-                    {
-                        data: null,
-                        backgroundColor: '#f87979',
-                    },
-                ],
-            },
+
 
         }
     },
     created() {
         this.orders = this.$store.getters.ordersForDisplay
-        this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
-        this.revneuePerMonth.datasets[0].data = this.$store.getters.getRevneuePerMonth
+        console.log(this.orders);
     },
     methods: {
         async approveOrder(order) {
@@ -126,8 +112,8 @@ export default defineComponent({
             this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
         },
         checkStatus(status) {
-            if (status === 'Approve') return '#7bed9f'
-            if (status === 'Decline') return '#ff6b81'
+            if (status === 'Approved') return '#7bed9f'
+            if (status === 'Declined') return '#ff6b81'
             if (status === 'Pending') return '#f6e58d'
         },
         formatDate(order) {
@@ -135,7 +121,7 @@ export default defineComponent({
             const startDate = new Date(order.startDate)
             const endDate = new Date(order.endDate)
 
-            return `${startDate.getDate()}.${startDate.getMonth()} - ${endDate.getDate()}.${endDate.getMonth()}.${endDate.getFullYear()}`
+            return `${startDate.getDate()}.${startDate.getMonth() + 1} - ${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`
 
         },
         nightsAmount(order) {
@@ -158,10 +144,29 @@ export default defineComponent({
     computed: {
         foramtRevneue() {
             return this.orders.reduce((acc, order) => {
-                if (order.status !== 'Approve') return acc
+                if (order.status !== 'Approved') return acc
                 return acc + order.totalPrice
             }, 0)
         },
+        monthRevneue() {
+            let monthRevneueArr = this.$store.getters.getRevneuePerMonth.datasets[0].data
+            let currMonth = new Date(Date.now()).getMonth()
+            return monthRevneueArr[currMonth]
+        },
+        yearRevneue() {
+            let orders = this.$store.getters.ordersForDisplay
+            return orders.reduce((acc, order) => {
+                const year = new Date(order.startDate).getFullYear()
+                const currYear = new Date(Date.now()).getFullYear()
+                return currYear === year && order.status === 'Approved' ? acc + order.totalPrice : acc
+            }, 0)
+        },
+        statusOrder() {
+            return this.$store.getters.getOrderStatus
+        },
+        revneuePerMonth() {
+            return this.$store.getters.getRevneuePerMonth
+        }
 
     },
     components: {

@@ -6,6 +6,10 @@
   display: none;
 }
 
+.none {
+  display: none;
+}
+
 .demo-date-picker .block[data-v-1a1d8383] {
   // padding: 20px;
   text-align: left;
@@ -34,9 +38,16 @@
 .date-wraper {
   // after
   display: flex;
-  flex: 2 0 0%;
+  flex: 1.25 0 0%;
   min-width: 0;
   .start-date {
+    &:hover + .dest-line {
+      display: none;
+    }
+
+    // &:hover - .dest-line {
+    //   display: none;
+    // }
     // before
     // cursor: pointer;
     // padding: 14px 0 14px 25px;
@@ -138,9 +149,15 @@
     .start-date-line {
       box-shadow: none;
     }
+    & + .dest-line {
+      display: none;
+    }
   }
 
   .end-date {
+    &:hover + .dest-line {
+      display: none;
+    }
     // before
     // cursor: pointer;
     // padding: 14px 0 14px 25px;
@@ -150,7 +167,7 @@
     box-align: center;
     align-items: center;
     display: flex;
-    flex: 1 0 0%;
+    flex: 0.99 0 0%;
     min-width: 0;
     position: relative;
     border-radius: 32px;
@@ -216,7 +233,10 @@
         box-shadow: none;
       }
     }
-
+    .selected-first-date {
+      background-color: white;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
     .end-date-line.guest-hover {
       box-shadow: none;
     }
@@ -232,8 +252,8 @@
     background-color: white;
     border-radius: 32px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    .end-date-line {
-      box-shadow: none;
+    & + .dest-line {
+      display: none;
     }
   }
 }
@@ -314,9 +334,9 @@ el-date-table td.end-date .el-date-table-cell__text,
   }
   &.right {
     border-left-color: hsla(0, 0%, 100%, 0);
-    border-start-end-radius: 13px;
+    border-start-end-radius: 0.55rem;
   }
   &.left {
-    border-start-start-radius: 13px;
+    border-start-start-radius: 0.55rem;
   }
 }

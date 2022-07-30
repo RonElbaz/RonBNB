@@ -14,10 +14,10 @@
 
         .stay-info {
 
-            .media-btn{
+            .media-btn {
 
                 .stay-reviews-info {
-    
+
                     text-decoration: underline;
                     font-size: 14px;
                     margin: 0px 10px;
@@ -27,6 +27,11 @@
             .stay-reviews-info {
 
                 text-decoration: underline;
+                font-size: 14px;
+            }
+
+            .stay-review-info {
+
                 font-size: 14px;
             }
 
@@ -117,7 +122,7 @@
                 box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
                 grid-area: 1 / 2 / 2 / 3;
                 position: sticky;
-                top:190px;
+                top: 130px;
                 align-items: center;
                 justify-content: center;
             }
@@ -165,22 +170,24 @@
             .host-name {
                 font-size: 22px;
             }
-            
-.host-img-area{
 
-    position: relative;
-    .host-img {
-        border-radius: 50%;
-        object-fit: cover;
-        width: 3.5rem;
-        height: 3.5rem;
-    }
-    .super-host-symbol{
-        position: absolute;
-        bottom: 3px;
-        left: 35px;
-    }
-}
+            .host-img-area {
+
+                position: relative;
+
+                .host-img {
+                    border-radius: 50%;
+                    object-fit: cover;
+                    width: 3.5rem;
+                    height: 3.5rem;
+                }
+
+                .super-host-symbol {
+                    position: absolute;
+                    bottom: 3px;
+                    left: 35px;
+                }
+            }
 
             .rooms-info {
                 line-height: 2px;
@@ -216,6 +223,7 @@
             border-radius: 0.55rem;
             font-size: 16px;
             margin-bottom: 16px;
+            text-decoration: none;
         }
 
 
@@ -319,14 +327,16 @@
 
         }
     }
-    .map-area{
-        padding:48px 0 ;
 
-        .map-header{
-            padding: 0 0 24px ;
+    .map-area {
+        padding: 48px 0;
+
+        .map-header {
+            padding: 0 0 24px;
             font-size: 24px;
         }
-        .map-adress{
+
+        .map-adress {
             margin: 0 0 24px;
             font-family: cereal;
         }
@@ -378,6 +388,13 @@ progress::-webkit-progress-value {
     box-shadow: inset 0 -1px 0 0 #ddd;
     font-family: cereal;
 
+    .charged {
+        font-family: cereal;
+        font-size: 14px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
     .service-fee {
         padding-top: 16px;
     }
@@ -390,63 +407,65 @@ progress::-webkit-progress-value {
 .nav-details-container {
     //   opacity: 0;
 
-.header-reserve {
-    position: fixed;
-    top: 80px;
-    color: black;
-    width: 100%;
-    height: 90px;
-    box-shadow: rgb(0 0 0 / 10%) 0px 1px 0px !important;
-    background-color: rgb(255, 255, 255) !important;
-    z-index: 1;
-    transition: all .5s;
-    right: 10px;
-}
-
-.hide {
-    opacity: 0;
-
-}
-
-.show {
-    opacity: 1;
-
-}
-
-.nav-txt {
-    width: 100%;
-    height: 90px;
-    align-items: center;
-    
-}
-
-.txt{
-    cursor: pointer;
-    color: rgb(34, 34, 34);
-    font-size: 14px;
-    font-family: cereal;
-    text-decoration: none;
-    margin-inline-end: 20px;
-    height: 90px;
-    align-items: center;
-    display: flex;
-     &:hover{
-        box-shadow: inset 0 -2.5px 0 0 black;
-     }
-
-    :first-child {
-        margin-inline-start: 10px;
+    .header-reserve {
+        position: fixed;
+        top: 0px;
+        color: black;
+        width: 100%;
+        height: 90px;
+        box-shadow: rgb(0 0 0 / 10%) 0px 1px 0px !important;
+        background-color: rgb(255, 255, 255) !important;
+        z-index: 1;
+        transition: all .5s;
+        right: 0px;
     }
-}
+
+    .hide {
+        opacity: 0;
+
+    }
+
+    .show {
+        opacity: 1;
+
+    }
+
+    .nav-txt {
+        width: 100%;
+        height: 90px;
+        align-items: center;
+
+    }
+
+    .txt {
+        cursor: pointer;
+        color: rgb(34, 34, 34);
+        font-size: 14px;
+        font-family: cereal;
+        text-decoration: none;
+        margin-inline-end: 20px;
+        height: 90px;
+        align-items: center;
+        display: flex;
+
+        &:hover {
+            box-shadow: inset 0 -2.5px 0 0 black;
+        }
+
+        :first-child {
+            margin-inline-start: 10px;
+        }
+    }
 
 
-.header-reserve-container{
-    
-width: 100%;
-justify-content: flex-end;
-align-items: center;
-gap: 30px;
-    .bnb-btn{
+    .header-reserve-container {
+
+        width: 100%;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 30px;
+
+        .bnb-btn {
             background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
             transition: opacity 1.25s ease 0s !important;
             // min-width: 200px;
@@ -459,24 +478,29 @@ gap: 30px;
             font-family: Circular-bold;
             border-radius: 0.55rem;
             font-size: 16px;
-            padding: 14px 24px ;
+            padding: 14px 24px;
             text-decoration: none;
         }
 
-        .reserve-reviews-amount{
+        .reserve-reviews-amount {
             color: $clr2;
             text-decoration: underline;
         }
-    
-        .reserve-stay-night{
+
+        .reserve-stay-night {
             font-size: 14px;
             font-family: cereal;
         }
-    
-        .reserve-stay-review{
+
+        .reserve-stay-review {
             font-size: 12px;
         }
     }
 }
 
 
+.el-notification.right {
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}

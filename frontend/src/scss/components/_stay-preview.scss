@@ -20,7 +20,7 @@
         border-radius: 4px;
         position: absolute;
         top: 13px;
-        left: 17px;
+        left: 13px;
     }
 
     .stay-img {
@@ -90,6 +90,7 @@
     .el-carousel__arrow {
         background: white !important;
         color: black !important;
+        z-index: 5 !important;
     }
 
     .el-carousel__button {

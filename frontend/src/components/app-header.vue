@@ -1,6 +1,10 @@
 <template>
-    <div class="header-container" :class="{ 'open-modal': isOpenScreen || mobile }">
-        <header class="main-layout">
+    <!-- <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
+    <div :style="isOpenScreen ? withOutShadow : withShadow"
+        :class="currentRoute === 'stay-details' ? ' header-container details-layout' : ' header-container main-layout'">
+        <header>
+            <!--    <div class="header-container" :class="{ 'open-modal': isOpenScreen }"> -->
+            <!--   <header class="main-layout"> -->
             <nav class="flex justify-content-space-between">
                 <div v-show="!mobile" class="branding flex align-items-center">
                     <router-link class="link" to="/">
@@ -15,7 +19,7 @@
                     </router-link>
 
                 </div>
-                <div v-if="!isOpenScreen" @click="openModal" class="flex align-items-center align-self-center search"
+                <div v-if="mobile" @click="openModal" class="flex align-items-center align-self-center search"
                     :class="{ 'search-mobile': mobile }">
                     <div v-show="mobile" class="search-mobile-body">
                         <button class="flex search-mobile-dest">
@@ -60,14 +64,19 @@
                             </div>
                         </button>
                     </div>
-                    <button v-show="!mobile" @click="selectDestPicker" class="clean-button dest-btn"><span>{{
-                            countryName
-                    }}</span></button>
-                    <button v-show="!mobile" @click="selectDatePicker" class="clean-button date-btn"><span>Any
-                            week</span></button>
-                    <button v-show="!mobile" @click="selectGuestPicker" class="clean-button guest-btn">
+                </div>
+
+                <div v-if="!isOpenScreen" @click="openModal"
+                    class="flex align-items-center align-self-center search search-desktop">
+                    <button @click="selectDestPicker"
+                        :class="currentRoute === 'stay-details' ? 'clean-button serach-detils' : 'clean-button dest-btn'"><span>{{
+                                currentRoute === 'stay-details' ? "Start youer search" : countryName
+                        }}</span></button>
+                    <button @click="selectDatePicker" class="clean-button date-btn"><span
+                            v-if="currentRoute !== 'stay-details'">Any week</span></button>
+                    <button @click="selectGuestPicker" class="clean-button guest-btn">
                         <div>
-                            <span>Add guests</span>
+                            <span v-if="currentRoute !== 'stay-details'">Add guests</span>
                         </div>
                     </button>
                     <div v-show="!mobile" @click="goExplore" class="search-logo"><i
@@ -112,7 +121,8 @@
                                         <router-link class="link signup" to="/">Sign up</router-link>
                                     </li>
                                     <li>
-                                        <router-link class="link login" to="/">Log in</router-link>
+                                        <router-link class="link login" to="/" @click="loggedInModal">Log in
+                                        </router-link>
                                     </li>
                                 </div>
                                 <div v-if="!loggedInUser" class="public-section">
@@ -173,6 +183,23 @@
 
                 </div>
             </nav>
+            <section class="login-area" v-if="isLoggedInModal">
+                <div class="grey-underline">
+                    <h1 class="login-title">Login</h1>
+                </div>
+                <div class="inputs-container grey-underline">
+                    <h1 class="welcome-title">Welcome to restya</h1>
+                    <input class="username-input" type="text" placeholder="Username">
+                    <input class="paswword-input" type="password" placeholder="Password">
+                </div>
+                <div class="flex">
+                    <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
+                        :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }">Confrim</button>
+                </div>
+                <button @click="closeLoggedinModal" class="exit-modal">
+                    X
+                </button>
+            </section>
             <transition name="mobile-nav">
                 <div v-if="isOpenScreen" class="search-modal flex justify-content-center">
                     <div class="flex align-items-center border-thin-black-roundalign-self-center search-bar"
@@ -181,8 +208,7 @@
                         <div class="dest-container " @click="selectDestPicker" v-click-outside="unSelectDestPicker"
                             :class="{ 'unselected-picker': !isDestPickerSelected, 'selected-dest': isDestPickerSelected }">
                             <div class="dest-box">
-                                <label class="dest-wraper" for="dest"
-                                    :class="{ 'date-hover': isStartDateHover, 'start-date-selected': isStartDateSelected }">
+                                <label class="dest-wraper" for="dest">
                                     <div class="dest-holder">
                                         <div class="header">Where</div>
                                         <input ref="searchInput" id="dest" autocomplete="off" type="text" class="text"
@@ -192,16 +218,17 @@
                                 </label>
                             </div>
                         </div>
+                        <!-- <div class="dest-line"></div> -->
                         <date-picker id="date" :isGuestHover="isGuestHover" :isGuestSelect="isGuestSelect"
-                            @getDate="addDate" @getStartDateSelectedState="onStartDateSelectedChange"
-                            @getStartDateHoverState="onStartDateHoverChange"
-                            @getEndDateHoverState="onEndDateHoverChange" class="date-component" />
+                            @getDate="addDate" class="date-component" :isDateSelect="isStartDateSelected"
+                            @getStartDateSelectedState="unSelectDatePicker" />
                         <div class="guest-box" @click="selectGuestPicker" v-click-outside="unSelectGuestPicker">
-                            <guests-picker @getGuestHoverState="onGuestHoverChange" :isHeader="true"
-                                @addGuests="addGuest"
+                            <guests-picker :isHeader="true" @addGuests="addGuest" @mouseover="onGuestHoverChange"
+                                @mouseleave="onGuestHoverChange"
                                 :class="{ 'unselected-picker': !isGuestPickerSelected, 'selected-guest': isGuestPickerSelected }"
                                 class="clean-button guest-picker-component" />
-                            <div v-if="!isSearchModalActive" class="search-modal-logo" @click="searchFilter">
+                            <div v-if="!isSearchModalActive || isOpenLogo" class="search-modal-logo"
+                                @click="searchFilter">
                                 <button class="search-logo-container">
                                     <div class="search-logo-img">
                                         <div>
@@ -224,7 +251,15 @@
                             <div v-if="isSearchModalActive"
                                 class="search-modal-logo-open flex space-between align-items-center"
                                 @click="searchFilter">
-                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                                    role="presentation" focusable="false"
+                                    style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
+                                    <g fill="none">
+                                        <path
+                                            d="m13 24c6.0751322 0 11-4.9248678 11-11 0-6.07513225-4.9248678-11-11-11-6.07513225 0-11 4.92486775-11 11 0 6.0751322 4.92486775 11 11 11zm8-3 9 9">
+                                        </path>
+                                    </g>
+                                </svg>
                                 <div class="search-modal-logo-open-txt">Search</div>
                             </div>
                         </div>
@@ -233,7 +268,9 @@
             </transition>
         </header>
         <div v-if="isOpenScreen" @click="closeModal" class="modal-screen"></div>
+        <div v-if="isLoggedInModalOpen" @click="closeModal" class="modal-logged-screen"></div>
     </div>
+    <!-- </div> -->
 </template>
 
 <script>
@@ -261,7 +298,19 @@ export default {
             isGuestSelect: false,
             isShowNameLogo: true,
             isShowDropdownMenu: false,
-            loggedInUser: true,
+            isLoggedInModal: false,
+            loggedInUser: false,
+            isLoggedInModalOpen: false,
+            isExplorePage: false,
+            isOpenLogo: undefined,
+            // isDateSelect: false,
+            withShadow: {
+
+            },
+            withOutShadow: {
+                boxShadow: "none"
+            },
+
         }
     },
     created() {
@@ -272,30 +321,38 @@ export default {
     },
     mounted() {
 
+
     },
+    // mounted() {
+    // const param = this.$router.currentRoute._value
+    //         console.log('PRARAM', this.$router.currentRoute._value);
+    //     // if(param === "stay-details"){
+    //     //         console.log('fuck yea');
+    //     // }
+    // },
     methods: {
+        loggedInModal() {
+            this.isLoggedInModal = true
+            this.isLoggedInModalOpen = true
+        },
+        closeLoggedinModal() {
+            this.isLoggedInModal = false
+            this.isLoggedInModalOpen = false
+        },
         openDropdownMenu() {
             this.isShowDropdownMenu = true
-            console.log(this.isShowDropdownMenu)
+            console.log(this.isShowDropdownMenu);
         },
         closeDropdownMenu() {
             this.isShowDropdownMenu = false
-            console.log(this.isShowDropdownMenu)
+            console.log(this.isShowDropdownMenu);
         },
         onGuestHoverChange(guestHoverState) {
-            this.isGuestHover = guestHoverState
+            guestHoverState.type === "mouseover" ? this.isGuestHover = true : this.isGuestHover = false
         },
         onGuestSelectChange(guestSelectState) {
+            // console.log(guestHoverState)
             this.isGuestSelect = guestSelectState
-        },
-        onStartDateSelectedChange(startDateSelectedState) {
-            this.isStartDateSelected = startDateSelectedState
-        },
-        onStartDateHoverChange(startDateHoverState) {
-            this.isStartDateHover = startDateHoverState
-        },
-        onEndDateHoverChange(endDateHoverState) {
-            this.isEndDateHover = endDateHoverState
         },
         showSearchTxt() {
             this.isSearchModalActive = true
@@ -308,12 +365,20 @@ export default {
         }, unSelectDestPicker() {
             this.isDestPickerSelected = false
         },
+        selectDatePicker() {
+            this.isStartDateSelected = true
+        },
+        unSelectDatePicker(value) {
+            console.log(value)
+            this.isStartDateSelected = false
+            console.log(this.isStartDateSelected)
+        },
         selectGuestPicker() {
             this.isGuestPickerSelected = true
-            console.log(this.isGuestPickerSelected)
+            this.isGuestSelect = true
         }, unSelectGuestPicker() {
             this.isGuestPickerSelected = false
-            console.log(this.isGuestPickerSelected)
+            this.isGuestSelect = false
         },
         openModal() {
             this.isOpenScreen = true
@@ -324,6 +389,7 @@ export default {
             this.isGuestPickerSelected = false
             this.isDestPickerSelected = false
             this.isDatetPickerSelected = false
+            this.isStartDateSelected = false
             this.closeSearchTxt()
         },
         toogleMobileNav() {
@@ -336,8 +402,15 @@ export default {
             } else {
                 this.isShowNameLogo = true
             }
+            if (this.windowWidth < 950) {
+                this.isOpenLogo = true
+
+            } else {
+                this.isOpenLogo = false
+            }
             if (this.windowWidth < 744) {
                 this.mobile = true
+                this.closeModal()
                 return
             }
             this.mobile = false
@@ -369,9 +442,23 @@ export default {
             this.closeModal()
             // console.log(filter);
             this.$router.push(`/explore/${filter.destination}`)
-        }
+            this.isExplorePage = true
+        },
+        getPos(ev) {
+            // console.log(ev)
+            var rect = ev.target.getBoundingClientRect();
+            var x = ev.clientX - rect.left; //x position within the element.
+            var y = ev.clientY - rect.top;  //y position within the element.
+            this.mouseX = x
+            this.mouseY = y
+            ev.target.style.setProperty('--mouse-x', this.mouseX)
+            ev.target.style.setProperty('--mouse-y', this.mouseY)
+        },
     },
     computed: {
+        currentRoute() {
+            return this.$route.name
+        },
         countryName() {
             const { destination } = this.$route.params
             if (destination) {

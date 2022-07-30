@@ -2,7 +2,6 @@ import { orderService } from '../../services/order-service.js'
 export const order = {
     state: {
         orders: null,
-
     },
     mutations: {
         setOrders(state, { orders }) {
@@ -14,11 +13,11 @@ export const order = {
         },
         approveOrder(state, { newOrder }) {
             const idx = state.orders.findIndex(currorder => currorder._id === newOrder._id)
-            state.orders[idx].status = 'Approve'
+            state.orders[idx].status = 'Approved'
         },
         declineOrder(state, { newOrder }) {
             const idx = state.orders.findIndex(currorder => currorder._id === newOrder._id)
-            state.orders[idx].status = 'Decline'
+            state.orders[idx].status = 'Declined'
         },
     },
     actions: {
@@ -43,7 +42,7 @@ export const order = {
         async approveOrder({ commit }, { order }) {
             try {
                 var newOrder = { ...order }
-                newOrder.status = 'Approve'
+                newOrder.status = 'Approved'
                 newOrder = await orderService.addOrder(newOrder)
                 commit({ type: 'approveOrder', newOrder })
             }
@@ -54,7 +53,7 @@ export const order = {
         async declineOrder({ commit }, { order }) {
             try {
                 var newOrder = { ...order }
-                newOrder.status = 'Decline'
+                newOrder.status = 'Declined'
                 newOrder = await orderService.addOrder(newOrder)
                 console.log(newOrder);
                 commit({ type: 'declineOrder', newOrder })
@@ -66,28 +65,63 @@ export const order = {
     },
     getters: {
         ordersForDisplay({ orders }) {
-            return orders
+            return orders.slice().reverse()
         },
         getOrderStatus(state) {
             if (!state.orders) return
             let stayStatus = [0, 0, 0]
             state.orders.forEach((order) => {
                 if (order.status === 'Pending') stayStatus[0]++
-                if (order.status === 'Approve') stayStatus[1]++
-                if (order.status === 'Decline') stayStatus[2]++
+                if (order.status === 'Approved') stayStatus[1]++
+                if (order.status === 'Declined') stayStatus[2]++
             })
-            return stayStatus
+            console.log(stayStatus);
+            const statusOrder = {
+                labels: ["Pending", "Approved", "Declined"],
+                datasets: [
+                    {
+                        data: stayStatus,
+                        backgroundColor: ["#f6e58d", "#7bed9f", "#ff6b81"],
+                    },
+                ],
+            }
+            return statusOrder
         },
         getRevneuePerMonth(state) {
             if (!state.orders) return
+            // let diff = 0
             let month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             state.orders.forEach((order) => {
                 let orderDate = new Date(order.startDate).getMonth()
-                month[orderDate] += order.totalPrice
+                if(order.status === 'Approved') month[orderDate] += order.totalPrice
+
             })
 
-            console.log(month);
-            return month
-        }
+            const revneuePerMonth = {
+                labels: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December'
+                ],
+                datasets: [
+                    {
+                        data: month,
+                        backgroundColor: '#f87979',
+                        label: 'Revneue per month'
+                    },
+                ],
+            }
+            return revneuePerMonth
+        },
+
     }
 }
