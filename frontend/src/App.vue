@@ -5,7 +5,7 @@
     <!-- </div> -->
     <div v-if="isLoading" class="loader-container">
 
-      <div   class="loader"></div>
+      <div class="loader"></div>
     </div>
     <router-view></router-view>
     <app-footer />
@@ -18,11 +18,9 @@ import appFooter from "./components/app-footer.vue";
 export default {
   name: "main-app",
   props: [],
-  // emits: ['getCountryName'],
   components: {
     appHeader,
     appFooter,
-    // countryName: null
   },
   data() {
     return {
@@ -31,16 +29,9 @@ export default {
     };
   },
   methods: {
-    isOpenScreen(isOpenScreen) {
-      this.openSearchBar = isOpenScreen
-    }
-    // getCountryName(country) {
-    //   console.log(country)
-    //   this.countryName = country
-    // }
   },
 
-   created() {
+  created() {
     this.isLoading = true
     this.$store.dispatch({ type: "loadStays" }).then(() => this.isLoading = false)
     this.$store.dispatch({ type: 'loadUser' })

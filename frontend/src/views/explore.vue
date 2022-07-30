@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="main-layout filter-container">
+    <div class="main-layout filter-container" :class="{ 'explore-page': isExplorePage }">
 
       <stay-filter :showList="false" :stayLength="getStays.length" />
     </div>
-      <div v-if="isLoading" class="loader-container">
+    <div v-if="isLoading" class="loader-container">
 
-      <div   class="loader"></div>
+      <div class="loader"></div>
     </div>
     <stay-list v-if="!isLoading" :stays="getStays" />
   </div>
@@ -22,8 +22,8 @@ export default {
   // emits: ["getCountryName"],
   data() {
     return {
-      isLoading: false
-
+      isLoading: false,
+      isExplorePage: false
 
     }
   },
@@ -33,12 +33,20 @@ export default {
     var filter = {};
     this.isLoading = true
     filter.destination = destination
-    setTimeout(()=>{
+    setTimeout(() => {
       this.isLoading = false
-    },2000)
+    }, 2000)
     await this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
 
     // await this.$emit("getCountryName", this.getStays[0].address.country)
+  },
+  mounted() {
+    if (this.$route.name === 'explore') {
+      this.isExplorePage = true
+    } else {
+      this.isExplorePage = false
+    }
+
   },
   methods: {
 

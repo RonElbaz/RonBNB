@@ -1,6 +1,8 @@
 <template>
     <!-- <el-button text @click="dialogFormVisible = true">Filter</el-button> -->
-    <div class="filter-box" :class="showList ? 'main-layout' : ''">
+    <div class="filter-box" :class="{
+        'main-layout': showList, 'explore-page': isExplorePage
+    }">
         <div v-if="isScrolled" class="left-scroll-container left-unit-main-layout-margin ">
             <button class="left-scroll btn-scroll" @click="swipeLeft">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
@@ -74,117 +76,117 @@
         </div>
     </div>
     <div class="filter">
-    <el-dialog  v-model="dialogFormVisible" title="Filters" center>
-        <el-form :model="form" class="filter-form-layout">
+        <el-dialog v-model="dialogFormVisible" title="Filters" center>
+            <el-form :model="form" class="filter-form-layout">
 
-            <div class="price-range">
-                <el-form-item>
-                    <h1>Price Range<br><span>The average nightly price is</span></h1>
-                    <el-slider v-model="form.priceRange" range :max="1500" />
-                    <div class="filter-input-price flex">
-                        <div>
-                            <el-input v-model.number="form.priceRange[0]" />
+                <div class="price-range">
+                    <el-form-item>
+                        <h1>Price Range<br><span>The average nightly price is</span></h1>
+                        <el-slider v-model="form.priceRange" range :max="1500" />
+                        <div class="filter-input-price flex">
+                            <div>
+                                <el-input v-model.number="form.priceRange[0]" />
+                            </div>
+                            <span>-</span>
+                            <el-input v-model.number="form.priceRange[1]" />
                         </div>
-                        <span>-</span>
-                        <el-input v-model.number="form.priceRange[1]" />
-                    </div>
-                </el-form-item>
-            </div>
-            <hr>
-
-            <el-form-item>
-                <h1>Type of place</h1>
-                <div class="filter-type-place flex column">
-                    <el-checkbox-group v-model="form.roomType">
-                        <div class="type-place">
-                            <el-checkbox v-for="t, idx in placeType" :key="t" :label="t">{{ t }}
-                                <br>
-                                <span>{{ placeTypeValues[idx] }}</span>
-                            </el-checkbox>
-                        </div>
-                    </el-checkbox-group>
-
+                    </el-form-item>
                 </div>
-            </el-form-item>
-            <hr>
-            <h1>Rooms and beds</h1>
-            <el-form-item label="Bedrooms">
-                <el-checkbox-group @change="sliceBedrooms" v-model="form.bedrooms">
-                    <div class="beds-type">
-                        <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
+                <hr>
+
+                <el-form-item>
+                    <h1>Type of place</h1>
+                    <div class="filter-type-place flex column">
+                        <el-checkbox-group v-model="form.roomType">
+                            <div class="type-place">
+                                <el-checkbox v-for="t, idx in placeType" :key="t" :label="t">{{ t }}
+                                    <br>
+                                    <span>{{ placeTypeValues[idx] }}</span>
+                                </el-checkbox>
+                            </div>
+                        </el-checkbox-group>
+
                     </div>
-                </el-checkbox-group>
-            </el-form-item>
-
-
-            <el-form-item label="Beds">
-                <el-checkbox-group @change="sliceBeds" v-model="form.beds">
-                    <div class="beds-type">
-                        <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
-                    </div>
-                </el-checkbox-group>
-            </el-form-item>
-
-            <el-form-item label="Bathrooms">
-                <el-checkbox-group @change="sliceBathrooms" v-model="form.bathrooms">
-                    <div class="beds-type">
-                        <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
-                    </div>
-                </el-checkbox-group>
-            </el-form-item>
-
-            <hr>
-            <div class="house-type-container">
-                <el-form-item label="Property type">
-                    <el-checkbox-group v-model="form.propertyType">
-                        <el-checkbox-button label="House"><img
-                                src="https://a0.muscache.com/pictures/4d7580e1-4ab2-4d26-a3d6-97f9555ba8f9.jpg"><span
-                                class="txt">House</span>
-                        </el-checkbox-button>
-
-                        <el-checkbox-button label="Apartment"><img
-                                src="https://a0.muscache.com/pictures/21cfc7c9-5457-494d-9779-7b0c21d81a25.jpg"><span
-                                class="txt">Apartment</span>
-                        </el-checkbox-button>
-
-                        <el-checkbox-button label="Geusthouse"><img
-                                src="https://a0.muscache.com/pictures/6f261426-2e47-4c91-8b1a-7a847da2b21b.jpg"><span
-                                class="txt">Geusthouse</span>
-                        </el-checkbox-button>
-
-                        <el-checkbox-button label="Hotel"><img
-                                src="https://a0.muscache.com/pictures/64b27fed-56a1-4f03-950a-d8da08efb428.jpg"><span
-                                class="txt">Hotel</span>
-                        </el-checkbox-button>
-
+                </el-form-item>
+                <hr>
+                <h1>Rooms and beds</h1>
+                <el-form-item label="Bedrooms">
+                    <el-checkbox-group @change="sliceBedrooms" v-model="form.bedrooms">
+                        <div class="beds-type">
+                            <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
+                        </div>
                     </el-checkbox-group>
                 </el-form-item>
-            </div>
 
-            <hr>
 
-            <el-form-item label="Amenities">
-                <el-checkbox-group v-model="form.amenities">
-                    <el-checkbox v-for="amn in amenitiesOpts" :key="amn" :label="amn" />
-                </el-checkbox-group>
-            </el-form-item>
-
-            <hr>
-            <div class="super-host-container">
-                <h1>Superhost</h1>
-                <el-form-item>
-                    <p> Stay with recognized Hosts</p>
-                    <el-switch v-model="form.superHost" />
+                <el-form-item label="Beds">
+                    <el-checkbox-group @change="sliceBeds" v-model="form.beds">
+                        <div class="beds-type">
+                            <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
+                        </div>
+                    </el-checkbox-group>
                 </el-form-item>
-            </div>
-        </el-form>
-        <template #footer>
-            <span class="dialog-footer flex space-between">
-                <el-button @click="dialogFormVisible = false">Cancel</el-button>
-                <el-button type="primary" @click="onSetFilter">Show Stays</el-button>
-            </span>
-        </template>
-    </el-dialog>
+
+                <el-form-item label="Bathrooms">
+                    <el-checkbox-group @change="sliceBathrooms" v-model="form.bathrooms">
+                        <div class="beds-type">
+                            <el-checkbox-button v-for="num in 8" :key="num" :label="num" />
+                        </div>
+                    </el-checkbox-group>
+                </el-form-item>
+
+                <hr>
+                <div class="house-type-container">
+                    <el-form-item label="Property type">
+                        <el-checkbox-group v-model="form.propertyType">
+                            <el-checkbox-button label="House"><img
+                                    src="https://a0.muscache.com/pictures/4d7580e1-4ab2-4d26-a3d6-97f9555ba8f9.jpg"><span
+                                    class="txt">House</span>
+                            </el-checkbox-button>
+
+                            <el-checkbox-button label="Apartment"><img
+                                    src="https://a0.muscache.com/pictures/21cfc7c9-5457-494d-9779-7b0c21d81a25.jpg"><span
+                                    class="txt">Apartment</span>
+                            </el-checkbox-button>
+
+                            <el-checkbox-button label="Geusthouse"><img
+                                    src="https://a0.muscache.com/pictures/6f261426-2e47-4c91-8b1a-7a847da2b21b.jpg"><span
+                                    class="txt">Geusthouse</span>
+                            </el-checkbox-button>
+
+                            <el-checkbox-button label="Hotel"><img
+                                    src="https://a0.muscache.com/pictures/64b27fed-56a1-4f03-950a-d8da08efb428.jpg"><span
+                                    class="txt">Hotel</span>
+                            </el-checkbox-button>
+
+                        </el-checkbox-group>
+                    </el-form-item>
+                </div>
+
+                <hr>
+
+                <el-form-item label="Amenities">
+                    <el-checkbox-group v-model="form.amenities">
+                        <el-checkbox v-for="amn in amenitiesOpts" :key="amn" :label="amn" />
+                    </el-checkbox-group>
+                </el-form-item>
+
+                <hr>
+                <div class="super-host-container">
+                    <h1>Superhost</h1>
+                    <el-form-item>
+                        <p> Stay with recognized Hosts</p>
+                        <el-switch v-model="form.superHost" />
+                    </el-form-item>
+                </div>
+            </el-form>
+            <template #footer>
+                <span class="dialog-footer flex space-between">
+                    <el-button @click="dialogFormVisible = false">Cancel</el-button>
+                    <el-button type="primary" @click="onSetFilter">Show Stays</el-button>
+                </span>
+            </template>
+        </el-dialog>
     </div>
 </template>
 <script>
@@ -453,11 +455,19 @@ export default {
                 propertyType: [],
                 amenities: [],
                 superHost: false,
-
-            }
+            },
+            isExplorePage: true
         }
     },
     components: {
+    },
+    mounted() {
+        if (this.$route.name === 'explore') {
+            this.isExplorePage = true
+        } else {
+            this.isExplorePage = false
+        }
+
     },
     computed: {
     },
@@ -485,8 +495,8 @@ export default {
                 } else {
                     this.isEndScrolled = false
                 }
-                console.log("a", scrollPos + scrollPixels)
-                console.log("b", element.scrollWidth - element.clientWidth)
+                // console.log("a", scrollPos + scrollPixels)
+                // console.log("b", element.scrollWidth - element.clientWidth)
                 const startTime =
                     "now" in window.performance
                         ? performance.now()
@@ -523,7 +533,7 @@ export default {
             this.scrollTo(elScroll, 1000, 300);
         },
         print() {
-            console.log(this.form)
+            // console.log(this.form)
         },
         sliceBedrooms() {
             this.form.bedrooms = this.form.bedrooms.slice(-1)
@@ -555,7 +565,7 @@ export default {
                 this.dialogFormVisible = false
                 filter = JSON.parse(JSON.stringify(this.form));
             }
-            console.log(filter)
+            // console.log(filter)
             this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
         },
         imgUrl(image) {
@@ -571,17 +581,18 @@ export default {
 
 <style >
 .scrollbar-flex-content {
-  display: flex;
+    display: flex;
 }
+
 .scrollbar-demo-item {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 50px;
-  margin: 10px;
-  text-align: center;
-  border-radius: 4px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 50px;
+    margin: 10px;
+    text-align: center;
+    border-radius: 4px;
 }
 </style>
