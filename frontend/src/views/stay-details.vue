@@ -235,6 +235,12 @@
                 </GMapCluster>
             </GMapMap>
         </div>
+        <div class="mobile-reserve-bottom">
+<div class="flex space-between">
+    <span>${{stay.price}} night</span>
+    <button class="bnb-btn">Reserve</button>
+</div>
+</div>
         <section class="login-area" v-if="isReserveModal">
             <div class="grey-underline">
                 <h1 class="login-title">Your order has been sent</h1>

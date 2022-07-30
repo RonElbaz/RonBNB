@@ -436,10 +436,7 @@ progress::-webkit-progress-value {
 
 .nav-details-container {
     @include for-narrow-layout {
-       
-
             display: none;
-       
     }
 
     .header-reserve {
@@ -587,4 +584,35 @@ progress::-webkit-progress-value {
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
+}
+
+.mobile-reserve-bottom{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 90px;
+    box-shadow: rgb(0 0 0 / 10%) 0px -1px 0px;
+    display: none;
+    padding: 24px;
+
+    .bnb-btn {
+        background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+        transition: opacity 1.25s ease 0s !important;
+        background-size: 200% 200%;
+        background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+        border: none;
+        padding: 15px;
+        width: 30%;
+        color: rgb(255 255 255);
+        font-family: Circular-bold;
+        border-radius: 0.55rem;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    @include for-narrow-layout {
+        display: block;
+}
+
 }

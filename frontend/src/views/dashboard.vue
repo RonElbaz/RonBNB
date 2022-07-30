@@ -37,8 +37,8 @@
         <table class="responsive-table">
             <thead>
                 <tr>
-                    <th scope="col">Date</th>
                     <th scope="col">Guest name</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Stay title</th>
                     <th scope="col">Nights</th>
                     <th scope="col">Guests</th>
@@ -51,8 +51,8 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders">
-                    <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <th scope="row">{{ order.buyer.fullname }}</th>
+                    <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
                     <td data-title="Stay title">{{ order.stay.name }}</td>
                     <td data-title="Nights">{{ nightsAmount(order) }}</td>
                     <td data-title="Guests">{{ guestsAmount(order) }}</td>
