@@ -1,5 +1,5 @@
 import io from 'socket.io-client'
-import { userService } from './user.service'
+import { userService } from './user-service.js'
 
 
 export const SOCKET_EVENT_ORDER_UPDATED = 'order-updated'
@@ -26,8 +26,8 @@ function createSocketService() {
     setup() {
       socket = io(baseUrl)
       setTimeout(()=>{
-        const user = userService.getLoggedinUser()
-        if (user) this.login(user._id)
+        const user = userService.getLoggedInUser()
+        // if (user) this.login(user._id)
       }, 500)
     },
     on(eventName, cb) {

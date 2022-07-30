@@ -8,6 +8,7 @@ export const order = {
             state.orders = orders
         },
         addOrder(state, { newOrder }) {
+            console.log(newOrder);
             state.orders.push(newOrder)
         },
         approveOrder(state, { newOrder }) {
@@ -30,8 +31,10 @@ export const order = {
             }
         },
         async addOrder({ commit }, { order }) {
+            console.log(order);
             try {
                 var newOrder = await orderService.addOrder(order)
+                console.log("on action", newOrder);
                 commit({ type: 'addOrder', newOrder })
             }
             catch (err) {
@@ -89,8 +92,10 @@ export const order = {
         getRevneuePerMonth(state) {
             if (!state.orders) return
             // let diff = 0
+            console.log(state.orders);
             let month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             state.orders.forEach((order) => {
+                if(!order) return
                 let orderDate = new Date(order.startDate).getMonth()
                 if(order.status === 'Approved') month[orderDate] += order.totalPrice
             })

@@ -116,7 +116,7 @@
                             <ul class="dropdown-menu">
                                 <!-- ! show login-section and public-section and hide the others only if a user has not logged in ,  -->
                                 <!-- v-if="" -->
-                                <div v-if="checkLoggedIn" class="login-section">
+                                <div v-if="!checkLoggedIn" class="login-section">
                                     <li>
                                         <p class="link signup">Sign up</p>
                                     </li>
@@ -137,7 +137,7 @@
                                         <router-link class="link help" to="/">Help</router-link>
                                     </li>
                                 </div>
-                                <div v-if="!checkLoggedIn" class="user-info-section">
+                                <div v-if="checkLoggedIn" class="user-info-section">
                                     <li>
                                         <router-link class="link messages" to="/">Messages</router-link>
                                     </li>
@@ -169,7 +169,7 @@
                                         <router-link class="link account" to="/">Account</router-link>
                                     </li>
                                 </div>
-                                <div v-if="!checkLoggedIn" class="user-logout-section">
+                                <div v-if="checkLoggedIn" class="user-logout-section">
                                     <li>
                                         <router-link class="link help" to="/">Help</router-link>
                                     </li>
@@ -522,7 +522,7 @@ export default {
                 return true
             }
             else {
-                return this.isLoggedInUser = false
+                this.isLoggedInUser = false
                 return false
             }
         },

@@ -1,14 +1,41 @@
 import { storageService } from "./storage-service.js"
 import { httpService } from "./http.service.js"
+
+import {store} from '../store'
+import { socketService, SOCKET_EVENT_ORDER_ADDED, SOCKET_EVENT_ORDER_UPDATED } from './socket.service.js'
+
+const orderChannel = new BroadcastChannel('orderChannel')
+
+;(() => {
+  orderChannel.addEventListener('message', (ev) => {
+    console.log('msg event', ev.data)
+    store.commit({type:ev.data.type, newOrder:ev.data.order})
+  })
+  setTimeout(()=>{
+    socketService.on(SOCKET_EVENT_ORDER_ADDED, (newOrder) => {
+      console.log('GOT from socket', newOrder)
+      // store.commit({type: 'addOrder', newOrder})
+    })
+    socketService.on(SOCKET_EVENT_ORDER_UPDATED, (order) => {
+      console.log("updated order");
+      console.log(order);
+    })
+  }, 0)
+
+})()
+
 export const orderService = {
   query,
-  getById,
+  // getById,
   addOrder,
 }
 
 
+
+
+
 const DB_KEY = "orderDB"
-_createOrders()
+// _createOrders()
 
 async function query(){
     var orders = await httpService.get(`order`)
@@ -19,31 +46,39 @@ async function addOrder(order){
     var newOrder;
     // console.log(order);
     if(!order._id){ 
-      newOrder = httpService.post( `order`, order)
+      newOrder = await httpService.post( `order`, order)
+      console.log("onAdd", newOrder);
+      orderChannel.postMessage({type: 'addOrder', order: newOrder})
     }
     else{
-      newOrder = httpService.put( `order`, order)
+      newOrder = await httpService.put( `order`, order)
+      console.log("newOrder",newOrder);
+      if(newOrder.status === "Approved"){
+        orderChannel.postMessage({type: 'approveOrder', order: newOrder})
+      }else{
+        orderChannel.postMessage({type: 'declineOrder', order: newOrder})
+      }
     } 
     return newOrder
 }
 
-async function getById(orederId) {
-    try {
-      var stay = await storageService.get(DB_KEY, orederId)
-      return stay
-    } catch (error) {
-      console.log(error)
-    }
-  }
+// async function getById(orederId) {
+//     try {
+//       var stay = await storageService.get(DB_KEY, orederId)
+//       return stay
+//     } catch (error) {
+//       console.log(error)
+//     }
+//   }
   
-  async function _createOrders() {
-    var orders = JSON.parse(localStorage.getItem(DB_KEY))
-    if (!orders || !orders.length) {
-      orders = _createOrder()
-    //   console.log(orders)
-      localStorage.setItem(DB_KEY, JSON.stringify(orders))
-    }
-  }
+  // async function _createOrders() {
+  //   var orders = JSON.parse(localStorage.getItem(DB_KEY))
+  //   if (!orders || !orders.length) {
+  //     orders = _createOrder()
+  //   //   console.log(orders)
+  //     localStorage.setItem(DB_KEY, JSON.stringify(orders))
+  //   }
+  // }
 
   function _createOrder(){
     var orders =  [
