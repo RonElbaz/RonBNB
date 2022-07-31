@@ -19,6 +19,7 @@
   //   padding-right: 25px;
   // }
 }
+
 .main-layout-margin {
   max-width: 1760px;
   margin-left: 80px;
@@ -34,12 +35,15 @@
     margin-right: 25px;
   }
 }
+
 .right-unit-main-layout-margin {
   // ! if this class is given => add max width of 1760px to the parent element
   margin-right: 80px;
+
   @include for-large-layout {
     margin-right: 40px;
   }
+
   @include for-slim-layout {
     margin-right: 25px;
   }
@@ -53,9 +57,11 @@
 .left-unit-main-layout {
   // ! if this class is given => add max width of 1760px to the parent element
   padding-left: 80px;
+
   @include for-large-layout {
     padding-left: 40px;
   }
+
   @include for-slim-layout {
     padding-left: 25px;
   }
@@ -69,9 +75,11 @@
 .left-unit-main-layout-margin {
   // ! if this class is given => add max width of 1760px to the parent element
   margin-left: 80px;
+
   @include for-large-layout {
     margin-left: 40px;
   }
+
   @include for-slim-layout {
     margin-left: 25px;
   }
@@ -81,12 +89,13 @@
   //   padding-right: 25px;
   // }
 }
+
 // .main-text {
 //   margin-bottom: rem(90px);
 // }
 
 
-.details-layout{
+.details-layout {
   max-width: 1760px;
   padding-left: 315px;
   padding-right: 315px;
@@ -94,13 +103,26 @@
 
   position: static !important;
 
-  @include for-large-layout {
-    padding-left: 20px;
-    padding-right: 20px;
+  @include for-wide-layout {
+      // max-width: none;
+      padding-left: 100px;
+      padding-right: 100px;
   }
 
-  @include for-slim-layout {
-    padding-left: 25px;
-    padding-right: 25px;
+  @include for-large-layout {
+    padding-left: 40px;
+    padding-right: 40px;
   }
+
+  @mixin for-normal-layout {
+      padding-left: 10px;
+      padding-right: 10px;
+  }
+
+  @include for-narrow-layout {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+
 }

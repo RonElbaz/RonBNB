@@ -909,21 +909,20 @@ a {
       width: 100%;
     }
   }
-}
-
-.bnb-btn {
-  background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
-  transition: opacity 1.25s ease 0s !important;
-  // min-width: 200px;
-  background-size: 200% 200%;
-  background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
-  border: none;
-  height: 3rem;
-  width: 87%;
-  color: rgb(255 255 255);
-  font-family: Circular-bold;
-  border-radius: 0.55rem;
-  font-size: 16px;
-  margin-bottom: 16px;
-  margin: 20px auto;
+  .bnb-btn {
+    background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+    transition: opacity 1.25s ease 0s !important;
+    // min-width: 200px;
+    background-size: 200% 200%;
+    background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+    border: none;
+    height: 3rem;
+    width: 87%;
+    color: rgb(255 255 255);
+    font-family: Circular-bold;
+    border-radius: 0.55rem;
+    font-size: 16px;
+    margin-bottom: 16px;
+    margin: 20px auto;
+  }
 }

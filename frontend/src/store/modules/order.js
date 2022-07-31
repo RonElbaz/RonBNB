@@ -8,8 +8,8 @@ export const order = {
             state.orders = orders
         },
         addOrder(state, { newOrder }) {
+            console.log(newOrder);
             state.orders.push(newOrder)
-            console.log(state.orders)
         },
         approveOrder(state, { newOrder }) {
             const idx = state.orders.findIndex(currorder => currorder._id === newOrder._id)
@@ -31,8 +31,10 @@ export const order = {
             }
         },
         async addOrder({ commit }, { order }) {
+            console.log(order);
             try {
                 var newOrder = await orderService.addOrder(order)
+                console.log("on action", newOrder);
                 commit({ type: 'addOrder', newOrder })
             }
             catch (err) {
@@ -90,38 +92,57 @@ export const order = {
         getRevneuePerMonth(state) {
             if (!state.orders) return
             // let diff = 0
+            console.log(state.orders);
             let month = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
             state.orders.forEach((order) => {
+                if(!order) return
                 let orderDate = new Date(order.startDate).getMonth()
                 if(order.status === 'Approved') month[orderDate] += order.totalPrice
-
             })
-
-            const revneuePerMonth = {
-                labels: [
-                    'January',
-                    'February',
-                    'March',
-                    'April',
-                    'May',
-                    'June',
-                    'July',
-                    'August',
-                    'September',
-                    'October',
-                    'November',
-                    'December'
-                ],
-                datasets: [
-                    {
-                        data: month,
-                        backgroundColor: '#f87979',
-                        label: 'Revneue per month'
-                    },
-                ],
-            }
-            return revneuePerMonth
-        },
+                
+                const revneuePerMonth = {
+                    labels: [
+                        'January',
+                        'February',
+                        'March',
+                        'April',
+                        'May',
+                        'June',
+                        'July',
+                        'August',
+                        'September',
+                        'October',
+                        'November',
+                        'December'
+                    ],
+                    datasets: [
+                        {
+                            data: month,
+                            backgroundColor: '#f87979',
+                            label: 'Revneue per month'
+                        },
+                        // {
+                        //     data: month[2],
+                        //     backgroundColor: '#f87979',
+                        //     // label: 'Revneue per month'
+                        // },
+                    ],
+                }
+                return revneuePerMonth
+            },
+            // data: {
+            //     labels: ['total votes']
+            //   , datasets: [{
+            //         label: 'Blue'
+            //       , backgroundColor: ['#2C79C5']
+            //       , data: ['12']
+            //   },{
+            //         label: 'Green'
+            //       , backgroundColor: ['#7FA830']
+            //       , data: ['2']
+            //   },
+            //   ...
+            //   ]
 
     }
 }
