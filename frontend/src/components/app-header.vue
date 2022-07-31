@@ -51,7 +51,7 @@
                     </div>
                     <div v-show="mobile" class="flex search-mobile-filter">
                         <button class="flex">
-                            <div class="flex icon-container">
+                            <div class="flex icon-container" @click="openModalFilter">
                                 <div class="flex icon-container-filter">
                                     <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                         role="presentation" focusable="false"
@@ -331,6 +331,9 @@ export default {
     //     // }
     // },
     methods: {
+        openModalFilter() {
+            this.$store.commit("onOpenModalFiter")
+        },
         loggedInModal() {
             this.isLoggedInModal = true
             this.isLoggedInModalOpen = true

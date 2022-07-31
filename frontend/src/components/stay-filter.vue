@@ -3,6 +3,7 @@
     <div class="filter-box" :class="{
         'main-layout': showList, 'explore-page': isExplorePage
     }">
+        <div>{{ IsOpenModalFilter }}</div>
         <div v-if="isScrolled" class="left-scroll-container left-unit-main-layout-margin ">
             <button class="left-scroll btn-scroll" @click="swipeLeft">
                 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation"
@@ -27,7 +28,7 @@
                         <div></div>
                     </div>
                 </button>
-                <div v-else class="stays-amount">
+                <div v-else class="stays-">
                     {{ stayLength }} stays
                 </div>
             </div>
@@ -470,6 +471,13 @@ export default {
 
     },
     computed: {
+        IsOpenModalFilter() {
+        // ! ask ron how to close the filter
+            // this.dialogFormVisible = this.$store.getters.getIsOpenModalFilter
+            // return ""
+            // console.log("aaa")
+            // return this.$store.getters.getIsOpenModalFilter
+        },
     },
     methods: {
         scrollTo(element, scrollPixels, duration) {
@@ -554,18 +562,16 @@ export default {
             this.form.propertyType = []
             this.form.amenities = []
             this.form.superHost = false
+
         },
         onSetFilter(category = null) {
             var filter;
-
             if (typeof (category) === 'string') {
                 filter = { category }
-
             } else {
                 this.dialogFormVisible = false
                 filter = JSON.parse(JSON.stringify(this.form));
             }
-            // console.log(filter)
             this.$store.dispatch({ type: "setFilter", filterBy: { ...filter } })
         },
         imgUrl(image) {
