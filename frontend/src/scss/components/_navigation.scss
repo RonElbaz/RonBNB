@@ -669,6 +669,7 @@ a {
     .guest-box {
       // after
       // margin: -1px;
+      z-index: 2;
       flex: 1.24 0 auto;
       min-width: 0;
       position: relative;

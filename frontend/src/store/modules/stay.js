@@ -9,15 +9,15 @@ export const stay = {
       state.stays = stays
       // console.log(state.stays)
     },
-    updateStay(state, {newStay}){
+    updateStay(state, { newStay }) {
       const idx = state.stays.findIndex((currStay) => currStay._id === newStay._id)
-      console.log(newStay._id);
+      console.log(newStay._id)
       if (idx !== -1) {
-        state.stays.splice(idx, 1, {...newStay});
+        state.stays.splice(idx, 1, { ...newStay })
       } else {
-        console.log("not good shit");
+        console.log('not good shit')
       }
-   }
+    },
   },
   actions: {
     async loadStays({ commit }) {
@@ -29,34 +29,33 @@ export const stay = {
         console.log('couldnt load stays', err)
       }
     },
-    async setFilter(state, { filterBy }) {
-      state.filterBy = filterBy
+    async setFilter({ commit }, { filterBy }) {
+      // state.filterBy = filterBy
       try {
         var stays = await stayService.query(filterBy)
-        state.commit({ type: 'setStays', stays })
+        commit({ type: 'setStays', stays })
       } catch (err) {
         console.log(err)
       }
     },
-    async updateStay({commit},{stay}){
+    async updateStay({ commit }, { stay }) {
       stay.isLiked = !stay.isLiked
       // console.log(stay);
-      try{
-          var newStay = await stayService.updateStay({...stay})
-          console.log(newStay);
-          commit({type:'updateStay', newStay})
+      try {
+        var newStay = await stayService.updateStay({ ...stay })
+        console.log(newStay)
+        commit({ type: 'updateStay', newStay })
+      } catch (err) {
+        console.log('couldnt update stay', err)
       }
-      catch(err){
-          console.log("couldnt update stay", err);
-      }
-  }
+    },
   },
   getters: {
     staysForDisplay({ stays }) {
       return stays
     },
     favoritStays({ stays }) {
-      return stays.filter(stay => stay.isLiked)
+      return stays.filter((stay) => stay.isLiked)
     },
   },
 }

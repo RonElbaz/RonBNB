@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="main-layout filter-container"> -->
-    <stay-filter :showList="true" />
+  <stay-filter :showList="true" />
   <!-- </div> -->
   <stay-list :stays="getStays" />
 
@@ -20,16 +20,6 @@ export default {
     appFooter,
     stayFilter,
     StayList,
-    
-},
-  data() {
-    return {
-
-    };
-  },
-  methods: {},
-
-  created() {
 
   },
   computed: {
