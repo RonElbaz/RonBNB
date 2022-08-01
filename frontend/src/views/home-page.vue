@@ -22,6 +22,10 @@ export default {
     StayList,
 
   },
+  async created() {
+    // ! add loding thing ron and amit
+    await this.$store.dispatch({ type: "setFilter" })
+  },
   computed: {
     getStays() {
       return this.$store.getters.staysForDisplay
