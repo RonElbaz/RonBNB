@@ -11,11 +11,24 @@
                 <input class="input-guests-reserve" disabled :placeholder=getGuests>
             </div>
         </div>
-        <div v-if="isGuestSelected" class="flex column space-between guest-dropdown" v-click-outside="closeGuest, null">
-            <guest class="guest-component" title="adults" desc="Ages 13 or above" @addGuest="addAdults" />
-            <guest class="guest-component" title="Children" desc="Ages 2-12" @addGuest="addChildren" />
-            <guest class="guest-component" title="Infants" desc="Ages 13 or above" @addGuest="addInfants" />
-            <guest class="guest-component" title="Pets" desc="Bringing a service animal?" @addGuest="addPets" />
+        <div v-if="isGuestSelected" class="space-between guest-dropdown" v-click-outside="closeGuest, null">
+            <!-- <div class="guest-holder"> -->
+            <section class="guest-section">
+                <div class="guest-blank">
+                    <div class="guest-space">
+                        <div class="guest-blank2">
+                            <guest class="guest-component" title="Adults" desc="Ages 13 or above"
+                                @addGuest="addAdults" />
+                            <guest class="guest-component" title="Children" desc="Ages 2-12" @addGuest="addChildren" />
+                            <guest class="guest-component" title="Infants" desc="Ages 13 or above"
+                                @addGuest="addInfants" />
+                            <guest class="guest-component" title="Pets" desc="Bringing a service animal?"
+                                @addGuest="addPets" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- </div> -->
         </div>
     </div>
 </template>

@@ -8,7 +8,7 @@
       <div class="loader"></div>
     </div>
     <router-view></router-view>
-    <app-footer />
+    <app-footer v-if="mobile" />
   </div>
 </template>
 
@@ -26,10 +26,21 @@ export default {
   },
   data() {
     return {
-      isLoading: false
-    };
+      openSearchBar: false,
+      isLoading: false,
+      mobile: null,
+    }
   },
   methods: {
+    cheackScreen() {
+      this.windowWidth = window.innerWidth
+      if (this.windowWidth < 744) {
+        this.mobile = true
+        return
+      }
+      this.mobile = false
+      return
+    },
   },
 
   created() {
@@ -37,6 +48,8 @@ export default {
     this.$store.dispatch({ type: "loadStays" }).then(() => this.isLoading = false)
     this.$store.dispatch({ type: 'loadUser' })
     this.$store.dispatch({ type: 'loadOrders' })
+    window.addEventListener("resize", this.cheackScreen)
+    this.cheackScreen()
   },
 
 };
