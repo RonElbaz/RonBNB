@@ -135,6 +135,11 @@
   // before of guest-container
   width: 100%;
   border-radius: 32px;
+
+  .guest-dropdown {
+    right: -42.5px;
+    top: 114%;
+  }
 }
 
 .guest-container {
