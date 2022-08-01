@@ -159,7 +159,7 @@
                         </h1>
                     </div>
                     <div class="date-area">
-                        <date-picker-try :startDate="stay.stayDate.startDate" :endDate="stay.stayDate.endDate" @addDate="setDate" />
+                        <date-picker-try @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
                         <!-- <el-button plain class="bnb-btn" @mousemove="getPos"
                             :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
@@ -235,31 +235,23 @@
                 </GMapCluster>
             </GMapMap>
         </div>
-        <div class="mobile-reserve-bottom">
-            <div class="flex space-between align-items-center">
-                <div class="felx column">
-                <span class="price">${{ stay.price }} <span class="night">night</span> </span>
-                <p @click="">Dates</p>
-                </div>
-                <button @click="onAddOrder" class="bnb-btn">Reserve</button>
-
-            </div>
-        </div>
         <section class="login-area" v-if="isReserveModal">
             <div class="grey-underline">
                 <h1 class="login-title">Your order has been sent</h1>
             </div>
             <div class="inputs-container grey-underline">
-                <h1 class="welcome-title">nn</h1>
-                <img :src="getImage" alt="">
+                <h1 class="welcome-title">Now we wait the host wiil approve it</h1>
                 <!-- <input class="username-input" type="text" placeholder="Username">
                     <input class="paswword-input" type="password" placeholder="Password"> -->
             </div>
             <div class="btn-reserve-modal-area">
-                <button class="bnb-btn-reserve-modal" @click="moveToTrips">Ok</button>
-            </div>
+                <button class="bnb-btn-reserve-modal" @click="moveToTrips">Move to my trips</button>
+                <button class="bnb-btn-reserve-modal" @click="moveToHomePage">Confirm</button>
+                <!-- <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
+                    :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }">Confrim</button>-->
+            </div> 
             <button @click="closeReserveModal" class="exit-modal">
-              <i class="fa-solid fa-x"></i>
+                X
             </button>
         </section>
         <div v-if="isReserveModalOpen" @click="closeModal" class="modal-logged-screen"></div>
@@ -273,8 +265,7 @@ import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
 import longTxt from '../components/long-txt.vue'
-import { ElMessage } from 'element-plus'
-
+import { socketService, SOCKET_EVENT_ORDER_ADDED } from '../services/socket.service.js'
 // import stayReserve from '../components/stay-reserve.vue'
 
 export default {
@@ -401,19 +392,12 @@ export default {
 
 
             //TODO:uncomment when we can get date input from user
-            this.$store.dispatch({ type: 'addOrder', order: { ...order } }).then(() => {
-                this.isReserveModalOpen = true
-                this.isReserveModal = true
-                this.open2()
-            })
+            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+            socketService.emit(SOCKET_EVENT_ORDER_ADDED)
             // this.centerDialogVisible = true
+            this.isReserveModalOpen = true
+            this.isReserveModal = true
 
-        },
-        open2() {
-            ElMessage({
-                message: 'You got a new order',
-                type: 'success',
-            })
         },
         getPos(ev) {
             // console.log(ev)
@@ -429,7 +413,6 @@ export default {
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
         setDate(selectedDate) {
-            console.log('selectedDate',selectedDate);
             this.stayDate = selectedDate
             const startDate = new Date(selectedDate[0]);
             const endDate = new Date(selectedDate[1]);
@@ -443,7 +426,7 @@ export default {
         handleScroll() {
             this.scrollpx = window.scrollY;
         },
-        
+
 
     },
     computed: {
@@ -475,13 +458,7 @@ export default {
                 if (el !== 'rating') sum += this.stay.reviewScores[el]
             }
             return (sum / (Object.keys(this.stay.reviewScores).length - 1)) / 2
-        },
-         getImage(){
-            return new URL(`../images/stay-images/${this.stay.imgUrls[0]}`, import.meta.url).href
-            // return this.stay.imgUrls[0]
         }
-
-       
     },
     components: {
         imageGallery,
