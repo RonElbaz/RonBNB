@@ -7,6 +7,8 @@
 
 <script>
 import { eventBus, SHOW_MSG } from "../services/event-bus.service.js"
+import { ElMessage } from 'element-plus'
+
 
 export default {
   created() {
@@ -30,6 +32,15 @@ export default {
       if (!this.msg) return
       return `alert-${this.msg.type}`
     },
+  },
+  methods: {
+    open2() {
+      ElMessage({
+        message: 'Congrats, this is a success message.',
+        type: 'success',
+      })
+    }
+
   },
 }
 </script>

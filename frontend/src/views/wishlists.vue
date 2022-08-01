@@ -1,7 +1,7 @@
 <template>
    <section class="main-layout">
     <h1 style="margin:20px 0">Your Wishlist</h1>
-    <stay-list :stays="getStays" />
+    <stay-list :isWishList="true" :stays="getStays" />
     </section>
 </template>
 

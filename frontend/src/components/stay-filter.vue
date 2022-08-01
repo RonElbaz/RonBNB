@@ -214,23 +214,23 @@ export default {
             filterOpts: [
                 {
                     label: "All",
-                    src: "../images/label-images/global.jpg",
+                    src: "https://a0.muscache.com/pictures/33848f9e-8dd6-4777-b905-ed38342bacb9.jpg",
                 },
                 {
                     label: "Islands",
-                    src: "../images/label-images/islands.jpg",
+                    src: "https://a0.muscache.com/pictures/8e507f16-4943-4be9-b707-59bd38d56309.jpg",
                 },
                 {
                     label: "Beach",
-                    src: "../images/label-images/beach.jpg",
+                    src: "https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg",
                 },
                 {
                     label: "Amazing pools",
-                    src: "../images/label-images/pool.jpg",
+                    src: "https://a0.muscache.com/pictures/10ce1091-c854-40f3-a2fb-defc2995bcaf.jpg",
                 },
                 {
                     label: "OMG!",
-                    src: "../images/label-images/omg.jpg",
+                    src: "https://a0.muscache.com/pictures/c5a4f6fc-c92c-4ae8-87dd-57f1ff1b89a6.jpg",
                 },
                 {
                     label: "National parks",
@@ -246,7 +246,7 @@ export default {
                 },
                 {
                     label: "Camping",
-                    src: "../images/label-images/camping.jpg",
+                    src: "https://a0.muscache.com/pictures/ca25c7f3-0d1f-432b-9efa-b9f5dc6d8770.jpg",
                 },
                 {
                     label: "Amazing views",
@@ -254,11 +254,11 @@ export default {
                 },
                 {
                     label: "Desert",
-                    src: "../images/label-images/desert.jpg",
+                    src: "https://a0.muscache.com/pictures/a6dd2bae-5fd0-4b28-b123-206783b5de1d.jpg",
                 },
                 {
                     label: "Arctic",
-                    src: "../images/label-images/artcit.jpg",
+                    src: "https://a0.muscache.com/pictures/8b44f770-7156-4c7b-b4d3-d92549c8652f.jpg",
                 },
                 {
                     label: "Tiny homes",
@@ -423,10 +423,6 @@ export default {
                 {
                     label: "Creative spaces",
                     src: "https://a0.muscache.com/pictures/8a43b8c6-7eb4-421c-b3a9-1bd9fcb26622.jpg",
-                },
-                {
-                    label: "Trulli",
-                    src: "https://a0.muscache.com/pictures/33848f9e-8dd6-4777-b905-ed38342bacb9.jpg",
                 },
                 {
                     label: "Riads",

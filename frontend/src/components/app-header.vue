@@ -155,7 +155,7 @@
                                         </router-link>
                                     </li>
                                     <li>
-                                        <router-link class="link experience" to="/stay/dashboard/">Dashboard
+                                        <router-link v-if="checkHost" class="link experience" to="/stay/dashboard/">Dashboard
                                         </router-link>
                                     </li>
                                 </div>
@@ -195,7 +195,7 @@
                     <h1 class="login-title">Login</h1>
                 </div>
                 <div class="inputs-container grey-underline">
-                    <h1 class="welcome-title">Welcome to restya</h1>
+                    <h1 class="welcome-title">Welcome to rentya</h1>
                     <input class="username-input" v-model="userCred.username" type="text" placeholder="Username">
                     <input class="paswword-input" v-model="userCred.password" type="password" placeholder="Password">
                 </div>
@@ -565,10 +565,15 @@ export default {
                 return false
             }
         },
+        checkHost(){
+            var loggedinUser = this.$store.getters.getLoggedInUser
+            if(loggedinUser.isHost) return true
+            return false
+        },
         check() {
             return this.$store.getters.getLoggedInUser
         },
     },
-    components: { datePicker, guestsPicker }
+        components: { datePicker, guestsPicker }
 }
 </script>

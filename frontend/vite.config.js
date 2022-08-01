@@ -16,5 +16,6 @@ export default defineConfig({
     outDir: "../backend/public",
     emptyOutDir: true,
     assestsDir: "./dist",
+    chunkSizeWarningLimit: 1500
   },
 });

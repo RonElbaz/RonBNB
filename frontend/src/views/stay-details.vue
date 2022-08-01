@@ -159,7 +159,7 @@
                         </h1>
                     </div>
                     <div class="date-area">
-                        <date-picker-try @addDate="setDate" />
+                        <date-picker-try :startDate="stay.stayDate.startDate" :endDate="stay.stayDate.endDate" @addDate="setDate" />
                         <guests-picker @addGuests="setGuests" :isHeader="false" />
                         <!-- <el-button plain class="bnb-btn" @mousemove="getPos"
                             :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }" @click="onAddOrder">Reserve
@@ -236,28 +236,30 @@
             </GMapMap>
         </div>
         <div class="mobile-reserve-bottom">
-<div class="flex space-between">
-    <span>${{stay.price}} night</span>
-    <button class="bnb-btn">Reserve</button>
-</div>
-</div>
+            <div class="flex space-between align-items-center">
+                <div class="felx column">
+                <span class="price">${{ stay.price }} <span class="night">night</span> </span>
+                <p @click="">Dates</p>
+                </div>
+                <button @click="onAddOrder" class="bnb-btn">Reserve</button>
+
+            </div>
+        </div>
         <section class="login-area" v-if="isReserveModal">
             <div class="grey-underline">
                 <h1 class="login-title">Your order has been sent</h1>
             </div>
             <div class="inputs-container grey-underline">
-                <h1 class="welcome-title">Now we wait the host wiil approve it</h1>
+                <h1 class="welcome-title">nn</h1>
+                <img :src="getImage" alt="">
                 <!-- <input class="username-input" type="text" placeholder="Username">
                     <input class="paswword-input" type="password" placeholder="Password"> -->
             </div>
             <div class="btn-reserve-modal-area">
-                <button class="bnb-btn-reserve-modal" @click="moveToTrips">Move to my trips</button>
-                <button class="bnb-btn-reserve-modal" @click="moveToHomePage">Confirm</button>
-                <!-- <button @click="closeLoggedinModal" class="bnb-btn" @mousemove="getPos"
-                    :style="{ '--mouse-x': mouseX, '--mouse-y': mouseY }">Confrim</button>-->
-            </div> 
+                <button class="bnb-btn-reserve-modal" @click="moveToTrips">Ok</button>
+            </div>
             <button @click="closeReserveModal" class="exit-modal">
-                X
+              <i class="fa-solid fa-x"></i>
             </button>
         </section>
         <div v-if="isReserveModalOpen" @click="closeModal" class="modal-logged-screen"></div>
@@ -271,9 +273,8 @@ import imageGallery from '../components/image-gallery.vue'
 import datePickerTry from '../components/date-picker-try.vue'
 import guestsPicker from '../components/guests-picker.vue'
 import longTxt from '../components/long-txt.vue'
-
+import { ElMessage } from 'element-plus'
 // import stayReserve from '../components/stay-reserve.vue'
-
 export default {
     name: 'stay-details',
     data() {
@@ -310,10 +311,7 @@ export default {
         }
         this.commentsArr = stayService.getRandomArr()
         // console.log(this.commentsArr)
-
         window.addEventListener('scroll', this.handleScroll);
-
-
     },
     destroyed() {
         window.removeEventListener('scroll', this.handleScroll);
@@ -353,7 +351,6 @@ export default {
                     <progress class="progress-bar" value="${score[1]}" max="10"></progress>
                     <h2 class="score-number"> ${(score[1]) / 2}</h2>
                 </div>`
-
             }
         },
         closeReserveModal() {
@@ -370,23 +367,17 @@ export default {
                 return
             }
             //check if user is logged in
-
-
             var order = {
                 buyer: {},
                 stay: {},
                 host: {}
             };
-            order.host.Id = this.stay._id
+            order.host._id = this.stay.host._id
             order.host.fullname = this.stay.host.fullname
             order.stay.address = this.stay.address.street
             order.createdAt = Date.now()
-
             order.buyer._id = this.user._id
             order.buyer.fullname = this.user.fullname
-
-
-
             order.startDate = this.stayDate[0]
             order.endDate = this.stayDate[1]
             order.totalPrice = this.stay.price * this.stayLength + (this.stayLength * 25)
@@ -395,14 +386,19 @@ export default {
             order.stay._id = this.stay._id
             order.stay.name = this.stay.name
             order.stay.price = this.stay.price
-
-
             //TODO:uncomment when we can get date input from user
-            this.$store.dispatch({ type: 'addOrder', order: { ...order } })
+            this.$store.dispatch({ type: 'addOrder', order: { ...order } }).then(() => {
+                this.isReserveModalOpen = true
+                this.isReserveModal = true
+                // this.open2()
+            })
             // this.centerDialogVisible = true
-            this.isReserveModalOpen = true
-            this.isReserveModal = true
-
+        },
+        open2() {
+            ElMessage({
+                message: 'You got a new order',
+                type: 'success',
+            })
         },
         getPos(ev) {
             // console.log(ev)
@@ -418,6 +414,7 @@ export default {
             return new URL(`../images/user-images/${this.commentsArr[idx]}.jpg`, import.meta.url).href
         },
         setDate(selectedDate) {
+            console.log('selectedDate',selectedDate);
             this.stayDate = selectedDate
             const startDate = new Date(selectedDate[0]);
             const endDate = new Date(selectedDate[1]);
@@ -431,14 +428,12 @@ export default {
         handleScroll() {
             this.scrollpx = window.scrollY;
         },
-
-
+        
     },
     computed: {
         superHost() {
             return this.stay.host.isSuperhost ? 'Superhost' : ''
         },
-
         guestSrting() {
             return (this.stay.capacity === 1) ? 'guest' : 'guests'
         },
@@ -463,14 +458,18 @@ export default {
                 if (el !== 'rating') sum += this.stay.reviewScores[el]
             }
             return (sum / (Object.keys(this.stay.reviewScores).length - 1)) / 2
+        },
+         getImage(){
+            return new URL(`../images/stay-images/${this.stay.imgUrls[0]}`, import.meta.url).href
+            // return this.stay.imgUrls[0]
         }
+       
     },
     components: {
         imageGallery,
         datePickerTry,
         guestsPicker,
         longTxt
-
     }
 }
 </script>
