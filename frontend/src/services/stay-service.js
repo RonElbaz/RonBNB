@@ -95,7 +95,8 @@ async function query(filterBy = null) {
         return destReg.test(stay.address.street) ||
                destReg.test(stay.address.country) ||
                destReg.test(stay.address.city) ||
-               destReg.test(stay.address.countryCode)
+               destReg.test(stay.address.countryCode) ||
+               destReg.test(stay.name)
     })
   }
 

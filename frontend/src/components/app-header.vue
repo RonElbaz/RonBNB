@@ -154,7 +154,7 @@
                                         </router-link>
                                     </li>
                                     <li>
-                                        <router-link class="link experience" to="/stay/dashboard/">Dashboard
+                                        <router-link v-if="checkHost" class="link experience" to="/stay/dashboard/">Dashboard
                                         </router-link>
                                     </li>
                                 </div>
@@ -542,6 +542,11 @@ export default {
                 this.isLoggedInUser = false
                 return false
             }
+        },
+        checkHost(){
+            var loggedinUser = this.$store.getters.getLoggedInUser
+            if(loggedinUser.isHost) return true
+            return false
         },
         check() {
             return this.$store.getters.getLoggedInUser

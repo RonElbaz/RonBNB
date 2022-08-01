@@ -78,6 +78,7 @@
 import { defineComponent } from "vue";
 import { PieChart, BarChart } from "vue-chart-3";
 import { Chart, registerables } from "chart.js";
+import { userService } from '../services/user-service.js'
 import moment from 'moment'
 
 Chart.register(...registerables);
@@ -187,7 +188,10 @@ computed: {
         return this.$store.getters.getRevneuePerMonth
     },
     orderTry() {
-        return this.$store.getters.ordersForDisplay
+        var orders = this.$store.getters.ordersForDisplay 
+        console.log(orders);
+        console.log('order.host._id===userService.getLoggedInUser()._id', userService.getLoggedInUser()._id);
+        return orders.filter((order)=>order.host._id===userService.getLoggedInUser()._id)
     }
 
 },

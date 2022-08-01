@@ -33,6 +33,8 @@
 <script>
 
 import moment from 'moment'
+import { userService } from '../services/user-service.js'
+
 
 export default {
     name: 'stay-trip',
@@ -113,8 +115,9 @@ export default {
     },
     computed: {
         getOrders() {
-            console.log("in trips");
-            return this.$store.getters.ordersForDisplay
+            var orders = this.$store.getters.ordersForDisplay
+            console.log(orders);
+            return orders.filter((order)=>order.buyer._id === userService.getLoggedInUser()._id)
         }
     },
     components: {
