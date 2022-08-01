@@ -133,7 +133,6 @@ header {
 }
 
 .search.search-mobile {
-
   box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
   &:hover {
     box-shadow: 0 1px 2px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 5%);
@@ -505,6 +504,10 @@ a {
   width: 100%;
   z-index: 1;
   left: 0;
+
+  @include for-narrow-layout {
+    display: none;
+  }
 }
 
 .modal-logged-screen {
@@ -917,7 +920,7 @@ a {
     transition: opacity 1.25s ease 0s !important;
     // min-width: 200px;
     background-size: 200% 200%;
-    background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+    background-position: calc((100 - var(--mouse-x, 0)) * 1%) calc((100 - var(--mouse-y, 0)) * 1%);
     border: none;
     height: 3rem;
     width: 87%;
