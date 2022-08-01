@@ -1,8 +1,8 @@
 <template>
   <div>
-    <user-msg/>
+    <!-- <user-msg/> -->
     <!-- <div :class="{ 'open-modal': openSearchBar }"> -->
-    <app-header @isOpenScreen="isOpenScreen" />
+    <app-header />
     <!-- </div> -->
     <div v-if="isLoading" class="loader-container">
       <div class="loader"></div>
@@ -26,7 +26,6 @@ export default {
   },
   data() {
     return {
-      openSearchBar: false,
       isLoading: false
     };
   },

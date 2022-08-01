@@ -305,6 +305,10 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 40px 100px;
+
+            @include for-narrow-layout {
+                grid-gap: 15px 35px;
+            }
         }
 
         .review-score {
@@ -563,7 +567,7 @@ progress::-webkit-progress-value {
   background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
   border: none;
   height: 3rem;
-  width: 30%;
+  width: 100%;
   color: rgb(255 255 255);
   font-family: Circular-bold;
   border-radius: 0.55rem;
@@ -573,9 +577,8 @@ progress::-webkit-progress-value {
 }
     
     .btn-reserve-modal-area{
-     display: flex;
-     justify-content: space-between;
      padding: 14px 24px;
+     width: 100%;
     }
 
 
@@ -609,6 +612,16 @@ progress::-webkit-progress-value {
         border-radius: 0.55rem;
         font-size: 16px;
         text-decoration: none;
+    }
+
+    .price{
+        font-size: 18px;
+        font-family: Circular-bold;
+    }
+
+    .night{
+        font-size: 14px;
+        font-family: cereal;
     }
 
     @include for-narrow-layout {

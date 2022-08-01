@@ -53,7 +53,7 @@ async function query(){
 
 async function addOrder(order){
     var newOrder;
-    console.log(order);
+    // console.log(order);
     if(!order._id){ 
       newOrder = await httpService.post( `order`, order)
       console.log("onAdd", newOrder);

@@ -188,7 +188,7 @@
                     <h1 class="login-title">Login</h1>
                 </div>
                 <div class="inputs-container grey-underline">
-                    <h1 class="welcome-title">Welcome to restya</h1>
+                    <h1 class="welcome-title">Welcome to rentya</h1>
                     <input class="username-input" v-model="userCred.username" type="text" placeholder="Username">
                     <input class="paswword-input" v-model="userCred.password" type="password" placeholder="Password">
                 </div>
@@ -529,7 +529,7 @@ export default {
         check() {
             return this.$store.getters.getLoggedInUser
         },
+    },
         components: { datePicker, guestsPicker }
-    }
 }
 </script>

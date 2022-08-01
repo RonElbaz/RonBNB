@@ -1,5 +1,5 @@
 <template>
-    <section class="stay-list main-layout">
+    <section   :class="isWishList ? 'stay-list' : 'stay-list main-layout'">
         <li v-for="stay in stays" :key="stay._id">
             <stay-preview :stay="stay">
             </stay-preview>
@@ -17,6 +17,10 @@ export default {
     props: {
         stays: {
             type: Array,
+            required: true,
+        },
+        isWishList: {
+            type: Boolean,
             required: true,
         },
     },

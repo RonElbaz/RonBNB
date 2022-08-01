@@ -36,6 +36,7 @@ export const order = {
                 var newOrder = await orderService.addOrder(order)
                 console.log("on action", newOrder);
                 commit({ type: 'addOrder', newOrder })
+                return newOrder
             }
             catch (err) {
                 console.log("couldnt add order", err);
@@ -47,6 +48,7 @@ export const order = {
                 newOrder.status = 'Approved'
                 newOrder = await orderService.addOrder(newOrder)
                 commit({ type: 'approveOrder', newOrder })
+                return newOrder
             }
             catch (err) {
                 console.log("couldnt approve order", err);
@@ -59,6 +61,7 @@ export const order = {
                 newOrder = await orderService.addOrder(newOrder)
                 console.log(newOrder);
                 commit({ type: 'declineOrder', newOrder })
+                return newOrder
             }
             catch (err) {
                 console.log("couldnt decline order", err);
