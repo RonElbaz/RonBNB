@@ -1,6 +1,6 @@
 <template>
   <div>
-    <!-- <user-msg /> -->
+    <user-msg />
     <!-- <div :class="{ 'open-modal': openSearchBar }"> -->
     <app-header @isOpenScreen="isOpenScreen" />
     <!-- </div> -->
