@@ -1,10 +1,10 @@
 <template>
     <div class="nav-footer flex">
         <div class="flex footer">
-            <router-link @click="isLinkOn(1)" class="flex link-footer" to="/">
-                <div class="flex link-box">
-                    <div class="flex link-container" :class="{ 'explore-img': false }">
-                        <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+            <router-link @click="isLinkOn(0)" class="flex link-footer" to="/">
+                <div class=" flex link-box">
+                    <div class="flex link-container" :class="{ 'explore-img-select': isLinksSelected[0] }">
+                        <svg viewBox=" 0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; fill: none; height: 24px; width: 24px; stroke: currentcolor; stroke-width: 4; overflow: visible;">
                             <g fill="none">
@@ -15,11 +15,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="link-txt explore-txt">Explore</div>
+                <div class="link-txt explore-txt" :class="{ 'explore-txt-select': isLinksSelected[0] }">Explore</div>
             </router-link>
-            <router-link @click="isLinkOn(2)" class="flex link-footer" to="/">
+            <router-link @click="isLinkOn(1)" class="flex link-footer" to="/wishlists">
                 <div class="flex link-box">
-                    <div class="flex link-container">
+                    <div class="flex link-container" :class="{ 'wishlist-img-select': isLinksSelected[1] }">
                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; fill: none; height: 24px; width: 24px; stroke: currentcolor; stroke-width: 2.66667; overflow: visible;">
@@ -29,11 +29,12 @@
                         </svg>
                     </div>
                 </div>
-                <div class="link-txt wishlists-txt">Wishlist</div>
+                <div class="link-txt wishlists-txt" :class="{ 'wishlist-txt-select': isLinksSelected[1] }">Wishlists
+                </div>
             </router-link>
-            <router-link @click="isLinkOn(3)" class="flex link-footer" to="/">
+            <router-link @click="isLinkOn(2)" class="flex link-footer" to="/trips">
                 <div class="flex link-box">
-                    <div class="flex link-container">
+                    <div class="flex link-container" :class="{ 'trips-img-select': isLinksSelected[2] }">
                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; height: 24px; width: 24px; fill: currentcolor;">
@@ -43,11 +44,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="link-txt wishlists-txt">Wishlist</div>
+                <div class="link-txt wishlists-txt" :class="{ 'trips-txt-select': isLinksSelected[2] }">Trips</div>
             </router-link>
-            <router-link @click="isLinkOn(4)" class="flex link-footer" to="/">
+            <router-link @click="isLinkOn(3)" class="flex link-footer" to="/">
                 <div class="flex link-box">
-                    <div class="flex link-container">
+                    <div class="flex link-container" :class="{ 'inbox-img-select': isLinksSelected[3] }">
                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; height: 24px; width: 24px; fill: currentcolor;">
@@ -57,11 +58,11 @@
                         </svg>
                     </div>
                 </div>
-                <div class="link-txt wishlists-txt">Wishlist</div>
+                <div class="link-txt wishlists-txt" :class="{ 'inbox-txt-select': isLinksSelected[3] }">Inbox</div>
             </router-link>
-            <router-link @click="isLinkOn(5)" class="flex link-footer" to="/">
+            <router-link @click="isLinkOn(4)" class="flex link-footer" to="/">
                 <div class="flex link-box">
-                    <div class="flex link-container">
+                    <div class="flex link-container" :class="{ 'profile-img-select': isLinksSelected[4] }">
                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                             role="presentation" focusable="false"
                             style="display: block; height: 24px; width: 24px; fill: currentcolor;">
@@ -71,7 +72,7 @@
                         </svg>
                     </div>
                 </div>
-                <div class="link-txt wishlists-txt">Wishlist</div>
+                <div class="link-txt wishlists-txt" :class="{ 'profile-txt-select': isLinksSelected[4] }">Profile</div>
             </router-link>
         </div>
     </div>
@@ -85,9 +86,8 @@ export default {
 
     methods: {
         isLinkOn(value) {
-            if (value === 1) {
-
-            }
+            this.isLinksSelected.forEach((item, i) => this.isLinksSelected[i] = false)
+            this.isLinksSelected[value] = true
         }
     },
 
@@ -97,7 +97,7 @@ export default {
 
     data: () => {
         return {
-            isLinkSelected: false
+            isLinksSelected: [true, false, false, false, false],
         };
     },
 };

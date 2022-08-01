@@ -57,25 +57,20 @@
           position: relative;
           color: rgb(176, 176, 176);
         }
-        .explore-img {
-          //   when clicked
-          //   color: rgb(255, 56, 92);
+        .explore-img-select {
+          color: #ff385c;
         }
-        .wishlists-img {
-          //   when clicked
-          //   color: rgb(255, 56, 92);
+        .wishlist-img-select {
+          color: #ff385c;
         }
-        .trips-img {
-          //   when clicked
-          //   color: rgb(255, 56, 92);
+        .trips-img-select {
+          color: #ff385c;
         }
-        .inbox-img {
-          //   when clicked
-          //   color: rgb(255, 56, 92);
+        .inbox-img-select {
+          color: #ff385c;
         }
-        .profile-img {
-          //   when clicked
-          //   color: rgb(255, 56, 92);
+        .profile-img-select {
+          color: #ff385c;
         }
       }
       .link-txt {
@@ -91,25 +86,20 @@
         overflow-wrap: break-word;
         color: rgb(113, 113, 113);
       }
-      .explore-txt {
-        // when clicked
-        // color: rgb(34, 34, 34);
+      .explore-txt-select {
+        color: #222222;
       }
-      .wishlists-txt {
-        // when clicked
-        // color: rgb(34, 34, 34);
+      .wishlist-txt-select {
+        color: #222222;
       }
-      .trips-txt {
-        // when clicked
-        // color: rgb(34, 34, 34);
+      .trips-txt-select {
+        color: #222222;
       }
-      .inbox-txt {
-        // when clicked
-        // color: rgb(34, 34, 34);
+      .inbox-txt-select {
+        color: #222222;
       }
-      .profile-txt {
-        // when clicked
-        // color: rgb(34, 34, 34);
+      .profile-txt-select {
+        color: #222222;
       }
     }
   }
