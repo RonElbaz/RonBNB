@@ -553,3 +553,16 @@
   // padding-top: 20px;
   z-index: 10;
 }
+
+@include for-narrow-layout {
+  .filter-container.explore-page {
+    padding: 0;
+    .filter-box.explore-page {
+      .filter-container {
+        .btn-filter-stays-container {
+          display: none;
+        }
+      }
+    }
+  }
+}

@@ -91,10 +91,10 @@
         grid-column-gap: 90px;
         grid-row-gap: 0px;
 
-        @include for-large-layout-min {
-            grid-column-gap: 15px;
-            grid-template-columns: 2fr 1fr;
-          }
+        // @include for-large-layout-min {
+        //     grid-column-gap: 15px;
+        //     grid-template-columns: 2fr 1fr;
+        //   }
 
           @include for-narrow-layout {
                 display: flex;
@@ -305,6 +305,10 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 40px 100px;
+
+            @include for-narrow-layout {
+                grid-gap: 15px 35px;
+            }
         }
 
         .review-score {
@@ -436,10 +440,7 @@ progress::-webkit-progress-value {
 
 .nav-details-container {
     @include for-narrow-layout {
-       
-
             display: none;
-       
     }
 
     .header-reserve {
@@ -566,7 +567,7 @@ progress::-webkit-progress-value {
   background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
   border: none;
   height: 3rem;
-  width: 30%;
+  width: 100%;
   color: rgb(255 255 255);
   font-family: Circular-bold;
   border-radius: 0.55rem;
@@ -576,9 +577,8 @@ progress::-webkit-progress-value {
 }
     
     .btn-reserve-modal-area{
-     display: flex;
-     justify-content: space-between;
      padding: 14px 24px;
+     width: 100%;
     }
 
 
@@ -587,4 +587,45 @@ progress::-webkit-progress-value {
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
+}
+
+.mobile-reserve-bottom{
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: white;
+    height: 90px;
+    box-shadow: rgb(0 0 0 / 10%) 0px -1px 0px;
+    display: none;
+    padding: 24px;
+
+    .bnb-btn {
+        background-image: radial-gradient(circle at center, #ff385c 0, #e61e4d 27.5%, #e31c5f 40%, #d70466 57.5%, #bd1e59 75%, #bd1e59 100%);
+        transition: opacity 1.25s ease 0s !important;
+        background-size: 200% 200%;
+        background-position: calc((100 - var(--mouse-x, 0))*1%) calc((100 - var(--mouse-y, 0))*1%);
+        border: none;
+        padding: 15px;
+        width: 30%;
+        color: rgb(255 255 255);
+        font-family: Circular-bold;
+        border-radius: 0.55rem;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .price{
+        font-size: 18px;
+        font-family: Circular-bold;
+    }
+
+    .night{
+        font-size: 14px;
+        font-family: cereal;
+    }
+
+    @include for-narrow-layout {
+        display: block;
+}
+
 }

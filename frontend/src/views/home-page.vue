@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="main-layout filter-container"> -->
-    <stay-filter :showList="true" />
+  <stay-filter :showList="true" />
   <!-- </div> -->
   <stay-list :stays="getStays" />
 
@@ -20,17 +20,11 @@ export default {
     appFooter,
     stayFilter,
     StayList,
-    
-},
-  data() {
-    return {
 
-    };
   },
-  methods: {},
-
-  created() {
-
+  async created() {
+    // ! add loding thing ron and amit
+    await this.$store.dispatch({ type: "setFilter" })
   },
   computed: {
     getStays() {

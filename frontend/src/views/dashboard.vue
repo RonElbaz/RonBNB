@@ -15,12 +15,12 @@
                         </div>
                     </div>
                     <div class="revenue-title">
-                         <p class="card-txt ">This year :</p>
-                          <p class="card-txt " > ${{ yearRevneue.toLocaleString() }}</p>
+                        <p class="card-txt ">This year :</p>
+                        <p class="card-txt "> ${{ yearRevneue.toLocaleString() }}</p>
                     </div>
                     <div class="revenue-title">
-                         <p class="card-txt ">Total : </p>
-                         <p class="card-txt " > ${{ foramtRevneue.toLocaleString() }}</p>
+                        <p class="card-txt ">Total : </p>
+                        <p class="card-txt "> ${{ foramtRevneue.toLocaleString() }}</p>
                     </div>
 
                 </div>
@@ -37,8 +37,8 @@
         <table class="responsive-table">
             <thead>
                 <tr>
-                    <th scope="col">Date</th>
                     <th scope="col">Guest name</th>
+                    <th scope="col">Date</th>
                     <th scope="col">Stay title</th>
                     <th scope="col">Nights</th>
                     <th scope="col">Guests</th>
@@ -51,8 +51,8 @@
             </thead>
             <tbody>
                 <tr v-for="order in orderTry">
-                    <th scope="row">{{ foramtCreatedAt(order.createdAt) }}</th>
-                    <th scope="row">{{ order.buyer.fullname }}</th>
+                    <td >{{ foramtCreatedAt(order.createdAt) }}</td>
+                    <td >{{ order.buyer.fullname }}</td>
                     <td data-title="Stay title">{{ order.stay.name }}</td>
                     <td data-title="Nights">{{ nightsAmount(order) }}</td>
                     <td data-title="Guests">{{ guestsAmount(order) }}</td>
@@ -99,84 +99,102 @@ export default defineComponent({
         // console.log(this.orders);
     },
     methods: {
-        async approveOrder(order) {
-            try {
-                var x = await this.$store.dispatch({ type: 'approveOrder', order })
-                if (x) this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        declineOrder(order) {
-            this.$store.dispatch({ type: 'declineOrder', order })
-            this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
-        },
-        checkStatus(status) {
-            if (status === 'Approved') return '#7bed9f'
-            if (status === 'Declined') return '#ff6b81'
-            if (status === 'Pending') return '#f6e58d'
-        },
-        formatDate(order) {
+        approveOrder(order) {
 
-            const startDate = new Date(order.startDate)
-            const endDate = new Date(order.endDate)
+            this.$store.dispatch({ type: 'approveOrder', order }).then(() => {
 
-            return `${startDate.getDate()}.${startDate.getMonth() + 1} - ${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`
-
-        },
-        nightsAmount(order) {
-            const startDate = new Date(order.startDate)
-            const endDate = new Date(order.endDate)
-            if (startDate.getMonth)
-                return (endDate.getDate() - startDate.getDate())
-        },
-        guestsAmount(order) {
-            var sumGuests = 0;
-            Object.entries(order.guests).forEach((guest) => {
-                sumGuests += guest[1]
+                this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
+                this.open2()
             })
-            return sumGuests
-        },
-        foramtCreatedAt(oredrDate) {
-            return moment(oredrDate).fromNow()
-        }
     },
-    computed: {
-        foramtRevneue() {
-            return this.$store.getters.ordersForDisplay.reduce((acc, order) => {
-                if (order.status !== 'Approved') return acc
-                return acc + order.totalPrice
-            }, 0)
-        },
-        monthRevneue() {
-            let monthRevneueArr = this.$store.getters.getRevneuePerMonth.datasets[0].data
-            let currMonth = new Date(Date.now()).getMonth()
-            return monthRevneueArr[currMonth]
-        },
-        yearRevneue() {
-            let orders = this.$store.getters.ordersForDisplay
-            return orders.reduce((acc, order) => {
-                if(!order) return
-                const year = new Date(order.startDate).getFullYear()
-                const currYear = new Date(Date.now()).getFullYear()
-                return currYear === year && order.status === 'Approved' ? acc + order.totalPrice : acc
-            }, 0)
-        },
-        statusOrder() {
-            return this.$store.getters.getOrderStatus
-        },
-        revneuePerMonth() {
-            return this.$store.getters.getRevneuePerMonth
-        },
-        orderTry(){
-            return this.$store.getters.ordersForDisplay
-        }
+    open2() {
+        ElMessage({
+            message: 'You order has been approved',
+            type: 'success',
+        })
+    },
+    open1() {
+        ElMessage({
+            message: 'Your order has been declined',
+            type: 'warning',
+        })
+    },
+    declineOrder(order) {
+
+
+        this.$store.dispatch({ type: 'declineOrder', order }).then(() =>{
+
+            this.statusOrder.datasets[0].data = this.$store.getters.getOrderStatus
+                     this.open1()
+        })
 
     },
-    components: {
-        PieChart,
-        BarChart
+    checkStatus(status) {
+        if(status === 'Approved') return '#7bed9f'
+if (status === 'Declined') return '#ff6b81'
+if (status === 'Pending') return '#f6e58d'
+        },
+formatDate(order) {
+
+    const startDate = new Date(order.startDate)
+    const endDate = new Date(order.endDate)
+
+    return `${startDate.getDate()}.${startDate.getMonth() + 1} - ${endDate.getDate()}.${endDate.getMonth() + 1}.${endDate.getFullYear()}`
+
+},
+nightsAmount(order) {
+    const startDate = new Date(order.startDate)
+    const endDate = new Date(order.endDate)
+    if (startDate.getMonth)
+        return (endDate.getDate() - startDate.getDate())
+},
+guestsAmount(order) {
+    var sumGuests = 0;
+    Object.entries(order.guests).forEach((guest) => {
+        sumGuests += guest[1]
+    })
+    return sumGuests
+},
+foramtCreatedAt(oredrDate) {
+    return moment(oredrDate).fromNow()
+}
+    },
+computed: {
+    foramtRevneue() {
+        return this.$store.getters.ordersForDisplay.reduce((acc, order) => {
+            if (order.status !== 'Approved') return acc
+            return acc + order.totalPrice
+        }, 0)
+    },
+    monthRevneue() {
+        let monthRevneueArr = this.$store.getters.getRevneuePerMonth.datasets[0].data
+        let currMonth = new Date(Date.now()).getMonth()
+        return monthRevneueArr[currMonth]
+    },
+    yearRevneue() {
+        let orders = this.$store.getters.ordersForDisplay
+        return orders.reduce((acc, order) => {
+            if (!order) return
+            const year = new Date(order.startDate).getFullYear()
+            const currYear = new Date(Date.now()).getFullYear()
+            return currYear === year && order.status === 'Approved' ? acc + order.totalPrice : acc
+        }, 0)
+    },
+    statusOrder() {
+        return this.$store.getters.getOrderStatus
+    },
+    revneuePerMonth() {
+        return this.$store.getters.getRevneuePerMonth
+    },
+    orderTry() {
+        return this.$store.getters.ordersForDisplay
     }
+
+},
+components: {
+    PieChart,
+        BarChart
+}
 
 })
 </script>
